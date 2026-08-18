@@ -245,18 +245,20 @@ Each entry is a class the generators emit. No component outside this list.
 | evidence chip | `.ev` | §4 |
 | GAP token | `.gap` + `.why` | §5 |
 | locked run | `.lk` | §6 |
+| drawer | `details.dr` + `.dr-t` / `.dr-s` / `.dr-b` | §11. Every section and subsection |
 | session card | `.ses` | time · title · room · tags; grid `minmax(min(100%,264px),1fr)` |
-| day filter | `.dayset` / `.daylab` | CSS radio, no JS |
+| hardware mark | `.is-hw` / `.hwm` | a session that carries a hardware-demand signal, naming the probe that matched |
+| day filter | day drawers | a closed day IS the filter; the CSS radio is retired |
 | room ledger | `.rooms` | name ↔ count rows, dotted leader |
 | caveat | `.caveat` | what the catalogue does not give; GAP ground |
 | play | `.play` | segment play, `dl` |
 | register table | `.reg` | table ≥720px, stacked labelled rows below (C3) |
 | band | `.band` | accounts layer band; heavy top rule + count |
-| account card | `.acct` | flat card; GAP variant dashed; never nested |
+| account card | `details.acct` | one drawer per company; `.cells` `dl` inside, one row per cell with its caption, rank chip, source link and date |
+| full dossier | `details.deep` | only on a FULL account: `mw_or_proxy` and `window` spelled out item by item |
 | axis panel | `.axis` | `data-axis` verbatim from STATE |
 | trap | `.trap` | A/B pair + negation query in `--sunk` mono |
-| term chip | `.term` | glossary |
-| method | `.method` | `<details>`, always last, never above the verdict |
+| method | `.method` | a drawer, always last, never above the verdict |
 | footer | `.foot` | source link + freshness stamp |
 
 Banned in this world: nested cards; a coloured `border-left` above 1px; eyebrow
@@ -280,11 +282,13 @@ honest shape.
   `minmax(min(100%, Npx), 1fr)`; every flex child carries `min-width:0`; every
   wide block owns its own `overflow-x:auto`; URLs and queries use
   `overflow-wrap:anywhere`.
-- Item grids (`.accts`, `.ses`, `.rooms`, `.traps`, `.terms`) use **`auto-fill`**,
-  not `auto-fit`. A band holding one account is a real state here, and `auto-fit`
-  collapses the empty tracks and stretches that single card across the whole
-  1040px. Only `.axes`, which always splits a fixed pair across one row, uses
-  `auto-fit`.
+- Item grids (`.ses`, `.rooms`, `.traps`) use **`auto-fill`**, not `auto-fit`. A
+  band holding one item is a real state here, and `auto-fit` collapses the empty
+  tracks and stretches that single card across the whole 1040px. Only `.axes`,
+  which always splits a fixed pair across one row, uses `auto-fit`.
+- `.accts` is the exception and is a **stack**, not a grid: its children are
+  drawers, and opening one card inside a grid reflows its neighbours out from
+  under the thumb that is still moving toward them.
 - Any flex container holding sibling text runs declares an explicit `gap`: flex
   drops the whitespace between children, which is how a day label first shipped
   reading "2026-08-248 sessions".
@@ -301,3 +305,49 @@ honest shape.
 - `<meta charset="utf-8">` inside the first 512 bytes (D1, host=docs-local).
 - Exactly one inline `<script>` per page, no `src`, no fetch/XHR/beacon/WS (A3).
 - Method never above the verdict; no agent counts anywhere (page-role.json).
+- The pack never documents itself to the reader. Field names, internal
+  taxonomies, evidence-vocabulary reference tables and pipeline concepts stay
+  off reader-facing surfaces. If a cell needs explaining, the explanation is
+  that cell's own caption, inline, one line. A term the reader has to look up
+  somewhere else has already failed the floor test — which is why the glossary
+  page was deleted rather than rewritten.
+
+---
+
+## 11. Drawers
+
+Every section and every subsection is a native `<details>` + `<summary>`. No
+JavaScript accordion: `<details>` is focusable and operable from the keyboard
+with no code, is reachable by the browser's own find-in-page, and prints.
+
+```html
+<details class="dr" data-block="…">
+  <summary><span class="dr-t">TITLE</span><span class="dr-s">SCENT</span></summary>
+  <div class="dr-b">…</div>
+</details>
+```
+
+- **Open state.** Top-level drawers are `open` on `command-center` and closed on
+  every other page. Nested drawers are always closed.
+- **The scent line is mandatory.** `.dr-s` says what is inside plus a count or a
+  verdict, so a closed drawer still informs:
+  `帳戶板 · 58 家 · 362 格已填 · 140 格待補 · 8 份完整檔` beats `帳戶板`.
+  `structure_pass.py` fails the build on a `<summary>` without one, and on a
+  `<details>` that does not open with a `<summary>` — the browser would print
+  the word "Details" and the section would go invisible.
+- **The control.** `cursor:pointer`, `min-height:44px` (C6), a visible
+  `:focus-visible` ring, and `user-select:none` so a tap on a phone never turns
+  into a text selection instead of a toggle. The marker is a CSS-drawn chevron;
+  the UA triangle is suppressed, and no glyph or emoji is used (§8).
+- **Two altitudes, one component.** `main > details.dr` reads as a section:
+  heavy `--rule-hard` top rule, `--t-h2` title, no card chrome. Nested drawers
+  read as cards: `--card` ground, hairline border, `--t-h3` title.
+- **The verdict drawer's handle IS the verdict.** Its `<summary>` carries the
+  `h1` and the lede, so nothing sits above the headline. An eyebrow above a
+  heading is still banned (§8); a disclosure control that IS the heading is not
+  an eyebrow.
+- **Print.** Paper has no disclosure control, so `@media print` forces every
+  drawer open — `details{display:block}`, `details>*{display:block!important}`,
+  and `details::details-content{content-visibility:visible!important}` for the
+  engines that moved the closed state into a pseudo-element. A printout of
+  collapsed summaries is a table of contents with no book.

@@ -1,321 +1,596 @@
-<section data-block="day-filter" data-fresh="1">
-  <h2><span data-t="h">議程 —— 50 場</span><span data-t="e">Agenda — 50 sessions</span></h2>
-  <p class="note"><span data-t="h">按日期切換。日期切換是純 CSS，不靠指令碼，離線也能用。</span><span data-t="e">Filter by day. The day filter is pure CSS, depends on no script, and works offline.</span></p>
-  <div class="dayset">
-    <input class="dayin" type="radio" name="day" id="day-all" checked>
-    <label class="daylab" for="day-all"><span data-t="h">全部 50</span><span data-t="e">All 50</span></label>
-    <input class="dayin" type="radio" name="day" id="day-d1">
-    <label class="daylab" for="day-d1"><span class="lk">2026-08-24</span> <span data-t="h">8 場</span><span data-t="e">8 sessions</span></label>
-    <input class="dayin" type="radio" name="day" id="day-d2">
-    <label class="daylab" for="day-d2"><span class="lk">2026-08-25</span> <span data-t="h">42 場</span><span data-t="e">42 sessions</span></label>
+<details class="dr" data-block="priority-queue">
+  <summary><span class="dr-t"><span data-t="h">先卡這幾場</span><span data-t="e">Queue for these first</span></span><span class="dr-s"><span data-t="h">8 場排好順位，0 場對不上目錄</span><span data-t="e">8 sessions ranked, 0 with no catalogue match</span></span></summary>
+  <div class="dr-b">
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">#1</span> <span class="lk">How the Data Center Shapes the workload</span></span><span class="dr-s"><span data-t="h">第 1 順位</span><span data-t="e">Priority 1</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">2026-08-25</span> <span class="lk">3:15 PM-3:30 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Lightning Theater</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">全場唯一直接談機房約束的題目。記下講者的機房是自建、colo 還是租雲 —— 那一句就決定他是不是買家。</span><span data-t="e">The only session in the building that talks about the hall itself. Write down whether the speaker's data centre is owned, colo or rented cloud — that one line decides whether they are a buyer.</span></p>
+    <p class="meta-row"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S037</span></p>
+    <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">15</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
+    <p><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤，主題只能從標題判斷</span><span data-t="e">the catalogue gives this session no track tag, so the subject has to be read off the title</span></span></p>
+    <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
+    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span>
   </div>
-  <p><span class="gap">GAP</span> <span class="why"><span data-t="h">會期內的 2026-08-26 在目錄上一場都沒有 —— 是未公布，不是沒有場次</span><span data-t="e">the catalogue publishes no session at all on 2026-08-26 inside the event window — unpublished, not absent</span></span></p>
-  <ol class="ses">
-    <li data-daykey="d1" data-day="2026-08-24">
-      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">8:00 AM-9:00 AM</span></p>
-      <h3>Registration</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Golden Gate</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S001</span></p>
-      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
-    </li>
-    <li data-daykey="d1" data-day="2026-08-24">
-      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">9:00 AM-12:00 PM</span></p>
-      <h3>Foundation Model Distributed Training with Ray</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S002</span></p>
-      <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d1" data-day="2026-08-24">
-      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">9:00 AM-12:00 PM</span></p>
-      <h3>Multi-modal Data Processing Pipelines for AI Systems</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S003</span></p>
-      <p class="tags"><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d1" data-day="2026-08-24">
-      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">9:00 AM-12:00 PM</span></p>
-      <h3>Production-ready Distributed Inference with Ray Serve</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 3</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S004</span></p>
-      <p class="tags"><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d1" data-day="2026-08-24">
-      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">12:00 PM-1:00 PM</span></p>
-      <h3>Networking Lunch</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Atrium</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S005</span></p>
-      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
-    </li>
-    <li data-daykey="d1" data-day="2026-08-24">
-      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">1:00 PM-4:00 PM</span></p>
-      <h3>At Full Capacity: LLM Post-Training and High-Performance Serving</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 3</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S006</span></p>
-      <p class="tags"><span class="chip">Post Train/RL</span><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d1" data-day="2026-08-24">
-      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">1:00 PM-4:00 PM</span></p>
-      <h3>Real-Time Search &amp; Recommendation Systems for AI Commerce</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S007</span></p>
-      <p class="tags"><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d1" data-day="2026-08-24">
-      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">1:00 PM-4:00 PM</span></p>
-      <h3>Scaling Physical AI &amp; Robotics Systems with Ray</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S008</span></p>
-      <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">8:00 AM-9:30 AM</span></p>
-      <h3>Registration</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Yerba Buena Foyer</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S009</span></p>
-      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">9:30 AM-11:30 AM</span></p>
-      <h3>Day 1 Keynote</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Keynote</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S010</span></p>
-      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">11:30 AM-1:00 PM</span></p>
-      <h3>Industry Leaders Roundtable - Physical AI</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Soma</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S011</span></p>
-      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">11:30 AM-1:00 PM</span></p>
-      <h3>Networking Lunch</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Expo Hall</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S012</span></p>
-      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">12:30 PM-12:45 PM</span></p>
-      <h3>From Benchmark #1 to Production: Inference Optimization for Frontier Open Models</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S013</span></p>
-      <p class="tags"><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">12:30 PM-1:00 PM</span></p>
-      <h3>Platform Orchestration: Anyscale + Ray on Kubernetes</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S014</span></p>
-      <p class="tags"><span class="chip">Train</span><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">12:30 PM-1:00 PM</span></p>
-      <h3>Ray Data: What's New — GPU Shuffle, Unity Catalog, DataSourceV2</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S015</span></p>
-      <p class="tags"><span class="chip">Train</span><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">12:30 PM-1:00 PM</span></p>
-      <h3>Ray Train on Anyscale: Observability and Reliability at Scale</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S016</span></p>
-      <p class="tags"><span class="chip">Train</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">12:30 PM-1:00 PM</span></p>
-      <h3>State of vLLM 2026</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S017</span></p>
-      <p class="tags"><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">12:30 PM-1:00 PM</span></p>
-      <h3>Trillion-Token Pretraining: Building a Tabular Foundation Model for Payments</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S018</span></p>
-      <p class="tags"><span class="chip">Train</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:30 PM</span></p>
-      <h3>From Self-Managed Ray to Anyscale Services: Migrating Production ML Serving at Scale</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S019</span></p>
-      <p class="tags"><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span></p>
-      <h3>Koba: Disaggregated Data Loading for Multimodal Training at Luma AI</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S020</span></p>
-      <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span></p>
-      <h3>Maximizing GB200 and GB300 Performance with Domain-Aware Scheduling in Ray</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S021</span></p>
-      <p class="tags"><span class="chip">Post Train/RL</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span></p>
-      <h3>NVIDIA and vLLM Full-Stack Collaboration for DeepSeek and MiniMax Performance</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S022</span></p>
-      <p class="tags"><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span></p>
-      <h3>Right Resource, Right Job: Robinhood's Journey to Heterogeneous Ray Clusters on Amazon EKS</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S023</span></p>
-      <p class="tags"><span class="chip">Train</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">1:30 PM-1:45 PM</span></p>
-      <h3>Vertical Mobility: Building an AI Inference Platform That Scales from MVP to Trillion-Parameter Workloads</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S024</span></p>
-      <p class="tags"><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span></p>
-      <h3>Evolving and Scaling Ray for the Next Generation of AI Workloads</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S025</span></p>
-      <p class="tags"><span class="chip">Train</span><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:15 PM</span></p>
-      <h3>Full-stack Observability in Ray: Bringing Infrastructure Signals into Ray Dashboard</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S026</span></p>
-      <p class="tags"><span class="chip">Train</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span></p>
-      <h3>PyTorch &lt;3 vLLM</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S027</span></p>
-      <p class="tags"><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span></p>
-      <h3>Ray and MAI-Thinking-1</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S028</span></p>
-      <p class="tags"><span class="chip">Post Train/RL</span><span class="chip">Train</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span></p>
-      <h3>Scaling LLM Workloads on TPUs with Ray: From Pre-Training to Inference</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S029</span></p>
-      <p class="tags"><span class="chip">Train</span><span class="chip">Post Train/RL</span><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span></p>
-      <h3>SkyRL: Democratizing RL Training for Researchers</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S030</span></p>
-      <p class="tags"><span class="chip">Post Train/RL</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:15 PM</span></p>
-      <h3>Accelerating Large Language Models: vLLM on Google TPUs</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S031</span></p>
-      <p class="tags"><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:00 PM</span></p>
-      <h3>Closing the Train-Inference Divide for Asynchronous RL at Scale</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S032</span></p>
-      <p class="tags"><span class="chip">Post Train/RL</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:15 PM</span></p>
-      <h3>Performant Training for All Workstreams</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S033</span></p>
-      <p class="tags"><span class="chip">Train</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:15 PM</span></p>
-      <h3>Petabyte-Scale Video Curation on CoreWeave: Production AI Pipelines with Ray Data</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S034</span></p>
-      <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:45 PM</span></p>
-      <h3>Physical AI at Aerospace Scale: Building Distributed Simulation-to-Autonomy Pipelines</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S035</span></p>
-      <p class="tags"><span class="chip">Train</span><span class="chip">Post Train/RL</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:15 PM</span></p>
-      <h3>Ray History Server: Observability for Ephemeral K8s Clusters</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S036</span></p>
-      <p class="tags"><span class="chip">Train</span><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:15 PM-3:30 PM</span></p>
-      <h3>How the Data Center Shapes the workload</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S037</span></p>
-      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-4:00 PM</span></p>
-      <h3>Beyond LLMs: Scaling BMW's AI Gateway from Chat to Video with Ray and vLLM</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S038</span></p>
-      <p class="tags"><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-4:00 PM</span></p>
-      <h3>From OOMs to 2x Throughput: Production Lessons Scaling Multimodal Data Curation on Ray</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S039</span></p>
-      <p class="tags"><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-4:00 PM</span></p>
-      <h3>How a Transformers Model Loads in vLLM</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S040</span></p>
-      <p class="tags"><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-4:00 PM</span></p>
-      <h3>Inside Lila's AI Research Platform</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S041</span></p>
-      <p class="tags"><span class="chip">Post Train/RL</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-3:45 PM</span></p>
-      <h3>Serving Frontier MoE Models at the Lowest Token Cost</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S042</span></p>
-      <p class="tags"><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-4:00 PM</span></p>
-      <h3>Towards Clinically Grounded LLMs: Fine-Tuning on Real Therapy Dynamics</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S043</span></p>
-      <p class="tags"><span class="chip">Post Train/RL</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">4:15 PM-4:30 PM</span></p>
-      <h3>Anyscale on Azure: Build, Train, and Serve AI in Your Own Tenant</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S044</span></p>
-      <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">4:15 PM-4:45 PM</span></p>
-      <h3>Diffusion Large Language Models: Redefining the Token Efficiency Frontier</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S045</span></p>
-      <p class="tags"><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">4:15 PM-5:15 PM</span></p>
-      <h3>Lessons from Unifying Simulation and RL Training for Autonomous Trucking</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S046</span></p>
-      <p class="tags"><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">4:15 PM-4:45 PM</span></p>
-      <h3>Production-Grade Distributed Inference with llm-d</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S047</span></p>
-      <p class="tags"><span class="chip">Inference</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">4:15 PM-4:45 PM</span></p>
-      <h3>Scaling PyTorch Training with Ray Data on Uber's Michelangelo AI Platform</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S048</span></p>
-      <p class="tags"><span class="chip">Train</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">4:15 PM-4:45 PM</span></p>
-      <h3>The Synthetic Data Flywheel: Ray Data, vLLM, and Iterative DPO at Pinterest</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S049</span></p>
-      <p class="tags"><span class="chip">Post Train/RL</span><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
-    </li>
-    <li data-daykey="d2" data-day="2026-08-25">
-      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">5:00 PM-5:30 PM</span></p>
-      <h3>Batch Inference and LLM Evaluation at Scale</h3>
-      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S050</span></p>
-      <p class="tags"><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
-    </li>
-  </ol>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">#2</span> <span class="lk">Industry Leaders Roundtable - Physical AI</span></span><span class="dr-s"><span data-t="h">第 2 順位</span><span data-t="e">Priority 2</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">2026-08-25</span> <span class="lk">11:30 AM-1:00 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Soma</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">一場抓齊多家會自建機房的 Physical AI 買家，會後圍堵的成本最低。</span><span data-t="e">One room holding several Physical AI companies that may build their own halls. The cheapest place in the show to catch a group afterwards.</span></p>
+    <p class="meta-row"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Soma</span> <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S011</span></p>
+    <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">90</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
+    <p><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤，主題只能從標題判斷</span><span data-t="e">the catalogue gives this session no track tag, so the subject has to be read off the title</span></span></p>
+    <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
+    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">#3</span> <span class="lk">Maximizing GB200 and GB300 Performance with Domain-Aware Scheduling in Ray</span></span><span class="dr-s"><span data-t="h">第 3 順位</span><span data-t="e">Priority 3</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 2</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">問誰在跑 NVL72、幾櫃、熱與電的痛點在哪。對照語言：整櫃 132–140kW 加上直接液冷。</span><span data-t="e">Ask who is running NVL72, across how many racks, and where the heat and power hurt. The matching number to hold: 132–140kW per rack with direct liquid cooling.</span></p>
+    <p class="meta-row"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S021</span></p>
+    <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">30</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
+    <p><span class="chip">Post Train/RL</span></p>
+    <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
+    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">#4</span> <span class="lk">Right Resource, Right Job: Robinhood's Journey to Heterogeneous Ray Clusters on Amazon EKS</span></span><span class="dr-s"><span data-t="h">第 4 順位</span><span data-t="e">Priority 4</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 5</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">他報出來的節點型號清單就是一張現成的 BOM。抄下來。</span><span data-t="e">The list of node types he reads out is a ready-made bill of materials. Write it down.</span></p>
+    <p class="meta-row"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S023</span></p>
+    <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">30</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
+    <p><span class="chip">Train</span></p>
+    <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
+    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">#5</span> <span class="lk">Petabyte-Scale Video Curation on CoreWeave: Production AI Pipelines with Ray Data</span></span><span class="dr-s"><span data-t="h">第 5 順位</span><span data-t="e">Priority 5</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:15 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 4</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">儲存與 CPU 節點的比例會被講出來，接得上既有的儲存共同提案。</span><span data-t="e">The storage-to-CPU-node ratio gets said out loud here, and it plugs straight into the existing joint storage proposal.</span></p>
+    <p class="meta-row"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S034</span></p>
+    <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">30</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
+    <p><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
+    <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
+    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">#6</span> <span class="lk">Serving Frontier MoE Models at the Lowest Token Cost</span></span><span class="dr-s"><span data-t="h">第 6 順位</span><span data-t="e">Priority 6</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">2026-08-25</span> <span class="lk">3:30 PM-3:45 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Lightning Theater</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">推論端 TCO 的話術來源。每 token 成本是這房間唯一聽得進去的成本語言。</span><span data-t="e">Where the inference-side TCO language comes from. Cost per token is the only cost language this room actually hears.</span></p>
+    <p class="meta-row"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S042</span></p>
+    <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">15</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
+    <p><span class="chip">Inference</span></p>
+    <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
+    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">#7</span> <span class="lk">Scaling LLM Workloads on TPUs with Ray: From Pre-Training to Inference</span></span><span class="dr-s"><span data-t="h">第 7 順位</span><span data-t="e">Priority 7</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 5</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">低優先：TPU 沒有伺服器機會，純競爭情報。衝堂就放棄。</span><span data-t="e">Low priority: no server opportunity on TPU, pure competitive intelligence. Drop it on a clash.</span></p>
+    <p class="meta-row"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S029</span></p>
+    <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">30</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
+    <p><span class="chip">Train</span><span class="chip">Post Train/RL</span><span class="chip">Inference</span></p>
+    <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
+    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">#8</span> <span class="lk">Physical AI at Aerospace Scale: Building Distributed Simulation-to-Autonomy Pipelines</span></span><span class="dr-s"><span data-t="h">第 8 順位</span><span data-t="e">Priority 8</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:45 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 1</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">低優先：衝堂就放棄，內容和圓桌重疊。</span><span data-t="e">Low priority: drop it on a clash, it overlaps the roundtable.</span></p>
+    <p class="meta-row"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S035</span></p>
+    <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">60</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
+    <p><span class="chip">Train</span><span class="chip">Post Train/RL</span><span class="chip">Multimodal Data</span></p>
+    <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
+    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span>
+  </div>
+</details>
+  </div>
+</details>
+<details class="dr" data-block="day-filter" data-fresh="1">
+  <summary><span class="dr-t"><span data-t="h">全部場次</span><span data-t="e">Every session</span></span><span class="dr-s"><span data-t="h">50 場</span><span data-t="e">50 sessions</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">2 天已公布</span><span data-t="e">2 days published</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">15 間會議室</span><span data-t="e">15 rooms</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">12 場帶硬體需求訊號</span><span data-t="e">12 carrying a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">2026-08-24</span></span><span class="dr-s"><span data-t="h">8 場</span><span data-t="e">8 sessions</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">4 個時段</span><span data-t="e">4 time blocks</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">5 間會議室</span><span data-t="e">5 rooms</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">1 場帶硬體需求訊號</span><span data-t="e">1 with a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">8:00 AM-9:00 AM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Golden Gate</span><span data-t="e">Golden Gate</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">8:00 AM-9:00 AM</span> <span class="lk">S001</span> <span class="lk">60 min</span></p>
+        <h3>Registration</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Golden Gate</span></p>
+        <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no track tag</span></span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">9:00 AM-12:00 PM</span></span><span class="dr-s"><span data-t="h">3 場</span><span data-t="e">3 sessions</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Training Breakout 1 / Training Breakout 2 / Training Breakout 3</span><span data-t="e">Training Breakout 1 / Training Breakout 2 / Training Breakout 3</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">9:00 AM-12:00 PM</span> <span class="lk">S003</span> <span class="lk">180 min</span></p>
+        <h3>Multi-modal Data Processing Pipelines for AI Systems</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 1</span></p>
+        <p class="tags"><span class="chip">Multimodal Data</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">9:00 AM-12:00 PM</span> <span class="lk">S002</span> <span class="lk">180 min</span></p>
+        <h3>Foundation Model Distributed Training with Ray</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 2</span></p>
+        <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">9:00 AM-12:00 PM</span> <span class="lk">S004</span> <span class="lk">180 min</span></p>
+        <h3>Production-ready Distributed Inference with Ray Serve</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 3</span></p>
+        <p class="tags"><span class="chip">Inference</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">12:00 PM-1:00 PM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Atrium</span><span data-t="e">Atrium</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">12:00 PM-1:00 PM</span> <span class="lk">S005</span> <span class="lk">60 min</span></p>
+        <h3>Networking Lunch</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Atrium</span></p>
+        <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no track tag</span></span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">1:00 PM-4:00 PM</span></span><span class="dr-s"><span data-t="h">3 場</span><span data-t="e">3 sessions</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Training Breakout 1 / Training Breakout 2 / Training Breakout 3</span><span data-t="e">Training Breakout 1 / Training Breakout 2 / Training Breakout 3</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">1 場帶硬體需求訊號</span><span data-t="e">1 carrying a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li class="is-hw">
+        <p class="when"><span class="lk">1:00 PM-4:00 PM</span> <span class="lk">S008</span> <span class="lk">180 min</span></p>
+        <h3>Scaling Physical AI &amp; Robotics Systems with Ray</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 1</span></p>
+        <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
+        <p class="hw"><span class="hwm"><span class="lk">Physical AI</span></span> <span data-t="h">會自建機房的買家</span><span data-t="e">buyers who may build a hall</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">1:00 PM-4:00 PM</span> <span class="lk">S007</span> <span class="lk">180 min</span></p>
+        <h3>Real-Time Search &amp; Recommendation Systems for AI Commerce</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 2</span></p>
+        <p class="tags"><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">1:00 PM-4:00 PM</span> <span class="lk">S006</span> <span class="lk">180 min</span></p>
+        <h3>At Full Capacity: LLM Post-Training and High-Performance Serving</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 3</span></p>
+        <p class="tags"><span class="chip">Post Train/RL</span><span class="chip">Inference</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">2026-08-25</span></span><span class="dr-s"><span data-t="h">42 場</span><span data-t="e">42 sessions</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">20 個時段</span><span data-t="e">20 time blocks</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">10 間會議室</span><span data-t="e">10 rooms</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">11 場帶硬體需求訊號</span><span data-t="e">11 with a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">8:00 AM-9:30 AM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Yerba Buena Foyer</span><span data-t="e">Yerba Buena Foyer</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">8:00 AM-9:30 AM</span> <span class="lk">S009</span> <span class="lk">90 min</span></p>
+        <h3>Registration</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Yerba Buena Foyer</span></p>
+        <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no track tag</span></span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">9:30 AM-11:30 AM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Keynote</span><span data-t="e">Keynote</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">9:30 AM-11:30 AM</span> <span class="lk">S010</span> <span class="lk">120 min</span></p>
+        <h3>Day 1 Keynote</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Keynote</span></p>
+        <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no track tag</span></span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">11:30 AM-1:00 PM</span></span><span class="dr-s"><span data-t="h">2 場</span><span data-t="e">2 sessions</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Expo Hall / Soma</span><span data-t="e">Expo Hall / Soma</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">1 場帶硬體需求訊號</span><span data-t="e">1 carrying a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">11:30 AM-1:00 PM</span> <span class="lk">S012</span> <span class="lk">90 min</span></p>
+        <h3>Networking Lunch</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Expo Hall</span></p>
+        <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no track tag</span></span></p>
+      </li>
+      <li class="is-hw">
+        <p class="when"><span class="lk">11:30 AM-1:00 PM</span> <span class="lk">S011</span> <span class="lk">90 min</span></p>
+        <h3>Industry Leaders Roundtable - Physical AI</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Soma</span></p>
+        <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no track tag</span></span></p>
+        <p class="hw"><span class="hwm"><span class="lk">#2</span></span> <span data-t="h">一場抓齊多家會自建機房的 Physical AI 買家，會後圍堵的成本最低。</span><span data-t="e">One room holding several Physical AI companies that may build their own halls. The cheapest place in the show to catch a group afterwards.</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">12:30 PM-1:00 PM</span></span><span class="dr-s"><span data-t="h">5 場</span><span data-t="e">5 sessions</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Breakout 1 / Breakout 2 / Breakout 3 (vLLM)…</span><span data-t="e">Breakout 1 / Breakout 2 / Breakout 3 (vLLM)…</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">12:30 PM-1:00 PM</span> <span class="lk">S016</span> <span class="lk">30 min</span></p>
+        <h3>Ray Train on Anyscale: Observability and Reliability at Scale</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span></p>
+        <p class="tags"><span class="chip">Train</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">12:30 PM-1:00 PM</span> <span class="lk">S014</span> <span class="lk">30 min</span></p>
+        <h3>Platform Orchestration: Anyscale + Ray on Kubernetes</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span></p>
+        <p class="tags"><span class="chip">Train</span><span class="chip">Inference</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">12:30 PM-1:00 PM</span> <span class="lk">S017</span> <span class="lk">30 min</span></p>
+        <h3>State of vLLM 2026</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span></p>
+        <p class="tags"><span class="chip">Inference</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">12:30 PM-1:00 PM</span> <span class="lk">S015</span> <span class="lk">30 min</span></p>
+        <h3>Ray Data: What's New — GPU Shuffle, Unity Catalog, DataSourceV2</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span></p>
+        <p class="tags"><span class="chip">Train</span><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">12:30 PM-1:00 PM</span> <span class="lk">S018</span> <span class="lk">30 min</span></p>
+        <h3>Trillion-Token Pretraining: Building a Tabular Foundation Model for Payments</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span></p>
+        <p class="tags"><span class="chip">Train</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">12:30 PM-12:45 PM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Lightning Theater</span><span data-t="e">Lightning Theater</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">12:30 PM-12:45 PM</span> <span class="lk">S013</span> <span class="lk">15 min</span></p>
+        <h3>From Benchmark #1 to Production: Inference Optimization for Frontier Open Models</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span></p>
+        <p class="tags"><span class="chip">Inference</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">1:15 PM-1:45 PM</span></span><span class="dr-s"><span data-t="h">4 場</span><span data-t="e">4 sessions</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Breakout 2 / Breakout 3 (vLLM) / Breakout 4…</span><span data-t="e">Breakout 2 / Breakout 3 (vLLM) / Breakout 4…</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">2 場帶硬體需求訊號</span><span data-t="e">2 carrying a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li class="is-hw">
+        <p class="when"><span class="lk">1:15 PM-1:45 PM</span> <span class="lk">S021</span> <span class="lk">30 min</span></p>
+        <h3>Maximizing GB200 and GB300 Performance with Domain-Aware Scheduling in Ray</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span></p>
+        <p class="tags"><span class="chip">Post Train/RL</span></p>
+        <p class="hw"><span class="hwm"><span class="lk">#3</span></span> <span data-t="h">問誰在跑 NVL72、幾櫃、熱與電的痛點在哪。對照語言：整櫃 132–140kW 加上直接液冷。</span><span data-t="e">Ask who is running NVL72, across how many racks, and where the heat and power hurt. The matching number to hold: 132–140kW per rack with direct liquid cooling.</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">1:15 PM-1:45 PM</span> <span class="lk">S022</span> <span class="lk">30 min</span></p>
+        <h3>NVIDIA and vLLM Full-Stack Collaboration for DeepSeek and MiniMax Performance</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span></p>
+        <p class="tags"><span class="chip">Inference</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">1:15 PM-1:45 PM</span> <span class="lk">S020</span> <span class="lk">30 min</span></p>
+        <h3>Koba: Disaggregated Data Loading for Multimodal Training at Luma AI</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span></p>
+        <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
+      </li>
+      <li class="is-hw">
+        <p class="when"><span class="lk">1:15 PM-1:45 PM</span> <span class="lk">S023</span> <span class="lk">30 min</span></p>
+        <h3>Right Resource, Right Job: Robinhood's Journey to Heterogeneous Ray Clusters on Amazon EKS</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span></p>
+        <p class="tags"><span class="chip">Train</span></p>
+        <p class="hw"><span class="hwm"><span class="lk">#4</span></span> <span data-t="h">他報出來的節點型號清單就是一張現成的 BOM。抄下來。</span><span data-t="e">The list of node types he reads out is a ready-made bill of materials. Write it down.</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">1:15 PM-1:30 PM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Lightning Theater</span><span data-t="e">Lightning Theater</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">1:15 PM-1:30 PM</span> <span class="lk">S019</span> <span class="lk">15 min</span></p>
+        <h3>From Self-Managed Ray to Anyscale Services: Migrating Production ML Serving at Scale</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span></p>
+        <p class="tags"><span class="chip">Inference</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">1:30 PM-1:45 PM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Lightning Theater</span><span data-t="e">Lightning Theater</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">1:30 PM-1:45 PM</span> <span class="lk">S024</span> <span class="lk">15 min</span></p>
+        <h3>Vertical Mobility: Building an AI Inference Platform That Scales from MVP to Trillion-Parameter Workloads</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span></p>
+        <p class="tags"><span class="chip">Inference</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">2:00 PM-2:30 PM</span></span><span class="dr-s"><span data-t="h">5 場</span><span data-t="e">5 sessions</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Breakout 1 / Breakout 2 / Breakout 3 (vLLM)…</span><span data-t="e">Breakout 1 / Breakout 2 / Breakout 3 (vLLM)…</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">1 場帶硬體需求訊號</span><span data-t="e">1 carrying a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">2:00 PM-2:30 PM</span> <span class="lk">S028</span> <span class="lk">30 min</span></p>
+        <h3>Ray and MAI-Thinking-1</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span></p>
+        <p class="tags"><span class="chip">Post Train/RL</span><span class="chip">Train</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">2:00 PM-2:30 PM</span> <span class="lk">S025</span> <span class="lk">30 min</span></p>
+        <h3>Evolving and Scaling Ray for the Next Generation of AI Workloads</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span></p>
+        <p class="tags"><span class="chip">Train</span><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">2:00 PM-2:30 PM</span> <span class="lk">S027</span> <span class="lk">30 min</span></p>
+        <h3>PyTorch &lt;3 vLLM</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span></p>
+        <p class="tags"><span class="chip">Inference</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">2:00 PM-2:30 PM</span> <span class="lk">S030</span> <span class="lk">30 min</span></p>
+        <h3>SkyRL: Democratizing RL Training for Researchers</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span></p>
+        <p class="tags"><span class="chip">Post Train/RL</span></p>
+      </li>
+      <li class="is-hw">
+        <p class="when"><span class="lk">2:00 PM-2:30 PM</span> <span class="lk">S029</span> <span class="lk">30 min</span></p>
+        <h3>Scaling LLM Workloads on TPUs with Ray: From Pre-Training to Inference</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span></p>
+        <p class="tags"><span class="chip">Train</span><span class="chip">Post Train/RL</span><span class="chip">Inference</span></p>
+        <p class="hw"><span class="hwm"><span class="lk">#7</span></span> <span data-t="h">低優先：TPU 沒有伺服器機會，純競爭情報。衝堂就放棄。</span><span data-t="e">Low priority: no server opportunity on TPU, pure competitive intelligence. Drop it on a clash.</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">2:00 PM-2:15 PM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Lightning Theater</span><span data-t="e">Lightning Theater</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">1 場帶硬體需求訊號</span><span data-t="e">1 carrying a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li class="is-hw">
+        <p class="when"><span class="lk">2:00 PM-2:15 PM</span> <span class="lk">S026</span> <span class="lk">15 min</span></p>
+        <h3>Full-stack Observability in Ray: Bringing Infrastructure Signals into Ray Dashboard</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span></p>
+        <p class="tags"><span class="chip">Train</span></p>
+        <p class="hw"><span class="hwm"><span class="lk">Infrastructure Signals</span></span> <span data-t="h">硬體遙測進到排程</span><span data-t="e">hardware telemetry reaching the scheduler</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">2:45 PM-3:45 PM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Breakout 1</span><span data-t="e">Breakout 1</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">1 場帶硬體需求訊號</span><span data-t="e">1 carrying a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li class="is-hw">
+        <p class="when"><span class="lk">2:45 PM-3:45 PM</span> <span class="lk">S035</span> <span class="lk">60 min</span></p>
+        <h3>Physical AI at Aerospace Scale: Building Distributed Simulation-to-Autonomy Pipelines</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span></p>
+        <p class="tags"><span class="chip">Train</span><span class="chip">Post Train/RL</span><span class="chip">Multimodal Data</span></p>
+        <p class="hw"><span class="hwm"><span class="lk">#8</span></span> <span data-t="h">低優先：衝堂就放棄，內容和圓桌重疊。</span><span data-t="e">Low priority: drop it on a clash, it overlaps the roundtable.</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">2:45 PM-3:15 PM</span></span><span class="dr-s"><span data-t="h">4 場</span><span data-t="e">4 sessions</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Breakout 2 / Breakout 3 (vLLM) / Breakout 4…</span><span data-t="e">Breakout 2 / Breakout 3 (vLLM) / Breakout 4…</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">2 場帶硬體需求訊號</span><span data-t="e">2 carrying a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">2:45 PM-3:15 PM</span> <span class="lk">S036</span> <span class="lk">30 min</span></p>
+        <h3>Ray History Server: Observability for Ephemeral K8s Clusters</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span></p>
+        <p class="tags"><span class="chip">Train</span><span class="chip">Inference</span></p>
+      </li>
+      <li class="is-hw">
+        <p class="when"><span class="lk">2:45 PM-3:15 PM</span> <span class="lk">S031</span> <span class="lk">30 min</span></p>
+        <h3>Accelerating Large Language Models: vLLM on Google TPUs</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span></p>
+        <p class="tags"><span class="chip">Inference</span></p>
+        <p class="hw"><span class="hwm"><span class="lk">TPU</span></span> <span data-t="h">非 NVIDIA 路線</span><span data-t="e">non-NVIDIA silicon</span></p>
+      </li>
+      <li class="is-hw">
+        <p class="when"><span class="lk">2:45 PM-3:15 PM</span> <span class="lk">S034</span> <span class="lk">30 min</span></p>
+        <h3>Petabyte-Scale Video Curation on CoreWeave: Production AI Pipelines with Ray Data</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span></p>
+        <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
+        <p class="hw"><span class="hwm"><span class="lk">#5</span></span> <span data-t="h">儲存與 CPU 節點的比例會被講出來，接得上既有的儲存共同提案。</span><span data-t="e">The storage-to-CPU-node ratio gets said out loud here, and it plugs straight into the existing joint storage proposal.</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">2:45 PM-3:15 PM</span> <span class="lk">S033</span> <span class="lk">30 min</span></p>
+        <h3>Performant Training for All Workstreams</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span></p>
+        <p class="tags"><span class="chip">Train</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">2:45 PM-3:00 PM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Lightning Theater</span><span data-t="e">Lightning Theater</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">2:45 PM-3:00 PM</span> <span class="lk">S032</span> <span class="lk">15 min</span></p>
+        <h3>Closing the Train-Inference Divide for Asynchronous RL at Scale</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span></p>
+        <p class="tags"><span class="chip">Post Train/RL</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">3:15 PM-3:30 PM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Lightning Theater</span><span data-t="e">Lightning Theater</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">1 場帶硬體需求訊號</span><span data-t="e">1 carrying a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li class="is-hw">
+        <p class="when"><span class="lk">3:15 PM-3:30 PM</span> <span class="lk">S037</span> <span class="lk">15 min</span></p>
+        <h3>How the Data Center Shapes the workload</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span></p>
+        <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no track tag</span></span></p>
+        <p class="hw"><span class="hwm"><span class="lk">#1</span></span> <span data-t="h">全場唯一直接談機房約束的題目。記下講者的機房是自建、colo 還是租雲 —— 那一句就決定他是不是買家。</span><span data-t="e">The only session in the building that talks about the hall itself. Write down whether the speaker's data centre is owned, colo or rented cloud — that one line decides whether they are a buyer.</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">3:30 PM-4:00 PM</span></span><span class="dr-s"><span data-t="h">5 場</span><span data-t="e">5 sessions</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Breakout 1 / Breakout 2 / Breakout 3 (vLLM)…</span><span data-t="e">Breakout 1 / Breakout 2 / Breakout 3 (vLLM)…</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">3:30 PM-4:00 PM</span> <span class="lk">S038</span> <span class="lk">30 min</span></p>
+        <h3>Beyond LLMs: Scaling BMW's AI Gateway from Chat to Video with Ray and vLLM</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span></p>
+        <p class="tags"><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">3:30 PM-4:00 PM</span> <span class="lk">S039</span> <span class="lk">30 min</span></p>
+        <h3>From OOMs to 2x Throughput: Production Lessons Scaling Multimodal Data Curation on Ray</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span></p>
+        <p class="tags"><span class="chip">Multimodal Data</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">3:30 PM-4:00 PM</span> <span class="lk">S040</span> <span class="lk">30 min</span></p>
+        <h3>How a Transformers Model Loads in vLLM</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span></p>
+        <p class="tags"><span class="chip">Inference</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">3:30 PM-4:00 PM</span> <span class="lk">S041</span> <span class="lk">30 min</span></p>
+        <h3>Inside Lila's AI Research Platform</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span></p>
+        <p class="tags"><span class="chip">Post Train/RL</span><span class="chip">Multimodal Data</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">3:30 PM-4:00 PM</span> <span class="lk">S043</span> <span class="lk">30 min</span></p>
+        <h3>Towards Clinically Grounded LLMs: Fine-Tuning on Real Therapy Dynamics</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span></p>
+        <p class="tags"><span class="chip">Post Train/RL</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">3:30 PM-3:45 PM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Lightning Theater</span><span data-t="e">Lightning Theater</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">1 場帶硬體需求訊號</span><span data-t="e">1 carrying a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li class="is-hw">
+        <p class="when"><span class="lk">3:30 PM-3:45 PM</span> <span class="lk">S042</span> <span class="lk">15 min</span></p>
+        <h3>Serving Frontier MoE Models at the Lowest Token Cost</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span></p>
+        <p class="tags"><span class="chip">Inference</span></p>
+        <p class="hw"><span class="hwm"><span class="lk">#6</span></span> <span data-t="h">推論端 TCO 的話術來源。每 token 成本是這房間唯一聽得進去的成本語言。</span><span data-t="e">Where the inference-side TCO language comes from. Cost per token is the only cost language this room actually hears.</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">4:15 PM-5:15 PM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Breakout 1</span><span data-t="e">Breakout 1</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">1 場帶硬體需求訊號</span><span data-t="e">1 carrying a hardware-demand signal</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li class="is-hw">
+        <p class="when"><span class="lk">4:15 PM-5:15 PM</span> <span class="lk">S046</span> <span class="lk">60 min</span></p>
+        <h3>Lessons from Unifying Simulation and RL Training for Autonomous Trucking</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span></p>
+        <p class="tags"><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+        <p class="hw"><span class="hwm"><span class="lk">Autonomous</span></span> <span data-t="h">影片資料量跳檔</span><span data-t="e">video data steps up a gear</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">4:15 PM-4:45 PM</span></span><span class="dr-s"><span data-t="h">4 場</span><span data-t="e">4 sessions</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Breakout 2 / Breakout 3 (vLLM) / Breakout 4…</span><span data-t="e">Breakout 2 / Breakout 3 (vLLM) / Breakout 4…</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">4:15 PM-4:45 PM</span> <span class="lk">S049</span> <span class="lk">30 min</span></p>
+        <h3>The Synthetic Data Flywheel: Ray Data, vLLM, and Iterative DPO at Pinterest</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span></p>
+        <p class="tags"><span class="chip">Post Train/RL</span><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">4:15 PM-4:45 PM</span> <span class="lk">S047</span> <span class="lk">30 min</span></p>
+        <h3>Production-Grade Distributed Inference with llm-d</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span></p>
+        <p class="tags"><span class="chip">Inference</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">4:15 PM-4:45 PM</span> <span class="lk">S045</span> <span class="lk">30 min</span></p>
+        <h3>Diffusion Large Language Models: Redefining the Token Efficiency Frontier</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span></p>
+        <p class="tags"><span class="chip">Inference</span></p>
+      </li>
+      <li>
+        <p class="when"><span class="lk">4:15 PM-4:45 PM</span> <span class="lk">S048</span> <span class="lk">30 min</span></p>
+        <h3>Scaling PyTorch Training with Ray Data on Uber's Michelangelo AI Platform</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span></p>
+        <p class="tags"><span class="chip">Train</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">4:15 PM-4:30 PM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Lightning Theater</span><span data-t="e">Lightning Theater</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">4:15 PM-4:30 PM</span> <span class="lk">S044</span> <span class="lk">15 min</span></p>
+        <h3>Anyscale on Azure: Build, Train, and Serve AI in Your Own Tenant</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span></p>
+        <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">5:00 PM-5:30 PM</span></span><span class="dr-s"><span data-t="h">1 場</span><span data-t="e">1 session</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">Breakout 1</span><span data-t="e">Breakout 1</span></span></summary>
+  <div class="dr-b">
+    <ol class="ses">
+      <li>
+        <p class="when"><span class="lk">5:00 PM-5:30 PM</span> <span class="lk">S050</span> <span class="lk">30 min</span></p>
+        <h3>Batch Inference and LLM Evaluation at Scale</h3>
+        <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span></p>
+        <p class="tags"><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+      </li>
+    </ol>
+  </div>
+</details>
+  </div>
+</details>
+  <p><span class="gap">GAP</span> <span class="why"><span data-t="h">會期內的 2026-08-26 在目錄上一場都沒有 —— 是未公布，不是沒有場次。出發前再刷一次議程</span><span data-t="e">the catalogue publishes no session at all on 2026-08-26 inside the event window — unpublished, not absent. Refresh the agenda before you fly</span></span></p>
   <p class="stamp" data-fresh="1"><span data-t="h">狀態截至 2026-08-17</span><span data-t="e">Status as of 2026-08-17</span></p>
-</section>
-<section data-block="room">
-  <h2><span data-t="h">會議室 —— 15 間</span><span data-t="e">Rooms — 15 of them</span></h2>
+  </div>
+</details>
+<details class="dr" data-block="room">
+  <summary><span class="dr-t"><span data-t="h">會議室</span><span data-t="e">Rooms</span></span><span class="dr-s"><span data-t="h">15 間</span><span data-t="e">15 rooms</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">最忙的是</span><span data-t="e">busiest is</span> <span class="lk">Lightning Theater</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">8 場</span><span data-t="e">8 sessions</span></span></summary>
+  <div class="dr-b">
   <ul class="rooms">
     <li><span class="rn"><span class="lk">Lightning Theater</span></span><span class="rc"><span data-t="h">8 場</span><span data-t="e">8 sessions</span></span></li>
     <li><span class="rn"><span class="lk">Breakout 1</span></span><span class="rc"><span data-t="h">6 場</span><span data-t="e">6 sessions</span></span></li>
@@ -333,15 +608,19 @@
     <li><span class="rn"><span class="lk">Soma</span></span><span class="rc"><span data-t="h">1 場</span><span data-t="e">1 session</span></span></li>
     <li><span class="rn"><span class="lk">Yerba Buena Foyer</span></span><span class="rc"><span data-t="h">1 場</span><span data-t="e">1 session</span></span></li>
   </ul>
-  <p class="note"><span data-t="h">會議室名稱、時間、日期一律維持目錄原文，兩個語言版本逐字元相同。</span><span data-t="e">Room names, times and dates stay exactly as the catalogue prints them, byte-identical in both languages.</span></p>
-</section>
-<section class="caveat" data-block="seats-caveat" data-fresh="1">
-  <h2><span data-t="h">兩件事目錄沒有給</span><span data-t="e">Two things the catalogue does not give</span></h2>
-  <ul>
+  <p class="note"><span data-t="h">會議室名稱、時間、日期一律維持目錄原文，兩個語言版本逐字元相同 ——你唸出來的和門口貼的會是同一串字。</span><span data-t="e">Room names, times and dates stay exactly as the catalogue prints them, byte-identical in both languages: what you read aloud matches what is on the door.</span></p>
+  </div>
+</details>
+<details class="dr caveat" data-block="seats-caveat" data-fresh="1">
+  <summary><span class="dr-t"><span data-t="h">目錄沒有給的東西</span><span data-t="e">What the catalogue does not give</span></span><span class="dr-s"><span data-t="h">5 件</span><span data-t="e">5 items</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">每一件都寫了現場怎麼補</span><span data-t="e">each with how to close it on site</span></span></summary>
+  <div class="dr-b">
+  <ul class="ev-list">
     <li><span data-t="h">座位數：</span><span data-t="e">Seat counts: </span> <span class="gap">GAP</span> <span class="why"><span data-t="h">官方目錄沒有揭露場次容量</span><span data-t="e">catalogue does not expose capacity</span></span></li>
     <li><span data-t="h">所以「會不會滿」這件事現在無法回答。現場以活動 App 為準，別在客戶面前用猜的。</span><span data-t="e">So "will it fill up" cannot be answered today. Defer to the event app on site; do not guess in front of a customer.</span></li>
     <li><span data-t="h">講者對應：</span><span data-t="e">Speaker linkage: </span> <span class="gap">GAP</span> <span class="why"><span data-t="h">目錄的場次卡片沒有掛任何講者</span><span data-t="e">the session catalogue exposes no speaker on any card</span></span></li>
-    <li><span data-t="h">名單上的 18 位講者來自官方活動頁，不是場次卡片 —— 誰講哪一場尚未證實。</span><span data-t="e">The 18 speakers we hold come from the official event page, not from the session cards, so who speaks where is still unverified.</span></li>
+    <li><span data-t="h">名單上的 18 位講者來自官方活動頁，不是場次卡片 —— 誰講哪一場尚未證實，官方自己還寫了「and others」，所以這份名單是部分名單。</span><span data-t="e">The 18 speakers we hold come from the official event page, not from the session cards, so who speaks where is unverified — and the page says "and others", which makes the roster partial by the organisers' own admission.</span></li>
+    <li><span data-t="h">攤位號碼未公布。第一件事是拿 expo 平面圖。</span><span data-t="e">Booth numbers are not published. First thing on arrival: get the floor plan.</span></li>
   </ul>
   <p class="stamp" data-fresh="1"><span data-t="h">狀態截至 2026-08-17</span><span data-t="e">Status as of 2026-08-17</span></p>
-</section>
+  </div>
+</details>

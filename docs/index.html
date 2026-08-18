@@ -111,7 +111,7 @@ a:hover{color:var(--ink)}
   font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 /* A locked run stays locked when it IS the headline; locking is about the
    content being identical in every language, not about wearing mono. */
-.acct h3 .lk,.play h2 .lk{font-family:var(--f-display);font-size:inherit;
+.dr-t .lk,.acct h3 .lk{font-family:var(--f-display);font-size:inherit;
   letter-spacing:inherit}
 .gap{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
   font-weight:700;letter-spacing:.1em;color:var(--gap-fg);
@@ -143,6 +143,10 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
 .ev-third .ev-mark{background:transparent}
 .ev-unverified{color:var(--ink-3)}
 .ev-unverified .ev-mark{border-style:dotted;background:transparent}
+/* The rank chip is a rank, and the status chip is a state. They must never be
+   mistaken for one another: the rank wears a mark and a hairline on card
+   ground, the status wears sunk ground and no mark. */
+:root[data-lang="e"] .ev{text-transform:uppercase}
 .chip{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
   letter-spacing:.06em;color:var(--ink-2);background:var(--sunk);
   border-radius:3px;padding:3px 8px;margin:2px 6px 2px 0}
@@ -180,17 +184,62 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
 .acts b{display:block;font-size:var(--t-h3);font-family:var(--f-display);
   line-height:1.4;margin-bottom:var(--s1)}
 
-/* --- day filter (pure CSS, no JS) ----------------------------------------- */
-.dayin{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
-.dayset{margin:var(--s4) 0 0;display:flex;flex-wrap:wrap;gap:var(--s2)}
-.daylab{display:inline-flex;align-items:center;gap:var(--s2);min-height:44px;
-  padding:0 var(--s4);background:var(--card);border:1px solid var(--rule);
-  border-radius:4px;font-size:var(--t-cap);font-weight:700;color:var(--ink-2);
-  cursor:pointer}
-.daylab .lk{font-size:var(--t-cap);color:inherit}
-.dayin:focus + .daylab{outline:2px solid var(--focus);outline-offset:2px}
-.dayin:checked + .daylab{background:var(--ink);border-color:var(--ink);
-  color:var(--paper)}
+/* --- drawers: every section and every subsection --------------------------
+   Native <details>. No JS accordion: <details> is keyboard-operable, is found
+   by the browser's own find-in-page even while closed in modern engines, and
+   prints. The summary always carries a title AND a scent line, so a closed
+   drawer still informs (RULES C6: >=44px target, visible focus ring). */
+details.dr{background:var(--card);border:1px solid var(--rule);border-radius:4px;
+  margin:0 0 var(--s3)}
+details.dr > summary{list-style:none;display:block;cursor:pointer;position:relative;
+  min-height:44px;padding:var(--s3) var(--s4) var(--s3) var(--s6);
+  -webkit-user-select:none;user-select:none}
+details.dr > summary::-webkit-details-marker{display:none}
+details.dr > summary::marker{content:""}
+details.dr > summary::before{content:"";position:absolute;left:var(--s4);
+  top:calc(var(--s3) + .55em);width:7px;height:7px;
+  border-right:2px solid var(--ink-2);border-bottom:2px solid var(--ink-2);
+  transform:rotate(-45deg)}
+details.dr[open] > summary::before{transform:rotate(45deg)}
+details.dr > summary:hover{background:var(--accent-bg)}
+details.dr > summary:focus-visible{outline:2px solid var(--focus);
+  outline-offset:-2px}
+.dr-t{display:block;font-family:var(--f-display);font-size:var(--t-h3);
+  font-weight:700;line-height:1.36}
+.dr-t .lk{font-family:var(--f-display);font-size:inherit;letter-spacing:inherit}
+.dr-s{display:block;font-size:var(--t-cap);color:var(--ink-2);line-height:1.45;
+  margin-top:2px}
+.dr-s .lk{font-size:var(--t-cap);color:var(--ink-2)}
+.dr-b{padding:var(--s2) var(--s4) var(--s4);border-top:1px solid var(--rule)}
+.dr-b > :first-child{margin-top:var(--s4)}
+.dr-b > h2:first-child,.dr-b > h3:first-child{margin-top:var(--s4)}
+.sep{color:var(--ink-3);padding:0 2px}
+
+/* Top-level drawers read as SECTIONS: heavy rule, display-size title, no card
+   chrome. Nested drawers read as cards. One component, two altitudes. */
+main > details.dr{background:transparent;border:0;
+  border-top:2px solid var(--rule-hard);border-radius:0;margin:0 0 var(--s7)}
+main > details.dr > summary{padding:var(--s4) 0 var(--s4) var(--s6)}
+main > details.dr > summary::before{left:var(--s1);top:calc(var(--s4) + .62em);
+  width:9px;height:9px;border-color:var(--ink)}
+main > details.dr > summary:hover{background:transparent}
+main > details.dr > summary:hover .dr-t{color:var(--accent)}
+main > details.dr > summary .dr-t{font-size:var(--t-h2);letter-spacing:-.012em;
+  line-height:1.28}
+main > details.dr > .dr-b{border-top:0;padding:0 0 var(--s5)}
+main > details.dr.verdict{border-top:3px solid var(--accent)}
+main > details.dr.verdict > summary{padding-left:var(--s6)}
+main > details.dr.verdict h1{margin:0}
+.dr-lede{display:block;font-size:var(--t-lede);line-height:1.55;
+  color:var(--ink-2);margin-top:var(--s3);max-width:var(--measure)}
+main > details.dr.caveat{background:var(--gap-bg);border:1px dashed var(--gap-fg);
+  border-radius:4px;padding:0 var(--s4)}
+main > details.dr.caveat > summary::before{border-color:var(--gap-fg)}
+main > details.dr.caveat > .dr-b{padding-bottom:var(--s5)}
+main > details.dr.method{border-top:1px solid var(--rule)}
+main > details.dr.method .dr-t{font-size:var(--t-h3)}
+main > details.dr.method .dr-b{font-size:var(--t-cap);color:var(--ink-2)}
+main > details.dr.method .dr-b ul{padding-left:var(--s5)}
 
 /* --- sessions ------------------------------------------------------------- */
 .ses{list-style:none;margin:var(--s5) 0 0;padding:0;display:grid;
@@ -202,14 +251,15 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
 .ses h3{margin:var(--s3) 0 var(--s2);font-size:var(--t-h3)}
 .ses .where{margin:0 0 var(--s2);font-size:var(--t-cap);color:var(--ink-2)}
 .ses .tags{margin:var(--s2) 0 0}
-#day-d1:checked ~ .ses > li:not([data-daykey="d1"]),
-#day-d2:checked ~ .ses > li:not([data-daykey="d2"]),
-#day-d3:checked ~ .ses > li:not([data-daykey="d3"]),
-#day-d4:checked ~ .ses > li:not([data-daykey="d4"]),
-#day-d5:checked ~ .ses > li:not([data-daykey="d5"]),
-#day-d6:checked ~ .ses > li:not([data-daykey="d6"]),
-#day-d7:checked ~ .ses > li:not([data-daykey="d7"]),
-#day-d8:checked ~ .ses > li:not([data-daykey="d8"]){display:none}
+/* A session that carries a hardware-demand signal earns a heavier top edge and
+   says WHICH probe matched, so the mark is auditable rather than a label. */
+.ses > li.is-hw{border-top:3px solid var(--ink)}
+.ses .hw{margin:var(--s3) 0 0;font-size:var(--t-cap);color:var(--ink-2);
+  padding-top:var(--s2);border-top:1px solid var(--rule)}
+.hwm{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
+  letter-spacing:.06em;color:var(--paper);background:var(--ink);border-radius:3px;
+  padding:2px 7px;margin-right:var(--s2)}
+.hwm .lk{color:var(--paper);font-size:var(--t-micro)}
 
 /* --- room ledger ---------------------------------------------------------- */
 .rooms{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;
@@ -233,7 +283,6 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
 .caveat .why{color:var(--gap-fg)}
 
 /* --- plays ---------------------------------------------------------------- */
-.play{border-top:2px solid var(--rule-hard);padding-top:var(--s4)}
 .play dl{margin:var(--s4) 0 0;display:grid;gap:0;
   grid-template-columns:1fr}
 .play dt{font-size:var(--t-micro);letter-spacing:.09em;font-weight:700;
@@ -242,7 +291,7 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
 .play dd{margin:var(--s2) 0 var(--s4);max-width:var(--measure)}
 
 /* --- register table (C3: stacks below 720px) ------------------------------ */
-.regwrap{margin:var(--s4) 0 0}
+.regwrap{margin:var(--s4) 0 0;overflow-x:auto}
 .reg{width:100%;border-collapse:collapse}
 .reg th,.reg td{text-align:left;vertical-align:top;font-size:var(--t-cap);
   padding:var(--s3);border-bottom:1px solid var(--rule)}
@@ -266,17 +315,38 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
   color:var(--ink-2);font-variant-numeric:tabular-nums}
 .band .banddesc{margin:var(--s2) 0 0;font-size:var(--t-cap);color:var(--ink-2);
   max-width:var(--measure)}
-.accts{list-style:none;margin:var(--s5) 0 0;padding:0;display:grid;
-  gap:var(--s3);grid-template-columns:repeat(auto-fill,minmax(min(100%,272px),1fr))}
-.acct{min-width:0;background:var(--card);border:1px solid var(--rule);
-  border-radius:4px;padding:var(--s4)}
-.acct.is-gap{border-style:dashed}
-.acct h3{margin:0 0 var(--s2);font-size:var(--t-h3)}
-.acct dl{margin:var(--s3) 0 0}
-.acct dt{font-size:var(--t-micro);letter-spacing:.09em;color:var(--ink-3);
-  margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--rule)}
-.acct dt:first-of-type{border-top:0;padding-top:0;margin-top:0}
-.acct dd{margin:var(--s1) 0 0;font-size:var(--t-cap)}
+/* An account is a DRAWER, so the band is a stack, not a grid: opening one card
+   must not reflow its neighbours out from under a thumb. */
+.accts{margin:var(--s5) 0 0;padding:0}
+details.acct{min-width:0}
+details.acct.is-full{border-left:1px solid var(--ink)}
+.fullmark{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
+  letter-spacing:.08em;color:var(--paper);background:var(--ink);border-radius:3px;
+  padding:2px 7px;margin-left:var(--s2);vertical-align:middle}
+.badges{margin:0 0 var(--s3)}
+.cells{margin:var(--s3) 0 0}
+.cells dt{font-size:var(--t-micro);letter-spacing:.09em;color:var(--ink-3);
+  margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--rule);
+  text-transform:none}
+.cells dt:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.cells .cap{display:block;font-size:var(--t-cap);letter-spacing:0;
+  color:var(--ink-2);margin-top:2px;max-width:var(--measure)}
+.cells dd{margin:var(--s2) 0 0;font-size:var(--t-cap)}
+.conf{margin:var(--s4) 0 0;font-size:var(--t-cap);padding-top:var(--s3);
+  border-top:1px solid var(--rule)}
+.cf{display:inline-block;font-size:var(--t-micro);border:1px solid var(--rule);
+  border-radius:3px;padding:3px 8px;margin:2px 6px 2px 0;color:var(--ink-2)}
+.cf-h{border-color:var(--ink);color:var(--ink)}
+.nextact{margin:var(--s4) 0 0;padding:var(--s3) var(--s4);background:var(--sunk);
+  border-radius:4px;font-size:var(--t-cap);max-width:var(--measure)}
+.nextact b{display:block;font-family:var(--f-display);font-size:var(--t-h3);
+  margin-bottom:var(--s1)}
+details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
+.spell{list-style:none;margin:var(--s2) 0 0;padding:0}
+.spell li{padding:var(--s2) 0;border-top:1px solid var(--rule)}
+.spell li:first-child{border-top:0}
+.dt2{margin:var(--s5) 0 var(--s2);font-family:var(--f-display);
+  font-size:var(--t-h3);font-weight:700}
 
 /* --- compare -------------------------------------------------------------- */
 .axes{display:grid;gap:var(--s5);
@@ -297,25 +367,41 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
   padding:var(--s2) var(--s3);font-family:var(--f-mono);
   font-size:var(--t-micro);color:var(--ink-2);overflow-wrap:anywhere}
 
-/* --- glossary ------------------------------------------------------------- */
-.terms{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;
-  gap:0;grid-template-columns:repeat(auto-fill,minmax(min(100%,232px),1fr))}
-.term{min-width:0;padding:var(--s3) var(--s4) var(--s3) 0;
-  border-top:1px solid var(--rule)}
-.term b{display:block;font-family:var(--f-mono);font-size:var(--t-mono);
-  color:var(--ink)}
-.term .cn{display:block;font-size:var(--t-cap);margin-top:2px}
-.term .tail{display:block;font-size:var(--t-micro);color:var(--ink-3);
-  margin-top:var(--s1)}
-
-/* --- method + footer ------------------------------------------------------ */
-.method{border-top:1px solid var(--rule);padding-top:var(--s4)}
-.method summary{cursor:pointer;font-size:var(--t-cap);font-weight:700;
-  min-height:44px;display:flex;align-items:center}
-.method .body{font-size:var(--t-cap);color:var(--ink-2);
+/* --- evidence-bearing prose ----------------------------------------------- */
+.ev-list,.donts{list-style:none;margin:var(--s4) 0 0;padding:0;
   max-width:var(--measure)}
-.method .body ul{padding-left:var(--s5)}
-.method .body li{margin-bottom:var(--s2)}
+.ev-list > li,.donts > li{padding:var(--s4) 0;border-top:1px solid var(--rule)}
+.ev-list > li:first-child,.donts > li:first-child{border-top:0;padding-top:0}
+.srcl{overflow-wrap:anywhere}
+.punch{margin:var(--s4) 0 0;font-family:var(--f-display);font-size:var(--t-lede);
+  line-height:1.5;max-width:var(--measure)}
+.askq{margin:var(--s3) 0 0;padding:var(--s3) var(--s4);background:var(--sunk);
+  border-radius:4px;font-family:var(--f-display);font-size:var(--t-lede);
+  line-height:1.5;max-width:var(--measure)}
+.meta-row{margin:var(--s2) 0 0;font-size:var(--t-cap);color:var(--ink-2)}
+.actses{margin:0;font-family:var(--f-display);font-size:var(--t-h3);
+  font-weight:700;line-height:1.4}
+.actses .lk{font-family:var(--f-display);font-size:inherit;
+  letter-spacing:inherit}
+.acts .why{display:block;margin:var(--s2) 0 var(--s4)}
+.formula{margin:var(--s3) 0;padding:var(--s3) var(--s4);background:var(--sunk);
+  border-radius:3px;font-family:var(--f-mono);font-size:var(--t-mono);
+  color:var(--ink);overflow-x:auto;max-width:100%}
+.q{margin:var(--s4) 0 0;padding:var(--s5) var(--s4);background:var(--sunk);
+  border-radius:4px;font-family:var(--f-display);font-size:var(--t-lede);
+  line-height:1.55;max-width:var(--measure)}
+.thesis{margin:var(--s3) 0 0}
+.thesis dt{font-size:var(--t-micro);letter-spacing:.09em;color:var(--ink-3);
+  margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--rule)}
+.thesis dt:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.thesis dt.kill{color:var(--gap-fg)}
+.thesis dd{margin:var(--s2) 0 0;max-width:var(--measure)}
+.odds{list-style:none;margin:var(--s4) 0 0;padding:0;max-width:var(--measure)}
+.odds > li{padding:var(--s4) 0;border-top:1px solid var(--rule)}
+.odds > li:first-child{border-top:0;padding-top:0}
+.rank{display:inline-block;min-width:22px;font-family:var(--f-mono);
+  font-weight:700;color:var(--accent)}
+.rank .lk{color:var(--accent);font-weight:700}
 .xlink{display:flex;flex-wrap:wrap;gap:var(--s4);justify-content:space-between;
   border-top:1px solid var(--rule);padding-top:var(--s4)}
 .xlink a{min-width:0;font-size:var(--t-cap);font-weight:700;
@@ -350,11 +436,22 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
   main{padding-top:var(--s6)}
 }
 @media (prefers-reduced-motion:no-preference){
-  .langbtn,.nav a,.daylab,a{transition:background-color 140ms
+  .langbtn,.nav a,a,details.dr > summary{transition:background-color 140ms
     cubic-bezier(.2,.7,.2,1),border-color 140ms cubic-bezier(.2,.7,.2,1),
     color 140ms cubic-bezier(.2,.7,.2,1)}
 }
+/* Paper has no disclosure control: on print every drawer is open, because a
+   printout of collapsed summaries is a table of contents with no book. */
 @media print{
+  details{display:block}
+  details>*{display:block!important}
+  details::details-content{content-visibility:visible!important;
+    display:block!important;block-size:auto!important;overflow:visible!important}
+  details.dr>summary::before{display:none}
+  details.dr,details.acct,details.deep{border:0;background:none;
+    break-inside:avoid;page-break-inside:avoid}
+  main>details.dr{border-top:1px solid #14161A}
+  .dr-b{border-top:0;padding-left:0;padding-right:0}
   .langsw,.nav,.xlink{display:none}
   body{background:#FFFFFF}
   [data-t="e"]{display:none}
@@ -420,75 +517,180 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
     <li><a href="gtm.html"><span data-t="h">打法</span><span data-t="e">Plays</span></a></li>
     <li><a href="accounts.html"><span data-t="h">帳戶板</span><span data-t="e">Accounts</span></a></li>
     <li><a href="compare.html"><span data-t="h">對位</span><span data-t="e">Matchup</span></a></li>
-    <li><a href="glossary.html"><span data-t="h">詞彙</span><span data-t="e">Glossary</span></a></li>
   </ul>
 </nav>
 <main class="wrap">
-<section class="verdict" data-block="verdict" data-fresh="1">
-  <h1><span data-t="h">這一場的錢在<em>租算力</em>，不在買機器。我方以 scout 進場：收訊號，不擺攤。</span><span data-t="e">The money in this room is spent <em>renting compute</em>, not buying machines. We walk in as a scout: collect signal, hold no booth.</span></h1>
-  <p class="lede"><span data-t="h">沒有一家傳統伺服器對手在場。你要找的不是攤位對手，是誰在替這些人簽算力的帳。</span><span data-t="e">Not one traditional server rival is here. You are not looking for a rival booth — you are looking for whoever signs the compute bill for these people.</span></p>
+<details class="dr verdict" data-block="verdict" data-fresh="1" open>
+  <summary><span class="dr-t"><h1><span data-t="h">這一場的錢在<em>租算力</em>，不在買機器。我方以 scout 進場：收訊號，不擺攤。</span><span data-t="e">The money in this room is spent <em>renting compute</em>, not buying machines. We walk in as a scout: collect signal, hold no booth.</span></h1></span><span class="dr-s"><span class="lede dr-lede"><span data-t="h">沒有一家傳統伺服器對手在場。你要找的不是攤位對手，是誰在替這些人簽算力的帳。</span><span data-t="e">Not one traditional server rival is here. You are not looking for a rival booth — you are looking for whoever signs the compute bill for these people.</span></span></span></summary>
+  <div class="dr-b">
   <ul class="grounds">
     <li><span data-t="h">到場 58 家組織，兩條軸線都在現場：neocloud rented capacity 4 家、hyperscaler managed AI infra 3 家。</span><span data-t="e">58 organisations on site, and both axes are in the room: neocloud rented capacity 4; hyperscaler managed AI infra 3.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></li>
-    <li><span data-t="h">贊助 23 家，依層級：presenting 1、platinum 4、gold 10、silver 5、startups 3。</span><span data-t="e">23 sponsors by tier: presenting 1, platinum 4, gold 10, silver 5, startups 3.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></li>
+    <li><span data-t="h">贊助 23 家，依層級：presenting 1、platinum 4、gold 10、silver 5、startups 3。這一層一層就是走廊上的優先順序。</span><span data-t="e">23 sponsors by tier: presenting 1, platinum 4, gold 10, silver 5, startups 3. That order is your corridor priority.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></li>
+    <li><span data-t="h">58 家裡有 19 家自己買機器、5 家部分自購；26 家這一輪查完判定不是買方，9 家還沒查到足以判定的證據。</span><span data-t="e">Of 58 companies, 19 buy their own machines and 5 partly do; 26 were researched this lap and are not buyers; 9 carry no evidence either way yet.</span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span></li>
     <li><span data-t="h">我方定位：</span><span data-t="e">Our position: </span> Supermicro — role: scout (not found on the sponsor list surfaced 2026-08-17; GAP, not a denial) <span class="ev ev-unverified"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">未證</span><span data-t="e">Unverified</span></span></li>
-    <li><span data-t="h">58 / 58 家已分層（landlord / operator / tenant / channel）。其餘是未查證，不是不屬於任何一層。</span><span data-t="e">58 of 58 classified into a buyer layer (landlord / operator / tenant / channel). The rest are unverified, not unaffiliated.</span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span></li>
   </ul>
   <p class="stamp" data-fresh="1"><span data-t="h">狀態截至 2026-08-17</span><span data-t="e">Status as of 2026-08-17</span></p>
-</section>
-<section data-block="four-numbers" data-fresh="1">
-  <h2><span data-t="h">四個數字</span><span data-t="e">Four numbers</span></h2>
+  </div>
+</details>
+<p class="stamp topstamp" data-block="asOf-stamp" data-fresh="1"><span data-t="h">狀態截至 2026-08-17</span><span data-t="e">Status as of 2026-08-17</span></p>
+<details class="dr" data-block="four-numbers" data-fresh="1" open>
+  <summary><span class="dr-t"><span data-t="h">四個數字</span><span data-t="e">Four numbers</span></span><span class="dr-s"><span data-t="h">全部在建置時從資料算出來，沒有一個是打上去的</span><span data-t="e">all computed from the data at build time, not one of them typed</span></span></summary>
+  <div class="dr-b">
   <ol class="figs">
-    <li class="fig"><span class="n">50</span><span class="k"><span data-t="h">場次</span><span data-t="e">Sessions</span></span><span class="src"><span data-t="h">data/sessions.json · 計算值（2026-08-24 8、2026-08-25 42）</span><span data-t="e">data/sessions.json · computed (2026-08-24 8, 2026-08-25 42)</span></span></li>
-    <li class="fig"><span class="n">58</span><span class="k"><span data-t="h">到場組織</span><span data-t="e">Organisations on site</span></span><span class="src"><span data-t="h">data/orgs.json · 講者雇主 16、贊助 23、參展捕獲 23（可重疊）</span><span data-t="e">data/orgs.json · speaker employers 16, sponsors 23, exhibitor captures 23 (overlapping)</span></span></li>
-    <li class="fig"><span class="n">23</span><span class="k"><span data-t="h">贊助商</span><span data-t="e">Sponsors</span></span><span class="src"><span data-t="h">data/sponsors.json · presenting 1、platinum 4、gold 10、silver 5、startups 3</span><span data-t="e">data/sponsors.json · presenting 1, platinum 4, gold 10, silver 5, startups 3</span></span></li>
-    <li class="fig"><span class="n">58</span><span class="k"><span data-t="h">已建帳戶卡</span><span data-t="e">Account cards</span></span><span class="src"><span data-t="h">deliverables/accounts/cards.json · 計算值</span><span data-t="e">deliverables/accounts/cards.json · computed</span></span></li>
+    <li class="fig"><span class="n">50</span><span class="k"><span data-t="h">場次</span><span data-t="e">Sessions</span></span><span class="src"><span data-t="h">目錄已公布的兩天：2026-08-24 8、2026-08-25 42</span><span data-t="e">the two days the catalogue has published: 2026-08-24 8, 2026-08-25 42</span></span></li>
+    <li class="fig"><span class="n">58</span><span class="k"><span data-t="h">到場組織</span><span data-t="e">Organisations on site</span></span><span class="src"><span data-t="h">講者雇主 16、贊助 23、現場捕獲 23，可重疊</span><span data-t="e">speaker employers 16, sponsors 23, floor captures 23, overlapping</span></span></li>
+    <li class="fig"><span class="n">19</span><span class="k"><span data-t="h">自己買機器的</span><span data-t="e">Buy their own machines</span></span><span class="src"><span data-t="h">另有 5 家部分自購、9 家證據不足</span><span data-t="e">plus 5 partly and 9 with too little evidence to say</span></span></li>
+    <li class="fig"><span class="n">8</span><span class="k"><span data-t="h">完整檔</span><span data-t="e">Full dossiers</span></span><span class="src"><span data-t="h">本輪上限 8；其餘 50 家是單頁卡</span><span data-t="e">cap 8 this lap; the other 50 are one-screen cards</span></span></li>
   </ol>
   <p class="stamp" data-fresh="1"><span data-t="h">狀態截至 2026-08-17</span><span data-t="e">Status as of 2026-08-17</span></p>
-</section>
-<section data-block="two-actions">
-  <h2><span data-t="h">兩個動作</span><span data-t="e">Two actions</span></h2>
+  </div>
+</details>
+<details class="dr" data-block="two-actions" open>
+  <summary><span class="dr-t"><span data-t="h">兩個動作</span><span data-t="e">Two actions</span></span><span class="dr-s"><span data-t="h">一個是站位，一個是問句。其餘等現場</span><span data-t="e">one is where to stand, one is what to ask. The rest waits for the floor</span></span></summary>
+  <div class="dr-b">
   <ol class="acts">
     <li>
-      <b><span data-t="h">站對房間。</span><span data-t="e">Stand in the right room.</span></b>
-      <p><span data-t="h">最大的主題是 Inference，共 23 場，其中 6 場落在</span><span data-t="e">The biggest track is Inference with 23 sessions, and 6 of them land in</span> <span class="lk">Breakout 3 (vLLM)</span><span data-t="h">。</span><span data-t="e">.</span></p>
-      <p><span data-t="h">主題演講，結束後直接過去</span><span data-t="e">Keynote — walk straight over when it ends</span> <span class="lk">Day 1 Keynote</span> · <span class="lk">9:30 AM-11:30 AM</span> · <span class="lk">Keynote</span></p>
+      <b><span data-t="h">開場先卡這兩場。</span><span data-t="e">Take these two rooms first.</span></b>
+      <p class="actses"><span class="lk">How the Data Center Shapes the workload</span></p>
+      <p class="meta-row"><span class="lk">2026-08-25</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">3:15 PM-3:30 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Lightning Theater</span></p>
+      <p class="why"><span data-t="h">全場唯一直接談機房約束的題目。記下講者的機房是自建、colo 還是租雲 —— 那一句就決定他是不是買家。</span><span data-t="e">The only session in the building that talks about the hall itself. Write down whether the speaker's data centre is owned, colo or rented cloud — that one line decides whether they are a buyer.</span></p>
+      <p class="actses"><span class="lk">Industry Leaders Roundtable - Physical AI</span></p>
+      <p class="meta-row"><span class="lk">2026-08-25</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">11:30 AM-1:00 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Soma</span></p>
+      <p class="why"><span data-t="h">一場抓齊多家會自建機房的 Physical AI 買家，會後圍堵的成本最低。</span><span data-t="e">One room holding several Physical AI companies that may build their own halls. The cheapest place in the show to catch a group afterwards.</span></p>
     </li>
     <li>
-      <b><span data-t="h">收帳戶卡。</span><span data-t="e">Collect account cards.</span></b>
-      <p><span data-t="h">先收這 7 家：白金以上 5 家，加上第一條軸線的 4 家，去重後 7 家。本輪 FULL 上限 8，還剩 1 席。</span><span data-t="e">Take these 7 first: 5 at platinum or above plus 4 named on the first axis, 7 after de-duplication. The FULL cap this lap is 8, with 1 seats left.</span></p>
-      <p><span class="lk">Amazon Web Services</span> <span class="lk">CoreWeave</span> <span class="lk">Google</span> <span class="lk">Inferact (vLLM)</span> <span class="lk">Nscale</span> <span class="lk">Lambda (Lambda Labs)</span> <span class="lk">Nebius</span></p>
+      <b><span data-t="h">每一場對話都收同一題。</span><span data-t="e">Ask the same one question in every conversation.</span></b>
+      <p class="askq"><span data-t="h">「你們的 Ray 叢集跑在自己機房、租的 colo，還是純雲端執行個體？」</span><span data-t="e">"Does your Ray cluster run in your own hall, in colo you rent, or purely on cloud instances?"</span></p>
+      <p><span data-t="h">自建或 colo 就能直銷；純雲端的人是情報來源，不是買家 —— 一句話就分完。</span><span data-t="e">Own hall or colo means you can sell direct. Pure cloud means the person is intelligence, not pipeline. One sentence sorts the room.</span></p>
+      <p><span data-t="h">白金以上 5 家先問：</span><span data-t="e">Start with the 5 at platinum or above:</span></p>
+      <p><span class="chip">Amazon Web Services</span><span class="chip">CoreWeave</span><span class="chip">Google</span><span class="chip">Inferact (vLLM)</span><span class="chip">Nscale</span></p>
+<span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span>
     </li>
   </ol>
-</section>
-<p class="stamp" data-block="asOf-stamp" data-fresh="1"><span data-t="h">狀態截至 2026-08-17</span><span data-t="e">Status as of 2026-08-17</span></p>
-<details class="method" data-block="method">
-  <summary><span data-t="h">方法與來源</span><span data-t="e">Method and sources</span></summary>
-  <div class="body">
-    <p><span data-t="h">頁上每一個數字都是建置時從 JSON 算出來的，沒有一個是打字打上去的。算不出來的欄位印 GAP 和原因，不印零。</span><span data-t="e">Every number on this page is computed from JSON at build time; none of them is typed. A field that cannot be computed prints GAP and its reason, never a zero.</span></p>
+  </div>
+</details>
+<details class="dr" open>
+  <summary><span class="dr-t"><span data-t="h">這是什麼房間</span><span data-t="e">What room this is</span></span><span class="dr-s"><span data-t="h">工程社群年會，實作者為主，買點是利用率不是規格</span><span data-t="e">an engineering community conference: implementers, and the buying reason is utilisation, not spec</span></span></summary>
+  <div class="dr-b">
+  <ul class="ev-list">
+    <li><span data-t="h">不是廠商展會，是工程社群年會加上供應商聚集。官方寫給的對象是 builders、platform leads 與 researchers ——</span><span data-t="e">Not a trade show: an engineering community conference with vendors around it. The official audience line reads builders, platform leads and researchers —</span> <span data-t="h">自建叢集的平台工程主管，不是採購。</span><span data-t="e">the platform engineering leads who run their own clusters, not procurement.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span><span class="src"><a class="srcl" href="https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue" title="https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue">register.linuxfoundation.org/event/ray-summit-2026/sessi…</a> <span class="lk">2026-08-17</span></span></li>
+    <li><span data-t="h">票價</span><span data-t="e">Tickets run</span> <span class="lk">USD 400–450</span> <span data-t="h">，五張套票每張</span><span data-t="e">, or five-packs at</span> <span class="lk">USD 750</span> <span data-t="h">。工程師自費就進得來 —— 來的人多半是實作者，不是簽核者。把「誰簽字」當成每一次對話要挖出來的東西。</span><span data-t="e"> each. That is self-funded-engineer money, so the room is implementers, not signatories. Treat "who signs" as the thing every conversation has to surface.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></li>
+    <li><span data-t="h">Ray 的治理已經交給 PyTorch Foundation，累計下載</span><span data-t="e">Ray governance has moved to the PyTorch Foundation; cumulative downloads</span> <span class="lk">237M</span> <span data-t="h">，名單上的用戶含 OpenAI、Uber、Shopify、Netflix。治理中立，商業層在 Nscale 手上。</span><span data-t="e">, with OpenAI, Uber, Shopify and Netflix named as users. Neutral governance, commercial layer in Nscale's hands.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span><span class="src"><a class="srcl" href="https://pytorch.org" title="https://pytorch.org">pytorch.org</a> <span class="lk">2025-10-22</span></span></li>
+    <li><span data-t="h">主辦權在會前三週半換人，換給了買機櫃的人：</span><span data-t="e">Ownership of the show changed hands three and a half weeks before it opens, to someone who buys racks: </span> <span class="lk">Nscale</span> <span data-t="h">於</span><span data-t="e">agreed on</span> <span class="lk">2026-07-30</span> <span data-t="h">宣布收購 Anyscale，同時是本屆白金贊助商並有 keynote 席位。雙方均未官方證實，寫進客戶簡報時這個 hedge 要跟著走。</span><span data-t="e"> to acquire Anyscale, while also being a Platinum sponsor with a keynote slot this year. Neither side has officially confirmed it; that hedge travels with the claim into any customer deck.</span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span><span class="src"><a class="srcl" href="https://techcrunch.com/2026/07/30/nscale-buys-anyscale-as-it-seeks-to-own-more-of-the-ai-compute-stack/" title="https://techcrunch.com/2026/07/30/nscale-buys-anyscale-as-it-seeks-to-own-more-of-the-ai-compute-stack/">techcrunch.com/2026/07/30/nscale-buys-anys…</a> <span class="lk">2026-07-30</span></span></li>
+    <li><span data-t="h">這房間的購買理由是「利用率」，不是規格。Torc 自報 GPU 利用率從</span><span data-t="e">This room buys on utilisation, not on spec. Torc reports GPU utilisation moving from</span> <span class="lk">30–40%</span> <span data-t="h">拉到約</span><span data-t="e">to about</span> <span class="lk">90%</span> <span data-t="h">，同等牆鐘時間內處理的資料量從</span><span data-t="e">, and data processed in the same wall clock from</span> <span class="lk">4TB</span> <span data-t="h">變成</span><span data-t="e">to</span> <span class="lk">38TB</span> <span data-t="h">。跟這群人談 TFLOPS 會冷場，談「同樣機櫃多跑幾成」會熱。</span><span data-t="e">. Talk TFLOPS to these people and the conversation dies; talk "more work out of the same rack" and it opens.</span> <span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></li>
+  </ul>
+  </div>
+</details>
+<details class="dr" open>
+  <summary><span class="dr-t"><span data-t="h">2025 → 2026 變了什麼</span><span data-t="e">What changed from 2025 to 2026</span></span><span class="dr-s"><span data-t="h">主軸從八條收成四條、全部吃 GPU；vLLM 有公司了；主辦權易主</span><span data-t="e">eight tracks became four and all of them eat GPU; vLLM has a company; the show changed owner</span></span></summary>
+  <div class="dr-b">
+  <ul class="ev-list">
+    <li><span data-t="h">時間前挪十週：上一屆是</span><span data-t="e">Ten weeks earlier: last year ran</span> <span class="lk">2025-11-03</span> <span data-t="h">至</span><span data-t="e">to</span> <span class="lk">2025-11-05</span> <span data-t="h">，這一屆是</span><span data-t="e">, this one runs</span> <span class="lk">2026-08-24</span> <span data-t="h">至</span><span data-t="e">to</span> <span class="lk">2026-08-26</span> <span data-t="h">，同一個 Marriott Marquis。兩屆只隔約九個半月，客戶的預算年度沒有跟著走。</span><span data-t="e">, in the same Marriott Marquis. Two editions about nine and a half months apart — the customer budget year did not move with it.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></li>
+    <li><span data-t="h">主軸從八條收斂成四條，每一條都吃 GPU：Foundation Model Training、Multimodal Data Curation、Physical AI、LLM RL。去年還有 Ray Ecosystem、Generative AI、Research Frontiers —— 軟體話題被擠掉，剩下全是算力題。</span><span data-t="e">The tracks narrowed from eight to four, and every one of them eats GPU: Foundation Model Training, Multimodal Data Curation, Physical AI, LLM RL. Last year still had Ray Ecosystem, Generative AI and Research Frontiers. The software topics were squeezed out; what is left is all compute.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></li>
+    <li><span data-t="h">vLLM 第一次以獨立會議共構，同場舉行、Summit 票含全程，橫跨</span><span data-t="e">A first-ever standalone vLLM conference runs inside the show, covered by the Summit ticket, spanning</span> <span class="lk">2026-08-25</span> <span data-t="h">與</span><span data-t="e">and</span> <span class="lk">2026-08-26</span> <span data-t="h">。硬體話題藏在那半場，不在 Ray 主軌。</span><span data-t="e">. The hardware conversation lives in that half of the building, not on the Ray track.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span><span class="src"><a class="srcl" href="https://vllm.ai" title="https://vllm.ai">vllm.ai</a> <span class="lk">2026-08-17</span></span></li>
+    <li><span data-t="h">vLLM 商業化了：Inferact 於</span><span data-t="e">vLLM has a company now: Inferact was founded in</span> <span class="lk">2026-01</span> <span data-t="h">成立，種子輪</span><span data-t="e">, raised a</span> <span class="lk">USD 150M</span> <span data-t="h">、估值</span><span data-t="e">seed at a</span> <span class="lk">USD 800M</span> <span data-t="h">，a16z 與 Lightspeed 領投。去年掛專案名的人，今年掛公司抬頭。</span><span data-t="e"> valuation, led by a16z and Lightspeed. The people who wore a project name last year wear a company title this year.</span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></li>
+    <li><span data-t="h">話題從「怎麼管工作」變成「怎麼貼合機櫃」：去年 keynote 發表排程器與執行環境，今年上半年發表的是 GB300 NVL72 的拓撲感知排程。軟體開始感知機櫃，代表客戶已經跨多機櫃在跑。</span><span data-t="e">The subject moved from "how to manage jobs" to "how to fit the rack": last year's keynote shipped a scheduler and a runtime, this year's first half shipped topology-aware scheduling for GB300 NVL72. Software noticing racks means customers are already running across several of them.</span> <span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></li>
+  </ul>
+  </div>
+</details>
+<details class="dr" open>
+  <summary><span class="dr-t"><span data-t="h">技術轉向與伺服器需求含意</span><span data-t="e">The technical turn, and what it means for server demand</span></span><span class="dr-s"><span data-t="h">6 個議程訊號，每一個都翻成一句對報價單的影響</span><span data-t="e">6 agenda signals, each translated into one line about the quote</span></span></summary>
+  <div class="dr-b">
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">Physical AI</span></span><span class="dr-s"><span data-t="h">機器人與自駕升為四大主軸，訓練日有 workshop、keynote 有 Torc 與 Bedrock</span><span data-t="e">Robotics and autonomy became one of the four tracks; there is a training-day workshop and Torc and Bedrock on the keynote stage</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">新增一整類自建叢集買主。形狀是大量影片前處理加上 VLA 大模型訓練，資料量跳檔。這類客戶不租雲，會直接買機器 —— 對業務是新名單，不是新話術。</span><span data-t="e">A whole new class of cluster-building buyer. The shape is heavy video pre-processing plus large vision-language-action training, and the data volume steps up a gear. These customers do not rent; they buy. That is a new list, not a new pitch.</span></p>
+    <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">RL post-training</span></span><span class="dr-s"><span data-t="h">RL 後訓練獨立成一條主軸</span><span data-t="e">RL post-training became a track of its own</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">RL 要在同一張網裡同時跑訓練與推論 rollout，要的是混合角色節點與統一互聯，不是純訓練機或純推論機。報價單的形狀會變。</span><span data-t="e">RL runs training and inference rollout inside one fabric, so it wants mixed-role nodes and one interconnect — not a pure training box and not a pure inference box. The shape of the quote changes.</span></p>
+    <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">Multimodal Data Curation</span></span><span class="dr-s"><span data-t="h">多模態資料策展成主軸；Anyscale 以 NVIDIA RTX PRO 4500 Blackwell Server Edition 宣稱大規模去重成本較純 CPU 管線低八成</span><span data-t="e">Multimodal data curation became a track; Anyscale claims large-scale de-duplication at about four fifths below a CPU-only pipeline on NVIDIA RTX PRO 4500 Blackwell Server Edition</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">這是非旗艦 PCIe GPU 伺服器的新需求池 —— 不是 NVL72，是可以大量出貨的標準機。對我方最直接、最好賣的一塊，而且沒有整櫃交期的問題。</span><span data-t="e">A demand pool for non-flagship PCIe GPU servers — not NVL72, but the standard boxes that ship in volume. The most directly sellable slice for us, and it carries none of the rack-level lead-time problem.</span></p>
+    <p><span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">prefill / decode</span></span><span class="dr-s"><span data-t="h">MoE 服務加上分離式 prefill 與 decode、多層 KV offload</span><span data-t="e">MoE serving with disaggregated prefill and decode and tiered KV offload</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">prefill 與 decode 獨立擴縮，於是異質節點配比、巨量快取記憶體與本地 NVMe、節點間高頻寬全變成規格重點。儲存側被拉進這場對話，VAST Data 掛金級正好呼應。</span><span data-t="e">Prefill and decode scale independently, so node mix, very large cache memory with local NVMe, and node-to-node bandwidth all become spec points. Storage gets pulled into the conversation — VAST Data sponsoring at Gold is the same signal.</span></p>
+    <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">GB300 NVL72</span></span><span class="dr-s"><span data-t="h">議程出現整櫃拓撲感知排程</span><span data-t="e">The agenda now carries rack-topology-aware scheduling</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">軟體開始感知機櫃，代表客戶已經跨多機櫃跑數百顆 GPU。命題從「賣一台」變成「交付完整 NVLink 網域與跨櫃網路」，對話對象也從工程師往上移。</span><span data-t="e">Software noticing racks means customers already run hundreds of GPUs across several of them. The proposition moves from selling a box to delivering a whole NVLink domain plus the network between racks — and the person you need moves up with it.</span></p>
+    <p><span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p>
+  </div>
+</details>
+<details class="dr">
+  <summary><span class="dr-t"><span class="lk">TPU / AMD / Intel</span></span><span class="dr-s"><span data-t="h">非 NVIDIA 路線各有專場</span><span data-t="e">Non-NVIDIA silicon has its own sessions</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">非 NVIDIA 在這房間是被正常化的，多矽晶機型有真實聽眾。可以主動開這個話題探需求，不必怕踩線。</span><span data-t="e">Non-NVIDIA is normalised here, so multi-silicon platforms have a real audience. You can open that topic deliberately instead of stepping around it.</span></p>
+    <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p>
+  </div>
+</details>
+  </div>
+</details>
+<details class="dr" open>
+  <summary><span class="dr-t"><span data-t="h">前瞻訊號</span><span data-t="e">Forward signals</span></span><span class="dr-s"><span data-t="h">走廊上要抓的五件事，含一面競爭旗標</span><span data-t="e">five things to catch in the corridor, one of them a competitive flag</span></span></summary>
+  <div class="dr-b">
+  <ul class="ev-list">
+    <li><span data-t="h">Nscale 展台與 Josh Payne 的 keynote 是本屆第一優先。已與微軟簽約約</span><span data-t="e">The Nscale booth and Josh Payne's keynote are the first priority of the show. Contracted with Microsoft for roughly</span> <span class="lk">200,000</span> <span data-t="h">顆 GB300：德州園區約</span><span data-t="e">GB300: a Texas campus of about</span> <span class="lk">240MW</span> <span data-t="h">、約</span><span data-t="e">and roughly</span> <span class="lk">104,000</span> <span data-t="h">顆，自</span><span data-t="e">of them, from</span> <span class="lk">2026 Q3</span> <span data-t="h">起分批；葡萄牙 Sines 約</span><span data-t="e">in batches; Sines in Portugal about</span> <span class="lk">12,600</span> <span data-t="h">顆自</span><span data-t="e">from</span> <span class="lk">2026 Q1</span> <span data-t="h">；英國 Loughton</span><span data-t="e">; Loughton in the UK</span> <span class="lk">50MW</span> <span data-t="h">、約</span><span data-t="e">and about</span> <span class="lk">23,000</span> <span data-t="h">顆自</span><span data-t="e">from</span> <span class="lk">2027 Q1</span> <span data-t="h">。這是真實的機櫃交付時間表，不是願景稿。</span><span data-t="e">. That is a real rack delivery schedule, not a vision slide.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span><span class="src"><a class="srcl" href="https://www.nscale.com/press-releases" title="https://www.nscale.com/press-releases">nscale.com/press-releases</a> <span class="lk">2026-08-17</span></span></li>
+    <li><span data-t="h">競爭旗標：Dell 是 Nscale 的投資人，與 NVIDIA、Nokia、Blue Owl、Aker 並列。談 Nscale 供應鏈時要預設 Dell 已經在裡面，別把它當空白戰場。</span><span data-t="e">Competitive flag: Dell is an investor in Nscale, alongside NVIDIA, Nokia, Blue Owl and Aker. Assume Dell is already inside that supply chain; do not walk in treating it as open ground.</span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></li>
+    <li><span data-t="h">新雲密度異常高：白金含 CoreWeave 與 Nscale，金級含 Nebius 與 Lambda，再加上三家超大規模。一場會至少五家 GPU 雲同時在場 —— 這是買方密度，不是展商密度。</span><span data-t="e">Neocloud density is unusual: CoreWeave and Nscale at Platinum, Nebius and Lambda at Gold, plus three hyperscalers. At least five GPU clouds in one hall. That is buyer density, not exhibitor density.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></li>
+    <li><span data-t="h">Nscale 的融資動能：收購前不到一個月剛完成</span><span data-t="e">Nscale's funding momentum: less than a month before the acquisition it closed a</span> <span class="lk">USD 900M</span> <span data-t="h">循環信貸，十二家銀行聯貸，含 J.P. Morgan、Goldman Sachs、Morgan Stanley。有錢，而且會繼續買。</span><span data-t="e"> revolving facility syndicated across twelve banks including J.P. Morgan, Goldman Sachs and Morgan Stanley. They have money and they will keep buying.</span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></li>
+    <li><span data-t="h">推論堆疊的硬體適配決策權正在集中到 Inferact。vLLM 是各家硬體後端進入生產的必經之路，NVIDIA、AMD、Google TPU、Intel 都派人上台；誰先進 vLLM 的支援列表，誰的機型就先賣得動。認識 Inferact 的人，價值高於認識任何一家雲。</span><span data-t="e">The power to decide which hardware the inference stack supports is concentrating inside Inferact. vLLM is the road every hardware back end takes into production, and NVIDIA, AMD, Google TPU and Intel all put people on that stage. Whoever lands in the vLLM support list first sells first. Knowing someone at Inferact is worth more than knowing any one cloud.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></li>
+  </ul>
+  </div>
+</details>
+<details class="dr caveat" data-fresh="1" open>
+  <summary><span class="dr-t"><span data-t="h">本場 GAP</span><span data-t="e">What is still open</span></span><span class="dr-s"><span data-t="h">9 個缺口，每一個都寫了什麼證據能結案</span><span data-t="e">9 open questions, each with what would close it</span></span></summary>
+  <div class="dr-b">
+  <ul class="ev-list">
+    <li><span class="gap">GAP</span> <span class="why"><span data-t="h">會期內的 2026-08-26 在目錄上一場都沒有。官方結構顯示那天有 keynote、午餐與 breakout，收購案只隔三週半，合體路線圖最可能壓在那一天。出發前務必再刷一次議程 ——未公布不是沒有。</span><span data-t="e">The catalogue publishes not one session on 2026-08-26 inside the event window. The official structure shows a keynote, lunch and breakouts that day, and the acquisition is only three and a half weeks old, so the combined roadmap is most likely parked there. Refresh the agenda before you fly — unpublished is not absent.</span></span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></li>
+    <li><span class="gap">GAP</span> <span class="why"><span data-t="h">官方從未公布任何一屆的參加人數或公司數。找得到的「1,325 家公司」是第三方平台的預測值，不是官方統計，不要拿去當簡報數字。</span><span data-t="e">The organisers have never published attendance or company counts for any edition. The one figure in circulation, 1,325 companies, is a third-party platform forecast rather than an official count. Keep it out of your deck.</span></span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span></li>
+    <li><span class="gap">GAP</span> <span class="why"><span data-t="h">Ray 主軌的場次標題裡看不到 GB200、GB300、NVL72、InfiniBand 這些字。硬體話題藏在 vLLM 場次與供應商 keynote 裡，要找硬體對話就往那半場走。</span><span data-t="e">No session title on the Ray track carries GB200, GB300, NVL72 or InfiniBand. The hardware conversation sits in the vLLM sessions and the vendor keynotes; walk to that half of the building.</span></span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></li>
+    <li><span class="gap">GAP</span> <span class="why"><span data-t="h">Supermicro 不在任何贊助層級名單中，所以沒有主場優勢，全靠走廊與攤位外接觸。這是「沒買贊助」，不是「被排除」。是否有 expo 攤位或員工講者仍未證實 ——到場第一件事是拿 expo 平面圖確認。</span><span data-t="e">Supermicro is on no sponsor tier, so there is no home advantage: everything happens in corridors and outside other people's booths. That means "did not buy sponsorship", not "was excluded". Whether there is an expo booth or a staff speaker is still unverified — first thing on arrival, get the floor plan and settle it.</span></span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></li>
+    <li><span class="gap">GAP</span> <span class="why"><span data-t="h">Nscale 的機櫃 OEM 或 ODM 供應商未公開，只知道 Dell 是投資人。這是現場最值得直接問出來的一題。</span><span data-t="e">Nscale has not disclosed who builds its racks; the only public thread is that Dell is an investor. This is the single most worthwhile thing to ask out loud on the floor.</span></span> <span class="ev ev-unverified"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">未證</span><span data-t="e">Unverified</span></span></li>
+    <li><span class="gap">GAP</span> <span class="why"><span data-t="h">Aug 26 (day 3 of 3) publishes NO sessions in the catalogue as of 2026-08-17 — GAP, not 'no sessions'</span><span data-t="e">Aug 26 (day 3 of 3) publishes NO sessions in the catalogue as of 2026-08-17 — GAP, not 'no sessions'</span></span></li>
+    <li><span class="gap">GAP</span> <span class="why"><span data-t="h">no session card exposes a speaker; speakers.json is a PARTIAL roster from the marketing page ('and others')</span><span data-t="e">no session card exposes a speaker; speakers.json is a PARTIAL roster from the marketing page ('and others')</span></span></li>
+    <li><span class="gap">GAP</span> <span class="why"><span data-t="h">seats/capacity not exposed on any card</span><span data-t="e">seats/capacity not exposed on any card</span></span></li>
+    <li><span class="gap">GAP</span> <span class="why"><span data-t="h">booth numbers not published</span><span data-t="e">booth numbers not published</span></span></li>
+  </ul>
+  <p class="stamp" data-fresh="1"><span data-t="h">狀態截至 2026-08-17</span><span data-t="e">Status as of 2026-08-17</span></p>
+  </div>
+</details>
+<details class="dr method" data-block="method">
+  <summary><span class="dr-t"><span data-t="h">方法與來源</span><span data-t="e">Method and sources</span></span><span class="dr-s"><span data-t="h">數字從哪裡來、哪一格還沒結案</span><span data-t="e">where the numbers come from, and which cells are still open</span></span></summary>
+  <div class="dr-b">
+    <p><span data-t="h">這一頁的每個數字都是建置時從 JSON 算出來的，沒有一個是打字打上去的。算不出來的欄位印 GAP 和原因，不印零。</span><span data-t="e">Every number on this page is computed from JSON at build time; none of them is typed. A field that cannot be computed prints GAP and its reason, never a zero.</span></p>
     <ul>
       <li><code>data/sessions.json</code> <span data-t="h">50 筆</span><span data-t="e">50 records</span></li>
       <li><code>data/speakers.json</code> <span data-t="h">18 筆</span><span data-t="e">18 records</span></li>
       <li><code>data/sponsors.json</code> <span data-t="h">23 筆</span><span data-t="e">23 records</span></li>
       <li><code>data/orgs.json</code> <span data-t="h">58 筆</span><span data-t="e">58 records</span></li>
       <li><code>deliverables/accounts/cards.json</code> <span data-t="h">58 筆</span><span data-t="e">58 records</span></li>
-      <li><code>deliverables/research/01-room-and-forward.md</code> <span class="lk">01 — 這是什麼房間 + 前瞻訊號(P2b 維度 1)</span></li>
-      <li><code>deliverables/research/03-compare-build-vs-rent.md</code> <span class="lk">03 — 對照軸:自建 vs 租賃(P2b 維度 3)</span></li>
-      <li><code>deliverables/research/05-theses-and-actions.md</code> <span class="lk">05 — 論點與現場行動(P2b 維度 5)</span></li>
+      <li><code>deliverables/research/01-room-and-forward.md</code></li>
+      <li><code>deliverables/research/03-compare-build-vs-rent.md</code></li>
+      <li><code>deliverables/research/05-theses-and-actions.md</code></li>
     </ul>
-    <p><span data-t="h">帳戶板每一格的證據等級（計算值）：</span><span data-t="e">Evidence rank of every account-board cell (computed):</span></p>
+    <p><span data-t="h">帳戶板 362 格已填的證據等級（計算值）：</span><span data-t="e">Evidence rank of the 362 populated account-board cells (computed):</span></p>
     <p>
       <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span data-t="h">117 格</span><span data-t="e">117 cells</span>
-      <span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span> <span data-t="h">78 格</span><span data-t="e">78 cells</span>
-      <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span> <span data-t="h">162 格</span><span data-t="e">162 cells</span>
-      <span class="ev ev-gap"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">GAP</span><span data-t="e">GAP</span></span> <span data-t="h">107 格</span><span data-t="e">107 cells</span>
+      <span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span> <span data-t="h">80 格</span><span data-t="e">80 cells</span>
+      <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span> <span data-t="h">165 格</span><span data-t="e">165 cells</span>
+      <span class="ev ev-gap"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">GAP</span><span data-t="e">GAP</span></span> <span data-t="h">140 格</span><span data-t="e">140 cells</span>
     </p>
     <p><span data-t="h">目錄來源：</span><span data-t="e">Catalogue source:</span> <a href="https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue">https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue</a></p>
-    <p><span data-t="h">已登記的缺口：</span><span data-t="e">Registered gaps:</span></p><ul>
-      <li><span class="gap">GAP</span> <span class="why"><span data-t="h">Aug 26 (day 3 of 3) publishes NO sessions in the catalogue as of 2026-08-17 — GAP, not 'no sessions'</span><span data-t="e">Aug 26 (day 3 of 3) publishes NO sessions in the catalogue as of 2026-08-17 — GAP, not 'no sessions'</span></span></li>
-      <li><span class="gap">GAP</span> <span class="why"><span data-t="h">no session card exposes a speaker; speakers.json is a PARTIAL roster from the marketing page ('and others')</span><span data-t="e">no session card exposes a speaker; speakers.json is a PARTIAL roster from the marketing page ('and others')</span></span></li>
-      <li><span class="gap">GAP</span> <span class="why"><span data-t="h">seats/capacity not exposed on any card</span><span data-t="e">seats/capacity not exposed on any card</span></span></li>
-      <li><span class="gap">GAP</span> <span class="why"><span data-t="h">booth numbers not published</span><span data-t="e">booth numbers not published</span></span></li>
-    </ul>
   </div>
 </details>
 <nav class="xlink" aria-label="Previous and next / 前後頁">

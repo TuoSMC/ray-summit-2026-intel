@@ -13,6 +13,12 @@ Three jobs, all of them structural, none of them prose:
   3. FRESHNESS (B8) — every time-sensitive block carries "狀態截至 YYYY-MM-DD".
      A block marked data-fresh="1" that has no stamp slot is a fail: an intel
      page without a date is a rumour, and the reader cannot tell which.
+  4. DRAWERS — every <details> opens with a <summary>, and every <summary>
+     carries a scent line. A drawer whose handle says only "Accounts" forces
+     the reader to open all of them to find anything, which is worse than no
+     drawer at all; the contract is title PLUS a count or a verdict. A
+     <details> with no <summary> is worse still — the browser invents the word
+     "Details" and the section becomes invisible.
 
 Idempotent: it consumes the <!--NAV--> marker, and re-running replaces the nav
 it already wrote and leaves filled stamps alone.
@@ -36,6 +42,10 @@ STATE_P = os.path.join(ROOT, 'STATE.json')
 STAMP_SLOT = re.compile(r'(<p class="stamp"[^>]*data-fresh="1"[^>]*>)\s*(</p>)')
 FRESH_TAG = re.compile(r'<(\w+)\b[^>]*\bdata-fresh="1"[^>]*>')
 NAV_BLOCK = re.compile(r'<nav class="nav".*?</nav>', re.S)
+DETAILS_OPEN = re.compile(r'<details\b[^>]*>')
+SUMMARY = re.compile(r'<summary\b[^>]*>(.*?)</summary>', re.S)
+TAGS_RE = re.compile(r'<[^>]+>')
+INERT = re.compile(r'<(style|script)\b[^>]*>.*?</\1>', re.S | re.I)
 XLINK_BLOCK = re.compile(r'<nav class="xlink".*?</nav>', re.S)
 HREF = re.compile(r'href\s*=\s*"([^"]*)"')
 
@@ -129,7 +139,7 @@ def main():
     bilingual = len(langs) > 1
     by_base = {p['file']: i for i, p in enumerate(pages)}
 
-    fails, touched, stamps = [], 0, 0
+    fails, touched, stamps, drawers = [], 0, 0, {}
     for f in sorted(os.listdir(PAGES)):
         if not f.endswith('.html'):
             continue
@@ -178,6 +188,31 @@ def main():
         if stamp_text not in doc:
             fails.append('%s carries no freshness stamp at all (B8)' % f)
 
+        # ---- 4. drawer integrity -----------------------------------------
+        # <style> and <script> are inert here: the stylesheet legitimately
+        # NAMES the element it styles, and a CSS comment is not a drawer.
+        body_doc = INERT.sub(lambda m: ' ' * len(m.group(0)), doc)
+        n_det = len(DETAILS_OPEN.findall(body_doc))
+        n_sum = 0
+        for m in DETAILS_OPEN.finditer(body_doc):
+            rest = body_doc[m.end():]
+            if not rest.lstrip().startswith('<summary'):
+                fails.append('%s has a <details> that does not open with a <summary> — the browser '
+                             'would invent the word "Details" and the section would go invisible'
+                             % f)
+                continue
+            n_sum += 1
+            s0 = m.end() + rest.index('<summary')
+            s1 = body_doc.find('</summary>', s0)
+            inner = body_doc[s0:s1] if s1 > 0 else ''
+            if 'class="dr-s"' not in inner:
+                fails.append('%s has a <summary> with no scent line: "%s". A closed drawer still '
+                             'has to say what is inside and how much of it'
+                             % (f, TAGS_RE.sub('', inner).strip()[:50]))
+            elif len(TAGS_RE.sub(' ', inner).split()) < 2:
+                fails.append('%s has an empty <summary>' % f)
+        drawers[f] = (n_det, n_sum)
+
         io.open(path, 'w', encoding='utf-8').write(doc)
         touched += 1
 
@@ -185,8 +220,9 @@ def main():
         for x in fails:
             print('structure_pass: FAIL %s' % x)
         sys.exit('structure_pass: %d FAIL' % len(fails))
-    print('structure_pass: %d pages — nav + cross-links + %d freshness stamps (%s)'
-          % (touched, stamps, stamp_text))
+    print('structure_pass: %d pages — nav + cross-links + %d freshness stamps (%s) — '
+          'drawers %d, every one with a summary and a scent line'
+          % (touched, stamps, stamp_text, sum(d for d, _s in drawers.values())))
 
 
 main()

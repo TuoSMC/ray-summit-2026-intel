@@ -14,8 +14,7 @@
         "agenda",
         "gtm",
         "accounts",
-        "compare",
-        "glossary"
+        "compare"
       ],
       "depth": []
     },
@@ -320,6 +319,141 @@
       "outputTokens": 0,
       "at": "2026-08-17T16:50:22-07:00",
       "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:11:02-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:11:02-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:46:27-07:00",
+      "wallSeconds": 0,
+      "note": "5 pages built from accounts, agenda, command-center, compare, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:46:27-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:47:43-07:00",
+      "wallSeconds": 0,
+      "note": "5 pages built from accounts, agenda, command-center, compare, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:47:43-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:48:22-07:00",
+      "wallSeconds": 0,
+      "note": "5 pages built from accounts, agenda, command-center, compare, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:48:22-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:49:04-07:00",
+      "wallSeconds": 0,
+      "note": "5 pages built from accounts, agenda, command-center, compare, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:49:04-07:00",
+      "wallSeconds": 0
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:51:55-07:00",
+      "wallSeconds": 0,
+      "note": "5 pages built from accounts, agenda, command-center, compare, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:51:55-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:57:38-07:00",
+      "wallSeconds": 0,
+      "note": "5 pages built from accounts, agenda, command-center, compare, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:57:38-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:58:29-07:00",
+      "wallSeconds": 0,
+      "note": "5 pages built from accounts, agenda, command-center, compare, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:58:29-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:59:30-07:00",
+      "wallSeconds": 0,
+      "note": "5 pages built from accounts, agenda, command-center, compare, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T17:59:30-07:00",
+      "wallSeconds": 1
     }
   ],
   "pages": [
@@ -351,12 +485,6 @@
       "file": "docs/compare.html",
       "role": "compare",
       "title": "對位",
-      "lang": "h"
-    },
-    {
-      "file": "docs/glossary.html",
-      "role": "glossary",
-      "title": "詞彙",
       "lang": "h"
     }
   ],
@@ -457,6 +585,16 @@
       "source": "user",
       "decision": "USER OVERRIDE of RULES B15. Asked for a public GitHub repo + GitHub Pages, as-is, after being shown exactly what ships publicly: 12 cards carrying named-individual tactics (Corner Jacob Yundt / Intercept Josh Payne), explicit displacement lines (Displace HPE at BMW; the racks Dell owns while sitting on Nscale's cap table), a 26-company ruled-out list, and SMCI-facing competitive intel (CoreWeave top-supplier share 57%->23%). Risk stated as irreversible: forks, search indexing, archive.org. User confirmed. Recorded here rather than applied silently.",
       "supersedes": "B15 for this campaign only"
+    },
+    {
+      "date": "2026-08-17",
+      "source": "user",
+      "decision": "P0 deletes the glossary role (RULES B12 allows P0 to name a deletion). Core budget is five: command-center, agenda, gtm, accounts, compare. Reason from the reader: the built glossary was the pack explaining its own machinery back to the reader — our field names (ledger_id, asOf), our token (GAP), our taxonomy (landlord/operator/tenant/channel), our evidence-tier labels — plus counts already rendered on agenda and accounts. None of it is floor language. Not relocated; deleted."
+    },
+    {
+      "date": "2026-08-17",
+      "source": "user",
+      "decision": "glossary page DELETED from the core budget (5 pages: command-center, agenda, gtm, accounts, compare). Reason: every section on it was the pack explaining its own machinery back to the reader - field names (ledger_id, asOf), our own GAP token, our buyer-layer taxonomy, our evidence-tier labels, plus tag/tier/role counts already rendered on agenda and accounts, plus the i18n termbase which is build infrastructure. Standing rule carried forward: the pack never documents itself to the reader; if a cell needs explaining, the explanation is the cell's own caption, inline at the point of use."
     }
   ],
   "corrections": [

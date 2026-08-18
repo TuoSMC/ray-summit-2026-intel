@@ -149,3 +149,10 @@
   **豁免範圍僅限本戰役,不上行 governor RULES。** 下一場活動 B15 原文全效,除非再次明示豁免。
   **揭露內容已於決定前逐項列出**:12 張指名個人的戰術卡、指名取代競爭對手的句子、26 家 ruled-out 名單、SMCI 對 CoreWeave 供應占比的競爭情報。風險已說明為不可逆(fork / 索引 / archive.org)。
   〔Ray-Summit-2026,2026-08-17,使用者決定,記於 STATE.decisions[]〕
+- **R12 建置基礎設施不准渲染給讀者。** `data/termbase.json` 是 i18n 翻譯記憶(存在理由是 B7:簡中要查詞彙表,不能用字元轉換工具),只有 `i18n_overlay` 該讀它。它被接進 glossary 頁,結果讀者看到「bandwidth 頻寬 / server 伺服器 / software 軟體」——業務當然知道這些字,這讓整頁看起來像半成品。
+  **判準:一個檔案如果是「給產生器看的」,它就不該有渲染路徑。** glossary 要放的是**會場語言**(Ray Data / vLLM / MoE / prefill-decode 拆分 / NVL72 / VLA / neocloud / whitebox),而且每條要能回答「業務為什麼要在意」——答不出來的詞不該上頁面。
+  〔Ray-Summit-2026:build_fragments.py:1097 把 termbase.terms 倒進 glossary〕
+- **R13 這包東西不對讀者解釋它自己。** 內部欄位名(`ledger_id`、`asOf`)、內部 token(`GAP`)、內部分類法(landlord/operator/tenant/channel)、證據等級標籤、產線概念,**全部不上讀者面**。它們是給產生器和 gate 看的。
+  一個詞如果需要讀者翻到別處查,它在會場上就已經失敗了——**要解釋就解釋在那一格自己的說明文字裡**,不開參考章節。
+  同理,已經在別頁算過的數字不要再開一頁重列一次。
+  〔Ray-Summit-2026:glossary 整頁被讀者退回,核心頁由六降五〕

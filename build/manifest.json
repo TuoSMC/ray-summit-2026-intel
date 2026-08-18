@@ -52,15 +52,6 @@
       "nav": "對位",
       "nav_e": "Matchup",
       "frag": "build/frag/compare.html"
-    },
-    {
-      "role": "glossary",
-      "file": "glossary.html",
-      "title": "詞彙",
-      "title_e": "Glossary",
-      "nav": "詞彙",
-      "nav_e": "Glossary",
-      "frag": "build/frag/glossary.html"
     }
   ]
 }

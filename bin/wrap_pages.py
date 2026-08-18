@@ -164,7 +164,7 @@ a:hover{color:var(--ink)}
   font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 /* A locked run stays locked when it IS the headline; locking is about the
    content being identical in every language, not about wearing mono. */
-.acct h3 .lk,.play h2 .lk{font-family:var(--f-display);font-size:inherit;
+.dr-t .lk,.acct h3 .lk{font-family:var(--f-display);font-size:inherit;
   letter-spacing:inherit}
 .gap{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
   font-weight:700;letter-spacing:.1em;color:var(--gap-fg);
@@ -196,6 +196,10 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
 .ev-third .ev-mark{background:transparent}
 .ev-unverified{color:var(--ink-3)}
 .ev-unverified .ev-mark{border-style:dotted;background:transparent}
+/* The rank chip is a rank, and the status chip is a state. They must never be
+   mistaken for one another: the rank wears a mark and a hairline on card
+   ground, the status wears sunk ground and no mark. */
+:root[data-lang="e"] .ev{text-transform:uppercase}
 .chip{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
   letter-spacing:.06em;color:var(--ink-2);background:var(--sunk);
   border-radius:3px;padding:3px 8px;margin:2px 6px 2px 0}
@@ -233,17 +237,62 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
 .acts b{display:block;font-size:var(--t-h3);font-family:var(--f-display);
   line-height:1.4;margin-bottom:var(--s1)}
 
-/* --- day filter (pure CSS, no JS) ----------------------------------------- */
-.dayin{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
-.dayset{margin:var(--s4) 0 0;display:flex;flex-wrap:wrap;gap:var(--s2)}
-.daylab{display:inline-flex;align-items:center;gap:var(--s2);min-height:44px;
-  padding:0 var(--s4);background:var(--card);border:1px solid var(--rule);
-  border-radius:4px;font-size:var(--t-cap);font-weight:700;color:var(--ink-2);
-  cursor:pointer}
-.daylab .lk{font-size:var(--t-cap);color:inherit}
-.dayin:focus + .daylab{outline:2px solid var(--focus);outline-offset:2px}
-.dayin:checked + .daylab{background:var(--ink);border-color:var(--ink);
-  color:var(--paper)}
+/* --- drawers: every section and every subsection --------------------------
+   Native <details>. No JS accordion: <details> is keyboard-operable, is found
+   by the browser's own find-in-page even while closed in modern engines, and
+   prints. The summary always carries a title AND a scent line, so a closed
+   drawer still informs (RULES C6: >=44px target, visible focus ring). */
+details.dr{background:var(--card);border:1px solid var(--rule);border-radius:4px;
+  margin:0 0 var(--s3)}
+details.dr > summary{list-style:none;display:block;cursor:pointer;position:relative;
+  min-height:44px;padding:var(--s3) var(--s4) var(--s3) var(--s6);
+  -webkit-user-select:none;user-select:none}
+details.dr > summary::-webkit-details-marker{display:none}
+details.dr > summary::marker{content:""}
+details.dr > summary::before{content:"";position:absolute;left:var(--s4);
+  top:calc(var(--s3) + .55em);width:7px;height:7px;
+  border-right:2px solid var(--ink-2);border-bottom:2px solid var(--ink-2);
+  transform:rotate(-45deg)}
+details.dr[open] > summary::before{transform:rotate(45deg)}
+details.dr > summary:hover{background:var(--accent-bg)}
+details.dr > summary:focus-visible{outline:2px solid var(--focus);
+  outline-offset:-2px}
+.dr-t{display:block;font-family:var(--f-display);font-size:var(--t-h3);
+  font-weight:700;line-height:1.36}
+.dr-t .lk{font-family:var(--f-display);font-size:inherit;letter-spacing:inherit}
+.dr-s{display:block;font-size:var(--t-cap);color:var(--ink-2);line-height:1.45;
+  margin-top:2px}
+.dr-s .lk{font-size:var(--t-cap);color:var(--ink-2)}
+.dr-b{padding:var(--s2) var(--s4) var(--s4);border-top:1px solid var(--rule)}
+.dr-b > :first-child{margin-top:var(--s4)}
+.dr-b > h2:first-child,.dr-b > h3:first-child{margin-top:var(--s4)}
+.sep{color:var(--ink-3);padding:0 2px}
+
+/* Top-level drawers read as SECTIONS: heavy rule, display-size title, no card
+   chrome. Nested drawers read as cards. One component, two altitudes. */
+main > details.dr{background:transparent;border:0;
+  border-top:2px solid var(--rule-hard);border-radius:0;margin:0 0 var(--s7)}
+main > details.dr > summary{padding:var(--s4) 0 var(--s4) var(--s6)}
+main > details.dr > summary::before{left:var(--s1);top:calc(var(--s4) + .62em);
+  width:9px;height:9px;border-color:var(--ink)}
+main > details.dr > summary:hover{background:transparent}
+main > details.dr > summary:hover .dr-t{color:var(--accent)}
+main > details.dr > summary .dr-t{font-size:var(--t-h2);letter-spacing:-.012em;
+  line-height:1.28}
+main > details.dr > .dr-b{border-top:0;padding:0 0 var(--s5)}
+main > details.dr.verdict{border-top:3px solid var(--accent)}
+main > details.dr.verdict > summary{padding-left:var(--s6)}
+main > details.dr.verdict h1{margin:0}
+.dr-lede{display:block;font-size:var(--t-lede);line-height:1.55;
+  color:var(--ink-2);margin-top:var(--s3);max-width:var(--measure)}
+main > details.dr.caveat{background:var(--gap-bg);border:1px dashed var(--gap-fg);
+  border-radius:4px;padding:0 var(--s4)}
+main > details.dr.caveat > summary::before{border-color:var(--gap-fg)}
+main > details.dr.caveat > .dr-b{padding-bottom:var(--s5)}
+main > details.dr.method{border-top:1px solid var(--rule)}
+main > details.dr.method .dr-t{font-size:var(--t-h3)}
+main > details.dr.method .dr-b{font-size:var(--t-cap);color:var(--ink-2)}
+main > details.dr.method .dr-b ul{padding-left:var(--s5)}
 
 /* --- sessions ------------------------------------------------------------- */
 .ses{list-style:none;margin:var(--s5) 0 0;padding:0;display:grid;
@@ -255,14 +304,15 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
 .ses h3{margin:var(--s3) 0 var(--s2);font-size:var(--t-h3)}
 .ses .where{margin:0 0 var(--s2);font-size:var(--t-cap);color:var(--ink-2)}
 .ses .tags{margin:var(--s2) 0 0}
-#day-d1:checked ~ .ses > li:not([data-daykey="d1"]),
-#day-d2:checked ~ .ses > li:not([data-daykey="d2"]),
-#day-d3:checked ~ .ses > li:not([data-daykey="d3"]),
-#day-d4:checked ~ .ses > li:not([data-daykey="d4"]),
-#day-d5:checked ~ .ses > li:not([data-daykey="d5"]),
-#day-d6:checked ~ .ses > li:not([data-daykey="d6"]),
-#day-d7:checked ~ .ses > li:not([data-daykey="d7"]),
-#day-d8:checked ~ .ses > li:not([data-daykey="d8"]){display:none}
+/* A session that carries a hardware-demand signal earns a heavier top edge and
+   says WHICH probe matched, so the mark is auditable rather than a label. */
+.ses > li.is-hw{border-top:3px solid var(--ink)}
+.ses .hw{margin:var(--s3) 0 0;font-size:var(--t-cap);color:var(--ink-2);
+  padding-top:var(--s2);border-top:1px solid var(--rule)}
+.hwm{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
+  letter-spacing:.06em;color:var(--paper);background:var(--ink);border-radius:3px;
+  padding:2px 7px;margin-right:var(--s2)}
+.hwm .lk{color:var(--paper);font-size:var(--t-micro)}
 
 /* --- room ledger ---------------------------------------------------------- */
 .rooms{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;
@@ -286,7 +336,6 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
 .caveat .why{color:var(--gap-fg)}
 
 /* --- plays ---------------------------------------------------------------- */
-.play{border-top:2px solid var(--rule-hard);padding-top:var(--s4)}
 .play dl{margin:var(--s4) 0 0;display:grid;gap:0;
   grid-template-columns:1fr}
 .play dt{font-size:var(--t-micro);letter-spacing:.09em;font-weight:700;
@@ -295,7 +344,7 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
 .play dd{margin:var(--s2) 0 var(--s4);max-width:var(--measure)}
 
 /* --- register table (C3: stacks below 720px) ------------------------------ */
-.regwrap{margin:var(--s4) 0 0}
+.regwrap{margin:var(--s4) 0 0;overflow-x:auto}
 .reg{width:100%;border-collapse:collapse}
 .reg th,.reg td{text-align:left;vertical-align:top;font-size:var(--t-cap);
   padding:var(--s3);border-bottom:1px solid var(--rule)}
@@ -319,17 +368,38 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
   color:var(--ink-2);font-variant-numeric:tabular-nums}
 .band .banddesc{margin:var(--s2) 0 0;font-size:var(--t-cap);color:var(--ink-2);
   max-width:var(--measure)}
-.accts{list-style:none;margin:var(--s5) 0 0;padding:0;display:grid;
-  gap:var(--s3);grid-template-columns:repeat(auto-fill,minmax(min(100%,272px),1fr))}
-.acct{min-width:0;background:var(--card);border:1px solid var(--rule);
-  border-radius:4px;padding:var(--s4)}
-.acct.is-gap{border-style:dashed}
-.acct h3{margin:0 0 var(--s2);font-size:var(--t-h3)}
-.acct dl{margin:var(--s3) 0 0}
-.acct dt{font-size:var(--t-micro);letter-spacing:.09em;color:var(--ink-3);
-  margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--rule)}
-.acct dt:first-of-type{border-top:0;padding-top:0;margin-top:0}
-.acct dd{margin:var(--s1) 0 0;font-size:var(--t-cap)}
+/* An account is a DRAWER, so the band is a stack, not a grid: opening one card
+   must not reflow its neighbours out from under a thumb. */
+.accts{margin:var(--s5) 0 0;padding:0}
+details.acct{min-width:0}
+details.acct.is-full{border-left:1px solid var(--ink)}
+.fullmark{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
+  letter-spacing:.08em;color:var(--paper);background:var(--ink);border-radius:3px;
+  padding:2px 7px;margin-left:var(--s2);vertical-align:middle}
+.badges{margin:0 0 var(--s3)}
+.cells{margin:var(--s3) 0 0}
+.cells dt{font-size:var(--t-micro);letter-spacing:.09em;color:var(--ink-3);
+  margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--rule);
+  text-transform:none}
+.cells dt:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.cells .cap{display:block;font-size:var(--t-cap);letter-spacing:0;
+  color:var(--ink-2);margin-top:2px;max-width:var(--measure)}
+.cells dd{margin:var(--s2) 0 0;font-size:var(--t-cap)}
+.conf{margin:var(--s4) 0 0;font-size:var(--t-cap);padding-top:var(--s3);
+  border-top:1px solid var(--rule)}
+.cf{display:inline-block;font-size:var(--t-micro);border:1px solid var(--rule);
+  border-radius:3px;padding:3px 8px;margin:2px 6px 2px 0;color:var(--ink-2)}
+.cf-h{border-color:var(--ink);color:var(--ink)}
+.nextact{margin:var(--s4) 0 0;padding:var(--s3) var(--s4);background:var(--sunk);
+  border-radius:4px;font-size:var(--t-cap);max-width:var(--measure)}
+.nextact b{display:block;font-family:var(--f-display);font-size:var(--t-h3);
+  margin-bottom:var(--s1)}
+details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
+.spell{list-style:none;margin:var(--s2) 0 0;padding:0}
+.spell li{padding:var(--s2) 0;border-top:1px solid var(--rule)}
+.spell li:first-child{border-top:0}
+.dt2{margin:var(--s5) 0 var(--s2);font-family:var(--f-display);
+  font-size:var(--t-h3);font-weight:700}
 
 /* --- compare -------------------------------------------------------------- */
 .axes{display:grid;gap:var(--s5);
@@ -350,25 +420,41 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
   padding:var(--s2) var(--s3);font-family:var(--f-mono);
   font-size:var(--t-micro);color:var(--ink-2);overflow-wrap:anywhere}
 
-/* --- glossary ------------------------------------------------------------- */
-.terms{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;
-  gap:0;grid-template-columns:repeat(auto-fill,minmax(min(100%,232px),1fr))}
-.term{min-width:0;padding:var(--s3) var(--s4) var(--s3) 0;
-  border-top:1px solid var(--rule)}
-.term b{display:block;font-family:var(--f-mono);font-size:var(--t-mono);
-  color:var(--ink)}
-.term .cn{display:block;font-size:var(--t-cap);margin-top:2px}
-.term .tail{display:block;font-size:var(--t-micro);color:var(--ink-3);
-  margin-top:var(--s1)}
-
-/* --- method + footer ------------------------------------------------------ */
-.method{border-top:1px solid var(--rule);padding-top:var(--s4)}
-.method summary{cursor:pointer;font-size:var(--t-cap);font-weight:700;
-  min-height:44px;display:flex;align-items:center}
-.method .body{font-size:var(--t-cap);color:var(--ink-2);
+/* --- evidence-bearing prose ----------------------------------------------- */
+.ev-list,.donts{list-style:none;margin:var(--s4) 0 0;padding:0;
   max-width:var(--measure)}
-.method .body ul{padding-left:var(--s5)}
-.method .body li{margin-bottom:var(--s2)}
+.ev-list > li,.donts > li{padding:var(--s4) 0;border-top:1px solid var(--rule)}
+.ev-list > li:first-child,.donts > li:first-child{border-top:0;padding-top:0}
+.srcl{overflow-wrap:anywhere}
+.punch{margin:var(--s4) 0 0;font-family:var(--f-display);font-size:var(--t-lede);
+  line-height:1.5;max-width:var(--measure)}
+.askq{margin:var(--s3) 0 0;padding:var(--s3) var(--s4);background:var(--sunk);
+  border-radius:4px;font-family:var(--f-display);font-size:var(--t-lede);
+  line-height:1.5;max-width:var(--measure)}
+.meta-row{margin:var(--s2) 0 0;font-size:var(--t-cap);color:var(--ink-2)}
+.actses{margin:0;font-family:var(--f-display);font-size:var(--t-h3);
+  font-weight:700;line-height:1.4}
+.actses .lk{font-family:var(--f-display);font-size:inherit;
+  letter-spacing:inherit}
+.acts .why{display:block;margin:var(--s2) 0 var(--s4)}
+.formula{margin:var(--s3) 0;padding:var(--s3) var(--s4);background:var(--sunk);
+  border-radius:3px;font-family:var(--f-mono);font-size:var(--t-mono);
+  color:var(--ink);overflow-x:auto;max-width:100%}
+.q{margin:var(--s4) 0 0;padding:var(--s5) var(--s4);background:var(--sunk);
+  border-radius:4px;font-family:var(--f-display);font-size:var(--t-lede);
+  line-height:1.55;max-width:var(--measure)}
+.thesis{margin:var(--s3) 0 0}
+.thesis dt{font-size:var(--t-micro);letter-spacing:.09em;color:var(--ink-3);
+  margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--rule)}
+.thesis dt:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.thesis dt.kill{color:var(--gap-fg)}
+.thesis dd{margin:var(--s2) 0 0;max-width:var(--measure)}
+.odds{list-style:none;margin:var(--s4) 0 0;padding:0;max-width:var(--measure)}
+.odds > li{padding:var(--s4) 0;border-top:1px solid var(--rule)}
+.odds > li:first-child{border-top:0;padding-top:0}
+.rank{display:inline-block;min-width:22px;font-family:var(--f-mono);
+  font-weight:700;color:var(--accent)}
+.rank .lk{color:var(--accent);font-weight:700}
 .xlink{display:flex;flex-wrap:wrap;gap:var(--s4);justify-content:space-between;
   border-top:1px solid var(--rule);padding-top:var(--s4)}
 .xlink a{min-width:0;font-size:var(--t-cap);font-weight:700;
@@ -403,11 +489,22 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
   main{padding-top:var(--s6)}
 }
 @media (prefers-reduced-motion:no-preference){
-  .langbtn,.nav a,.daylab,a{transition:background-color 140ms
+  .langbtn,.nav a,a,details.dr > summary{transition:background-color 140ms
     cubic-bezier(.2,.7,.2,1),border-color 140ms cubic-bezier(.2,.7,.2,1),
     color 140ms cubic-bezier(.2,.7,.2,1)}
 }
+/* Paper has no disclosure control: on print every drawer is open, because a
+   printout of collapsed summaries is a table of contents with no book. */
 @media print{
+  details{display:block}
+  details>*{display:block!important}
+  details::details-content{content-visibility:visible!important;
+    display:block!important;block-size:auto!important;overflow:visible!important}
+  details.dr>summary::before{display:none}
+  details.dr,details.acct,details.deep{border:0;background:none;
+    break-inside:avoid;page-break-inside:avoid}
+  main>details.dr{border-top:1px solid #14161A}
+  .dr-b{border-top:0;padding-left:0;padding-right:0}
   .langsw,.nav,.xlink{display:none}
   body{background:#FFFFFF}
   [data-t="e"]{display:none}

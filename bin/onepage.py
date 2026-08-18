@@ -38,7 +38,6 @@ ORDER = [
     ('gtm',            'gtm.html',       'plays'),
     ('accounts',       'accounts.html',  'accounts'),
     ('compare',        'compare.html',   'matchup'),
-    ('glossary',       'glossary.html',  'glossary'),
 ]
 
 state = json.load(io.open(STATE_P, encoding='utf-8'))
@@ -81,7 +80,7 @@ for role, fn, anchor in ORDER:
 LABELS = {
     'war-room': ('作戰台', 'War Room'), 'agenda': ('議程', 'Agenda'),
     'plays': ('打法', 'Plays'), 'accounts': ('帳戶板', 'Accounts'),
-    'matchup': ('對位', 'Matchup'), 'glossary': ('詞彙', 'Glossary'),
+    'matchup': ('對位', 'Matchup'),
 }
 nav_items = '\n'.join(
     '    <li><a href="#%s"><span data-t="h">%s</span><span data-t="e">%s</span></a></li>'

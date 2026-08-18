@@ -9,7 +9,6 @@
   "gtm":            { "requires": ["segment-play", "d-register"] },
   "accounts":       { "requires": ["layer-band", "card-grid", "gap-visible"], "source": "deliverables/accounts/cards.json" },
   "compare":        { "requires": ["axis-from-STATE"], "forbids": ["axis-not-in-STATE"] },
-  "glossary":       { "requires": ["term-chip"] },
 
   "_depthNote": "Depth roles below are built ONLY when STATE.campaign.pageBudget.depth names them (RULES B12). They declare no required blocks until P0 declares them; pageBudget membership is still enforced.",
   "speakers":     { "requires": [], "source": "data/speakers.json" },
