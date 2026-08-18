@@ -577,9 +577,11 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 .xr-org{font-weight:700}
 /* A chip mention keeps its mono face — it is still a locked run — and picks up
    only a dotted rule, because 15 linked "H100"s on one page must not shout. */
-.xr-chip{border-bottom-style:dotted;border-bottom-color:var(--ink-3)}
-.xr-chip .lk{color:var(--ink)}
-.xr-chip:hover .lk{color:var(--accent)}
+.xr-chip{font-family:var(--f-mono);font-size:var(--t-mono);color:var(--ink);
+  font-variant-numeric:tabular-nums;
+  border-bottom:1px dotted var(--ink-3)}
+.xr-chip:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.lk .xr-chip{font-size:inherit}
 
 /* --------------------------------------------------------- chip records --- */
 .chips{list-style:none;margin:var(--s4) 0 0;padding:0}

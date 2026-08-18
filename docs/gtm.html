@@ -524,9 +524,11 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 .xr-org{font-weight:700}
 /* A chip mention keeps its mono face — it is still a locked run — and picks up
    only a dotted rule, because 15 linked "H100"s on one page must not shout. */
-.xr-chip{border-bottom-style:dotted;border-bottom-color:var(--ink-3)}
-.xr-chip .lk{color:var(--ink)}
-.xr-chip:hover .lk{color:var(--accent)}
+.xr-chip{font-family:var(--f-mono);font-size:var(--t-mono);color:var(--ink);
+  font-variant-numeric:tabular-nums;
+  border-bottom:1px dotted var(--ink-3)}
+.xr-chip:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.lk .xr-chip{font-size:inherit}
 
 /* --------------------------------------------------------- chip records --- */
 .chips{list-style:none;margin:var(--s4) 0 0;padding:0}
@@ -702,9 +704,9 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
   <div class="itms">
 <section class="itm" id="i-theses-t1">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">1</span><span class="itm-l"><span class="lk">T1</span> <span data-t="h">OEM 綁定已成形，縫隙在 Lambda 與未公開供應商的中小新雲。</span><span data-t="e">The OEM lock has already set. The seam is Lambda plus the mid-size neoclouds that have never named a supplier.</span></span><span class="itm-tag"><span data-t="h">可被推翻</span><span data-t="e">falsifiable</span></span><a class="itm-a" href="#i-theses-t1" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
-  <p class="itm-w"><span data-t="h">交付 CoreWeave 市場首套 GB300 NVL72 與首套 Vera Rubin NVL72 的是 Dell；Nscale 用 Dell PowerEdge XE9712 整櫃交付，且已簽微軟約二十萬顆 GB300。Verda 自有 Helsinki 與冰島機房、剛募得新資金，硬體供應商未證。</span><span data-t="e">Dell delivered the market-first GB300 NVL72 and the first Vera Rubin NVL72 to CoreWeave, and Nscale takes Dell PowerEdge XE9712 as integrated racks while holding a Microsoft contract for about two hundred thousand GB300. Verda owns halls in Helsinki and Iceland and has just raised — and has never named a hardware supplier.</span></p>
+  <p class="itm-w"><span data-t="h">交付 CoreWeave 市場首套 <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300 NVL72</a> 與首套 Vera Rubin NVL72 的是 Dell；Nscale 用 Dell PowerEdge XE9712 整櫃交付，且已簽微軟約二十萬顆 <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300</a>。Verda 自有 Helsinki 與冰島機房、剛募得新資金，硬體供應商未證。</span><span data-t="e">Dell delivered the market-first <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300 NVL72</a> and the first Vera Rubin NVL72 to CoreWeave, and Nscale takes Dell PowerEdge XE9712 as integrated racks while holding a Microsoft contract for about two hundred thousand <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300</a>. Verda owns halls in Helsinki and Iceland and has just raised — and has never named a hardware supplier.</span></p>
   <div class="itm-b">    <dl class="thesis">
-      <dt><span data-t="h">證據</span><span data-t="e">Evidence</span></dt><dd><span data-t="h">交付 CoreWeave 市場首套 GB300 NVL72 與首套 Vera Rubin NVL72 的是 Dell；Nscale 用 Dell PowerEdge XE9712 整櫃交付，且已簽微軟約二十萬顆 GB300。Verda 自有 Helsinki 與冰島機房、剛募得新資金，硬體供應商未證。</span><span data-t="e">Dell delivered the market-first GB300 NVL72 and the first Vera Rubin NVL72 to CoreWeave, and Nscale takes Dell PowerEdge XE9712 as integrated racks while holding a Microsoft contract for about two hundred thousand GB300. Verda owns halls in Helsinki and Iceland and has just raised — and has never named a hardware supplier.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></dd>
+      <dt><span data-t="h">證據</span><span data-t="e">Evidence</span></dt><dd><span data-t="h">交付 CoreWeave 市場首套 <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300 NVL72</a> 與首套 Vera Rubin NVL72 的是 Dell；Nscale 用 Dell PowerEdge XE9712 整櫃交付，且已簽微軟約二十萬顆 <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300</a>。Verda 自有 Helsinki 與冰島機房、剛募得新資金，硬體供應商未證。</span><span data-t="e">Dell delivered the market-first <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300 NVL72</a> and the first Vera Rubin NVL72 to CoreWeave, and Nscale takes Dell PowerEdge XE9712 as integrated racks while holding a Microsoft contract for about two hundred thousand <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300</a>. Verda owns halls in Helsinki and Iceland and has just raised — and has never named a hardware supplier.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></dd>
       <dt class="kill"><span data-t="h">什麼話會當場推翻它</span><span data-t="e">What kills it on the spot</span></dt><dd><span data-t="h">現場任何一位新雲工程師說整櫃供應商是多源、或正在認證第二供應商，T1 立刻失效，改打正面競標。</span><span data-t="e">If any neocloud engineer on the floor says racks are multi-sourced, or that a second supplier is being qualified, T1 is dead and you switch to bidding head-on.</span></dd>
     </dl>
     <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
@@ -810,10 +812,10 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 </section>
 <section class="itm" id="i-segments-enterprise-platform-team">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span class="lk">enterprise platform team</span></span><span class="itm-tag"><span data-t="h">23 家候選</span><span data-t="e">23 candidates</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">8 家買機器</span><span data-t="e">8 buy</span></span><a class="itm-a" href="#i-segments-enterprise-platform-team" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
-  <p class="itm-w"><span data-t="h">先問最舊的那批 GPU 節點是哪一代。世代分佈就是 refresh 時鐘。</span><span data-t="e">Open by asking which generation the oldest GPU nodes are. The generation spread is the refresh clock.</span></p>
+  <p class="itm-w"><span data-t="h">先問最舊的那批 GPU 節點是哪一代,以及那一批現在還在不在賺錢。</span><span data-t="e">Open by asking which generation the oldest GPU nodes are, and whether that batch still earns its keep.</span></p>
   <div class="itm-b">    <dl>
       <dt><span data-t="h">開場那一句</span><span data-t="e">The opening line</span></dt>
-      <dd><span data-t="h">先問最舊的那批 GPU 節點是哪一代。世代分佈就是 refresh 時鐘。</span><span data-t="e">Open by asking which generation the oldest GPU nodes are. The generation spread is the refresh clock.</span></dd>
+      <dd><span data-t="h">先問最舊的那批 GPU 節點是哪一代,以及那一批現在還在不在賺錢。</span><span data-t="e">Open by asking which generation the oldest GPU nodes are, and whether that batch still earns its keep.</span></dd>
       <dt><span data-t="h">現場候選</span><span data-t="e">On-site shortlist</span></dt>
       <dd><span class="chip">Alibaba</span><span class="chip">Autodesk</span><span class="chip">BMW Group</span><span class="chip">DeepMind</span><span class="chip">Elorian AI</span><span class="chip">Grab</span><span class="chip">Hyundai Motor Company</span><span class="chip">JPMorgan Chase</span><span class="chip">Latitude</span><span class="chip">Luma AI</span><span class="chip">Microsoft AI (MAI)</span><span class="chip">Microsoft</span><span class="chip">Motive</span><span class="chip">Notion</span><span class="chip">Pinterest</span><span class="chip">Prime Intellect</span><span class="chip">Recursion</span><span class="chip">Red Hat</span><span class="chip">Robinhood</span><span class="chip">SonderMind</span><span class="chip">Uber</span><span class="chip">Xoople</span><span class="chip">Zoox</span><span class="src"><span data-t="h">依 在現場被捕獲、但沒有攤位的公司，共 23 家</span><span data-t="e">by companies captured on the floor that hold no booth, 23 in total</span></span></dd>
       <dt><span data-t="h">其中自己買機器的</span><span data-t="e">Of those, buy their own machines</span></dt>
@@ -841,7 +843,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 </section>
 <section class="itm" id="i-questions-q3">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span class="lk">Q3</span> <span data-t="h">你們最舊的那批 GPU 節點是哪一代，現在還在跑什麼？</span><span data-t="e">Which generation is your oldest batch of GPU nodes, and what still runs on it?</span></span><a class="itm-a" href="#i-questions-q3" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
-  <p class="itm-w"><span data-t="h">世代分佈就是 refresh 時鐘。A100 或 H100 還在線＝十二到二十四個月內有一場汰換對話。</span><span data-t="e">The generation spread is the refresh clock. A100 or H100 still in service means a replacement conversation inside twelve to twenty-four months.</span></p>
+  <p class="itm-w"><span data-t="h">世代分佈告訴你機隊多舊,不等於快要換。NVIDIA 財務長說六年前的 <a class="xr xr-chip" href="compare.html#chip-a100-80gb">A100</a> 現在還在滿載跑、租金還在漲,CoreWeave 簽的 <a class="xr xr-chip" href="compare.html#chip-a100-80gb">A100</a> 合約到 2029。所以不要問「什麼時候換」,要問「舊的那批現在還在賺錢嗎」—— 答案是還在,那就代表他擴充會加機器,不是換機器。</span><span data-t="e">The generation spread tells you how old a fleet is, not that it is about to be replaced. NVIDIA's CFO says six-year-old A100s still run at full utilisation with rental prices rising, and CoreWeave has signed an <a class="xr xr-chip" href="compare.html#chip-a100-80gb">A100</a> contract running into 2029. So do not ask when they will replace it — ask whether the old batch still earns. If it does, their next expansion ADDS machines rather than swapping them.</span></p>
   <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
 </section>
 <section class="itm" id="i-questions-q4">
@@ -868,7 +870,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 </section>
 <section class="itm" id="i-dont-spec-opener">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span data-t="h">不用規格開場</span><span data-t="e">Do not open with a spec</span></span><a class="itm-a" href="#i-dont-spec-opener" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
-  <p class="itm-w"><span data-t="h">不要用「我們也有 GB300 NVL72」當開場。這房間買的是排程與利用率，規格開場會被歸類成機箱廠。</span><span data-t="e">Do not open with "we also have GB300 NVL72". This room buys scheduling and utilisation; a spec opener files you under box vendor.</span></p>
+  <p class="itm-w"><span data-t="h">不要用「我們也有 <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300 NVL72</a>」當開場。這房間買的是排程與利用率，規格開場會被歸類成機箱廠。</span><span data-t="e">Do not open with "we also have <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300 NVL72</a>". This room buys scheduling and utilisation; a spec opener files you under box vendor.</span></p>
   <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
 </section>
 <section class="itm" id="i-dont-unconfirmed-fleet">

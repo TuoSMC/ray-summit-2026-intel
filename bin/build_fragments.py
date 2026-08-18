@@ -944,7 +944,103 @@ def items_wrap(built):
 #
 # name, arch, announced, available, predecessor, successor, still_shipping,
 # read_h, read_e, sources[]
-CHIPS = []
+_NV = 'https://nvidianews.nvidia.com/news/'
+_Q1FY27 = ('https://s201.q4cdn.com/141608511/files/doc_financials/2027/q1/'
+           'NVDA-Q1-2027-Earnings-Call-20-May-2026-5_00-PM-ET.pdf')
+_10K26 = ('https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/'
+          'nvda-20260125.htm')
+
+CHIPS = [
+    dict(name='A100 80GB', aka=['A100', 'A100 80GB SXM', 'A100 SXM'], arch='Ampere',
+         announced='2020-11-16', available='2021-01', predecessor='A100 40GB',
+         successor='H100 (2022-03-22)',
+         still_shipping=('OEM 已停售,NVIDIA 從未發過 EOL —— 兩件事不衝突',
+                         'end-of-sale at the OEMs; NVIDIA never issued an EOL, and those are not '
+                         'in conflict'),
+         read_h='六年前的矽,但 NVIDIA 財務長說它在雲上被租滿、租金年初至今漲近 15%。'
+                '客戶手上的 A100 是資產不是包袱 —— 但 OEM 那邊已經買不到新的了。',
+         read_e='Six-year-old silicon that NVIDIA\'s own CFO says is sold out in the cloud with '
+                'rental up nearly 15% year-to-date. A customer\'s A100 fleet is an asset, not a '
+                'liability — but you cannot buy it new from an OEM any more.',
+         sources=[(_NV + 'nvidia-doubles-down-announces-a100-80gb-gpu-supercharging-worlds-most-powerful-gpu-for-ai-supercomputing', '2026-08-18'),
+                  (_Q1FY27, '2026-08-18')]),
+    dict(name='H100 SXM', aka=['H100', 'HGX H100'], arch='Hopper',
+         announced='2022-03-22', available='2022-10', predecessor='A100 80GB',
+         successor='H200 (2023-11-13) / B200 (2024-03-18)',
+         still_shipping=('NVIDIA 向 SEC 說已經轉離 Hopper HGX;Dell 仍在目錄裡,Lenovo 已撤',
+                         'NVIDIA told the SEC it has moved off selling Hopper HGX; Dell still '
+                         'catalogues it, Lenovo has withdrawn it'),
+         read_h='NVIDIA 在 10-K 裡用過去式寫「已從販售 Hopper HGX 轉向 Blackwell」。'
+                '沒有人發過 EOL 通知,但廠商自己已經走了 —— 客戶的機隊如果是 H100 SXM,'
+                '他的供應商比他先換了立場。',
+         read_e='NVIDIA\'s 10-K uses the past tense: it "transitioned from offering Hopper HGX '
+                'systems" to Blackwell. Nobody sent an EOL letter, but the vendor has already '
+                'moved — if a customer\'s fleet is H100 SXM, their supplier changed position '
+                'before they did.',
+         sources=[(_NV + 'nvidia-hopper-in-full-production', '2026-08-18'),
+                  (_10K26, '2026-08-18')]),
+    dict(name='H200', aka=['HGX H200', 'H200 NVL'], arch='Hopper',
+         announced='2023-11-13', available='2024-06', predecessor='H100 SXM',
+         successor='B200 (2024-03-18)',
+         still_shipping=('NVIDIA 頁面寫 Now available,但 Cisco 的最後訂購日是 2026-06-25',
+                         'NVIDIA\'s page says "Now available", but Cisco\'s last order date was '
+                         '2026-06-25'),
+         read_h='全表唯一有 2026 年 OEM 最後訂購日的一顆。客戶若把 H200 當成未來三年的答案,'
+                '那個答案在通路上已經開始關門了。',
+         read_e='The only part on this table carrying a 2026-dated OEM last-order date. If a '
+                'customer is treating H200 as their answer for the next three years, that answer '
+                'is already closing in the channel.',
+         sources=[(_NV + 'nvidia-supercharges-hopper-the-worlds-leading-ai-computing-platform', '2026-08-18'),
+                  ('https://www.nvidia.com/en-us/data-center/h200/', '2026-08-18')]),
+    dict(name='B200', aka=['HGX B200'], arch='Blackwell',
+         announced='2024-03-18', available='2025-02', predecessor='H100 SXM',
+         successor='B300 (2025-03-18)',
+         still_shipping=('NVIDIA 自己寫「HGX B300 and HGX B200 shipping now」',
+                         'NVIDIA\'s own page says "HGX B300 and HGX B200 shipping now"'),
+         read_h='還在出貨,但已經是兩張 Blackwell 板子裡比較舊的那一張,'
+                '而 NVIDIA 本季營收是 Blackwell 300 帶起來的。沒有特別理由就直接談 B300。',
+         read_e='Still shipping, but it is now the older of the two Blackwell HGX boards, and '
+                'NVIDIA\'s current quarter is driven by Blackwell 300. Absent a specific reason, '
+                'talk about B300 instead.',
+         sources=[(_NV + 'nvidia-blackwell-platform-arrives-to-power-a-new-era-of-computing', '2026-08-18'),
+                  ('https://www.nvidia.com/en-us/data-center/hgx/', '2026-08-18')]),
+    dict(name='B300', aka=['HGX B300', 'Blackwell Ultra', 'B300 NVL16', 'HGX B300 NVL16'],
+         arch='Blackwell Ultra',
+         announced='2025-03-18', available='2025-08', predecessor='B200',
+         successor='HGX Rubin NVL8 (2026-01-05)',
+         still_shipping=('NVIDIA 與我方都標 Now Shipping', 'both NVIDIA and we mark it Now Shipping'),
+         read_h='十二個月大,還是營收主力,而且是 Rubin 之前最後一張 Blackwell 世代板子 ——'
+                '這一代裡最安全的買點。發布時叫 HGX B300 NVL16,現在官網只寫 HGX B300,'
+                '對客戶講後者。',
+         read_e='Twelve months old, still the revenue engine, and the last Blackwell-generation '
+                'board before Rubin — the safe current-generation buy. It launched as "HGX B300 '
+                'NVL16" and nvidia.com now says just "HGX B300"; use the latter with customers.',
+         sources=[(_NV + 'nvidia-blackwell-ultra-ai-factory-platform-paves-way-for-age-of-ai-reasoning', '2026-08-18'),
+                  ('https://www.nvidia.com/en-us/data-center/hgx/', '2026-08-18')]),
+    dict(name='GB200 NVL72', aka=['GB200'], arch='Blackwell',
+         announced='2024-03-18', available='2025-02', predecessor='GAP',
+         successor='GB300 NVL72 (2025-03-18)',
+         still_shipping=('仍在產品線,但官網 CTA 還停在 2024 年的「Notify Me」,不要誤讀成還沒上市',
+                         'still in the line, but the page CTA is a stale 2024 "Notify Me" — do not '
+                         'read that as not-yet-available'),
+         read_h='才十八個月大就已經退後兩代。這是全表最清楚的一件事:'
+                'NVIDIA 換機櫃的節奏比任何正常的攤提年限都快。',
+         read_e='Barely eighteen months old and already two generations back. This is the clearest '
+                'single illustration on the table: NVIDIA\'s rack cadence outruns any normal '
+                'depreciation schedule.',
+         sources=[(_NV + 'nvidia-blackwell-platform-arrives-to-power-a-new-era-of-computing', '2026-08-18'),
+                  ('https://www.nvidia.com/en-us/data-center/gb200-nvl72/', '2026-08-18')]),
+    dict(name='GB300 NVL72', aka=['GB300'], arch='Blackwell Ultra',
+         announced='2025-03-18', available='2025-07', predecessor='GB200 NVL72',
+         successor='Vera Rubin NVL72 (2026-01-05)',
+         still_shipping=('官網標 Available Now,我方標 Now Shipping',
+                         'nvidia.com says Available Now; we mark it Now Shipping'),
+         read_h='今天真的買得到量的最高階機櫃。Vera Rubin 已經出貨,但只進了幾家指名的雲。',
+         read_e='The top rack you can actually buy in volume today. Vera Rubin is shipping, but '
+                'only into a handful of named clouds.',
+         sources=[(_NV + 'nvidia-blackwell-ultra-ai-factory-platform-paves-way-for-age-of-ai-reasoning', '2026-08-18'),
+                  ('https://www.nvidia.com/en-us/data-center/gb300-nvl72/', '2026-08-18')]),
+]
 
 CHIP_BY_NAME = {}
 CHIP_ALIASES = {}
@@ -978,9 +1074,12 @@ def chipref(name, label=None):
     aid = 'chip-' + slug(key)
     text = esc(label or name)
     if key not in CHIP_BY_NAME or aid not in ANCHORS:
-        return '<span class="lk">%s</span>' % text
-    return ('<a class="xr xr-chip" href="%s"><span class="lk">%s</span></a>'
-            % (att(href(aid)), text))
+        return text
+    # No inner <span class="lk"> on purpose. Most mentions ALREADY sit inside a
+    # locked run, and nesting one inside another makes the i18n locked-run gate
+    # (LK_IN_ARM is non-greedy) capture the wrong span and fail a good build.
+    # The mono face comes from .xr-chip in the stylesheet instead.
+    return '<a class="xr xr-chip" href="%s">%s</a>' % (att(href(aid)), text)
 
 
 # Longest-first so "GB200 NVL72" wins over "GB200", and "H100 SXM" over "H100".
@@ -2053,9 +2152,15 @@ QUESTIONS = [
      'window, and the near-term opening is real. Same batch means you wait for the whole refresh.'),
     ('你們最舊的那批 GPU 節點是哪一代，現在還在跑什麼？',
      'Which generation is your oldest batch of GPU nodes, and what still runs on it?',
-     '世代分佈就是 refresh 時鐘。A100 或 H100 還在線＝十二到二十四個月內有一場汰換對話。',
-     'The generation spread is the refresh clock. A100 or H100 still in service means a replacement '
-     'conversation inside twelve to twenty-four months.'),
+     '世代分佈告訴你機隊多舊,不等於快要換。'
+     'NVIDIA 財務長說六年前的 A100 現在還在滿載跑、租金還在漲,CoreWeave 簽的 A100 合約到 2029。'
+     '所以不要問「什麼時候換」,要問「舊的那批現在還在賺錢嗎」—— 答案是還在,'
+     '那就代表他擴充會加機器,不是換機器。',
+     'The generation spread tells you how old a fleet is, not that it is about to be replaced. '
+     'NVIDIA\'s CFO says six-year-old A100s still run at full utilisation with rental prices '
+     'rising, and CoreWeave has signed an A100 contract running into 2029. So do not ask when they '
+     'will replace it — ask whether the old batch still earns. If it does, their next expansion '
+     'ADDS machines rather than swapping them.'),
     ('這一櫃是誰整合的、on-site 誰做？',
      'Who integrated this rack, and who does the on-site work?',
      '「OEM 整櫃交付」＝已經鎖住；「我們自己 rack and stack」＝有縫，機房層方案切得進去。',
@@ -2203,9 +2308,9 @@ def frag_gtm():
             rule_h = '在現場被捕獲、但沒有攤位的公司'
             rule_e = 'companies captured on the floor that hold no booth'
             oids = exhibitor_orgs
-            open_h = ('先問最舊的那批 GPU 節點是哪一代。世代分佈就是 refresh 時鐘。')
-            open_e = ('Open by asking which generation the oldest GPU nodes are. The generation '
-                      'spread is the refresh clock.')
+            open_h = ('先問最舊的那批 GPU 節點是哪一代,以及那一批現在還在不在賺錢。')
+            open_e = ('Open by asking which generation the oldest GPU nodes are, and whether '
+                      'that batch still earns its keep.')
         else:
             rule_h = rule_e = ''
             oids = []
@@ -3097,19 +3202,43 @@ def frag_compare():
                'several sponsors in this room publish no rate at all. The silence is intelligence, '
                'not an empty cell',
                '\n'.join(sil), '3', '3'),
-              ('movement', '有沒有降價?查不到', 'Has anything been cut? Cannot tell',
-               '沒有任何一家的牌價頁帶生效日或變更紀錄,所以「最近降價了」這句話我們講不出口',
-               'not one vendor pricing page carries an effective date or a changelog, so we cannot '
-               'say a price was recently cut',
-               '  <p>%s</p>' % gap('牌價頁沒有日期,無法證明漲跌。市場彙整文提到「AWS 最多降 45%」,'
-                                   '但那句沒有日期也不是 AWS 自己說的,不能引用。'
-                                   '要結案:向客戶索取他手上不同時間的兩張報價單',
-                                   'the pricing pages carry no dates, so no movement can be proven. '
-                                   'A market survey mentions an AWS cut of up to 45% , but that line '
-                                   'is undated and not attributed to AWS, so it cannot be quoted. '
-                                   'To close it: ask a customer for two of their own quotes taken '
-                                   'at different times'),
-               'GAP', 'GAP'),
+              ('movement', '租金在漲,不是在跌', 'Rental prices are rising, not falling',
+               '牌價頁證不出漲跌,但 NVIDIA 財務長在法說會上直接給了數字 ——'
+               '這一格先前寫「查不到」,是漏了這個來源,已更正',
+               'the vendor pricing pages cannot prove movement, but NVIDIA\'s CFO put numbers on '
+               'the record in an earnings call. This cell previously said the movement was '
+               'unknowable; that missed this source and is corrected here',
+               '  <p>%s %s</p>\n  <p>%s %s</p>\n  <p>%s</p>\n  <p>%s</p>'
+               % (S(('NVIDIA 財務長 Colette Kress 在', 'NVIDIA CFO Colette Kress, on the'),
+                    '2026-05-20', ('的法說會上:租一顆', 'earnings call: renting an'), 'H100',
+                    ('的價格年初至今漲了', 'is up'), '20%', ('，', ', and'), 'A100',
+                    ('雲端價格漲了近', 'cloud pricing up nearly'), '15%',
+                    ('。這是租方的價格,不是 NVIDIA 的售價。',
+                     ' year-to-date. That is the rental price, not what NVIDIA charges.')),
+                  ev('official') + src_a(_Q1FY27, '2026-08-18'),
+                  S(('同一位在', 'The same officer, on'), '2026-02-25',
+                    ('說:連 Hopper、以及大部分六年前的 Ampere 產品,在雲上都已經被租滿。'
+                     '注意她講的是雲端算力被租滿,不是 NVIDIA 缺貨 —— 這兩件事常被混為一談。',
+                     ': "even Hopper and much of the six year old Ampere-based products are sold '
+                     'out in the cloud." Note what that says — cloud capacity is fully rented, not '
+                     'that NVIDIA cannot supply. The two get conflated constantly.')),
+                  ev('official') + src_a('https://s201.q4cdn.com/141608511/files/doc_financials/'
+                                         '2026/q4/NVDA-Q4-2026-Earnings-Call-25-February-2026-'
+                                         '5_00-PM-ET.pdf', '2026-08-18'),
+                  tt('這一條把買與租的比較整個往買的方向推。客戶如果拿前幾年的租金在算帳,'
+                     '他那張試算表已經過期了。請他調出自己不同時間的兩張帳單,不要用我們的數字。',
+                     'This pushes the whole build-versus-rent comparison toward building. A '
+                     'customer still modelling on the rent they paid a few years ago is working '
+                     'from an expired spreadsheet. Ask them to pull two of their own invoices from '
+                     'different dates rather than quoting ours.'),
+                  gap('各家業者自己的牌價頁仍然沒有生效日與變更紀錄,所以「某一家降了多少」'
+                      '還是證不出來。市場彙整文提到「AWS 最多降 45%」,'
+                      '那句沒有日期也不是 AWS 自己說的,不能引用',
+                      'the vendors\' own pricing pages still carry no effective dates or '
+                      'changelogs, so a per-vendor cut still cannot be proven. A market survey '
+                      'mentions an AWS cut of up to 45% , but that line is undated and not '
+                      'attributed to AWS, so it cannot be quoted')),
+               'H100 +20%', 'H100 +20%'),
           ]), block='rate-cards'))
 
     # ------------------------------------- 4. the arithmetic, with formula --
