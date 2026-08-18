@@ -1,73 +1,1420 @@
 [
-{"ledger_id":"anyscale","items":[
-{"date":"2026-07-30","title":"Nscale to acquire Anyscale, forming full-stack AI hyperscaler","what":"Definitive agreement to buy Anyscale and its ~200 staff across US, Europe and India, expected to close H2 2026; value not disclosed.","hw":"MAYBE","url":"https://www.anyscale.com/press/nscale-acquires-anyscale-enhancing-its-full-stack-ai-cloud-platform","src_kind":"first-party"},
-{"date":"2026-06-02","title":"Anyscale on Azure enters public preview","what":"Platform can be provisioned inside a customer's own Azure tenancy with Entra SSO and MACC drawdown; Wayve and Xoople named as users.","hw":"NO","url":"https://www.anyscale.com/blog/anyscale-on-azure-public-preview-build-and-deploy-ai-scale","src_kind":"first-party"}]},
-{"ledger_id":"aws","items":[
-{"date":"2026-03-13","title":"AWS and Cerebras pair Trainium prefill with CS-3 decode","what":"Inference disaggregation in AWS data centres using Trainium for prefill and Cerebras CS-3 for decode over EFA, exposed via Bedrock.","hw":"YES","url":"https://press.aboutamazon.com/aws/2026/3/aws-and-cerebras-collaboration-aims-to-set-a-new-standard-for-ai-inference-speed-and-performance-in-the-cloud","src_kind":"first-party"},
-{"date":"2026-03-02","title":"Amazon raises Spain investment to EUR 33.7 billion through 2035","what":"Adds EUR 18B for data centres in Huesca, Zaragoza and Teruel plus a dedicated AI and ML server manufacturing and repair facility, ~1,800 jobs.","hw":"YES","url":"https://www.aboutamazon.eu/news/job-creation-and-investment/amazon-investment-spain-2026","src_kind":"first-party"},
-{"date":"2026-01-15","title":"AWS European Sovereign Cloud goes live in Brandenburg","what":"First sovereign region GA with 90+ services on a EUR 7.8B German investment; sovereign Local Zones planned for Belgium, Netherlands, Portugal.","hw":"YES","url":"https://press.aboutamazon.com/aws/2026/1/aws-launches-aws-european-sovereign-cloud-and-announces-expansion-across-europe","src_kind":"first-party"}]},
-{"ledger_id":"alibaba","items":[
-{"date":"2026-07-20","title":"Agent-Native Cloud and 560,000 Zhenwu chips shipped","what":"Launched AgentLoop and AgentTeams, previewed 2.4-trillion-parameter Qwen 3.8-Max, and disclosed 560,000 cumulative in-house Zhenwu AI chip shipments across 400+ customers.","hw":"YES","url":"https://www.alibabagroup.com/en-US/document-2016703577908576256","src_kind":"first-party"},
-{"date":"2026-06-22","title":"Alibaba Cloud opens Paris and Johor regions","what":"New zones in France, Malaysia, Japan and Mexico take the footprint to 105 availability zones across 32 regions.","hw":"YES","url":"https://www.alibabacloud.com/blog/alibaba-cloud-expands-global-ai-infrastructure-with-new-data-centers-in-france-japan-malaysia-and-mexico_603278","src_kind":"first-party"}]},
-{"ledger_id":"adyen","items":[
-{"date":"2026-08-13","title":"H1 2026: datacenter spend pulled forward from 2027","what":"Net revenue EUR 1,302.9M (+19%); capex guided to ~7% of net revenue for FY2026, pulling 2027 investment into H2 2026 to secure compute and storage and lock in pricing.","hw":"YES","url":"https://www.adyen.com/press-and-media/adyen-publishes-h1-2026-financial-results-3wjne","src_kind":"first-party"},
-{"date":"2026-06-11","title":"Adyen to acquire billing platform Orb for USD 335 million","what":"All-cash purchase of the San Francisco enterprise billing platform, expected to close 1 July 2026.","hw":"NO","url":"https://www.adyen.com/press-and-media/jtrg4qd7j3p4rj","src_kind":"first-party"}]},
-{"ledger_id":"apple","items":[
-{"date":"2026-08-13","title":"Apple opens 20,000 sq ft Advanced Manufacturing Center in Houston","what":"Sits inside the Houston plant that already builds Apple's advanced AI servers for Private Cloud Compute, funded with hundreds of millions in under nine months.","hw":"MAYBE","url":"https://www.apple.com/newsroom/2026/08/apple-opens-advanced-manufacturing-center-in-houston/","src_kind":"first-party"},
-{"date":"2026-07-08","title":"Apple commits over USD 30 billion to Broadcom for US chips","what":"Multiyear agreement covering more than 15 billion US-made chips, with USD 1.5B expanding Broadcom's Fort Collins facility.","hw":"YES","url":"https://www.apple.com/newsroom/2026/07/apple-to-increase-spend-with-broadcom-to-produce-billions-more-us-chips/","src_kind":"first-party"},
-{"date":"2026-02-24","title":"Apple doubles Houston campus, adds US Mac mini production","what":"Doubles the campus footprint and expands the advanced AI server line Apple says is ahead of schedule.","hw":"MAYBE","url":"https://www.apple.com/newsroom/2026/02/apple-accelerates-us-manufacturing-with-mac-mini-production/","src_kind":"first-party"}]},
-{"ledger_id":"autodesk","items":[
-{"date":"2026-08-04","title":"Autodesk and University of Florida open robotics construction lab","what":"USD 1M donation opens the Autodesk Design and Make Laboratory with collaborative robots, digital twins in Fusion and computer vision.","hw":"MAYBE","url":"https://adsknews.autodesk.com/en/news/uf-lab-opening/","src_kind":"first-party"},
-{"date":"2026-08-03","title":"Autodesk completes MaintainX acquisition","what":"Closed the purchase of the mobile-first CMMS vendor; price not disclosed.","hw":"NO","url":"https://adsknews.autodesk.com/en/news/welcoming-maintainx/","src_kind":"first-party"}]},
-{"ledger_id":"bedrock","items":[
-{"date":"2026-08-17","title":"First fully autonomous excavator deployments on live sites","what":"Excavators retrofitted with the Bedrock Operator sensor-and-compute suite now work with no operator for Sundt, Zachry Construction and three others.","hw":"MAYBE","url":"https://www.bedrockrobotics.com/news/building-fully-autonomous-fleets-with-the-crews-who-need-them","src_kind":"first-party"}]},
-{"ledger_id":"bmw","items":[
-{"date":"2026-04-02","title":"Plant Munich: EUR 650 million transformation, i3 output from August","what":"Converts Plant Munich to all-electric with AI camera quality control, Automated Surface Inspection and digital twins; fully electric by 2027.","hw":"MAYBE","url":"https://www.press.bmwgroup.com/global/article/detail/T0456664EN/the-new-bmw-group-plant-munich:-more-efficient-more-flexible-and-more-digital-for-production-of-the-neue-klasse","src_kind":"first-party"},
-{"date":"2026-02-27","title":"Humanoid robots to enter German production at Plant Leipzig","what":"Pilots Hexagon Robotics AEON at Leipzig from summer 2026 and sets up a Center of Competence for Physical AI in Production.","hw":"MAYBE","url":"https://www.press.bmwgroup.com/global/article/detail/T0455864EN/bmw-group-to-deploy-humanoid-robots-in-production-in-germany-for-the-first-time?language=en","src_kind":"first-party"}]},
-{"ledger_id":"coreweave","items":[
-{"date":"2026-08-11","title":"Q2 2026: active power to 1.5 GW, backlog about USD 104 billion","what":"Revenue USD 2,575M from USD 1,212M a year earlier, active power up nearly 500 MW to 1.5 GW, contracted power ~3.7 GW, and USD 14.1B spent on property and equipment in six months.","hw":"YES","url":"https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx","src_kind":"first-party"},
-{"date":"2026-08-04","title":"CoreWeave enters Indonesia with 360 MW across three sites","what":"Three facilities totalling 360 MW of contracted IT power due online in 2028, with CoreWeave owning and operating the compute at all three.","hw":"YES","url":"https://www.coreweave.com/news/coreweave-expands-cloud-ai-platform-to-indonesia-marking-first-move-into-asia-pacific-region","src_kind":"first-party"},
-{"date":"2026-01-26","title":"NVIDIA invests USD 2 billion to back 5 GW of CoreWeave AI factories","what":"NVIDIA bought USD 2B of Class A stock at USD 87.20 to accelerate more than 5 GW of AI factories by 2030 spanning Rubin, Vera CPUs and BlueField storage.","hw":"YES","url":"https://www.coreweave.com/news/nvidia-and-coreweave-strengthen-collaboration-to-accelerate-buildout-of-ai-factories","src_kind":"first-party"}]},
-{"ledger_id":"discord","items":[
-{"date":"2026-03-09","title":"Social Commerce and cloud-streamed Instant Play Quests","what":"Instant Play Quests stream trials with no install via NVIDIA GeForce NOW and Amazon GameLift Streams, piloted with NetEase Marvel Rivals.","hw":"NO","url":"https://discord.com/press-releases/discord-deepens-its-ability-to-drive-growth-for-games","src_kind":"first-party"}]},
-{"ledger_id":"elorian","items":[]},
-{"ledger_id":"encord","items":[
-{"date":"2026-02-26","title":"Encord raises USD 60 million Series C led by Wellington","what":"Earmarked for scaling the data platform; data under management grew from 1 PB to over 5 PB in twelve months and physical-AI revenue rose 10x.","hw":"MAYBE","url":"https://www.prnewswire.com/news-releases/encord-secures-60m-series-c-to-scale-ai-native-data-infrastructure-as-physical-ai-hits-inflection-point-302698629.html","src_kind":"first-party"},
-{"date":"2026-08-13","title":"Point cloud labeling gains 1-Click Cuboid and Smart Interpolation","what":"Adds 1-Click Segmentation and Cuboid plus Smart Interpolation for tracking cuboids across time in 3D point cloud data.","hw":"NO","url":"https://docs.encord.com/release-notes/releasenotes-2026","src_kind":"first-party"}]},
-{"ledger_id":"foxglove","items":[
-{"date":"2026-08-18","title":"Foxglove launches Agentic Data Platform for Physical AI","what":"Bundles natural-language querying, Semantic Search, Remote Access live streaming from deployed robots and Bring Your Own Storage.","hw":"NO","url":"https://foxglove.dev/blog/introducing-the-agentic-data-platform-for-physical-ai","src_kind":"first-party"},
-{"date":"2026-08-18","title":"Bring Your Own Storage generally available on all major clouds","what":"BYOS spans AWS, Google Cloud and Azure across 14 regions as a paid add-on.","hw":"NO","url":"https://foxglove.dev/blog/bring-your-own-storage-is-generally-available","src_kind":"first-party"}]},
-{"ledger_id":"google","items":[
-{"date":"2026-07-22","title":"Q2 2026: Virgo Network links a million AI accelerators","what":"Cloud revenue grew 82% with backlog at USD 514B; the Virgo Network connects a million AI accelerators across multiple data centre sites into one supercomputer.","hw":"YES","url":"https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/","src_kind":"first-party"},
-{"date":"2026-04-22","title":"Cloud Next 26 unveils TPU 8t and TPU 8i","what":"TPU 8t scales to 9,600 chips and 2 PB of shared HBM per superpod at 3x Ironwood compute; TPU 8i links 1,152 chips per pod.","hw":"YES","url":"https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/","src_kind":"first-party"},
-{"date":"2026-06-15","title":"Google adds USD 1.5 billion to Jackson County, Alabama campus","what":"Expansion covering 2026 and 2027 with a USD 2M Energy Impact Fund alongside TVA.","hw":"YES","url":"https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/","src_kind":"first-party"}]},
-{"ledger_id":"grab","items":[
-{"date":"2026-08-04","title":"Record Q2 2026 and USD 750 million buyback","what":"Revenue USD 997M (+22%), profit USD 235M, FY guidance raised to USD 4.10-4.15B; only cloud cost increases of USD 12M cited on infrastructure.","hw":"NO","url":"https://www.grab.com/sg/press/others/grab-reports-record-second-quarter-2026-results-raises-full-year-guidance-and-announces-750-million-share-repurchase-program/","src_kind":"first-party"},
-{"date":"2026-07-29","title":"On-demand autonomous vehicle pilot launching in Punggol","what":"Moves from fixed shuttle loops to on-demand AV booking with ~90,000 km logged, a Punggol AV depot and commercial fares from Q4 2026.","hw":"MAYBE","url":"https://www.grab.com/sg/press/others/grab-set-to-pilot-on-demand-autonomous-vehicle-service-in-punggol-advancing-regional-hybrid-mobility-strategy/","src_kind":"first-party"}]},
-{"ledger_id":"hyundai","items":[
-{"date":"2026-07-25","title":"Euisun Chung sets Physical AI vision at San Francisco AI Summit","what":"Confirmed a 50,000 NVIDIA Blackwell GPU supply agreement and Robot Reference Platform, Waymo collaboration on IONIQ 5 at Metaplant America, and a US robot plant scaling to 30,000 units a year by 2028.","hw":"YES","url":"https://www.hyundai.com/worldwide/en/newsroom/detail/0000001238","src_kind":"first-party"},
-{"date":"2026-02-27","title":"KRW 9 trillion Saemangeum hub with a 50,000-GPU AI data center","what":"MOU for a Gunsan complex: KRW 5.8T AI data centre scaled to 50,000 GPUs, KRW 1.3T solar, KRW 1T electrolyzer, robotics at 30,000 units a year; ground break 2027, completion 2029.","hw":"YES","url":"https://www.hyundai.com/worldwide/en/newsroom/detail/0000001132","src_kind":"first-party"}]},
-{"ledger_id":"inception","items":[
-{"date":"2026-02-24","title":"Introducing Mercury 2, a reasoning diffusion LLM","what":"128K context window, tunable reasoning and native tool use, running at about 1,009 tokens per second on NVIDIA Blackwell GPUs.","hw":"MAYBE","url":"https://www.inceptionlabs.ai/blog","src_kind":"first-party"},
-{"date":"2026-06-24","title":"Mercury 2 lands on Azure AI Foundry","what":"Became available through Microsoft's Azure AI Foundry model catalogue.","hw":"NO","url":"https://www.inceptionlabs.ai/blog","src_kind":"first-party"}]},
-{"ledger_id":"inferact","items":[
-{"date":"2026-08-12","title":"Inferact Platform fully certified for Kimi K3 vendor verification","what":"Production inference stack built on open-source vLLM passed full Kimi K3 Vendor Verification; no hardware vendors or GPU models disclosed.","hw":"NO","url":"https://inferact.ai/news/kimi-k3-kvv","src_kind":"first-party"}]},
-{"ledger_id":"intel","items":[
-{"date":"2026-05-31","title":"Xeon 6+ on 18A, E835 Ethernet and Crescent Island GPU","what":"Launched Xeon 6+ with up to 288 E-cores on Intel 18A and detailed Crescent Island at 480GB LPDDR5X in a 350W air-cooled PCIe card; ASUS, Dell, Ericsson, GIGABYTE, HPE, Lenovo and Supermicro are already building systems.","hw":"YES","url":"https://newsroom.intel.com/data-center/intel-puts-agentic-ai-xeon-6-networking-ai-systems","src_kind":"first-party"},
-{"date":"2026-06-16","title":"Intel 18A-P enters risk production","what":"First performance enhancement of the 18A family gives 9% more performance at iso-power or 18% lower power at iso-performance.","hw":"NO","url":"https://newsroom.intel.com/intel-foundry/intel-foundry-details-process-milestones-future-innovation-at-vlsi-symposium","src_kind":"first-party"}]},
-{"ledger_id":"jpmc","items":[
-{"date":"2026-04-21","title":"Security and Resiliency Initiative expands across Europe","what":"Extends the USD 1.5 trillion, 10-year initiative from the UK into Continental Europe across five verticals including frontier and strategic technologies.","hw":"NO","url":"https://www.jpmorganchase.com/newsroom/press-releases/2026/jpmc-expands-sri-across-europe","src_kind":"first-party"}]},
-{"ledger_id":"lambda","items":[
-{"date":"2026-08-12","title":"Lambda prices USD 926 million senior secured term loan B","what":"Priced at SOFR+300 maturing 31 December 2030, with proceeds stated for acquiring and installing GPU servers and related infrastructure for an investment-grade offtaker.","hw":"YES","url":"https://lambda.ai/blog/lambda-prices-926-million-senior-secured-term-loan-b-facility","src_kind":"first-party"},
-{"date":"2026-06-16","title":"MLPerf Training v6.0: fastest LLM training times","what":"Submitted 18 nodes x 4 NVIDIA GB300 NVL72 plus HGX B200 systems, training Llama 3.1 8B in 11.59 minutes on GB300.","hw":"YES","url":"https://lambda.ai/blog/mlperf-training-v6.0-lambda-delivers-fastest-llm-training","src_kind":"first-party"}]},
-{"ledger_id":"lancedb","items":[
-{"date":"2026-06-03","title":"Stable-Worldmodel platform for reproducible world model research","what":"Released a Lance-backed platform for reproducible world model research and benchmarking under visual and physical distribution shifts.","hw":"NO","url":"https://www.lancedb.com/category/announcement","src_kind":"first-party"}]},
-{"ledger_id":"latitude","items":[
-{"date":"2026-08-06","title":"Ford names the Fathom, carrying Latitude hands-free driving","what":"Ford revealed the Fathom midsize electric truck at USD 28,350 starting MSRP with Louisville Assembly production in 2027, carrying the hands-free system Latitude develops in-house.","hw":"MAYBE","url":"https://lat.ai/newsroom","src_kind":"first-party"}]},
-{"ledger_id":"lila","items":[
-{"date":"2026-07-22","title":"Lila wins three Phase I awards in DOE Genesis Mission","what":"Selected for three Genesis Mission Lighthouse Challenges with Caltech, Lawrence Berkeley, Northwestern and Argonne.","hw":"MAYBE","url":"https://www.lila.ai/news/powering-american-science-lila-to-join-does-genesis-mission","src_kind":"first-party"},
-{"date":"2026-06-22","title":"Lila builds agent-driven science on NVIDIA BioNeMo Agent Toolkit","what":"Adopted the toolkit for autonomous agents that test their own hypotheses in a physical lab.","hw":"MAYBE","url":"https://www.lila.ai/news","src_kind":"first-party"}]},
-{"ledger_id":"luma","items":[
-{"date":"2026-07-22","title":"Luma runs production inference on AMD MI325X via Tensorwave","what":"Thousands of AMD Instinct MI325X GPUs on Tensorwave serve production generation, migrated with minimal porting and no quality regression.","hw":"MAYBE","url":"https://lumalabs.ai/news/luma-runs-production-inference-on-amd-and-tensorwave","src_kind":"first-party"},
-{"date":"2026-02-11","title":"Luma opens Riyadh MENA headquarters tied to HUMAIN Project Halo","what":"Regional HQ to build the first Saudi-built Arabic-native foundation model, supported by Project Halo, a 2 GW AI supercluster.","hw":"MAYBE","url":"https://lumalabs.ai/news/luma-ai-to-open-riyadh-office-to-accelerate-humain-create-and-partner-with-publicis-groupe","src_kind":"first-party"}]}
+  {
+    "ledger_id": "adyen",
+    "items": [
+      {
+        "date": "2026-08-13",
+        "title": "H1 2026: datacenter spend pulled forward from 2027",
+        "what": "Net revenue EUR 1,302.9M (+19%); capex guided to ~7% of net revenue for FY2026, pulling 2027 investment into H2 2026 to secure compute and storage and lock in pricing.",
+        "hw": "YES",
+        "url": "https://www.adyen.com/press-and-media/adyen-publishes-h1-2026-financial-results-3wjne",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-11",
+        "title": "Adyen to acquire billing platform Orb for USD 335 million",
+        "what": "All-cash purchase of the San Francisco enterprise billing platform, expected to close 1 July 2026.",
+        "hw": "NO",
+        "url": "https://www.adyen.com/press-and-media/jtrg4qd7j3p4rj",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "alibaba",
+    "items": [
+      {
+        "date": "2026-07-20",
+        "title": "Agent-Native Cloud and 560,000 Zhenwu chips shipped",
+        "what": "Launched AgentLoop and AgentTeams, previewed 2.4-trillion-parameter Qwen 3.8-Max, and disclosed 560,000 cumulative in-house Zhenwu AI chip shipments across 400+ customers.",
+        "hw": "YES",
+        "url": "https://www.alibabagroup.com/en-US/document-2016703577908576256",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-22",
+        "title": "Alibaba Cloud opens Paris and Johor regions",
+        "what": "New zones in France, Malaysia, Japan and Mexico take the footprint to 105 availability zones across 32 regions.",
+        "hw": "YES",
+        "url": "https://www.alibabacloud.com/blog/alibaba-cloud-expands-global-ai-infrastructure-with-new-data-centers-in-france-japan-malaysia-and-mexico_603278",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "anyscale",
+    "items": [
+      {
+        "date": "2026-07-30",
+        "title": "Nscale to acquire Anyscale, forming full-stack AI hyperscaler",
+        "what": "Definitive agreement to buy Anyscale and its ~200 staff across US, Europe and India, expected to close H2 2026; value not disclosed.",
+        "hw": "MAYBE",
+        "url": "https://www.anyscale.com/press/nscale-acquires-anyscale-enhancing-its-full-stack-ai-cloud-platform",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-02",
+        "title": "Anyscale on Azure enters public preview",
+        "what": "Platform can be provisioned inside a customer's own Azure tenancy with Entra SSO and MACC drawdown; Wayve and Xoople named as users.",
+        "hw": "NO",
+        "url": "https://www.anyscale.com/blog/anyscale-on-azure-public-preview-build-and-deploy-ai-scale",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "apple",
+    "items": [
+      {
+        "date": "2026-08-13",
+        "title": "Apple opens 20,000 sq ft Advanced Manufacturing Center in Houston",
+        "what": "Sits inside the Houston plant that already builds Apple's advanced AI servers for Private Cloud Compute, funded with hundreds of millions in under nine months.",
+        "hw": "MAYBE",
+        "url": "https://www.apple.com/newsroom/2026/08/apple-opens-advanced-manufacturing-center-in-houston/",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-08",
+        "title": "Apple commits over USD 30 billion to Broadcom for US chips",
+        "what": "Multiyear agreement covering more than 15 billion US-made chips, with USD 1.5B expanding Broadcom's Fort Collins facility.",
+        "hw": "YES",
+        "url": "https://www.apple.com/newsroom/2026/07/apple-to-increase-spend-with-broadcom-to-produce-billions-more-us-chips/",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-02-24",
+        "title": "Apple doubles Houston campus, adds US Mac mini production",
+        "what": "Doubles the campus footprint and expands the advanced AI server line Apple says is ahead of schedule.",
+        "hw": "MAYBE",
+        "url": "https://www.apple.com/newsroom/2026/02/apple-accelerates-us-manufacturing-with-mac-mini-production/",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "autodesk",
+    "items": [
+      {
+        "date": "2026-08-04",
+        "title": "Autodesk and University of Florida open robotics construction lab",
+        "what": "USD 1M donation opens the Autodesk Design and Make Laboratory with collaborative robots, digital twins in Fusion and computer vision.",
+        "hw": "MAYBE",
+        "url": "https://adsknews.autodesk.com/en/news/uf-lab-opening/",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-08-03",
+        "title": "Autodesk completes MaintainX acquisition",
+        "what": "Closed the purchase of the mobile-first CMMS vendor; price not disclosed.",
+        "hw": "NO",
+        "url": "https://adsknews.autodesk.com/en/news/welcoming-maintainx/",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "aws",
+    "items": [
+      {
+        "date": "2026-03-13",
+        "title": "AWS and Cerebras pair Trainium prefill with CS-3 decode",
+        "what": "Inference disaggregation in AWS data centres using Trainium for prefill and Cerebras CS-3 for decode over EFA, exposed via Bedrock.",
+        "hw": "YES",
+        "url": "https://press.aboutamazon.com/aws/2026/3/aws-and-cerebras-collaboration-aims-to-set-a-new-standard-for-ai-inference-speed-and-performance-in-the-cloud",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-03-02",
+        "title": "Amazon raises Spain investment to EUR 33.7 billion through 2035",
+        "what": "Adds EUR 18B for data centres in Huesca, Zaragoza and Teruel plus a dedicated AI and ML server manufacturing and repair facility, ~1,800 jobs.",
+        "hw": "YES",
+        "url": "https://www.aboutamazon.eu/news/job-creation-and-investment/amazon-investment-spain-2026",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-01-15",
+        "title": "AWS European Sovereign Cloud goes live in Brandenburg",
+        "what": "First sovereign region GA with 90+ services on a EUR 7.8B German investment; sovereign Local Zones planned for Belgium, Netherlands, Portugal.",
+        "hw": "YES",
+        "url": "https://press.aboutamazon.com/aws/2026/1/aws-launches-aws-european-sovereign-cloud-and-announces-expansion-across-europe",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "bedrock",
+    "items": [
+      {
+        "date": "2026-08-17",
+        "title": "First fully autonomous excavator deployments on live sites",
+        "what": "Excavators retrofitted with the Bedrock Operator sensor-and-compute suite now work with no operator for Sundt, Zachry Construction and three others.",
+        "hw": "MAYBE",
+        "url": "https://www.bedrockrobotics.com/news/building-fully-autonomous-fleets-with-the-crews-who-need-them",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "bmw",
+    "items": [
+      {
+        "date": "2026-04-02",
+        "title": "Plant Munich: EUR 650 million transformation, i3 output from August",
+        "what": "Converts Plant Munich to all-electric with AI camera quality control, Automated Surface Inspection and digital twins; fully electric by 2027.",
+        "hw": "MAYBE",
+        "url": "https://www.press.bmwgroup.com/global/article/detail/T0456664EN/the-new-bmw-group-plant-munich:-more-efficient-more-flexible-and-more-digital-for-production-of-the-neue-klasse",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-02-27",
+        "title": "Humanoid robots to enter German production at Plant Leipzig",
+        "what": "Pilots Hexagon Robotics AEON at Leipzig from summer 2026 and sets up a Center of Competence for Physical AI in Production.",
+        "hw": "MAYBE",
+        "url": "https://www.press.bmwgroup.com/global/article/detail/T0455864EN/bmw-group-to-deploy-humanoid-robots-in-production-in-germany-for-the-first-time?language=en",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "coreweave",
+    "items": [
+      {
+        "date": "2026-08-11",
+        "title": "Q2 2026: active power to 1.5 GW, backlog about USD 104 billion",
+        "what": "Revenue USD 2,575M from USD 1,212M a year earlier, active power up nearly 500 MW to 1.5 GW, contracted power ~3.7 GW, and USD 14.1B spent on property and equipment in six months.",
+        "hw": "YES",
+        "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-08-04",
+        "title": "CoreWeave enters Indonesia with 360 MW across three sites",
+        "what": "Three facilities totalling 360 MW of contracted IT power due online in 2028, with CoreWeave owning and operating the compute at all three.",
+        "hw": "YES",
+        "url": "https://www.coreweave.com/news/coreweave-expands-cloud-ai-platform-to-indonesia-marking-first-move-into-asia-pacific-region",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-01-26",
+        "title": "NVIDIA invests USD 2 billion to back 5 GW of CoreWeave AI factories",
+        "what": "NVIDIA bought USD 2B of Class A stock at USD 87.20 to accelerate more than 5 GW of AI factories by 2030 spanning Rubin, Vera CPUs and BlueField storage.",
+        "hw": "YES",
+        "url": "https://www.coreweave.com/news/nvidia-and-coreweave-strengthen-collaboration-to-accelerate-buildout-of-ai-factories",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "discord",
+    "items": [
+      {
+        "date": "2026-03-09",
+        "title": "Social Commerce and cloud-streamed Instant Play Quests",
+        "what": "Instant Play Quests stream trials with no install via NVIDIA GeForce NOW and Amazon GameLift Streams, piloted with NetEase Marvel Rivals.",
+        "hw": "NO",
+        "url": "https://discord.com/press-releases/discord-deepens-its-ability-to-drive-growth-for-games",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "elorian",
+    "items": []
+  },
+  {
+    "ledger_id": "encord",
+    "items": [
+      {
+        "date": "2026-08-13",
+        "title": "Point cloud labeling gains 1-Click Cuboid and Smart Interpolation",
+        "what": "Adds 1-Click Segmentation and Cuboid plus Smart Interpolation for tracking cuboids across time in 3D point cloud data.",
+        "hw": "NO",
+        "url": "https://docs.encord.com/release-notes/releasenotes-2026",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-02-26",
+        "title": "Encord raises USD 60 million Series C led by Wellington",
+        "what": "Earmarked for scaling the data platform; data under management grew from 1 PB to over 5 PB in twelve months and physical-AI revenue rose 10x.",
+        "hw": "MAYBE",
+        "url": "https://www.prnewswire.com/news-releases/encord-secures-60m-series-c-to-scale-ai-native-data-infrastructure-as-physical-ai-hits-inflection-point-302698629.html",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "foxglove",
+    "items": [
+      {
+        "date": "2026-08-18",
+        "title": "Foxglove launches Agentic Data Platform for Physical AI",
+        "what": "Bundles natural-language querying, Semantic Search, Remote Access live streaming from deployed robots and Bring Your Own Storage.",
+        "hw": "NO",
+        "url": "https://foxglove.dev/blog/introducing-the-agentic-data-platform-for-physical-ai",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-08-18",
+        "title": "Bring Your Own Storage generally available on all major clouds",
+        "what": "BYOS spans AWS, Google Cloud and Azure across 14 regions as a paid add-on.",
+        "hw": "NO",
+        "url": "https://foxglove.dev/blog/bring-your-own-storage-is-generally-available",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "google",
+    "items": [
+      {
+        "date": "2026-07-22",
+        "title": "Q2 2026: Virgo Network links a million AI accelerators",
+        "what": "Cloud revenue grew 82% with backlog at USD 514B; the Virgo Network connects a million AI accelerators across multiple data centre sites into one supercomputer.",
+        "hw": "YES",
+        "url": "https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-15",
+        "title": "Google adds USD 1.5 billion to Jackson County, Alabama campus",
+        "what": "Expansion covering 2026 and 2027 with a USD 2M Energy Impact Fund alongside TVA.",
+        "hw": "YES",
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-04-22",
+        "title": "Cloud Next 26 unveils TPU 8t and TPU 8i",
+        "what": "TPU 8t scales to 9,600 chips and 2 PB of shared HBM per superpod at 3x Ironwood compute; TPU 8i links 1,152 chips per pod.",
+        "hw": "YES",
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "grab",
+    "items": [
+      {
+        "date": "2026-08-04",
+        "title": "Record Q2 2026 and USD 750 million buyback",
+        "what": "Revenue USD 997M (+22%), profit USD 235M, FY guidance raised to USD 4.10-4.15B; only cloud cost increases of USD 12M cited on infrastructure.",
+        "hw": "NO",
+        "url": "https://www.grab.com/sg/press/others/grab-reports-record-second-quarter-2026-results-raises-full-year-guidance-and-announces-750-million-share-repurchase-program/",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-29",
+        "title": "On-demand autonomous vehicle pilot launching in Punggol",
+        "what": "Moves from fixed shuttle loops to on-demand AV booking with ~90,000 km logged, a Punggol AV depot and commercial fares from Q4 2026.",
+        "hw": "MAYBE",
+        "url": "https://www.grab.com/sg/press/others/grab-set-to-pilot-on-demand-autonomous-vehicle-service-in-punggol-advancing-regional-hybrid-mobility-strategy/",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "hyundai",
+    "items": [
+      {
+        "date": "2026-07-25",
+        "title": "Euisun Chung sets Physical AI vision at San Francisco AI Summit",
+        "what": "Confirmed a 50,000 NVIDIA Blackwell GPU supply agreement and Robot Reference Platform, Waymo collaboration on IONIQ 5 at Metaplant America, and a US robot plant scaling to 30,000 units a year by 2028.",
+        "hw": "YES",
+        "url": "https://www.hyundai.com/worldwide/en/newsroom/detail/0000001238",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-02-27",
+        "title": "KRW 9 trillion Saemangeum hub with a 50,000-GPU AI data center",
+        "what": "MOU for a Gunsan complex: KRW 5.8T AI data centre scaled to 50,000 GPUs, KRW 1.3T solar, KRW 1T electrolyzer, robotics at 30,000 units a year; ground break 2027, completion 2029.",
+        "hw": "YES",
+        "url": "https://www.hyundai.com/worldwide/en/newsroom/detail/0000001132",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "inception",
+    "items": [
+      {
+        "date": "2026-06-24",
+        "title": "Mercury 2 lands on Azure AI Foundry",
+        "what": "Became available through Microsoft's Azure AI Foundry model catalogue.",
+        "hw": "NO",
+        "url": "https://www.inceptionlabs.ai/blog",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-02-24",
+        "title": "Introducing Mercury 2, a reasoning diffusion LLM",
+        "what": "128K context window, tunable reasoning and native tool use, running at about 1,009 tokens per second on NVIDIA Blackwell GPUs.",
+        "hw": "MAYBE",
+        "url": "https://www.inceptionlabs.ai/blog",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "inferact",
+    "items": [
+      {
+        "date": "2026-08-12",
+        "title": "Inferact Platform fully certified for Kimi K3 vendor verification",
+        "what": "Production inference stack built on open-source vLLM passed full Kimi K3 Vendor Verification; no hardware vendors or GPU models disclosed.",
+        "hw": "NO",
+        "url": "https://inferact.ai/news/kimi-k3-kvv",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "intel",
+    "items": [
+      {
+        "date": "2026-06-16",
+        "title": "Intel 18A-P enters risk production",
+        "what": "First performance enhancement of the 18A family gives 9% more performance at iso-power or 18% lower power at iso-performance.",
+        "hw": "NO",
+        "url": "https://newsroom.intel.com/intel-foundry/intel-foundry-details-process-milestones-future-innovation-at-vlsi-symposium",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-05-31",
+        "title": "Xeon 6+ on 18A, E835 Ethernet and Crescent Island GPU",
+        "what": "Launched Xeon 6+ with up to 288 E-cores on Intel 18A and detailed Crescent Island at 480GB LPDDR5X in a 350W air-cooled PCIe card; ASUS, Dell, Ericsson, GIGABYTE, HPE, Lenovo and Supermicro are already building systems.",
+        "hw": "YES",
+        "url": "https://newsroom.intel.com/data-center/intel-puts-agentic-ai-xeon-6-networking-ai-systems",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "jpmc",
+    "items": [
+      {
+        "date": "2026-04-21",
+        "title": "Security and Resiliency Initiative expands across Europe",
+        "what": "Extends the USD 1.5 trillion, 10-year initiative from the UK into Continental Europe across five verticals including frontier and strategic technologies.",
+        "hw": "NO",
+        "url": "https://www.jpmorganchase.com/newsroom/press-releases/2026/jpmc-expands-sri-across-europe",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "lambda",
+    "items": [
+      {
+        "date": "2026-08-12",
+        "title": "Lambda prices USD 926 million senior secured term loan B",
+        "what": "Priced at SOFR+300 maturing 31 December 2030, with proceeds stated for acquiring and installing GPU servers and related infrastructure for an investment-grade offtaker.",
+        "hw": "YES",
+        "url": "https://lambda.ai/blog/lambda-prices-926-million-senior-secured-term-loan-b-facility",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-16",
+        "title": "MLPerf Training v6.0: fastest LLM training times",
+        "what": "Submitted 18 nodes x 4 NVIDIA GB300 NVL72 plus HGX B200 systems, training Llama 3.1 8B in 11.59 minutes on GB300.",
+        "hw": "YES",
+        "url": "https://lambda.ai/blog/mlperf-training-v6.0-lambda-delivers-fastest-llm-training",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "lancedb",
+    "items": [
+      {
+        "date": "2026-06-03",
+        "title": "Stable-Worldmodel platform for reproducible world model research",
+        "what": "Released a Lance-backed platform for reproducible world model research and benchmarking under visual and physical distribution shifts.",
+        "hw": "NO",
+        "url": "https://www.lancedb.com/category/announcement",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "latitude",
+    "items": [
+      {
+        "date": "2026-08-06",
+        "title": "Ford names the Fathom, carrying Latitude hands-free driving",
+        "what": "Ford revealed the Fathom midsize electric truck at USD 28,350 starting MSRP with Louisville Assembly production in 2027, carrying the hands-free system Latitude develops in-house.",
+        "hw": "MAYBE",
+        "url": "https://lat.ai/newsroom",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "lila",
+    "items": [
+      {
+        "date": "2026-07-22",
+        "title": "Lila wins three Phase I awards in DOE Genesis Mission",
+        "what": "Selected for three Genesis Mission Lighthouse Challenges with Caltech, Lawrence Berkeley, Northwestern and Argonne.",
+        "hw": "MAYBE",
+        "url": "https://www.lila.ai/news/powering-american-science-lila-to-join-does-genesis-mission",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-22",
+        "title": "Lila builds agent-driven science on NVIDIA BioNeMo Agent Toolkit",
+        "what": "Adopted the toolkit for autonomous agents that test their own hypotheses in a physical lab.",
+        "hw": "MAYBE",
+        "url": "https://www.lila.ai/news",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "luma",
+    "items": [
+      {
+        "date": "2026-07-22",
+        "title": "Luma runs production inference on AMD MI325X via Tensorwave",
+        "what": "Thousands of AMD Instinct MI325X GPUs on Tensorwave serve production generation, migrated with minimal porting and no quality regression.",
+        "hw": "MAYBE",
+        "url": "https://lumalabs.ai/news/luma-runs-production-inference-on-amd-and-tensorwave",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-02-11",
+        "title": "Luma opens Riyadh MENA headquarters tied to HUMAIN Project Halo",
+        "what": "Regional HQ to build the first Saudi-built Arabic-native foundation model, supported by Project Halo, a 2 GW AI supercluster.",
+        "hw": "MAYBE",
+        "url": "https://lumalabs.ai/news/luma-ai-to-open-riyadh-office-to-accelerate-humain-create-and-partner-with-publicis-groupe",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "mai",
+    "items": [
+      {
+        "date": "2026-08-13",
+        "title": "MAI-Cyber-1-Flash launches inside MDASH agent harness",
+        "what": "MAI-Cyber-1-Flash, from the MAI-Thinking-1 lineage, scores 96% any-crash on CyberGym and runs inside MDASH's 100+ agent harness at 50% lower cost than prior MDASH offerings.",
+        "hw": "NO - inference model plus agent harness, no compute purchase",
+        "url": "https://microsoft.ai/news/introducing-mai-cyber-1-flash-inside-mdash/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-08-11",
+        "title": "MAI-Code-1.1-Flash ships in GitHub Copilot at quarter cost",
+        "what": "MAI-Code-1.1-Flash is in production in GitHub Copilot with a 22% improvement on Terminal-Bench 2.1 and 25% fewer tokens, at one quarter the cost of the June MAI-Code-1.0 release.",
+        "hw": "NO - model efficiency release, no hardware or datacenter spend",
+        "url": "https://microsoft.ai/news/mai-code-1-1-flash-br-better-faster-at-a-quarter-of-the-cost/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-29",
+        "title": "Optimizing the frontier performance curve",
+        "what": "Microsoft AI states MAI-Cyber-1-Flash serves on H100s, Excel-optimized models fit on A100 or H100 rather than newest accelerators, and Maia 200 silicon delivers 40% better performance per watt on MAI models.",
+        "hw": "MAYBE - names H100/A100 serving and in-house Maia 200 silicon",
+        "url": "https://microsoft.ai/news/optimizing-the-frontier-performance-curve/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "mercor",
+    "items": [
+      {
+        "date": "2026-08-11",
+        "title": "SWE-Marathon-Ext benchmark tests models on 12 SaaS clones",
+        "what": "SWE-Marathon-Ext evaluates eight frontier models from five developers on 12 SaaS product clones including Linear, Notion, Shopify and Zendesk, with GPT-5.6 Sol top at 74%.",
+        "hw": "NO - evaluation benchmark, no compute or hardware purchase",
+        "url": "https://www.mercor.com/blog/swe-marathon-ext-can-ai-build-a-whole-saas-product/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-31",
+        "title": "Mercor and Ramp launch APEX-Accounting benchmark",
+        "what": "APEX-Accounting, built with Ramp and staffed by Deloitte, PwC, EY and KPMG experts, scores nine models on 160 tasks across 10 simulated companies, led by Claude Fable 5 at 56.4%.",
+        "hw": "NO - benchmark built from expert-authored tasks, no hardware",
+        "url": "https://www.mercor.com/blog/introducing-the-ai-productivity-index-for-accounting/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-09",
+        "title": "Mercor to acquire Deeptune",
+        "what": "Mercor is acquiring Deeptune, an RL-environment builder that raised a $43 million Series A led by Andreessen Horowitz, with the team expanding Mercor's NYC office.",
+        "hw": "NO - acquisition of software and RL-environment team, no compute buy",
+        "url": "https://www.mercor.com/blog/mercor-to-acquire-deeptune/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "mimic",
+    "items": [
+      {
+        "date": "2026-07-23",
+        "title": "FLUX-mimic video-action model built with Black Forest Labs",
+        "what": "FLUX-mimic is built on Black Forest Labs' FLUX 3, trained on data from more than 100 real factory use cases, and runs fully on-robot on a single NVIDIA RTX 5090.",
+        "hw": "YES - RTX 5090 per robot plus video-model training compute",
+        "url": "https://www.mimicrobotics.com/en/blog/introducing-flux-mimic",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-16",
+        "title": "mimic launches hand M1 and wearable U1",
+        "what": "The tendon-driven mimic hand M1 has 15 actuated degrees of freedom across 21 joints, over 25 kg steady-state payload and plus-minus 0.18 mm joint accuracy, manufactured in-house in Switzerland alongside the U1 wearable.",
+        "hw": "NO - robotic hardware and exoskeleton product, not compute purchase",
+        "url": "https://www.mimicrobotics.com/blog/solving-dexterity-a-full-stack-approach",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-01-06",
+        "title": "mimic-video replaces VLM backbone with video model",
+        "what": "mimic-video swaps the VLM backbone for NVIDIA Cosmos-Predict2's 2B-parameter checkpoint, reaching 10x better sample efficiency on LIBERO than pi0.5-style VLAs using roughly 500 trajectories.",
+        "hw": "NO - explicitly states no hyperscale compute budget required",
+        "url": "https://www.mimicrobotics.com/en/blog/video-action-models-are-video-model-backbones-the-future-of-vlas",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "minimax",
+    "items": [
+      {
+        "date": "2026-08-13",
+        "title": "MiniMax Music 3.0 open-weights music generation model",
+        "what": "MiniMax Music 3.0 generates complete five-minute songs in a single pass using an 8B global LLM initialized from Qwen3.5-8B, a 0.6B local LLM, a 2.4B flow-matching module and a 123M Flow-VAE decoder.",
+        "hw": "NO - open-weights model release, no compute or datacenter detail",
+        "url": "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-08-03",
+        "title": "MiniMax open-sources H3 omni-modal video model",
+        "what": "H3 pairs a 33B-parameter dense Transformer base with H3-Regenerate-2K to output 4-15 second video up to 2K with 32 kHz stereo audio in 11 languages, released on Hugging Face and ModelScope.",
+        "hw": "NO - open weights release, no training hardware disclosed",
+        "url": "https://www.minimax.io/news/minimax-h3-open-source",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-01",
+        "title": "MiniMax M3 adds sparse attention and 1M context",
+        "what": "M3 introduces MiniMax Sparse Attention for up to 1M-token context, scoring 59.0% on SWE-Bench Pro and 66.0% on Terminal-Bench 2.1, with over 9x prefill and 15x decode inference speedups.",
+        "hw": "MAYBE - frontier training and serving implies large GPU fleet, unnamed",
+        "url": "https://www.minimax.io/blog/minimax-m3",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ],
+    "display_name": "MiniMax"
+  },
+  {
+    "ledger_id": "motive",
+    "items": [
+      {
+        "date": "2026-08-18",
+        "title": "Motive launches AI-powered fleet Maintenance system",
+        "what": "Motive Maintenance adds AI fault-code diagnostics, automated work order creation, AI invoice scanning, parts inventory and total-cost-of-ownership reporting inside the existing Motive Dashboard.",
+        "hw": "NO - software module inside existing dashboard product",
+        "url": "https://gomotive.com/blog/motive-maintenance-launch/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-05-27",
+        "title": "Vision 26: AI Omnicam Plus, Atlas assistant, new sensors",
+        "what": "At Vision 26, attended by more than 1,000 customers and partners, Motive announced AI Omnicam Plus 360-degree vehicle visibility, a wireless Door and Environmental Sensor, the Atlas voice assistant, and ALPR plus speed sign detection.",
+        "hw": "MAYBE - new edge camera and sensor hardware, no datacenter build",
+        "url": "https://gomotive.com/blog/announced-at-vision-26-motive-ai-innovation/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-01-08",
+        "title": "Motive launches AI Dashcam Plus on Qualcomm Dragonwing",
+        "what": "AI Dashcam Plus runs more than 30 AI models simultaneously on a Qualcomm Dragonwing QCS6490, merges the Vehicle Gateway and dashcam into one unit, and adds dual forward stereo vision plus a 1440p zoom lens.",
+        "hw": "MAYBE - buys Qualcomm edge silicon at fleet scale, not datacenter",
+        "url": "https://gomotive.com/motive-launches-ai-dashcam-plus-powering-a-new-era-of-edge-ai-safety-for-physical-operations/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "nebius",
+    "items": [
+      {
+        "date": "2026-07-17",
+        "title": "Nebius raises $775M secured debt to fund global buildout",
+        "what": "Nebius closed a $775 million senior secured facility structured by MUFG, priced at SOFR+2.50% and maturing October 31, 2030, backed by deployed GPU infrastructure and contracted customer cash flows.",
+        "hw": "YES - debt secured on deployed GPUs funds datacenter buildout",
+        "url": "https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-08",
+        "title": "Nebius commits GBP 1.7 billion to four UK NVIDIA sites",
+        "what": "Nebius committed approximately GBP 1.7 billion to capacity buildout across four UK sites totalling 65 MW when fully operational in 2027, with Revolut and Prima Mente named as customers.",
+        "hw": "YES - 65 MW of new NVIDIA AI factory capacity",
+        "url": "https://nebius.com/newsroom/nebius-expands-in-uk-with-more-nvidia-powered-infrastructure-more-customers-and-more-cloud-capabilities-for-agentic-and-enterprise-ai",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-05-12",
+        "title": "Nebius breaks ground on gigawatt-scale Missouri AI factory",
+        "what": "Nebius began first-phase construction of a gigawatt-scale AI factory on roughly 400 acres in Independence, Missouri, projecting 1,200 construction jobs, 130 permanent positions and $650 million in tax payments over 20 years.",
+        "hw": "YES - gigawatt-scale GPU datacenter under active construction",
+        "url": "https://nebius.com/newsroom/nebius-breaks-ground-on-gigawatt-scale-ai-factory-in-independence-missouri",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "netflix",
+    "items": [
+      {
+        "date": "2026-08-10",
+        "title": "Netflix closes 2026 US Upfront, expands programmatic ads",
+        "what": "Netflix said it nearly doubled US ad commitments and that the Media Rating Council accredited Netflix Ads Suite for US in-stream video impression processing and reporting across connected TV, mobile app and desktop web, with Pause Ads now buyable programmatically across all DSPs.",
+        "hw": "NO - advertising sales and measurement, no compute purchase",
+        "url": "https://about.netflix.com/en/news/netflix-gets-closer-closes-2026-us-upfront",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-10",
+        "title": "Netflix showcases new mobile app and Clips feed in APAC",
+        "what": "Netflix said its redesigned mobile app with the Clips vertical video feed reaches Korea and Japan in July 2026 after Australia, New Zealand, Philippines, India and Malaysia, and that Netflix Playground launches a KPop Demon Hunters six-minigame collection on June 20.",
+        "hw": "NO - consumer app product, no hardware implied",
+        "url": "https://about.netflix.com/en/news/apac-product-innovation-showcase-2026",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-05-13",
+        "title": "Netflix Upfront 2026 adds AI ad tools, 15 countries",
+        "what": "Netflix announced AI-driven media-planning tooling, AI agents for ad buying, programmatic Pause Ads and Live inventory via dynamic ad insertion, and expansion of its ads plan to 15 new countries in 2027, citing 250M+ monthly active ad-supported viewers.",
+        "hw": "NO - ad product and market expansion, no compute buy",
+        "url": "https://about.netflix.com/en/news/netflix-upfront-2026-get-closer",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "notion",
+    "items": [
+      {
+        "date": "2026-07-01",
+        "title": "Notion 3.6 adds External Agents with Claude and Cursor",
+        "what": "Notion 3.6 made Claude and Cursor the first two External Agents able to work inside Notion, and added five new MCP connections (Mercury, Mixpanel, Miro, Box, ClickHouse) plus interactive HTML blocks and Microsoft Outlook/Office file support.",
+        "hw": "NO - SaaS software release, no hardware purchase",
+        "url": "https://www.notion.com/releases/2026-07-01",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-05-13",
+        "title": "Notion 3.5 launches Developer Platform and hosted Notion Workers",
+        "what": "Notion released its Developer Platform including Notion Workers, a hosted runtime for custom code that was free during beta before moving to credit-based pricing on August 11, 2026, plus an External Agents API alpha, Notion CLI, Agent SDK and Database Sync beta.",
+        "hw": "NO - developer platform software running on existing cloud",
+        "url": "https://www.notion.com/releases/2026-05-13",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-02-24",
+        "title": "Notion 3.3 launches Custom Agents on triggers and schedules",
+        "what": "Notion 3.3 launched Custom Agents that run 24/7 on schedules or triggers across Slack, Figma, Linear, HubSpot, Notion Mail and Calendar; early testers created over 21,000 Custom Agents and Notion runs 2,800 internally.",
+        "hw": "NO - SaaS agent feature, no infrastructure disclosed",
+        "url": "https://www.notion.com/releases/2026-02-24",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "novita",
+    "items": [
+      {
+        "date": "2026-07-15",
+        "title": "Novita and TiDB launch managed databases for Artifact Hosting",
+        "what": "Novita integrated TiDB into its Artifact Hosting product so a single database=True SDK parameter provisions a TiDB instance and injects DATABASE_URL, with managed databases currently in trial and three open-source examples on GitHub.",
+        "hw": "NO - software and database integration, no GPU purchase",
+        "url": "https://novita.ai/blog/novita-tidb-from-code-to-production/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-10",
+        "title": "Novita releases DSpark speculative decoding for Kimi models",
+        "what": "Novita reported average throughput speedups of 2.55x for Kimi-K2.6 and 2.36x for Kimi-K2.7-Code using its DSpark speculative decoding in vLLM at TP=8, and published both draft checkpoints on Hugging Face.",
+        "hw": "NO - inference software optimization reduces GPU demand",
+        "url": "https://novita.ai/blog/kimi-k2-dspark-speculative-decoding-throughput/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-09",
+        "title": "Novita partners with Opper AI for European agent builders",
+        "what": "Novita made 80+ open-weight models from roughly twenty labs available through Opper AI's gateway under a single API, with Novita routes on Opper US-hosted and EU data residency offered at route level.",
+        "hw": "NO - distribution partnership, no new compute capacity",
+        "url": "https://novita.ai/blog/novita-ai-partners-with-opper-ai/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ],
+    "display_name": "Novita"
+  },
+  {
+    "ledger_id": "nscale",
+    "items": [
+      {
+        "date": "2026-07-30",
+        "title": "Nscale to acquire Anyscale, adding Ray-based AI platform",
+        "what": "Nscale entered a definitive agreement to acquire Anyscale, the Ray-based platform for distributed data processing, training, inference and reinforcement learning, with undisclosed terms and closing expected in the second half of 2026.",
+        "hw": "NO - software platform acquisition, not compute hardware",
+        "url": "https://www.nscale.com/press-releases/nscale-acquires-anyscale",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-05-05",
+        "title": "Nscale to deliver 66,000+ NVIDIA Rubin GPUs in Portugal",
+        "what": "Nscale will deploy 66,000+ NVIDIA Vera Rubin NVL72 GPUs for Microsoft at Start Campus's SINES Data Campus in Portugal from late 2027, investing EUR 230 million in shared infrastructure and EUR 465 million in a second 200MW building.",
+        "hw": "YES - 66,000 Rubin GPUs plus 200MW datacenter build",
+        "url": "https://www.nscale.com/press-releases/nscale-start-campus",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-03-16",
+        "title": "Nscale, Microsoft plan 1.35GW West Virginia AI factory",
+        "what": "Nscale signed a letter of intent with Microsoft for 1.35 GW of NVIDIA Vera Rubin NVL72 capacity at the Monarch Compute Campus in Mason County, West Virginia, powered by Caterpillar G3500 gas generators, deployment beginning late 2027 with runway past 8 GW.",
+        "hw": "YES - 1.35GW Vera Rubin NVL72 campus buildout",
+        "url": "https://www.nscale.com/press-releases/nscale-west-virginia-ai-factory",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "nvidia",
+    "items": [
+      {
+        "date": "2026-08-17",
+        "title": "NVIDIA guarantees SB Energy Ohio campus for NVIDIA compute",
+        "what": "NVIDIA invests $1.5B in SB Energy and provides land/power/shell credit support securing an initial 4.25 IT-GW (option on 3.75 more, 8 IT-GW total) at the PORTS-Pike Technology Campus in Pike County, Ohio, with OpenAI as 20-year lease customer.",
+        "hw": "YES - 8 IT-GW AI factory capacity exclusively hosting NVIDIA compute",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-guarantees-sb-energy-s-ports-pike-technology-campus-in-ohio-to-exclusively-host-nvidia-ai-compute",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-08-10",
+        "title": "NVIDIA signs six financiers for $500B AI compute platforms",
+        "what": "NVIDIA signed memoranda of understanding with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to establish compute financing platforms mobilizing over $500 billion of third-party capital for AI infrastructure buildout.",
+        "hw": "YES - capital explicitly earmarked for AI compute infrastructure",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-partners-with-apollo-blackrock-blackstone-brookfield-goldman-sachs-and-kkr-to-establish-ai-compute-infrastructure-financing-platforms-to-mobilize-over-500-billion-of-third-party-capital",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-03-16",
+        "title": "NVIDIA launches Vera Rubin platform at GTC 2026",
+        "what": "NVIDIA announced seven new chips and five racks including the Vera Rubin NVL72 with 72 Rubin GPUs and 36 Vera CPUs, a 256-LPU Groq 3 LPX rack and a 256-CPU Vera rack, with AWS, Azure, Google Cloud, Oracle Cloud, CoreWeave, Dell, HPE, Lenovo and Supermicro committed.",
+        "hw": "YES - new GPU/CPU/rack generation sold to cloud and OEM buyers",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-vera-rubin-platform",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "parasail",
+    "items": [
+      {
+        "date": "2026-07-08",
+        "title": "Parasail deploys d-Matrix Corsair alongside NVIDIA Hopper and Blackwell",
+        "what": "Parasail is deploying d-Matrix Corsair inference accelerators alongside NVIDIA Hopper and Blackwell GPUs across its network of over 40 data centers in 15 countries, splitting prefill onto GPUs and decode onto Corsair for up to 10x faster token generation.",
+        "hw": "YES - buying d-Matrix Corsair accelerators plus NVIDIA GPUs",
+        "url": "https://www.parasail.io/blogs/parasail-d-matrix-accelerators",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-04-15",
+        "title": "Parasail raises $32M Series A to expand AI Supercloud",
+        "what": "Parasail raised a $32M Series A co-led by Touring Capital and Kindred Ventures with Samsung NEXT, Flume and Banyan participating (total funding $42M), stating the capital will expand its AI Supercloud fabric of global compute and strengthen GPU and data center partnerships.",
+        "hw": "MAYBE - expands compute fabric but names no GPU or datacenter figures",
+        "url": "https://www.prnewswire.com/news-releases/parasail-raises-32m-series-a-to-build-the-supercloud-that-puts-developers-in-control-of-their-ai-302742856.html",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "pathrobotics",
+    "items": [
+      {
+        "date": "2026-08-06",
+        "title": "HII signs up to $900M production agreements with Path Robotics",
+        "what": "HII signed seven-year performance-based production agreements to award up to $900 million in shipbuilding work to Path Robotics and GrayMatter Robotics for autonomous welding, grinding, blasting, painting, assembly and inspection on US Navy carrier, submarine, destroyer, amphibious, frigate and unmanned vessel programs.",
+        "hw": "MAYBE - large physical-AI scale-up may drive model training compute",
+        "url": "https://www.hii.com/news/hii-signs-performance-based-production-agreements-with-path-robotics-and-graymatter-robotics",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-04-16",
+        "title": "Path Robotics launches Rove mobile robotic welding system",
+        "what": "Path Robotics launched Rove, pairing its Obsidian physical AI welding model with a quadruped robot, with Saronic Technologies as an early adopter integrating it into shipbuilding operations in Franklin, Louisiana.",
+        "hw": "NO - mobile welding robot product, no compute hardware named",
+        "url": "https://www.path-robotics.com/news/path-robotics-launches-rove-bringing-mobility-to-welding-automation-powered-by-physical-ai",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-02-17",
+        "title": "HII and Path Robotics sign shipbuilding physical AI MOU",
+        "what": "HII and Path Robotics signed a memorandum of understanding at Path's Columbus, Ohio headquarters to integrate Path's Obsidian physical AI welding model into manned and unmanned shipbuilding operations.",
+        "hw": "NO - exploratory MOU on welding AI, no hardware procurement",
+        "url": "https://www.path-robotics.com/news/hii-path-robotics-physical-ai-shipbuilding-mou",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "periodic",
+    "items": []
+  },
+  {
+    "ledger_id": "pinterest",
+    "items": [
+      {
+        "date": "2026-06-17",
+        "title": "Pinterest unveils Business Assistant, MCP server, Performance+ Creative",
+        "what": "Pinterest announced four AI products - Business Assistant in closed US beta inside Ads Manager, a Pinterest Model Context Protocol server for partner tools, a Performance+ Creative model that raised click volume 7.5% over the prior single-variant model, and the Ask Pinterest limited-access shopping app - with PMG, Pacvue, Dentsu, Havas, Innovid and Omnicom's Jump450 as launch partners.",
+        "hw": "MAYBE - new AI products imply inference compute, none specified",
+        "url": "https://newsroom.pinterest.com/news/cannes-2026/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-04-27",
+        "title": "Pinterest launches tvScientific connected TV advertising",
+        "what": "Pinterest launched tvScientific by Pinterest, letting advertisers reach its 600M+ monthly active users on connected TV for the first time, with LG early testing showing a 73% increase in unique households reached and a 24% lift in net new customers.",
+        "hw": "NO - advertising product launch, no compute hardware involved",
+        "url": "https://newsroom.pinterest.com/news/tvscientific-by-pinterest/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-02-19",
+        "title": "Pinterest closes tvScientific acquisition, raises Q1 2026 outlook",
+        "what": "Pinterest completed its acquisition of tvScientific on February 17, 2026 and raised Q1 2026 guidance to revenue of $958M-$978M and Adjusted EBITDA of $163M-$183M reflecting the partial-quarter contribution.",
+        "hw": "NO - adtech acquisition close, no compute hardware involved",
+        "url": "https://www.theglobeandmail.com/investing/markets/stocks/PINS/pressreleases/302248/pinterest-closes-tvscientific-acquisition-raises-q1-2026-outlook/",
+        "read": "2026-08-18",
+        "src_kind": "trade-press"
+      }
+    ]
+  },
+  {
+    "ledger_id": "primalabs",
+    "items": [
+      {
+        "date": "2026-07-24",
+        "title": "PrimaLabs joins NVIDIA and national labs on DOE Genesis Mission",
+        "what": "PrimaLabs joined NVIDIA, Savannah River, Oak Ridge and Pacific Northwest national labs on two DOE Genesis Mission projects, VITA-SCALE and SCOPE, among 278 awards selected from over 5,000 proposals.",
+        "hw": "MAYBE - GPU-accelerated AI runs on DOE lab systems, no purchase stated",
+        "url": "https://www.primalabs.ai/blog/primalabs-joins-nvidia-genesis-mission",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "primeintellect",
+    "items": [
+      {
+        "date": "2026-08-13",
+        "title": "Prime Flash MoE: faster MoE kernels for Blackwell",
+        "what": "Released open MoE CUDA kernels benchmarked on 8x NVIDIA B200 GPUs, up to 2.4x faster than PyTorch grouped GEMM across the 4k-128k token range.",
+        "hw": "NO - software kernels optimizing GPUs already in hand",
+        "url": "https://www.primeintellect.ai/blog/prime-flash-moe",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-08",
+        "title": "$130M Series A to build the open superintelligence stack",
+        "what": "Raised $130M led by Radical Ventures with NVIDIA Ventures, Intel Capital and Dell Technologies Capital participating, stated to fund ever-larger compute clusters and larger RL runs.",
+        "hw": "YES - release explicitly names ever-larger compute clusters as use",
+        "url": "https://www.primeintellect.ai/blog/series-a",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-03-16",
+        "title": "Leveraging NVIDIA to build the open superintelligence stack",
+        "what": "Detailed running NVIDIA Blackwell Ultra NVL72 clusters and Vera CPUs at 88 cores/176 threads per socket sustaining 176 VMs, with NVIDIA Vera Rubin NVL72 adoption planned.",
+        "hw": "YES - operating Blackwell Ultra NVL72 racks, Vera Rubin next",
+        "url": "https://www.primeintellect.ai/blog/nvidia-collaboration",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "recursion",
+    "items": [
+      {
+        "date": "2026-08-05",
+        "title": "Genentech advances first neuroscience target from Recursion collaboration",
+        "what": "Genentech moved the collaboration's first neuroscience target into a joint small-molecule program after Recursion generated over 1 trillion hiPSC-derived neuronal cells, 17,000+ gene knockouts and 30 million neuronal images.",
+        "hw": "NO - biology and program milestone, no compute purchase disclosed",
+        "url": "https://www.recursion.com/news/unlocking-the-first-neuroscience-target-for-the-recursion-and-genentech-collaboration",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-05-06",
+        "title": "Q1 2026 results; first patient dosed in ENLYGHT Phase 1",
+        "what": "First patient was dosed in April in the ENLYGHT Phase 1 study of REC-4539, an AI-designed LSD1 inhibitor delivered in approximately 20 months, with $665.2 million cash on hand.",
+        "hw": "NO - clinical milestone, no hardware or datacenter mentioned",
+        "url": "https://www.biospace.com/press-releases/recursion-reports-first-quarter-financial-results-and-provides-business-update",
+        "read": "2026-08-18",
+        "src_kind": "trade-press"
+      },
+      {
+        "date": "2026-03-31",
+        "title": "Recursion expands Citeline partnership for AI-enabled ClinTech platform",
+        "what": "Citeline SmartSolutions real-world data is being integrated into Recursion's end-to-end discovery and development platform, which CEO Najat Khan says has produced 30-60% improvements in trial enrollment.",
+        "hw": "NO - data and software integration partnership",
+        "url": "https://www.norstella.com/press-releases/recursion-expands-strategic-partnership-citeline-advance-ai-enabled-clintech-platform/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "redhat",
+    "items": [
+      {
+        "date": "2026-07-08",
+        "title": "IBM and Red Hat launch Lightwell open source security offerings",
+        "what": "Lightwell Network reached general availability with a launch catalog of 6,500+ remediated, digitally signed and certified Java and Python dependencies, backed by more than 20,000 engineers.",
+        "hw": "NO - security subscription service, no compute procurement",
+        "url": "https://www.redhat.com/en/about/press-releases/ibm-and-red-hat-expand-lightwell-new-offerings-build-trust-infrastructure-ai-era-open-source",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-05-12",
+        "title": "Red Hat AI Factory with NVIDIA expands autonomous agent support",
+        "what": "Red Hat Enterprise Linux for NVIDIA 26.01 became generally available with NVIDIA Blackwell support and NVIDIA Confidential Computing, with NVIDIA Vera Rubin support in development.",
+        "hw": "YES - platform built for NVIDIA Blackwell and Vera Rubin deployments",
+        "url": "https://www.redhat.com/en/about/press-releases/red-hat-ai-factory-nvidia-expands-support-new-class-autonomous-agents-enterprise",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-05-12",
+        "title": "Red Hat AI 3.4 adds MaaS, AgentOps, day-zero Blackwell support",
+        "what": "Red Hat AI 3.4 shipped distributed inference on vLLM and llm-d plus day-zero support for NVIDIA Blackwell GPUs and AMD MI325X, with CoreWeave and Azure Kubernetes deployment blueprints.",
+        "hw": "MAYBE - enables new GPU hardware but is a software release",
+        "url": "https://www.redhat.com/en/about/press-releases/red-hat-unites-builders-and-operators-agentic-future-major-advancements-red-hat-ai",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "robinhood",
+    "items": [
+      {
+        "date": "2026-08-10",
+        "title": "Robinhood launches crypto trading for UK investors via Bitstamp",
+        "what": "UK customers gained access to more than 50 cryptocurrencies through Bitstamp UK Ltd inside the Robinhood app with zero trading fees, alongside Cortex Digests for Crypto.",
+        "hw": "NO - retail brokerage feature launch",
+        "url": "https://robinhood.com/us/en/newsroom/robinhood-launches-crypto-trading-for-uk-investors/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-06",
+        "title": "Trump Accounts launch with Robinhood as broker and trustee",
+        "what": "Trump Accounts went live July 4 with Robinhood as broker and sole initial trustee alongside BNY and the U.S. Treasury, giving citizens born 2025-2028 a $1,000 government contribution.",
+        "hw": "NO - financial account product, no infrastructure disclosed",
+        "url": "https://robinhood.com/us/en/newsroom/trump-accounts-officially-launch/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-01",
+        "title": "Robinhood Chain mainnet and Stock Tokens launch globally",
+        "what": "Robinhood Chain mainnet launched on Arbitrum with Uniswap deploying a dedicated AMM, and Stock Tokens became available in more than 120 countries via Robinhood Wallet.",
+        "hw": "NO - blockchain and trading product launches",
+        "url": "https://robinhood.com/us/en/newsroom/robinhood-accelerates-global-expansion-robinhood-chain-mainnet-stock-tokens-agentic-trading/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "simplismart",
+    "items": [
+      {
+        "date": "2026-06-19",
+        "title": "Simplismart SDK and AI agent skill for model deployment",
+        "what": "Launched a Python SDK plus an AI agent skill that import, compile, deploy and autoscale models from Hugging Face, AWS S3, GCP GCS or a container registry, demonstrated with Gemma 4 12B.",
+        "hw": "NO - software SDK layer, runs on existing or customer-owned GPUs",
+        "url": "https://www.simplismart.ai/blog/simplismart-sdk",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-04",
+        "title": "Day-0 inference support for NVIDIA Nemotron 3 Ultra",
+        "what": "Simplismart became a day-0 launch partner for NVIDIA's 550B-parameter Nemotron 3 Ultra MoE model, benchmarking 6,900 tokens/sec at concurrency 100 on an 8x NVIDIA B200 node.",
+        "hw": "MAYBE - benchmarks on 8xB200 imply B200 access, not purchase",
+        "url": "https://www.simplismart.ai/blog/nvidia-nemotron-3-ultra-now-available-on-simplismart-tailored-inference-for-agentic-ai",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-02-23",
+        "title": "White-labeled inference platform launched for NVIDIA Cloud Partners",
+        "what": "Simplismart launched its inference platform as a white-labeled product for NVIDIA Cloud Partners, integrating NVIDIA NIM microservices so NCPs can resell inference on their own NVIDIA reference-architecture GPU fleets.",
+        "hw": "NO - software sold to GPU owners; Simplismart buys no hardware",
+        "url": "https://www.simplismart.ai/blog/announcement-simplismart-launches-advanced-ai-inference-platform-for-cloud-providers-on-nvidia-infrastructure",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "skypilot",
+    "items": [
+      {
+        "date": "2026-08-12",
+        "title": "Multi-Slurm cluster management with failover and cloud overflow",
+        "what": "SkyPilot added unified resource view, automatic cluster selection, failover and cloud overflow across multiple Slurm clusters from one interface, aimed at the 60% of Top500 supercomputers running Slurm.",
+        "hw": "NO - orchestration software over pre-existing Slurm clusters",
+        "url": "https://skypilot.ai/blog/multi-slurm",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-21",
+        "title": "SkyPilot Platform launched with $20M round led by Lux",
+        "what": "Assemble Platforms launched the commercial SkyPilot Platform, claiming 20x faster operation than the open-source project and management of 10,000+ GPUs for 200+ researchers, funded by over $20M led by Lux with Amplify, Coatue and Foundation.",
+        "hw": "NO - funds go to product and hiring, not GPU purchases",
+        "url": "https://skypilot.ai/blog/skypilot-the-company",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-23",
+        "title": "SkyPilot Endpoints: multi-cluster inference behind one URL",
+        "what": "SkyPilot Endpoints serves vLLM inference across every Kubernetes cluster a customer owns behind a single endpoint URL with cross-cluster autoscaling, and cites model caching cutting 235B-class cold starts to under one minute.",
+        "hw": "NO - runs on customer-owned Kubernetes GPU clusters",
+        "url": "https://skypilot.ai/blog/skypilot-endpoints",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "sondermind",
+    "items": []
+  },
+  {
+    "ledger_id": "spotify",
+    "items": [
+      {
+        "date": "2026-08-11",
+        "title": "AI Persona badge for AI-generated artist identities",
+        "what": "Spotify will apply an AI Persona badge to artist profiles representing AI-generated identities starting mid-September 2026, with badged profiles excluded by default from editorial and algorithmic recommendations unless a user follows them.",
+        "hw": "NO - policy and labeling feature, no compute buildout stated",
+        "url": "https://newsroom.spotify.com/2026-08-11/ai-persona-badges-transparency/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-08-04",
+        "title": "Merlin licensing deal for Spotify fan-made covers and remixes",
+        "what": "Merlin, whose members represent about 15% of the global recorded music market across 70+ countries, licensed its independent-label catalog to Spotify's forthcoming paid generative-AI covers and remixing tool.",
+        "hw": "NO - licensing agreement, no hardware or datacenter content",
+        "url": "https://newsroom.spotify.com/2026-08-04/merlin-spotify-licensing-agreements-fan-made-covers-remixes/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-14",
+        "title": "Talk to Spotify conversational assistant enters Premium beta",
+        "what": "Spotify began a gradual beta of Talk to Spotify, a typed or spoken conversational assistant for Premium users 18+ in the US, Ireland and Sweden on iOS and Android in English.",
+        "hw": "MAYBE - LLM inference at Premium scale, partly external models",
+        "url": "https://newsroom.spotify.com/2026-07-14/talk-to-spotify-announcement-beta/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "togetherai",
+    "items": [
+      {
+        "date": "2026-08-13",
+        "title": "L&T to build 10,000-GPU NVIDIA B300 AI factory in Chennai",
+        "what": "L&T's Vyoma.AI/LTN Compute won a mega order (Rs 10,000-15,000 crore band) to host a single-cluster 10,000-GPU NVIDIA B300 AI factory for Together AI at its 250 MW Chennai data centre campus for training, fine-tuning and inference.",
+        "hw": "YES - 10,000 NVIDIA B300 GPUs in a purpose-built datacenter",
+        "url": "https://www.larsentoubro.com/pressreleases/2026/2026-08-13-larsen-toubro-secures-mega-order-as-part-of-a-strategic-partnership-with-together-ai-to-build-india-s-largest-nvidia-b300-ai-factory",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-08-11",
+        "title": "IBM and Together AI sign $240M multi-year inference cluster deal",
+        "what": "Under a $240M multi-year agreement, IBM will deploy the first dedicated large-scale inference cluster on IBM Cloud using NVIDIA HGX B300 systems and NVIDIA Spectrum-X Ethernet, with availability expected in Q1 2027.",
+        "hw": "YES - dedicated NVIDIA HGX B300 cluster procured on IBM Cloud",
+        "url": "https://newsroom.ibm.com/2026-08-11-IBM-and-Together-AI-Sign-Multi-Year-Agreement-to-Scale-Open-Source-AI-Inference-with-NVIDIA-AI-Infrastructure-on-IBM-Cloud",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-07-20",
+        "title": "Together AI and Y Combinator launch dedicated YC GPU cluster",
+        "what": "Together AI and Y Combinator opened a dedicated GPU cluster for YC portfolio companies, already running at full utilization, letting startups take short-term GPU sprints at long-term rates instead of two-year compute contracts.",
+        "hw": "YES - a dedicated GPU cluster reserved for YC startups",
+        "url": "https://www.together.ai/blog/together-yc-gpu-cluster",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ],
+    "display_name": "Together AI"
+  },
+  {
+    "ledger_id": "torc",
+    "items": [
+      {
+        "date": "2026-05-26",
+        "title": "Torc joins Mila for physical AI research partnership",
+        "what": "Torc became the only autonomous-trucking company inside Mila - Quebec Artificial Intelligence Institute in Montreal, with dedicated on-site research space for generative world models, multi-agent behavior modeling and reinforcement learning.",
+        "hw": "MAYBE - AI research program implies training compute, none specified",
+        "url": "https://torc.ai/torc-mila-partnership-advance-physical-ai/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-05-07",
+        "title": "Aeva delivers Atlas C-samples for Daimler autonomous truck program",
+        "what": "Aeva delivered Atlas 4D FMCW lidar C-sample units with 500 m detection range to Daimler Truck North America as exclusive long-range lidar supplier for the Torc/Freightliner Cascadia Level 4 series-production program.",
+        "hw": "YES - sensor hardware moving toward series production",
+        "url": "https://torc.ai/aeva-atlas-c-samples-torc-daimler-truck/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-02-24",
+        "title": "Torc expands autonomous truck testing to Michigan public roads",
+        "what": "Torc began public-road autonomous testing in the greater Ann Arbor, Michigan area using the latest-generation Daimler Truck autonomous chassis based on the Freightliner Cascadia, coordinated with MEDC, MDOT and Ann Arbor SPARK.",
+        "hw": "MAYBE - trucks and onboard AV compute, no datacenter purchase",
+        "url": "https://torc.ai/michigan-public-roads-autonomous-truck-testing/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "uber",
+    "items": [
+      {
+        "date": "2026-08-05",
+        "title": "TfL licences Wayve robotaxis for Uber rides in London",
+        "what": "Transport for London granted Private Hire Vehicle licences to Wayve's camera-and-radar Ford Mustang Mach-E autonomous vehicles for the Uber platform, after more than 100,000 Londoners joined the interest list in eight weeks.",
+        "hw": "NO - regulatory licensing milestone, no compute purchase",
+        "url": "https://investor.uber.com/news-events/news/press-release-details/2026/Wayve-and-Uber-Move-a-Step-Closer-to-Autonomous-Rides-in-London/default.aspx",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-01",
+        "title": "Autobrains and Uber to launch Munich robotaxi on NVIDIA DRIVE",
+        "what": "Uber and Autobrains will launch an OEM-agnostic agentic-AI robotaxi program in Munich built on the NVIDIA DRIVE Hyperion Level 4 platform, pending regulatory approval.",
+        "hw": "MAYBE - in-vehicle NVIDIA DRIVE compute, not datacenter GPUs",
+        "url": "https://investor.uber.com/news-events/news/press-release-details/2026/Autobrains-and-Uber-to-Launch-Agentic-AI-Robotaxi-Program-in-Munich-built-on-NVIDIA-DRIVE-Hyperion-2026-yMEt3xDSDA/default.aspx",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-03-19",
+        "title": "Uber to deploy 10,000 Rivian R2 robotaxis with $1.25B investment",
+        "what": "Uber will invest up to $1.25 billion through 2031 ($300 million committed at signing) for 10,000 autonomous Rivian R2 robotaxis launching in San Francisco and Miami in 2028, with an option for 40,000 more from 2030 and 25 cities by 2031.",
+        "hw": "MAYBE - buys vehicles and onboard compute platform, not datacenter",
+        "url": "https://investor.uber.com/news-events/news/press-release-details/2026/Uber-and-Rivian-Partner-to-Deploy-up-to-50000-Fully-Autonomous-Robotaxis-2026-TViR4R05gi/default.aspx",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "unionai",
+    "items": [
+      {
+        "date": "2026-08-04",
+        "title": "Flyte 2 reaches general availability as open-source AI runtime",
+        "what": "Union.ai made Flyte 2 generally available under the Linux Foundation after 1.3 million downloads, offering local, devbox and Kubernetes deployment with automatic recovery from OOM kills, preempted instances and GPU failures.",
+        "hw": "NO - open-source software runtime, no hardware purchase",
+        "url": "https://www.union.ai/blog-post/flyte-2-is-generally-available-the-durable-open-source-ai-runtime",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-03-04",
+        "title": "Flyte 2 open source available for local execution",
+        "what": "Union.ai released Flyte 2 in open source for local single-machine execution alongside a distributed production preview hosted on Union.ai, following 60 releases, 508 merged pull requests and 35 contributors since beta.",
+        "hw": "NO - software release running on existing infrastructure",
+        "url": "https://www.union.ai/blog-post/flyte-2-oss-now-available-for-local-execution",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "vast",
+    "items": [
+      {
+        "date": "2026-07-14",
+        "title": "Cloudera and VAST Data partner on unified AI factory",
+        "what": "Cloudera and VAST Data announced a strategic partnership pairing Cloudera's containerized lakehouse with the VAST AI Operating System on the NVIDIA AI Data Platform reference design, spanning roughly 60 exabytes of combined customer data and available immediately through both sales teams.",
+        "hw": "MAYBE - NVIDIA reference-design deployments implied, no purchase stated",
+        "url": "https://www.vastdata.com/press-releases/cloudera-and-vast-data-strategic-partnership-to-deliver-ai-data-platform-anywhere",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-06-24",
+        "title": "Aalborg University builds AI research cloud on VAST platform",
+        "what": "Aalborg University in Denmark selected the VAST AI Operating System, deployed with partner Advania Danmark, for a multi-petabyte on-premises AI research environment expected operational in August 2026, migrating several petabytes off a legacy CEPH system.",
+        "hw": "YES - on-prem multi-petabyte buildout serving GPU workloads",
+        "url": "https://www.vastdata.com/press-releases/vast-data-powers-aalborg-universitys-ai-research-cloud-with-advania-danmark",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-02-25",
+        "title": "VAST and NVIDIA ship CUDA-accelerated stack with CNode-X servers",
+        "what": "VAST introduced NVIDIA-Certified CNode-X servers supporting NVIDIA BlueField-4 DPUs and Spectrum-X, distributed through OEMs Cisco and Supermicro, with cuDF/cuVS integration cutting Sirius query time up to 44% and query cost up to 80%.",
+        "hw": "YES - new certified servers and DPUs sold via Cisco/Supermicro",
+        "url": "https://www.vastdata.com/press-releases/vast-data-introduces-end-to-end-fully-accelerated-ai-data-stack-with-nvidia",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "verda",
+    "items": [
+      {
+        "date": "2026-06-02",
+        "title": "Verda to deploy NVIDIA Vera Rubin NVL72 in H2 2026",
+        "what": "Verda will deploy NVIDIA Vera Rubin NVL72 and HGX Rubin NVL8 systems across Europe, the US and APAC starting H2 2026, expecting to exceed 100,000 GPUs through 2027, with build partners Arm, Supermicro and Compal under NVIDIA Preferred Partner status.",
+        "hw": "YES - explicit multi-region GPU fleet purchase and deployment",
+        "url": "https://verda.com/blog/nvidia-vr200-r200-early-deployments",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-04-30",
+        "title": "Verda launch partner for Arm AGI CPU with GB300",
+        "what": "Verda is deploying the Arm AGI CPU as a launch partner, paired with NVIDIA GB300 systems now and the upcoming Vera Rubin VR200 fleet, forming an Arm-native stack from orchestration to inference.",
+        "hw": "YES - CPU and GPU systems being racked into its cloud",
+        "url": "https://verda.com/blog/arm-agi-cpu-launch-partner",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-03-26",
+        "title": "Verda announces new AI data center in Sundsvall, Sweden",
+        "what": "Verda is establishing an AI infrastructure hub in Sundsvall, Vasternorrland county, Sweden on 100% renewable power, sized for NVIDIA Blackwell Ultra and Vera Rubin generations, with Mid Sweden University named as a research collaborator.",
+        "hw": "YES - new datacenter build to host NVIDIA GPU systems",
+        "url": "https://verda.com/blog/verda-ai-infrastructure-sundsvall-sweden",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "xoople",
+    "items": [
+      {
+        "date": "2026-04-14",
+        "title": "L3Harris details imaging payload role in Xoople constellation",
+        "what": "L3Harris said it supplies the advanced imaging payloads and integrated systems engineering for Xoople's Earth-observation constellation, developed at its Rochester, New York facilities.",
+        "hw": "NO - optical imaging payloads only, no compute purchase",
+        "url": "https://www.l3harris.com/newsroom/editorial/2026/04/reimagining-earth-measurement-ai-era-l3harris-and-xoople-develop-new",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      },
+      {
+        "date": "2026-04-07",
+        "title": "Xoople and L3Harris co-develop AI-era satellite measurement system",
+        "what": "Xoople and L3Harris Technologies announced co-development of a satellite constellation with custom optical and sensor design, following seven years of Xoople R&D, announced from San Francisco.",
+        "hw": "MAYBE - AI-native Earth data platform implies ground processing compute",
+        "url": "https://www.xoople.com/resources/xoople-l3harris-ai-space-measurement-system/",
+        "read": "2026-08-18",
+        "src_kind": "first-party"
+      }
+    ]
+  },
+  {
+    "ledger_id": "zoox",
+    "items": [
+      {
+        "date": "2026-08-05",
+        "title": "Zoox begins paid robotaxi service in Las Vegas August 10",
+        "what": "Zoox said paid rides start August 10 in Las Vegas, its first commercial market, priced as a base fare plus distance and time, while San Francisco and Austin stay free pending California permits.",
+        "hw": "MAYBE - commercial fleet scale-up implies onboard AV compute",
+        "url": "https://techcrunch.com/2026/08/05/zoox-to-start-charging-for-robotaxi-rides-in-las-vegas/",
+        "read": "2026-08-18",
+        "src_kind": "trade-press"
+      },
+      {
+        "date": "2026-07-30",
+        "title": "NHTSA grants Zoox commercial exemption for 2,500 vehicles yearly",
+        "what": "NHTSA granted Zoox a temporary exemption from eight federal motor vehicle safety standards, capped at 2,500 vehicles per year for two years, clearing paid service without steering wheels or pedals.",
+        "hw": "MAYBE - 2,500 vehicles/year cap implies onboard compute purchases",
+        "url": "https://techcrunch.com/2026/07/30/zoox-clears-final-federal-hurdle-to-launch-paid-robotaxi-service/",
+        "read": "2026-08-18",
+        "src_kind": "trade-press"
+      },
+      {
+        "date": "2026-06-24",
+        "title": "Zoox unveils production-intent robotaxi, Hayward plant to 100 weekly",
+        "what": "Zoox unveiled its production-intent robotaxi carrying 40 cameras, radars, lidars and infrared sensors, and said its Hayward, California plant will scale to 100 vehicles per week and up to 10,000 annually.",
+        "hw": "YES - 100 robotaxis weekly each carrying an onboard AV compute stack",
+        "url": "https://techcrunch.com/2026/06/24/zoox-upgrades-its-robotaxi-as-it-prepares-for-commercial-service/",
+        "read": "2026-08-18",
+        "src_kind": "trade-press"
+      }
+    ]
+  }
 ]

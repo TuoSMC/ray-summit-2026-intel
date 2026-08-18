@@ -265,10 +265,12 @@ orgs = as_list(load(os.path.join(DATA, 'orgs.json'), []))
 # 2026 announcements per company. A company with an empty list is one we checked
 # and found quiet this year — that is a finding, not a missing file, so the
 # empty list is kept rather than dropped.
-NEWS = {}
+NEWS, NEWS_NAME = {}, {}
 for _r in as_list(load(os.path.join(DATA, 'news2026.json'), [])):
     if isinstance(_r, dict) and _r.get('ledger_id'):
         NEWS[str(_r['ledger_id'])] = list(_r.get('items') or [])
+        if _r.get('display_name'):
+            NEWS_NAME[str(_r['ledger_id'])] = str(_r['display_name'])
 NEWS_ITEMS = sorted(
     [dict(it, ledger_id=k) for k, v in NEWS.items() for it in v],
     key=lambda i: str(i.get('date') or ''), reverse=True)
@@ -1819,7 +1821,7 @@ def frag_command_center():
         bits = ['    <li class="nw%s">' % cls]
         bits.append('      <p class="nw-h">%s%s</p>'
                     % (lk(str(it.get('date') or '')),
-                       (' ' + xref(lid)) if show_org and lid else ''))
+                       (' ' + xref(lid, NEWS_NAME.get(lid))) if show_org and lid else ''))
         bits.append('      <p class="nw-t">%s</p>' % lk(str(it.get('title') or '')))
         bits.append('      <p class="nw-w">%s</p>' % lk(str(it.get('what') or '')))
         mark = {'YES': ('會買機器', 'buys machines'),
@@ -1857,7 +1859,8 @@ def frag_command_center():
                          '%d companies were checked and published nothing at all in 2026 — a '
                          'conclusion, not an unopened file' % len(quiet),
                          '  <p>%s</p>'
-                         % ''.join('<span class="chip">%s</span>' % xref(k) for k in sorted(quiet)),
+                         % ''.join('<span class="chip">%s</span>' % xref(k, NEWS_NAME.get(k))
+                                   for k in sorted(quiet)),
                          '%d 家' % len(quiet), '%d' % len(quiet)))
         a(sec('news2026',
               S(('%d 則公告' % len(NEWS_ITEMS), '%d announcements' % len(NEWS_ITEMS)), '·',
