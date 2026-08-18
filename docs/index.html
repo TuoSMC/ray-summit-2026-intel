@@ -517,6 +517,31 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 .itm-b > :first-child{margin-top:0}
 .itm-b details.dr{margin-bottom:var(--s2)}
 
+/* ------------------------------------------------- 2026 announcements ------
+   A dated list where the hardware-bearing rows carry the weight. The date is
+   the scanning surface, so it leads. */
+.nws{list-style:none;margin:var(--s4) 0 0;padding:0}
+.nw{padding:var(--s4) 0 var(--s4) var(--s4);border-top:1px solid var(--rule);
+  border-left:2px solid transparent;max-width:var(--measure)}
+.nw:first-child{border-top:0}
+.nw.is-hw{border-left-color:var(--rule-hard);background:var(--card)}
+.nw.is-maybe{border-left-color:var(--rule)}
+.nw-h{margin:0;font-family:var(--f-mono);font-size:var(--t-cap);
+  color:var(--ink-3);font-variant-numeric:tabular-nums}
+.nw-h .xr-org{font-family:var(--f-text);font-size:var(--t-cap)}
+.nw-t{margin:var(--s1) 0 0;font-family:var(--f-display);font-size:var(--t-h3);
+  font-weight:700;line-height:1.34}
+.nw-t .lk{font-family:var(--f-display);font-size:inherit;letter-spacing:inherit}
+.nw-w{margin:var(--s2) 0 0;font-size:var(--t-cap);color:var(--ink-2);
+  line-height:1.55}
+.nw-w .lk{font-family:var(--f-text);font-size:var(--t-cap);color:var(--ink-2)}
+.nw-f{margin:var(--s2) 0 0;display:flex;flex-wrap:wrap;align-items:baseline;
+  gap:var(--s1) var(--s3)}
+.nw-m{font-size:var(--t-micro);letter-spacing:.06em;color:var(--ink-3);
+  font-family:var(--f-mono)}
+.nw.is-hw .nw-m{color:var(--accent);font-weight:700}
+@media print{.nw{break-inside:avoid;page-break-inside:avoid}}
+
 /* ------------------------------------------------------- the chain diagram --
    Inline SVG, tokens only, viewBox-scaled. The two bands that actually sign a
    server order carry the heavy edge; everything else is furniture. */
@@ -688,7 +713,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 </nav>
 <main class="wrap">
 <nav class="spine" data-block="spine" aria-label="Sections on this page / 本頁章節">
-  <p class="spine-h"><span data-t="h">這一頁有 11 節。每一節回答一個問題。</span><span data-t="e">This page has 11 sections. Each one answers one question.</span></p>
+  <p class="spine-h"><span data-t="h">這一頁有 12 節。每一節回答一個問題。</span><span data-t="e">This page has 12 sections. Each one answers one question.</span></p>
   <ol class="spine-l">
     <li><a href="index.html#s-verdict"><span class="spine-n" aria-hidden="true">01</span><span class="spine-t"><span data-t="h">判斷</span><span data-t="e">The call</span></span><span class="spine-q"><span data-t="h">這一場的錢花在哪裡，我方該用什麼身分走進去</span><span data-t="e">where the money in this room actually goes, and what we walk in as</span></span></a></li>
     <li><a href="index.html#s-numbers"><span class="spine-n" aria-hidden="true">02</span><span class="spine-t"><span data-t="h">四個數字</span><span data-t="e">Four numbers</span></span><span class="spine-q"><span data-t="h">這場的規模,四個從資料算出來、不是打上去的數字</span><span data-t="e">the size of the thing, in four figures computed from the data rather than typed</span></span></a></li>
@@ -699,8 +724,9 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <li><a href="index.html#s-signals"><span class="spine-n" aria-hidden="true">07</span><span class="spine-t"><span data-t="h">前瞻訊號</span><span data-t="e">Forward signals</span></span><span class="spine-q"><span data-t="h">還沒發生但已經看得到的事,以及看到之後要做什麼</span><span data-t="e">what has not happened yet but is already visible, and what to do about each</span></span></a></li>
     <li><a href="index.html#s-open"><span class="spine-n" aria-hidden="true">08</span><span class="spine-t"><span data-t="h">本場 GAP</span><span data-t="e">What is still open</span></span><span class="spine-q"><span data-t="h">這一包還不知道的事,以及什麼證據能結案</span><span data-t="e">what this pack does not know, and what evidence would close each one</span></span></a></li>
     <li><a href="index.html#s-method"><span class="spine-n" aria-hidden="true">09</span><span class="spine-t"><span data-t="h">方法與來源</span><span data-t="e">Method and sources</span></span><span class="spine-q"><span data-t="h">這些結論怎麼來的,哪一步可以被推翻</span><span data-t="e">how these conclusions were produced, and which step you could overturn</span></span></a></li>
-    <li><a href="index.html#s-chain"><span class="spine-n" aria-hidden="true">10</span><span class="spine-t"><span data-t="h">架構圖</span><span data-t="e">How the money moves</span></span><span class="spine-q"><span data-t="h">錢從誰手上出發,經過誰,最後變成誰的伺服器訂單 —— 以及我方站在哪一格</span><span data-t="e">where the money starts, who it passes through, whose server order it finally becomes, and which box we stand in</span></span></a></li>
-    <li><a href="index.html#s-index"><span class="spine-n" aria-hidden="true">11</span><span class="spine-t"><span data-t="h">索引</span><span data-t="e">Index</span></span><span class="spine-q"><span data-t="h">這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結</span><span data-t="e">every section, every company and every session in this pack, listed once, each one a link</span></span></a></li>
+    <li><a href="index.html#s-news2026"><span class="spine-n" aria-hidden="true">10</span><span class="spine-t"><span data-t="h">這些公司 2026 年在做什麼</span><span data-t="e">What these companies did in 2026</span></span><span class="spine-q"><span data-t="h">到場的公司今年各自宣布了什麼,哪幾則直接代表有人要買機器</span><span data-t="e">what each company on the roster announced this year, and which of those announcements mean somebody is buying machines</span></span></a></li>
+    <li><a href="index.html#s-chain"><span class="spine-n" aria-hidden="true">11</span><span class="spine-t"><span data-t="h">架構圖</span><span data-t="e">How the money moves</span></span><span class="spine-q"><span data-t="h">錢從誰手上出發,經過誰,最後變成誰的伺服器訂單 —— 以及我方站在哪一格</span><span data-t="e">where the money starts, who it passes through, whose server order it finally becomes, and which box we stand in</span></span></a></li>
+    <li><a href="index.html#s-index"><span class="spine-n" aria-hidden="true">12</span><span class="spine-t"><span data-t="h">索引</span><span data-t="e">Index</span></span><span class="spine-q"><span data-t="h">這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結</span><span data-t="e">every section, every company and every session in this pack, listed once, each one a link</span></span></a></li>
   </ol>
 </nav>
 <details class="dr sec verdict" id="s-verdict" data-block="verdict" data-fresh="1" open>
@@ -915,8 +941,417 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p><span data-t="h">目錄來源：</span><span data-t="e">Catalogue source:</span> <a href="https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue">https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue</a></p>
   </div>
 </details>
+<details class="dr sec" id="s-news2026" data-block="news-2026" data-fresh="1">
+  <summary><span class="dr-t"><span class="sec-n" aria-hidden="true">10</span><span data-t="h">這些公司 2026 年在做什麼</span><span data-t="e">What these companies did in 2026</span></span><span class="sec-w"><span data-t="h">到場的公司今年各自宣布了什麼,哪幾則直接代表有人要買機器</span><span data-t="e">what each company on the roster announced this year, and which of those announcements mean somebody is buying machines</span></span><span class="dr-s"><span data-t="h">46 則公告</span><span data-t="e">46 announcements</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">18 則代表有人要買機器</span><span data-t="e">18 of them mean somebody is buying</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">全部 2026 年,全部帶原始連結</span><span data-t="e">all dated 2026, every one with its original link</span></span></summary>
+  <div class="dr-b">
+  <div class="itms">
+<section class="itm" id="i-news2026-buying">
+  <h3 class="itm-h"><span class="itm-n" aria-hidden="true">1</span><span class="itm-l"><span data-t="h">直接代表有人要買機器</span><span data-t="e">The ones that mean somebody is buying machines</span></span><span class="itm-tag"><span data-t="h">18 則</span><span data-t="e">18</span></span><a class="itm-a" href="#i-news2026-buying" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
+  <p class="itm-w"><span data-t="h">46 則裡有 18 則點到自建、擴容、採購或自製伺服器 —— 這幾則是你這一趟的理由</span><span data-t="e">18 of the 46 announcements name a build, an expansion, a purchase or an in-house server line. These are the reason for the trip</span></p>
+  <div class="itm-b">  <ul class="nws">
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-08-13</span> <a class="xr xr-org" href="accounts.html#acct-adyen">Adyen N.V.</a></p>
+      <p class="nw-t"><span class="lk">H1 2026: datacenter spend pulled forward from 2027</span></p>
+      <p class="nw-w"><span class="lk">Net revenue EUR 1,302.9M (+19%); capex guided to ~7% of net revenue for FY2026, pulling 2027 investment into H2 2026 to secure compute and storage and lock in pricing.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.adyen.com/press-and-media/adyen-publishes-h1-2026-financial-results-3wjne" title="https://www.adyen.com/press-and-media/adyen-publishes-h1-2026-financial-results-3wjne">adyen.com/press-and-media/adyen-publi…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-08-12</span> <a class="xr xr-org" href="accounts.html#acct-lambda">Lambda, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Lambda prices USD 926 million senior secured term loan B</span></p>
+      <p class="nw-w"><span class="lk">Priced at SOFR+300 maturing 31 December 2030, with proceeds stated for acquiring and installing GPU servers and related infrastructure for an investment-grade offtaker.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://lambda.ai/blog/lambda-prices-926-million-senior-secured-term-loan-b-facility" title="https://lambda.ai/blog/lambda-prices-926-million-senior-secured-term-loan-b-facility">lambda.ai/blog/lambda-prices-926-mill…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-08-11</span> <a class="xr xr-org" href="accounts.html#acct-coreweave">CoreWeave, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Q2 2026: active power to 1.5 GW, backlog about USD 104 billion</span></p>
+      <p class="nw-w"><span class="lk">Revenue USD 2,575M from USD 1,212M a year earlier, active power up nearly 500 MW to 1.5 GW, contracted power ~3.7 GW, and USD 14.1B spent on property and equipment in six months.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx" title="https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx">investors.coreweave.com/news/news-details/2026/Core…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-08-04</span> <a class="xr xr-org" href="accounts.html#acct-coreweave">CoreWeave, Inc.</a></p>
+      <p class="nw-t"><span class="lk">CoreWeave enters Indonesia with 360 MW across three sites</span></p>
+      <p class="nw-w"><span class="lk">Three facilities totalling 360 MW of contracted IT power due online in 2028, with CoreWeave owning and operating the compute at all three.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.coreweave.com/news/coreweave-expands-cloud-ai-platform-to-indonesia-marking-first-move-into-asia-pacific-region" title="https://www.coreweave.com/news/coreweave-expands-cloud-ai-platform-to-indonesia-marking-first-move-into-asia-pacific-region">coreweave.com/news/coreweave-expands-clou…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-07-25</span> <a class="xr xr-org" href="accounts.html#acct-hyundai">Hyundai Motor Company</a></p>
+      <p class="nw-t"><span class="lk">Euisun Chung sets Physical AI vision at San Francisco AI Summit</span></p>
+      <p class="nw-w"><span class="lk">Confirmed a 50,000 NVIDIA Blackwell GPU supply agreement and Robot Reference Platform, Waymo collaboration on IONIQ 5 at Metaplant America, and a US robot plant scaling to 30,000 units a year by 2028.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.hyundai.com/worldwide/en/newsroom/detail/0000001238" title="https://www.hyundai.com/worldwide/en/newsroom/detail/0000001238">hyundai.com/worldwide/en/newsroom/detai…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-07-22</span> <a class="xr xr-org" href="accounts.html#acct-google">Google LLC, a subsidiary of Alphabet Inc.</a></p>
+      <p class="nw-t"><span class="lk">Q2 2026: Virgo Network links a million AI accelerators</span></p>
+      <p class="nw-w"><span class="lk">Cloud revenue grew 82% with backlog at USD 514B; the Virgo Network connects a million AI accelerators across multiple data centre sites into one supercomputer.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/" title="https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/">blog.google/company-news/inside-google/…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-07-20</span> <a class="xr xr-org" href="accounts.html#acct-alibaba">Alibaba Group Holding Limited</a></p>
+      <p class="nw-t"><span class="lk">Agent-Native Cloud and 560,000 Zhenwu chips shipped</span></p>
+      <p class="nw-w"><span class="lk">Launched AgentLoop and AgentTeams, previewed 2.4-trillion-parameter Qwen 3.8-Max, and disclosed 560,000 cumulative in-house Zhenwu AI chip shipments across 400+ customers.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.alibabagroup.com/en-US/document-2016703577908576256" title="https://www.alibabagroup.com/en-US/document-2016703577908576256">alibabagroup.com/en-US/document-201670357790…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-07-08</span> <a class="xr xr-org" href="accounts.html#acct-apple">Apple Inc.</a></p>
+      <p class="nw-t"><span class="lk">Apple commits over USD 30 billion to Broadcom for US chips</span></p>
+      <p class="nw-w"><span class="lk">Multiyear agreement covering more than 15 billion US-made chips, with USD 1.5B expanding Broadcom's Fort Collins facility.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.apple.com/newsroom/2026/07/apple-to-increase-spend-with-broadcom-to-produce-billions-more-us-chips/" title="https://www.apple.com/newsroom/2026/07/apple-to-increase-spend-with-broadcom-to-produce-billions-more-us-chips/">apple.com/newsroom/2026/07/apple-to-i…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-06-22</span> <a class="xr xr-org" href="accounts.html#acct-alibaba">Alibaba Group Holding Limited</a></p>
+      <p class="nw-t"><span class="lk">Alibaba Cloud opens Paris and Johor regions</span></p>
+      <p class="nw-w"><span class="lk">New zones in France, Malaysia, Japan and Mexico take the footprint to 105 availability zones across 32 regions.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.alibabacloud.com/blog/alibaba-cloud-expands-global-ai-infrastructure-with-new-data-centers-in-france-japan-malaysia-and-mexico_603278" title="https://www.alibabacloud.com/blog/alibaba-cloud-expands-global-ai-infrastructure-with-new-data-centers-in-france-japan-malaysia-and-mexico_603278">alibabacloud.com/blog/alibaba-cloud-expands-…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-06-16</span> <a class="xr xr-org" href="accounts.html#acct-lambda">Lambda, Inc.</a></p>
+      <p class="nw-t"><span class="lk">MLPerf Training v6.0: fastest LLM training times</span></p>
+      <p class="nw-w"><span class="lk">Submitted 18 nodes x 4 NVIDIA <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300 NVL72</a> plus <a class="xr xr-chip" href="compare.html#chip-b200">HGX B200</a> systems, training Llama 3.1 8B in 11.59 minutes on <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300</a>.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://lambda.ai/blog/mlperf-training-v6.0-lambda-delivers-fastest-llm-training" title="https://lambda.ai/blog/mlperf-training-v6.0-lambda-delivers-fastest-llm-training">lambda.ai/blog/mlperf-training-v6.0-l…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-06-15</span> <a class="xr xr-org" href="accounts.html#acct-google">Google LLC, a subsidiary of Alphabet Inc.</a></p>
+      <p class="nw-t"><span class="lk">Google adds USD 1.5 billion to Jackson County, Alabama campus</span></p>
+      <p class="nw-w"><span class="lk">Expansion covering 2026 and 2027 with a USD 2M Energy Impact Fund alongside TVA.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/" title="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/">blog.google/innovation-and-ai/infrastru…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-05-31</span> <a class="xr xr-org" href="accounts.html#acct-intel">Intel Corporation</a></p>
+      <p class="nw-t"><span class="lk">Xeon 6+ on 18A, E835 Ethernet and Crescent Island GPU</span></p>
+      <p class="nw-w"><span class="lk">Launched Xeon 6+ with up to 288 E-cores on Intel 18A and detailed Crescent Island at 480GB LPDDR5X in a 350W air-cooled PCIe card; ASUS, Dell, Ericsson, GIGABYTE, HPE, Lenovo and Supermicro are already building systems.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://newsroom.intel.com/data-center/intel-puts-agentic-ai-xeon-6-networking-ai-systems" title="https://newsroom.intel.com/data-center/intel-puts-agentic-ai-xeon-6-networking-ai-systems">newsroom.intel.com/data-center/intel-puts-agen…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-04-22</span> <a class="xr xr-org" href="accounts.html#acct-google">Google LLC, a subsidiary of Alphabet Inc.</a></p>
+      <p class="nw-t"><span class="lk">Cloud Next 26 unveils TPU 8t and TPU 8i</span></p>
+      <p class="nw-w"><span class="lk">TPU 8t scales to 9,600 chips and 2 PB of shared HBM per superpod at 3x Ironwood compute; TPU 8i links 1,152 chips per pod.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/" title="https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/">blog.google/innovation-and-ai/infrastru…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-03-13</span> <a class="xr xr-org" href="accounts.html#acct-aws">Amazon Web Services, Inc.</a></p>
+      <p class="nw-t"><span class="lk">AWS and Cerebras pair Trainium prefill with CS-3 decode</span></p>
+      <p class="nw-w"><span class="lk">Inference disaggregation in AWS data centres using Trainium for prefill and Cerebras CS-3 for decode over EFA, exposed via Bedrock.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://press.aboutamazon.com/aws/2026/3/aws-and-cerebras-collaboration-aims-to-set-a-new-standard-for-ai-inference-speed-and-performance-in-the-cloud" title="https://press.aboutamazon.com/aws/2026/3/aws-and-cerebras-collaboration-aims-to-set-a-new-standard-for-ai-inference-speed-and-performance-in-the-cloud">press.aboutamazon.com/aws/2026/3/aws-and-cerebras…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-03-02</span> <a class="xr xr-org" href="accounts.html#acct-aws">Amazon Web Services, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Amazon raises Spain investment to EUR 33.7 billion through 2035</span></p>
+      <p class="nw-w"><span class="lk">Adds EUR 18B for data centres in Huesca, Zaragoza and Teruel plus a dedicated AI and ML server manufacturing and repair facility, ~1,800 jobs.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.aboutamazon.eu/news/job-creation-and-investment/amazon-investment-spain-2026" title="https://www.aboutamazon.eu/news/job-creation-and-investment/amazon-investment-spain-2026">aboutamazon.eu/news/job-creation-and-inves…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-02-27</span> <a class="xr xr-org" href="accounts.html#acct-hyundai">Hyundai Motor Company</a></p>
+      <p class="nw-t"><span class="lk">KRW 9 trillion Saemangeum hub with a 50,000-GPU AI data center</span></p>
+      <p class="nw-w"><span class="lk">MOU for a Gunsan complex: KRW 5.8T AI data centre scaled to 50,000 GPUs, KRW 1.3T solar, KRW 1T electrolyzer, robotics at 30,000 units a year; ground break 2027, completion 2029.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.hyundai.com/worldwide/en/newsroom/detail/0000001132" title="https://www.hyundai.com/worldwide/en/newsroom/detail/0000001132">hyundai.com/worldwide/en/newsroom/detai…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-01-26</span> <a class="xr xr-org" href="accounts.html#acct-coreweave">CoreWeave, Inc.</a></p>
+      <p class="nw-t"><span class="lk">NVIDIA invests USD 2 billion to back 5 GW of CoreWeave AI factories</span></p>
+      <p class="nw-w"><span class="lk">NVIDIA bought USD 2B of Class A stock at USD 87.20 to accelerate more than 5 GW of AI factories by 2030 spanning Rubin, Vera CPUs and BlueField storage.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.coreweave.com/news/nvidia-and-coreweave-strengthen-collaboration-to-accelerate-buildout-of-ai-factories" title="https://www.coreweave.com/news/nvidia-and-coreweave-strengthen-collaboration-to-accelerate-buildout-of-ai-factories">coreweave.com/news/nvidia-and-coreweave-s…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-01-15</span> <a class="xr xr-org" href="accounts.html#acct-aws">Amazon Web Services, Inc.</a></p>
+      <p class="nw-t"><span class="lk">AWS European Sovereign Cloud goes live in Brandenburg</span></p>
+      <p class="nw-w"><span class="lk">First sovereign region GA with 90+ services on a EUR 7.8B German investment; sovereign Local Zones planned for Belgium, Netherlands, Portugal.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://press.aboutamazon.com/aws/2026/1/aws-launches-aws-european-sovereign-cloud-and-announces-expansion-across-europe" title="https://press.aboutamazon.com/aws/2026/1/aws-launches-aws-european-sovereign-cloud-and-announces-expansion-across-europe">press.aboutamazon.com/aws/2026/1/aws-launches-aws…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+  </ul></div>
+</section>
+<section class="itm" id="i-news2026-all">
+  <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span data-t="h">全部,按日期排</span><span data-t="e">Everything, newest first</span></span><span class="itm-tag"><span data-t="h">46 則</span><span data-t="e">46</span></span><a class="itm-a" href="#i-news2026-all" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
+  <p class="itm-w"><span data-t="h">同一份名單的完整時間軸,包含跟硬體無關的那些 —— 你會想知道對方最近在忙什麼</span><span data-t="e">the full timeline for the same roster, including the announcements with no hardware in them, because you still want to know what they have been busy with</span></p>
+  <div class="itm-b">  <ul class="nws">
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-08-18</span> <a class="xr xr-org" href="accounts.html#acct-foxglove">Foxglove Technologies, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Foxglove launches Agentic Data Platform for Physical AI</span></p>
+      <p class="nw-w"><span class="lk">Bundles natural-language querying, Semantic Search, Remote Access live streaming from deployed robots and Bring Your Own Storage.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://foxglove.dev/blog/introducing-the-agentic-data-platform-for-physical-ai" title="https://foxglove.dev/blog/introducing-the-agentic-data-platform-for-physical-ai">foxglove.dev/blog/introducing-the-agenti…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-08-18</span> <a class="xr xr-org" href="accounts.html#acct-foxglove">Foxglove Technologies, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Bring Your Own Storage generally available on all major clouds</span></p>
+      <p class="nw-w"><span class="lk">BYOS spans AWS, Google Cloud and Azure across 14 regions as a paid add-on.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://foxglove.dev/blog/bring-your-own-storage-is-generally-available" title="https://foxglove.dev/blog/bring-your-own-storage-is-generally-available">foxglove.dev/blog/bring-your-own-storage…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-08-17</span> <a class="xr xr-org" href="accounts.html#acct-bedrock">Bedrock Robotics</a></p>
+      <p class="nw-t"><span class="lk">First fully autonomous excavator deployments on live sites</span></p>
+      <p class="nw-w"><span class="lk">Excavators retrofitted with the Bedrock Operator sensor-and-compute suite now work with no operator for Sundt, Zachry Construction and three others.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://www.bedrockrobotics.com/news/building-fully-autonomous-fleets-with-the-crews-who-need-them" title="https://www.bedrockrobotics.com/news/building-fully-autonomous-fleets-with-the-crews-who-need-them">bedrockrobotics.com/news/building-fully-autonom…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-08-13</span> <a class="xr xr-org" href="accounts.html#acct-adyen">Adyen N.V.</a></p>
+      <p class="nw-t"><span class="lk">H1 2026: datacenter spend pulled forward from 2027</span></p>
+      <p class="nw-w"><span class="lk">Net revenue EUR 1,302.9M (+19%); capex guided to ~7% of net revenue for FY2026, pulling 2027 investment into H2 2026 to secure compute and storage and lock in pricing.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.adyen.com/press-and-media/adyen-publishes-h1-2026-financial-results-3wjne" title="https://www.adyen.com/press-and-media/adyen-publishes-h1-2026-financial-results-3wjne">adyen.com/press-and-media/adyen-publi…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-08-13</span> <a class="xr xr-org" href="accounts.html#acct-apple">Apple Inc.</a></p>
+      <p class="nw-t"><span class="lk">Apple opens 20,000 sq ft Advanced Manufacturing Center in Houston</span></p>
+      <p class="nw-w"><span class="lk">Sits inside the Houston plant that already builds Apple's advanced AI servers for Private Cloud Compute, funded with hundreds of millions in under nine months.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://www.apple.com/newsroom/2026/08/apple-opens-advanced-manufacturing-center-in-houston/" title="https://www.apple.com/newsroom/2026/08/apple-opens-advanced-manufacturing-center-in-houston/">apple.com/newsroom/2026/08/apple-open…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-08-13</span> <a class="xr xr-org" href="accounts.html#acct-encord">Encord</a></p>
+      <p class="nw-t"><span class="lk">Point cloud labeling gains 1-Click Cuboid and Smart Interpolation</span></p>
+      <p class="nw-w"><span class="lk">Adds 1-Click Segmentation and Cuboid plus Smart Interpolation for tracking cuboids across time in 3D point cloud data.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://docs.encord.com/release-notes/releasenotes-2026" title="https://docs.encord.com/release-notes/releasenotes-2026">docs.encord.com/release-notes/releasenotes-…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-08-12</span> <a class="xr xr-org" href="accounts.html#acct-inferact">Inferact Inc.</a></p>
+      <p class="nw-t"><span class="lk">Inferact Platform fully certified for Kimi K3 vendor verification</span></p>
+      <p class="nw-w"><span class="lk">Production inference stack built on open-source vLLM passed full Kimi K3 Vendor Verification; no hardware vendors or GPU models disclosed.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://inferact.ai/news/kimi-k3-kvv" title="https://inferact.ai/news/kimi-k3-kvv">inferact.ai/news/kimi-k3-kvv</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-08-12</span> <a class="xr xr-org" href="accounts.html#acct-lambda">Lambda, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Lambda prices USD 926 million senior secured term loan B</span></p>
+      <p class="nw-w"><span class="lk">Priced at SOFR+300 maturing 31 December 2030, with proceeds stated for acquiring and installing GPU servers and related infrastructure for an investment-grade offtaker.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://lambda.ai/blog/lambda-prices-926-million-senior-secured-term-loan-b-facility" title="https://lambda.ai/blog/lambda-prices-926-million-senior-secured-term-loan-b-facility">lambda.ai/blog/lambda-prices-926-mill…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-08-11</span> <a class="xr xr-org" href="accounts.html#acct-coreweave">CoreWeave, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Q2 2026: active power to 1.5 GW, backlog about USD 104 billion</span></p>
+      <p class="nw-w"><span class="lk">Revenue USD 2,575M from USD 1,212M a year earlier, active power up nearly 500 MW to 1.5 GW, contracted power ~3.7 GW, and USD 14.1B spent on property and equipment in six months.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx" title="https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx">investors.coreweave.com/news/news-details/2026/Core…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-08-06</span> <a class="xr xr-org" href="accounts.html#acct-latitude">Latitude AI LLC</a></p>
+      <p class="nw-t"><span class="lk">Ford names the Fathom, carrying Latitude hands-free driving</span></p>
+      <p class="nw-w"><span class="lk">Ford revealed the Fathom midsize electric truck at USD 28,350 starting MSRP with Louisville Assembly production in 2027, carrying the hands-free system Latitude develops in-house.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://lat.ai/newsroom" title="https://lat.ai/newsroom">lat.ai/newsroom</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-08-04</span> <a class="xr xr-org" href="accounts.html#acct-autodesk">Autodesk, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Autodesk and University of Florida open robotics construction lab</span></p>
+      <p class="nw-w"><span class="lk">USD 1M donation opens the Autodesk Design and Make Laboratory with collaborative robots, digital twins in Fusion and computer vision.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://adsknews.autodesk.com/en/news/uf-lab-opening/" title="https://adsknews.autodesk.com/en/news/uf-lab-opening/">adsknews.autodesk.com/en/news/uf-lab-opening</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-08-04</span> <a class="xr xr-org" href="accounts.html#acct-coreweave">CoreWeave, Inc.</a></p>
+      <p class="nw-t"><span class="lk">CoreWeave enters Indonesia with 360 MW across three sites</span></p>
+      <p class="nw-w"><span class="lk">Three facilities totalling 360 MW of contracted IT power due online in 2028, with CoreWeave owning and operating the compute at all three.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.coreweave.com/news/coreweave-expands-cloud-ai-platform-to-indonesia-marking-first-move-into-asia-pacific-region" title="https://www.coreweave.com/news/coreweave-expands-cloud-ai-platform-to-indonesia-marking-first-move-into-asia-pacific-region">coreweave.com/news/coreweave-expands-clou…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-08-04</span> <a class="xr xr-org" href="accounts.html#acct-grab">Grab Holdings Limited</a></p>
+      <p class="nw-t"><span class="lk">Record Q2 2026 and USD 750 million buyback</span></p>
+      <p class="nw-w"><span class="lk">Revenue USD 997M (+22%), profit USD 235M, FY guidance raised to USD 4.10-4.15B; only cloud cost increases of USD 12M cited on infrastructure.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://www.grab.com/sg/press/others/grab-reports-record-second-quarter-2026-results-raises-full-year-guidance-and-announces-750-million-share-repurchase-program/" title="https://www.grab.com/sg/press/others/grab-reports-record-second-quarter-2026-results-raises-full-year-guidance-and-announces-750-million-share-repurchase-program/">grab.com/sg/press/others/grab-report…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-08-03</span> <a class="xr xr-org" href="accounts.html#acct-autodesk">Autodesk, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Autodesk completes MaintainX acquisition</span></p>
+      <p class="nw-w"><span class="lk">Closed the purchase of the mobile-first CMMS vendor; price not disclosed.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://adsknews.autodesk.com/en/news/welcoming-maintainx/" title="https://adsknews.autodesk.com/en/news/welcoming-maintainx/">adsknews.autodesk.com/en/news/welcoming-maintainx</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-07-30</span> <a class="xr xr-org" href="accounts.html#acct-anyscale">Anyscale, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Nscale to acquire Anyscale, forming full-stack AI hyperscaler</span></p>
+      <p class="nw-w"><span class="lk">Definitive agreement to buy Anyscale and its ~200 staff across US, Europe and India, expected to close H2 2026; value not disclosed.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://www.anyscale.com/press/nscale-acquires-anyscale-enhancing-its-full-stack-ai-cloud-platform" title="https://www.anyscale.com/press/nscale-acquires-anyscale-enhancing-its-full-stack-ai-cloud-platform">anyscale.com/press/nscale-acquires-anysc…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-07-29</span> <a class="xr xr-org" href="accounts.html#acct-grab">Grab Holdings Limited</a></p>
+      <p class="nw-t"><span class="lk">On-demand autonomous vehicle pilot launching in Punggol</span></p>
+      <p class="nw-w"><span class="lk">Moves from fixed shuttle loops to on-demand AV booking with ~90,000 km logged, a Punggol AV depot and commercial fares from Q4 2026.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://www.grab.com/sg/press/others/grab-set-to-pilot-on-demand-autonomous-vehicle-service-in-punggol-advancing-regional-hybrid-mobility-strategy/" title="https://www.grab.com/sg/press/others/grab-set-to-pilot-on-demand-autonomous-vehicle-service-in-punggol-advancing-regional-hybrid-mobility-strategy/">grab.com/sg/press/others/grab-set-to…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-07-25</span> <a class="xr xr-org" href="accounts.html#acct-hyundai">Hyundai Motor Company</a></p>
+      <p class="nw-t"><span class="lk">Euisun Chung sets Physical AI vision at San Francisco AI Summit</span></p>
+      <p class="nw-w"><span class="lk">Confirmed a 50,000 NVIDIA Blackwell GPU supply agreement and Robot Reference Platform, Waymo collaboration on IONIQ 5 at Metaplant America, and a US robot plant scaling to 30,000 units a year by 2028.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.hyundai.com/worldwide/en/newsroom/detail/0000001238" title="https://www.hyundai.com/worldwide/en/newsroom/detail/0000001238">hyundai.com/worldwide/en/newsroom/detai…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-07-22</span> <a class="xr xr-org" href="accounts.html#acct-google">Google LLC, a subsidiary of Alphabet Inc.</a></p>
+      <p class="nw-t"><span class="lk">Q2 2026: Virgo Network links a million AI accelerators</span></p>
+      <p class="nw-w"><span class="lk">Cloud revenue grew 82% with backlog at USD 514B; the Virgo Network connects a million AI accelerators across multiple data centre sites into one supercomputer.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/" title="https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/">blog.google/company-news/inside-google/…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-07-22</span> <a class="xr xr-org" href="accounts.html#acct-lila">Lila Sciences</a></p>
+      <p class="nw-t"><span class="lk">Lila wins three Phase I awards in DOE Genesis Mission</span></p>
+      <p class="nw-w"><span class="lk">Selected for three Genesis Mission Lighthouse Challenges with Caltech, Lawrence Berkeley, Northwestern and Argonne.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://www.lila.ai/news/powering-american-science-lila-to-join-does-genesis-mission" title="https://www.lila.ai/news/powering-american-science-lila-to-join-does-genesis-mission">lila.ai/news/powering-american-scie…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-07-22</span> <a class="xr xr-org" href="accounts.html#acct-luma">Luma AI, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Luma runs production inference on AMD MI325X via Tensorwave</span></p>
+      <p class="nw-w"><span class="lk">Thousands of AMD Instinct MI325X GPUs on Tensorwave serve production generation, migrated with minimal porting and no quality regression.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://lumalabs.ai/news/luma-runs-production-inference-on-amd-and-tensorwave" title="https://lumalabs.ai/news/luma-runs-production-inference-on-amd-and-tensorwave">lumalabs.ai/news/luma-runs-production-i…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-07-20</span> <a class="xr xr-org" href="accounts.html#acct-alibaba">Alibaba Group Holding Limited</a></p>
+      <p class="nw-t"><span class="lk">Agent-Native Cloud and 560,000 Zhenwu chips shipped</span></p>
+      <p class="nw-w"><span class="lk">Launched AgentLoop and AgentTeams, previewed 2.4-trillion-parameter Qwen 3.8-Max, and disclosed 560,000 cumulative in-house Zhenwu AI chip shipments across 400+ customers.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.alibabagroup.com/en-US/document-2016703577908576256" title="https://www.alibabagroup.com/en-US/document-2016703577908576256">alibabagroup.com/en-US/document-201670357790…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-07-08</span> <a class="xr xr-org" href="accounts.html#acct-apple">Apple Inc.</a></p>
+      <p class="nw-t"><span class="lk">Apple commits over USD 30 billion to Broadcom for US chips</span></p>
+      <p class="nw-w"><span class="lk">Multiyear agreement covering more than 15 billion US-made chips, with USD 1.5B expanding Broadcom's Fort Collins facility.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.apple.com/newsroom/2026/07/apple-to-increase-spend-with-broadcom-to-produce-billions-more-us-chips/" title="https://www.apple.com/newsroom/2026/07/apple-to-increase-spend-with-broadcom-to-produce-billions-more-us-chips/">apple.com/newsroom/2026/07/apple-to-i…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-06-24</span> <a class="xr xr-org" href="accounts.html#acct-inception">Inception Labs</a></p>
+      <p class="nw-t"><span class="lk">Mercury 2 lands on Azure AI Foundry</span></p>
+      <p class="nw-w"><span class="lk">Became available through Microsoft's Azure AI Foundry model catalogue.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://www.inceptionlabs.ai/blog" title="https://www.inceptionlabs.ai/blog">inceptionlabs.ai/blog</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-06-22</span> <a class="xr xr-org" href="accounts.html#acct-alibaba">Alibaba Group Holding Limited</a></p>
+      <p class="nw-t"><span class="lk">Alibaba Cloud opens Paris and Johor regions</span></p>
+      <p class="nw-w"><span class="lk">New zones in France, Malaysia, Japan and Mexico take the footprint to 105 availability zones across 32 regions.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.alibabacloud.com/blog/alibaba-cloud-expands-global-ai-infrastructure-with-new-data-centers-in-france-japan-malaysia-and-mexico_603278" title="https://www.alibabacloud.com/blog/alibaba-cloud-expands-global-ai-infrastructure-with-new-data-centers-in-france-japan-malaysia-and-mexico_603278">alibabacloud.com/blog/alibaba-cloud-expands-…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-06-22</span> <a class="xr xr-org" href="accounts.html#acct-lila">Lila Sciences</a></p>
+      <p class="nw-t"><span class="lk">Lila builds agent-driven science on NVIDIA BioNeMo Agent Toolkit</span></p>
+      <p class="nw-w"><span class="lk">Adopted the toolkit for autonomous agents that test their own hypotheses in a physical lab.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://www.lila.ai/news" title="https://www.lila.ai/news">lila.ai/news</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-06-16</span> <a class="xr xr-org" href="accounts.html#acct-intel">Intel Corporation</a></p>
+      <p class="nw-t"><span class="lk">Intel 18A-P enters risk production</span></p>
+      <p class="nw-w"><span class="lk">First performance enhancement of the 18A family gives 9% more performance at iso-power or 18% lower power at iso-performance.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://newsroom.intel.com/intel-foundry/intel-foundry-details-process-milestones-future-innovation-at-vlsi-symposium" title="https://newsroom.intel.com/intel-foundry/intel-foundry-details-process-milestones-future-innovation-at-vlsi-symposium">newsroom.intel.com/intel-foundry/intel-foundry…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-06-16</span> <a class="xr xr-org" href="accounts.html#acct-lambda">Lambda, Inc.</a></p>
+      <p class="nw-t"><span class="lk">MLPerf Training v6.0: fastest LLM training times</span></p>
+      <p class="nw-w"><span class="lk">Submitted 18 nodes x 4 NVIDIA <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300 NVL72</a> plus <a class="xr xr-chip" href="compare.html#chip-b200">HGX B200</a> systems, training Llama 3.1 8B in 11.59 minutes on <a class="xr xr-chip" href="compare.html#chip-gb300-nvl72">GB300</a>.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://lambda.ai/blog/mlperf-training-v6.0-lambda-delivers-fastest-llm-training" title="https://lambda.ai/blog/mlperf-training-v6.0-lambda-delivers-fastest-llm-training">lambda.ai/blog/mlperf-training-v6.0-l…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-06-15</span> <a class="xr xr-org" href="accounts.html#acct-google">Google LLC, a subsidiary of Alphabet Inc.</a></p>
+      <p class="nw-t"><span class="lk">Google adds USD 1.5 billion to Jackson County, Alabama campus</span></p>
+      <p class="nw-w"><span class="lk">Expansion covering 2026 and 2027 with a USD 2M Energy Impact Fund alongside TVA.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/" title="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/">blog.google/innovation-and-ai/infrastru…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-06-11</span> <a class="xr xr-org" href="accounts.html#acct-adyen">Adyen N.V.</a></p>
+      <p class="nw-t"><span class="lk">Adyen to acquire billing platform Orb for USD 335 million</span></p>
+      <p class="nw-w"><span class="lk">All-cash purchase of the San Francisco enterprise billing platform, expected to close 1 July 2026.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://www.adyen.com/press-and-media/jtrg4qd7j3p4rj" title="https://www.adyen.com/press-and-media/jtrg4qd7j3p4rj">adyen.com/press-and-media/jtrg4qd7j3p…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-06-03</span> <a class="xr xr-org" href="accounts.html#acct-lancedb">LanceDB Systems, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Stable-Worldmodel platform for reproducible world model research</span></p>
+      <p class="nw-w"><span class="lk">Released a Lance-backed platform for reproducible world model research and benchmarking under visual and physical distribution shifts.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://www.lancedb.com/category/announcement" title="https://www.lancedb.com/category/announcement">lancedb.com/category/announcement</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-06-02</span> <a class="xr xr-org" href="accounts.html#acct-anyscale">Anyscale, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Anyscale on Azure enters public preview</span></p>
+      <p class="nw-w"><span class="lk">Platform can be provisioned inside a customer's own Azure tenancy with Entra SSO and MACC drawdown; Wayve and Xoople named as users.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://www.anyscale.com/blog/anyscale-on-azure-public-preview-build-and-deploy-ai-scale" title="https://www.anyscale.com/blog/anyscale-on-azure-public-preview-build-and-deploy-ai-scale">anyscale.com/blog/anyscale-on-azure-publ…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-05-31</span> <a class="xr xr-org" href="accounts.html#acct-intel">Intel Corporation</a></p>
+      <p class="nw-t"><span class="lk">Xeon 6+ on 18A, E835 Ethernet and Crescent Island GPU</span></p>
+      <p class="nw-w"><span class="lk">Launched Xeon 6+ with up to 288 E-cores on Intel 18A and detailed Crescent Island at 480GB LPDDR5X in a 350W air-cooled PCIe card; ASUS, Dell, Ericsson, GIGABYTE, HPE, Lenovo and Supermicro are already building systems.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://newsroom.intel.com/data-center/intel-puts-agentic-ai-xeon-6-networking-ai-systems" title="https://newsroom.intel.com/data-center/intel-puts-agentic-ai-xeon-6-networking-ai-systems">newsroom.intel.com/data-center/intel-puts-agen…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-04-22</span> <a class="xr xr-org" href="accounts.html#acct-google">Google LLC, a subsidiary of Alphabet Inc.</a></p>
+      <p class="nw-t"><span class="lk">Cloud Next 26 unveils TPU 8t and TPU 8i</span></p>
+      <p class="nw-w"><span class="lk">TPU 8t scales to 9,600 chips and 2 PB of shared HBM per superpod at 3x Ironwood compute; TPU 8i links 1,152 chips per pod.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/" title="https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/">blog.google/innovation-and-ai/infrastru…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-04-21</span> <a class="xr xr-org" href="accounts.html#acct-jpmc">JPMorgan Chase &amp; Co.</a></p>
+      <p class="nw-t"><span class="lk">Security and Resiliency Initiative expands across Europe</span></p>
+      <p class="nw-w"><span class="lk">Extends the USD 1.5 trillion, 10-year initiative from the UK into Continental Europe across five verticals including frontier and strategic technologies.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://www.jpmorganchase.com/newsroom/press-releases/2026/jpmc-expands-sri-across-europe" title="https://www.jpmorganchase.com/newsroom/press-releases/2026/jpmc-expands-sri-across-europe">jpmorganchase.com/newsroom/press-releases/202…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-04-02</span> <a class="xr xr-org" href="accounts.html#acct-bmw">Bayerische Motoren Werke Aktiengesellschaft</a></p>
+      <p class="nw-t"><span class="lk">Plant Munich: EUR 650 million transformation, i3 output from August</span></p>
+      <p class="nw-w"><span class="lk">Converts Plant Munich to all-electric with AI camera quality control, Automated Surface Inspection and digital twins; fully electric by 2027.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://www.press.bmwgroup.com/global/article/detail/T0456664EN/the-new-bmw-group-plant-munich:-more-efficient-more-flexible-and-more-digital-for-production-of-the-neue-klasse" title="https://www.press.bmwgroup.com/global/article/detail/T0456664EN/the-new-bmw-group-plant-munich:-more-efficient-more-flexible-and-more-digital-for-production-of-the-neue-klasse">press.bmwgroup.com/global/article/detail/T0456…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-03-13</span> <a class="xr xr-org" href="accounts.html#acct-aws">Amazon Web Services, Inc.</a></p>
+      <p class="nw-t"><span class="lk">AWS and Cerebras pair Trainium prefill with CS-3 decode</span></p>
+      <p class="nw-w"><span class="lk">Inference disaggregation in AWS data centres using Trainium for prefill and Cerebras CS-3 for decode over EFA, exposed via Bedrock.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://press.aboutamazon.com/aws/2026/3/aws-and-cerebras-collaboration-aims-to-set-a-new-standard-for-ai-inference-speed-and-performance-in-the-cloud" title="https://press.aboutamazon.com/aws/2026/3/aws-and-cerebras-collaboration-aims-to-set-a-new-standard-for-ai-inference-speed-and-performance-in-the-cloud">press.aboutamazon.com/aws/2026/3/aws-and-cerebras…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw">
+      <p class="nw-h"><span class="lk">2026-03-09</span> <a class="xr xr-org" href="accounts.html#acct-discord">Discord Inc.</a></p>
+      <p class="nw-t"><span class="lk">Social Commerce and cloud-streamed Instant Play Quests</span></p>
+      <p class="nw-w"><span class="lk">Instant Play Quests stream trials with no install via NVIDIA GeForce NOW and Amazon GameLift Streams, piloted with NetEase Marvel Rivals.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">與硬體無關</span><span data-t="e">no hardware</span></span><span class="src"><a class="srcl" href="https://discord.com/press-releases/discord-deepens-its-ability-to-drive-growth-for-games" title="https://discord.com/press-releases/discord-deepens-its-ability-to-drive-growth-for-games">discord.com/press-releases/discord-deep…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-03-02</span> <a class="xr xr-org" href="accounts.html#acct-aws">Amazon Web Services, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Amazon raises Spain investment to EUR 33.7 billion through 2035</span></p>
+      <p class="nw-w"><span class="lk">Adds EUR 18B for data centres in Huesca, Zaragoza and Teruel plus a dedicated AI and ML server manufacturing and repair facility, ~1,800 jobs.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.aboutamazon.eu/news/job-creation-and-investment/amazon-investment-spain-2026" title="https://www.aboutamazon.eu/news/job-creation-and-investment/amazon-investment-spain-2026">aboutamazon.eu/news/job-creation-and-inves…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-02-27</span> <a class="xr xr-org" href="accounts.html#acct-bmw">Bayerische Motoren Werke Aktiengesellschaft</a></p>
+      <p class="nw-t"><span class="lk">Humanoid robots to enter German production at Plant Leipzig</span></p>
+      <p class="nw-w"><span class="lk">Pilots Hexagon Robotics AEON at Leipzig from summer 2026 and sets up a Center of Competence for Physical AI in Production.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://www.press.bmwgroup.com/global/article/detail/T0455864EN/bmw-group-to-deploy-humanoid-robots-in-production-in-germany-for-the-first-time?language=en" title="https://www.press.bmwgroup.com/global/article/detail/T0455864EN/bmw-group-to-deploy-humanoid-robots-in-production-in-germany-for-the-first-time?language=en">press.bmwgroup.com/global/article/detail/T0455…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-02-27</span> <a class="xr xr-org" href="accounts.html#acct-hyundai">Hyundai Motor Company</a></p>
+      <p class="nw-t"><span class="lk">KRW 9 trillion Saemangeum hub with a 50,000-GPU AI data center</span></p>
+      <p class="nw-w"><span class="lk">MOU for a Gunsan complex: KRW 5.8T AI data centre scaled to 50,000 GPUs, KRW 1.3T solar, KRW 1T electrolyzer, robotics at 30,000 units a year; ground break 2027, completion 2029.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.hyundai.com/worldwide/en/newsroom/detail/0000001132" title="https://www.hyundai.com/worldwide/en/newsroom/detail/0000001132">hyundai.com/worldwide/en/newsroom/detai…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-02-26</span> <a class="xr xr-org" href="accounts.html#acct-encord">Encord</a></p>
+      <p class="nw-t"><span class="lk">Encord raises USD 60 million Series C led by Wellington</span></p>
+      <p class="nw-w"><span class="lk">Earmarked for scaling the data platform; data under management grew from 1 PB to over 5 PB in twelve months and physical-AI revenue rose 10x.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://www.prnewswire.com/news-releases/encord-secures-60m-series-c-to-scale-ai-native-data-infrastructure-as-physical-ai-hits-inflection-point-302698629.html" title="https://www.prnewswire.com/news-releases/encord-secures-60m-series-c-to-scale-ai-native-data-infrastructure-as-physical-ai-hits-inflection-point-302698629.html">prnewswire.com/news-releases/encord-secure…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-02-24</span> <a class="xr xr-org" href="accounts.html#acct-apple">Apple Inc.</a></p>
+      <p class="nw-t"><span class="lk">Apple doubles Houston campus, adds US Mac mini production</span></p>
+      <p class="nw-w"><span class="lk">Doubles the campus footprint and expands the advanced AI server line Apple says is ahead of schedule.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://www.apple.com/newsroom/2026/02/apple-accelerates-us-manufacturing-with-mac-mini-production/" title="https://www.apple.com/newsroom/2026/02/apple-accelerates-us-manufacturing-with-mac-mini-production/">apple.com/newsroom/2026/02/apple-acce…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-02-24</span> <a class="xr xr-org" href="accounts.html#acct-inception">Inception Labs</a></p>
+      <p class="nw-t"><span class="lk">Introducing Mercury 2, a reasoning diffusion LLM</span></p>
+      <p class="nw-w"><span class="lk">128K context window, tunable reasoning and native tool use, running at about 1,009 tokens per second on NVIDIA Blackwell GPUs.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://www.inceptionlabs.ai/blog" title="https://www.inceptionlabs.ai/blog">inceptionlabs.ai/blog</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-maybe">
+      <p class="nw-h"><span class="lk">2026-02-11</span> <a class="xr xr-org" href="accounts.html#acct-luma">Luma AI, Inc.</a></p>
+      <p class="nw-t"><span class="lk">Luma opens Riyadh MENA headquarters tied to HUMAIN Project Halo</span></p>
+      <p class="nw-w"><span class="lk">Regional HQ to build the first Saudi-built Arabic-native foundation model, supported by Project Halo, a 2 GW AI supercluster.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">可能相關</span><span data-t="e">possibly relevant</span></span><span class="src"><a class="srcl" href="https://lumalabs.ai/news/luma-ai-to-open-riyadh-office-to-accelerate-humain-create-and-partner-with-publicis-groupe" title="https://lumalabs.ai/news/luma-ai-to-open-riyadh-office-to-accelerate-humain-create-and-partner-with-publicis-groupe">lumalabs.ai/news/luma-ai-to-open-riyadh…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-01-26</span> <a class="xr xr-org" href="accounts.html#acct-coreweave">CoreWeave, Inc.</a></p>
+      <p class="nw-t"><span class="lk">NVIDIA invests USD 2 billion to back 5 GW of CoreWeave AI factories</span></p>
+      <p class="nw-w"><span class="lk">NVIDIA bought USD 2B of Class A stock at USD 87.20 to accelerate more than 5 GW of AI factories by 2030 spanning Rubin, Vera CPUs and BlueField storage.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://www.coreweave.com/news/nvidia-and-coreweave-strengthen-collaboration-to-accelerate-buildout-of-ai-factories" title="https://www.coreweave.com/news/nvidia-and-coreweave-strengthen-collaboration-to-accelerate-buildout-of-ai-factories">coreweave.com/news/nvidia-and-coreweave-s…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+    <li class="nw is-hw">
+      <p class="nw-h"><span class="lk">2026-01-15</span> <a class="xr xr-org" href="accounts.html#acct-aws">Amazon Web Services, Inc.</a></p>
+      <p class="nw-t"><span class="lk">AWS European Sovereign Cloud goes live in Brandenburg</span></p>
+      <p class="nw-w"><span class="lk">First sovereign region GA with 90+ services on a EUR 7.8B German investment; sovereign Local Zones planned for Belgium, Netherlands, Portugal.</span></p>
+      <p class="nw-f"><span class="nw-m"><span data-t="h">會買機器</span><span data-t="e">buys machines</span></span><span class="src"><a class="srcl" href="https://press.aboutamazon.com/aws/2026/1/aws-launches-aws-european-sovereign-cloud-and-announces-expansion-across-europe" title="https://press.aboutamazon.com/aws/2026/1/aws-launches-aws-european-sovereign-cloud-and-announces-expansion-across-europe">press.aboutamazon.com/aws/2026/1/aws-launches-aws…</a> <span class="lk">2026-08-18</span></span></p>
+    </li>
+  </ul></div>
+</section>
+<section class="itm" id="i-news2026-quiet">
+  <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span data-t="h">今年沒有動靜的</span><span data-t="e">The ones that were quiet this year</span></span><span class="itm-tag"><span data-t="h">1 家</span><span data-t="e">1</span></span><a class="itm-a" href="#i-news2026-quiet" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
+  <p class="itm-w"><span data-t="h">1 家查過但 2026 年沒有發過任何公告 —— 是查過的結論,不是沒查</span><span data-t="e">1 companies were checked and published nothing at all in 2026 — a conclusion, not an unopened file</span></p>
+  <div class="itm-b">  <p><span class="chip"><a class="xr xr-org" href="accounts.html#acct-elorian">Elorian AI, Inc.</a></span></p></div>
+</section>
+  </div>
+  <p class="stamp" data-fresh="1"><span data-t="h">狀態截至 2026-08-18</span><span data-t="e">Status as of 2026-08-18</span></p>
+  </div>
+</details>
 <details class="dr sec" id="s-chain" data-block="chain">
-  <summary><span class="dr-t"><span class="sec-n" aria-hidden="true">10</span><span data-t="h">架構圖</span><span data-t="e">How the money moves</span></span><span class="sec-w"><span data-t="h">錢從誰手上出發,經過誰,最後變成誰的伺服器訂單 —— 以及我方站在哪一格</span><span data-t="e">where the money starts, who it passes through, whose server order it finally becomes, and which box we stand in</span></span><span class="dr-s"><span data-t="h">四層</span><span data-t="e">four layers</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">58 家已分層</span><span data-t="e">58 companies placed</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">粗框那兩層才簽伺服器訂單</span><span data-t="e">the heavy-edged bands are the ones that sign server orders</span></span></summary>
+  <summary><span class="dr-t"><span class="sec-n" aria-hidden="true">11</span><span data-t="h">架構圖</span><span data-t="e">How the money moves</span></span><span class="sec-w"><span data-t="h">錢從誰手上出發,經過誰,最後變成誰的伺服器訂單 —— 以及我方站在哪一格</span><span data-t="e">where the money starts, who it passes through, whose server order it finally becomes, and which box we stand in</span></span><span class="dr-s"><span data-t="h">四層</span><span data-t="e">four layers</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">58 家已分層</span><span data-t="e">58 companies placed</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">粗框那兩層才簽伺服器訂單</span><span data-t="e">the heavy-edged bands are the ones that sign server orders</span></span></summary>
   <div class="dr-b">
   <div class="itms">
 <section class="itm" id="i-chain-picture">
@@ -980,11 +1415,11 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
   </div>
 </details>
 <details class="dr sec" id="s-index" data-block="index">
-  <summary><span class="dr-t"><span class="sec-n" aria-hidden="true">11</span><span data-t="h">索引</span><span data-t="e">Index</span></span><span class="sec-w"><span data-t="h">這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結</span><span data-t="e">every section, every company and every session in this pack, listed once, each one a link</span></span><span class="dr-s"><span data-t="h">每一條都是連結</span><span data-t="e">every line is a link</span></span></summary>
+  <summary><span class="dr-t"><span class="sec-n" aria-hidden="true">12</span><span data-t="h">索引</span><span data-t="e">Index</span></span><span class="sec-w"><span data-t="h">這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結</span><span data-t="e">every section, every company and every session in this pack, listed once, each one a link</span></span><span class="dr-s"><span data-t="h">每一條都是連結</span><span data-t="e">every line is a link</span></span></summary>
   <div class="dr-b">
   <div class="idx">
     <section class="idx-g">
-      <h3 class="idx-h"><span data-t="h">章節</span><span data-t="e">Sections</span> <span class="idx-c"><span class="lk">37</span></span></h3>
+      <h3 class="idx-h"><span data-t="h">章節</span><span data-t="e">Sections</span> <span class="idx-c"><span class="lk">38</span></span></h3>
       <p class="idx-w"><span data-t="h">每一節回答一個問題</span><span data-t="e">each answers one question</span></p>
       <ul class="idx-l">
         <li><a href="index.html#s-verdict"><span data-t="h">判斷</span><span data-t="e">The call</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
@@ -996,6 +1431,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
         <li><a href="index.html#s-signals"><span data-t="h">前瞻訊號</span><span data-t="e">Forward signals</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#s-open"><span data-t="h">本場 GAP</span><span data-t="e">What is still open</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#s-method"><span data-t="h">方法與來源</span><span data-t="e">Method and sources</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
+        <li><a href="index.html#s-news2026"><span data-t="h">這些公司 2026 年在做什麼</span><span data-t="e">What these companies did in 2026</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#s-chain"><span data-t="h">架構圖</span><span data-t="e">How the money moves</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#s-index"><span data-t="h">索引</span><span data-t="e">Index</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="agenda.html#s-queue"><span data-t="h">先卡這幾場</span><span data-t="e">Queue for these first</span></a><span class="idx-p"><span data-t="h">議程</span><span data-t="e">Agenda</span></span></li>
@@ -1027,7 +1463,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
       </ul>
     </section>
     <section class="idx-g">
-      <h3 class="idx-h"><span data-t="h">子項</span><span data-t="e">Items</span> <span class="idx-c"><span class="lk">105</span></span></h3>
+      <h3 class="idx-h"><span data-t="h">子項</span><span data-t="e">Items</span> <span class="idx-c"><span class="lk">108</span></span></h3>
       <p class="idx-w"><span data-t="h">每一節底下的每一項,可以單獨連結</span><span data-t="e">every item inside every section, each with its own link</span></p>
       <ul class="idx-l">
         <li><a href="index.html#i-room-audience"><span data-t="h">來的是誰</span><span data-t="e">Who is in the room</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
@@ -1047,6 +1483,9 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
         <li><a href="index.html#i-turn-prefill-decode"><span data-t="h">prefill / decode</span><span data-t="e">prefill / decode</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#i-turn-gb300-nvl72"><span data-t="h">GB300 NVL72</span><span data-t="e">GB300 NVL72</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#i-turn-tpu-amd-intel"><span data-t="h">TPU / AMD / Intel</span><span data-t="e">TPU / AMD / Intel</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
+        <li><a href="index.html#i-news2026-buying"><span data-t="h">直接代表有人要買機器</span><span data-t="e">The ones that mean somebody is buying machines</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
+        <li><a href="index.html#i-news2026-all"><span data-t="h">全部,按日期排</span><span data-t="e">Everything, newest first</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
+        <li><a href="index.html#i-news2026-quiet"><span data-t="h">今年沒有動靜的</span><span data-t="e">The ones that were quiet this year</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#i-chain-picture"><span data-t="h">一張圖看完這一場</span><span data-t="e">The whole show in one picture</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#i-chain-where-we-stand"><span data-t="h">我方站在哪一格</span><span data-t="e">Which box we stand in</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="agenda.html#i-queue-s037"><span data-t="h">&lt;span class="lk"&gt;#1&lt;/span&gt;&lt;a class="xr xr-ses" href="agenda.html#ses-s037"&gt;&lt;span class="lk"&gt;How the Data Center Shapes the workload&lt;/span&gt;&lt;/a&gt;</span><span data-t="e">&lt;span class="lk"&gt;#1&lt;/span&gt;&lt;a class="xr xr-ses" href="agenda.html#ses-s037"&gt;&lt;span class="lk"&gt;How the Data Center Shapes the workload&lt;/span&gt;&lt;/a&gt;</span></a><span class="idx-p"><span data-t="h">議程</span><span data-t="e">Agenda</span></span></li>

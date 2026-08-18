@@ -261,6 +261,18 @@ sessions = as_list(load(os.path.join(DATA, 'sessions.json'), []))
 speakers = as_list(load(os.path.join(DATA, 'speakers.json'), []))
 sponsors = as_list(load(os.path.join(DATA, 'sponsors.json'), []))
 orgs = as_list(load(os.path.join(DATA, 'orgs.json'), []))
+
+# 2026 announcements per company. A company with an empty list is one we checked
+# and found quiet this year — that is a finding, not a missing file, so the
+# empty list is kept rather than dropped.
+NEWS = {}
+for _r in as_list(load(os.path.join(DATA, 'news2026.json'), [])):
+    if isinstance(_r, dict) and _r.get('ledger_id'):
+        NEWS[str(_r['ledger_id'])] = list(_r.get('items') or [])
+NEWS_ITEMS = sorted(
+    [dict(it, ledger_id=k) for k, v in NEWS.items() for it in v],
+    key=lambda i: str(i.get('date') or ''), reverse=True)
+NEWS_HW = [i for i in NEWS_ITEMS if str(i.get('hw', '')).upper().startswith('YES')]
 exhibitors = as_list(load(os.path.join(DATA, 'exhibitors.json'), []))
 termbase = load(os.path.join(DATA, 'termbase.json'), {}) or {}
 cards_p = os.path.join(ACCOUNTS, 'cards.json')
@@ -702,6 +714,10 @@ SECTIONS = [
      '這些結論怎麼來的,哪一步可以被推翻',
      'how these conclusions were produced, and which step you could overturn'),
 
+    ('command-center', 'news2026', '這些公司 2026 年在做什麼', 'What these companies did in 2026',
+     '到場的公司今年各自宣布了什麼,哪幾則直接代表有人要買機器',
+     'what each company on the roster announced this year, and which of those announcements mean '
+     'somebody is buying machines'),
     ('command-center', 'chain', '架構圖', 'How the money moves',
      '錢從誰手上出發,經過誰,最後變成誰的伺服器訂單 —— 以及我方站在哪一格',
      'where the money starts, who it passes through, whose server order it finally becomes, and '
@@ -1795,6 +1811,72 @@ def frag_command_center():
     # The index is filled in by main() once every fragment has registered its
     # anchors: command-center renders first, so it cannot see the item anchors
     # the other four pages create. A placeholder here, resolved there.
+    # ---------------------------------------- 2026 announcements ------------
+    def news_row(it, show_org=True):
+        lid = str(it.get('ledger_id') or '')
+        hw = str(it.get('hw') or '').upper()
+        cls = ' is-hw' if hw.startswith('YES') else (' is-maybe' if hw.startswith('MAYBE') else '')
+        bits = ['    <li class="nw%s">' % cls]
+        bits.append('      <p class="nw-h">%s%s</p>'
+                    % (lk(str(it.get('date') or '')),
+                       (' ' + xref(lid)) if show_org and lid else ''))
+        bits.append('      <p class="nw-t">%s</p>' % lk(str(it.get('title') or '')))
+        bits.append('      <p class="nw-w">%s</p>' % lk(str(it.get('what') or '')))
+        mark = {'YES': ('會買機器', 'buys machines'),
+                'MAYBE': ('可能相關', 'possibly relevant'),
+                'NO': ('與硬體無關', 'no hardware')}.get(hw.split(' ')[0].split('-')[0].strip(), None)
+        bits.append('      <p class="nw-f">%s%s</p>'
+                    % (('<span class="nw-m">%s</span>' % tt(esc(mark[0]), esc(mark[1])))
+                       if mark else '',
+                       src_a(it.get('url'), '2026-08-18')))
+        bits.append('    </li>')
+        return '\n'.join(bits)
+
+    quiet = [k for k, v in NEWS.items() if not v]
+    if NEWS_ITEMS:
+        hw_html = ['  <ul class="nws">'] + [news_row(i) for i in NEWS_HW] + ['  </ul>']
+        all_html = ['  <ul class="nws">'] + [news_row(i) for i in NEWS_ITEMS] + ['  </ul>']
+        rows = [
+            ('buying', '直接代表有人要買機器', 'The ones that mean somebody is buying machines',
+             '%d 則裡有 %d 則點到自建、擴容、採購或自製伺服器 —— 這幾則是你這一趟的理由'
+             % (len(NEWS_ITEMS), len(NEWS_HW)),
+             '%d of the %d announcements name a build, an expansion, a purchase or an in-house '
+             'server line. These are the reason for the trip'
+             % (len(NEWS_HW), len(NEWS_ITEMS)),
+             '\n'.join(hw_html), '%d 則' % len(NEWS_HW), '%d' % len(NEWS_HW)),
+            ('all', '全部,按日期排', 'Everything, newest first',
+             '同一份名單的完整時間軸,包含跟硬體無關的那些 —— 你會想知道對方最近在忙什麼',
+             'the full timeline for the same roster, including the announcements with no hardware '
+             'in them, because you still want to know what they have been busy with',
+             '\n'.join(all_html), '%d 則' % len(NEWS_ITEMS), '%d' % len(NEWS_ITEMS)),
+        ]
+        if quiet:
+            rows.append(('quiet', '今年沒有動靜的', 'The ones that were quiet this year',
+                         '%d 家查過但 2026 年沒有發過任何公告 —— 是查過的結論,不是沒查'
+                         % len(quiet),
+                         '%d companies were checked and published nothing at all in 2026 — a '
+                         'conclusion, not an unopened file' % len(quiet),
+                         '  <p>%s</p>'
+                         % ''.join('<span class="chip">%s</span>' % xref(k) for k in sorted(quiet)),
+                         '%d 家' % len(quiet), '%d' % len(quiet)))
+        a(sec('news2026',
+              S(('%d 則公告' % len(NEWS_ITEMS), '%d announcements' % len(NEWS_ITEMS)), '·',
+                ('%d 則代表有人要買機器' % len(NEWS_HW),
+                 '%d of them mean somebody is buying' % len(NEWS_HW)), '·',
+                ('全部 2026 年,全部帶原始連結',
+                 'all dated 2026, every one with its original link')),
+              items('news2026', rows) + '\n  %s' % STAMP,
+              block='news-2026', fresh=True))
+    else:
+        a(sec('news2026', tt('尚未建立', 'not built yet'),
+              items('news2026', [
+                  ('pending', '還沒查', 'Not researched yet',
+                   '這一節要的是每一家 2026 年的公告',
+                   'this section wants each company\'s 2026 announcements',
+                   '  <p>%s</p>' % gap('尚未建立 2026 公告清單',
+                                       'the 2026 announcement list has not been built'))]),
+              block='news-2026'))
+
     a(sec('chain',
           S(('四層', 'four layers'), '·',
             ('%d 家已分層' % len([c for c in (cards or []) if band_key(c.get('layer'))]),

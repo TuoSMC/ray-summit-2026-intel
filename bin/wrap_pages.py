@@ -570,6 +570,31 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 .itm-b > :first-child{margin-top:0}
 .itm-b details.dr{margin-bottom:var(--s2)}
 
+/* ------------------------------------------------- 2026 announcements ------
+   A dated list where the hardware-bearing rows carry the weight. The date is
+   the scanning surface, so it leads. */
+.nws{list-style:none;margin:var(--s4) 0 0;padding:0}
+.nw{padding:var(--s4) 0 var(--s4) var(--s4);border-top:1px solid var(--rule);
+  border-left:2px solid transparent;max-width:var(--measure)}
+.nw:first-child{border-top:0}
+.nw.is-hw{border-left-color:var(--rule-hard);background:var(--card)}
+.nw.is-maybe{border-left-color:var(--rule)}
+.nw-h{margin:0;font-family:var(--f-mono);font-size:var(--t-cap);
+  color:var(--ink-3);font-variant-numeric:tabular-nums}
+.nw-h .xr-org{font-family:var(--f-text);font-size:var(--t-cap)}
+.nw-t{margin:var(--s1) 0 0;font-family:var(--f-display);font-size:var(--t-h3);
+  font-weight:700;line-height:1.34}
+.nw-t .lk{font-family:var(--f-display);font-size:inherit;letter-spacing:inherit}
+.nw-w{margin:var(--s2) 0 0;font-size:var(--t-cap);color:var(--ink-2);
+  line-height:1.55}
+.nw-w .lk{font-family:var(--f-text);font-size:var(--t-cap);color:var(--ink-2)}
+.nw-f{margin:var(--s2) 0 0;display:flex;flex-wrap:wrap;align-items:baseline;
+  gap:var(--s1) var(--s3)}
+.nw-m{font-size:var(--t-micro);letter-spacing:.06em;color:var(--ink-3);
+  font-family:var(--f-mono)}
+.nw.is-hw .nw-m{color:var(--accent);font-weight:700}
+@media print{.nw{break-inside:avoid;page-break-inside:avoid}}
+
 /* ------------------------------------------------------- the chain diagram --
    Inline SVG, tokens only, viewBox-scaled. The two bands that actually sign a
    server order carry the heavy edge; everything else is furniture. */
