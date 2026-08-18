@@ -469,6 +469,36 @@
       "outputTokens": 0,
       "at": "2026-08-17T18:16:17-07:00",
       "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T19:02:17-07:00",
+      "wallSeconds": 0,
+      "note": "5 pages built from accounts, agenda, command-center, compare, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T19:02:17-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T19:02:39-07:00",
+      "wallSeconds": 0,
+      "note": "5 pages built from accounts, agenda, command-center, compare, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T19:02:39-07:00",
+      "wallSeconds": 1
     }
   ],
   "pages": [
@@ -610,6 +640,11 @@
       "date": "2026-08-17",
       "source": "user",
       "decision": "glossary page DELETED from the core budget (5 pages: command-center, agenda, gtm, accounts, compare). Reason: every section on it was the pack explaining its own machinery back to the reader - field names (ledger_id, asOf), our own GAP token, our buyer-layer taxonomy, our evidence-tier labels, plus tag/tier/role counts already rendered on agenda and accounts, plus the i18n termbase which is build infrastructure. Standing rule carried forward: the pack never documents itself to the reader; if a cell needs explaining, the explanation is the cell's own caption, inline at the point of use."
+    },
+    {
+      "date": "2026-08-17",
+      "source": "default",
+      "decision": "FULL re-ranked after the 58-org deep pass. Written: lambda, verda, coreweave, nscale, jpmc, hyundai, latitude, zoox. Grab was REMOVED from the earlier list on a correction: its cloud exit is 250 Mac minis and about 37 kW, a CI build farm, not a production estate. 21 orgs now carry priority A; T4 caps FULL at 8, so the eight are ranked on buys_servers plus a dated or hard trigger plus a seat we can actually take. Gate-passed but not written, with reasons: recursion: real and dated, but the lease runs to FY2027 - the call lands after this show; bmw: A-grade opening, but the GPU estate has no disclosed size yet; qualify before writing a dossier; parasail: buying signal is a finance req, not a purchase; fleet under ~1 MW; lila: buys_servers still GAP - the hybrid language is a wedge, not a confirmed estate; pathrobotics: every confirmed datapoint still points at AWS; the on-prem thesis is unsourced; periodic: thousands of GPUs inferred from a job spec; title-holder unknown; bedrock: no compute vendor named at all; MW is a wide estimate off headcount and funding; azure: our surface is Azure Local at the edge, not the Maia and Cobalt fleet; vast/redhat/intel/inferact/anyscale: partner and channel motions - dossiers would misframe them as PO targets"
     }
   ],
   "corrections": [

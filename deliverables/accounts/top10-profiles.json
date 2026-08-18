@@ -1,0 +1,907 @@
+[
+ {
+  "ledger_id": "coreweave",
+  "legal_name": "CoreWeave, Inc.",
+  "aka": [
+   "CoreWeave",
+   "CoreWeave Cloud",
+   "Atlantic Crypto Corporation (original 2017 name)",
+   "Weights & Biases (acquired brand)",
+   "Core Scientific (pending acquisition target, not the same company)"
+  ],
+  "ticker_or_PRIVATE": "NASDAQ:CRWV",
+  "hq": "Livingston, New Jersey, USA",
+  "territory": "Owns/operates IT load in 6 countries: United States (majority of the 51 active data centers), Canada, United Kingdom, Sweden, Norway and Spain. Leases and fits out colocation and build-to-suit shells rather than owning land; 51 active data centers at 2026-06-30, up from 43 at 2025-12-31 and 32 at 2024-12-31.",
+  "company_stage": "public",
+  "vertical": "gpu-cloud",
+  "motion": "direct",
+  "smci_relationship": "CUSTOMER",
+  "priority": "A",
+  "buys_servers": "YES",
+  "oem_lock": "LEAKING — CoreWeave's own IPO prospectus names exactly two OEMs: 'our OEM partners such as Dell and Super Micro'. Dell holds the publicly announced marquee wins (world-first GB300 NVL72 rack shipment, July 2025), so Supermicro is in the account but is not the default for flagship rack-scale SKUs. CoreWeave's FY2025 10-K names no vendor and discloses three unnamed suppliers at 23%, 20% and 17% of FY2025 purchases.",
+  "mw_or_proxy": "ACTIVE 1.5 GW across 51 active data centers at 2026-06-30 (roughly +500 MW added during Q2 2026). CONTRACTED ~3.7 GW at 2026-06-30, raised to ~4.2 GW at 2026-08-11. GUIDANCE more than 1.85 GW active by year-end 2026. History: 850+ MW active / 43 DCs at 2025-12-31; ~360 MW / 32 DCs at 2024-12-31. ESTIMATE of the remaining 2026 build: 1.85 GW year-end target minus 1.5 GW active at 2026-06-30 = ~350 MW of new active IT load to energize in H2 2026.",
+  "window": "2026-07..2026-12",
+  "crm": "existing",
+  "classification": "end-user",
+  "next_action": "Corner Jacob Yundt's compute team at CoreWeave's Platinum booth and force a Supermicro-versus-Dell split on the ~350MW landing before December.",
+  "sources": {
+   "legal_name": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm",
+    "date": "2026-03-02"
+   },
+   "aka": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1769628/000119312525067651/d899798d424b4.htm",
+    "date": "2025-03-31"
+   },
+   "ticker_or_PRIVATE": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm",
+    "date": "2026-03-02"
+   },
+   "hq": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm",
+    "date": "2026-03-02"
+   },
+   "territory": {
+    "source": "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CoreWeave-Q2-26-Earnings-Presentation.pdf",
+    "date": "2026-08-11"
+   },
+   "company_stage": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm",
+    "date": "2026-03-02"
+   },
+   "vertical": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1769628/000119312525067651/d899798d424b4.htm",
+    "date": "2025-03-31"
+   },
+   "motion": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1769628/000119312525067651/d899798d424b4.htm",
+    "date": "2025-03-31"
+   },
+   "smci_relationship": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1769628/000119312525067651/d899798d424b4.htm",
+    "date": "2025-03-31"
+   },
+   "priority": {
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "date": "2026-08-17"
+   },
+   "buys_servers": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1769628/000119312525067651/d899798d424b4.htm",
+    "date": "2025-03-31"
+   },
+   "oem_lock": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1769628/000119312525067651/d899798d424b4.htm",
+    "date": "2025-03-31"
+   },
+   "mw_or_proxy": {
+    "source": "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CoreWeave-Q2-26-Earnings-Presentation.pdf",
+    "date": "2026-08-11"
+   },
+   "window": {
+    "source": "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CoreWeave-Q2-26-Earnings-Presentation.pdf",
+    "date": "2026-08-11"
+   },
+   "crm": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1769628/000119312525067651/d899798d424b4.htm",
+    "date": "2025-03-31"
+   },
+   "classification": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm",
+    "date": "2026-03-02"
+   },
+   "next_action": {
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "date": "2026-08-17"
+   }
+  }
+ },
+ {
+  "ledger_id": "grab",
+  "legal_name": "Grab Holdings Limited",
+  "aka": [
+   "Grab",
+   "Grab Holdings Ltd",
+   "Grab Holdings Inc. (GHI)",
+   "GrabTaxi",
+   "MyTeksi"
+  ],
+  "ticker_or_PRIVATE": "NASDAQ:GRAB (warrants NASDAQ:GRABW)",
+  "hq": "Singapore, Singapore",
+  "territory": "Operates in over 900 cities across eight Southeast Asian countries: Cambodia, Indonesia, Malaysia, Myanmar, the Philippines, Singapore, Thailand and Vietnam. Owned-hardware footprint is a single colocation facility in Malaysia holding 250+ Mac minis; the production platform is hosted in data centres provided by third-party cloud infrastructure providers, so Grab is a cloud tenant almost everywhere it operates.",
+  "company_stage": "public",
+  "vertical": "ecommerce-marketplace",
+  "motion": "GAP",
+  "smci_relationship": "GAP",
+  "priority": "C",
+  "buys_servers": "PARTIAL",
+  "oem_lock": "NONE — the only self-owned fleet is Apple Mac mini hardware bought for a macOS CI/CD build farm; no x86 server OEM is incumbent because the production platform runs on third-party cloud. Grab's own engineering post states that 'optimized server hardware designed for racking offers various configurations that reduce operational costs, unlike macOS options such as Mac Mini and Mac Pro', which is an open door rather than a lock.",
+  "mw_or_proxy": "ESTIMATE ~0.04 MW of owned IT load. FORMULA: 250+ Mac minis in the Malaysian colocation facility x ~150 W peak per Mac mini = ~37.5 kW. The ~150 W figure is an assumption, not a Grab figure; the 250+ machine count is Grab's own. No other owned IT load exists because the production platform is hosted by third-party cloud providers. Scale check: FY2025 purchases of property, plant and equipment plus intangibles were USD 123 million group-wide (FY2024 USD 113 million), which covers vehicles and all other fixed assets, not servers alone.",
+  "window": "GAP",
+  "crm": "GAP-not-checked",
+  "classification": "end-user",
+  "next_action": "Work Grab's exhibitor booth to replace the 250+ Mac minis in its Malaysia colo with rack-optimised servers, quoting its own November 2025 engineering post.",
+  "sources": {
+   "legal_name": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1855612/000185561226000020/ck0001855612-20251231.htm",
+    "date": "2026-03-06"
+   },
+   "aka": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1855612/000185561226000020/ck0001855612-20251231.htm",
+    "date": "2026-03-06"
+   },
+   "ticker_or_PRIVATE": {
+    "source": "https://data.sec.gov/submissions/CIK0001855612.json",
+    "date": "2026-08-17"
+   },
+   "hq": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1855612/000185561226000020/ck0001855612-20251231.htm",
+    "date": "2026-03-06"
+   },
+   "territory": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1855612/000185561226000020/ck0001855612-20251231.htm",
+    "date": "2026-03-06"
+   },
+   "company_stage": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1855612/000185561226000020/ck0001855612-20251231.htm",
+    "date": "2026-03-06"
+   },
+   "vertical": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1855612/000185561226000020/ck0001855612-20251231.htm",
+    "date": "2026-03-06"
+   },
+   "priority": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1855612/000185561226000020/ck0001855612-20251231.htm",
+    "date": "2026-03-06"
+   },
+   "buys_servers": {
+    "source": "https://engineering.grab.com/mac-cloud-exit",
+    "date": "2025-11-06"
+   },
+   "oem_lock": {
+    "source": "https://engineering.grab.com/mac-cloud-exit",
+    "date": "2025-11-06"
+   },
+   "mw_or_proxy": {
+    "source": "https://engineering.grab.com/mac-cloud-exit",
+    "date": "2025-11-06"
+   },
+   "classification": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1855612/000185561226000020/ck0001855612-20251231.htm",
+    "date": "2026-03-06"
+   },
+   "next_action": {
+    "source": "https://engineering.grab.com/mac-cloud-exit",
+    "date": "2025-11-06"
+   }
+  }
+ },
+ {
+  "ledger_id": "hyundai",
+  "legal_name": "Hyundai Motor Company",
+  "aka": [
+   "현대자동차",
+   "Hyundai Motor",
+   "HMC",
+   "Hyundai Motor Group (HMG, the wider group that made the NVIDIA announcement)",
+   "Boston Dynamics (subsidiary)",
+   "Motional (affiliate)"
+  ],
+  "ticker_or_PRIVATE": "KRX:005380",
+  "hq": "Seoul, South Korea",
+  "territory": "South Korea is where the AI infrastructure lands: the NVIDIA AI factory announced for Korea and the Saemangeum 'AI Valley' campus in North Jeolla, alongside the Namyang R&D centre and Ulsan plants. Manufacturing territory also spans the United States (Georgia Metaplant), India, Czechia, Türkiye, Brazil and Indonesia, but the GPU buying is Korean.",
+  "company_stage": "public",
+  "vertical": "automotive",
+  "motion": "GAP",
+  "smci_relationship": "GAP",
+  "priority": "A",
+  "buys_servers": "YES",
+  "oem_lock": "CIRCUMSTANTIAL — the 2025-10-31 announcement names the NVIDIA DGX platform and NVIDIA RTX PRO Servers with RTX PRO 6000 Blackwell Server Edition GPUs, plus NVIDIA DRIVE AGX Thor in-vehicle. DGX is NVIDIA-built and closed, but RTX PRO Servers are an OEM-built category that Supermicro ships, so part of the stated stack is contestable. No server OEM or systems integrator is named in any Hyundai release.",
+  "mw_or_proxy": "ESTIMATE ~92 MW IT load / ~115 MW facility. FORMULA: 50,000 NVIDIA Blackwell GPUs (Hyundai Motor Group / NVIDIA announcement, 2025-10-31) / 72 GPUs per GB300 NVL72 rack = 694 racks; 694 racks x 132 kW IT per NVL72-class rack = ~92 MW IT load; x PUE 1.25 = ~115 MW facility power. Caveat: the announced stack mixes DGX, RTX PRO Servers and Omniverse/Cosmos nodes, and air-cooled RTX PRO Server nodes are far less dense than NVL72, so the true rack count is higher and the MW figure is the right order but the density assumption is mine. Investment anchors: ~USD 3bn for the AI factory (2025-10-31) inside a 9 trillion won (~USD 5.8bn) Saemangeum AI Valley programme.",
+  "window": "EVENT-GATED{Hyundai Motor Group and NVIDIA announced a 50,000-Blackwell-GPU AI factory on 2025-10-31 at ~$3bn; the 9 trillion won Saemangeum AI Valley plan was reaffirmed at Jensen Huang's visit to Hyundai headquarters on 2026-06-08}",
+  "crm": "GAP-not-checked",
+  "classification": "end-user",
+  "next_action": "Work Hyundai's Ray Summit booth to bid RTX PRO Server racks against the 50,000-GPU Blackwell AI factory and name the Saemangeum procurement owner.",
+  "sources": {
+   "legal_name": {
+    "source": "https://www.hyundaimotorgroup.com/en/news/CONT0000000000192393",
+    "date": "2025-10-31"
+   },
+   "aka": {
+    "source": "https://www.hyundaimotorgroup.com/en/news/CONT0000000000192393",
+    "date": "2025-10-31"
+   },
+   "ticker_or_PRIVATE": {
+    "source": "https://www.hyundai.com/worldwide/en/company/ir/stock-information/stock-information",
+    "date": "2026-08-17"
+   },
+   "hq": {
+    "source": "https://www.hyundaimotorgroup.com/en/news/CONT0000000000192393",
+    "date": "2025-10-31"
+   },
+   "territory": {
+    "source": "https://www.koreajoongangdaily.com/business/hyundai-nvidia-outline-ai-valley-vision-for-9-trillion-won-saemangeum-project/12626450",
+    "date": "2026-06-08"
+   },
+   "company_stage": {
+    "source": "https://www.hyundai.com/worldwide/en/company/ir/stock-information/stock-information",
+    "date": "2026-08-17"
+   },
+   "vertical": {
+    "source": "https://www.hyundaimotorgroup.com/en/news/CONT0000000000192393",
+    "date": "2025-10-31"
+   },
+   "priority": {
+    "source": "https://www.hyundaimotorgroup.com/en/news/CONT0000000000192393",
+    "date": "2025-10-31"
+   },
+   "buys_servers": {
+    "source": "https://www.hyundaimotorgroup.com/en/news/CONT0000000000192393",
+    "date": "2025-10-31"
+   },
+   "oem_lock": {
+    "source": "https://www.hyundaimotorgroup.com/en/news/CONT0000000000192393",
+    "date": "2025-10-31"
+   },
+   "mw_or_proxy": {
+    "source": "https://www.hyundaimotorgroup.com/en/news/CONT0000000000192393",
+    "date": "2025-10-31"
+   },
+   "window": {
+    "source": "https://www.koreajoongangdaily.com/business/hyundai-nvidia-outline-ai-valley-vision-for-9-trillion-won-saemangeum-project/12626450",
+    "date": "2026-06-08"
+   },
+   "classification": {
+    "source": "https://www.hyundaimotorgroup.com/en/news/CONT0000000000192393",
+    "date": "2025-10-31"
+   },
+   "next_action": {
+    "source": "https://www.hyundaimotorgroup.com/en/news/CONT0000000000192393",
+    "date": "2025-10-31"
+   }
+  }
+ },
+ {
+  "ledger_id": "jpmc",
+  "legal_name": "JPMorgan Chase & Co.",
+  "aka": [
+   "JPMorganChase",
+   "JPMC",
+   "JPMorgan Chase Bank, N.A.",
+   "J.P. Morgan",
+   "Chase"
+  ],
+  "ticker_or_PRIVATE": "NYSE:JPM",
+  "hq": "New York, New York, USA",
+  "territory": "Global bank; the only self-operated data centre verifiable in primary documents is the Orangetown/Orangeburg NY campus at 140 Old Orangeburg Road, Rockland County (Project Sycamore, plus the JPMC Datacenter II expansion). Buying is done from the US.",
+  "company_stage": "public",
+  "vertical": "fintech",
+  "motion": "direct",
+  "smci_relationship": "GAP",
+  "priority": "A",
+  "buys_servers": "YES",
+  "oem_lock": "GAP — no server vendor is named in the Rockland IDA project documents or in JPMorgan Chase's FY2025 Form 10-K, which discusses data centres only as a lending exposure category.",
+  "mw_or_proxy": "Orangetown NY campus, 140 Old Orangeburg Road. EXISTING: total load 31.74 MW, per the 2025 NYISO Goldbook (p.134 fn.6) describing Project Sycamore as a '25.24 MW uprate of an existing 6.5 MW load facility, resulting in a total load of 31.74 MW'. EXPANSION: JPMorgan has applied for an additional 22.3 MW for JPMC Datacenter II, giving roughly 54 MW at the campus. The associated equipment purchase is USD 916,000,000 of computers and equipment (Rockland County IDA project 3901-24-07A), against which the IDA will abate up to USD 76,715,000 of sales tax.",
+  "window": "EVENT-GATED{Rockland County IDA project 3901-24-07A 'JPMC Datacenter II': $916M computer and equipment purchase approved with sales-tax abatement and PILOT extended to 2044-12-01; New York State's 2026-07-14 executive-order moratorium bites only at 50MW and above, so the 22.3MW expansion is not captured}",
+  "crm": "GAP-not-checked",
+  "classification": "end-user",
+  "next_action": "Work JPMorganChase's Ray Summit booth and make its infrastructure staff name who is quoting the $916M Orangeburg equipment package.",
+  "sources": {
+   "legal_name": {
+    "source": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+    "date": "2026-02-13"
+   },
+   "aka": {
+    "source": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+    "date": "2026-02-13"
+   },
+   "ticker_or_PRIVATE": {
+    "source": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+    "date": "2026-02-13"
+   },
+   "hq": {
+    "source": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+    "date": "2026-02-13"
+   },
+   "territory": {
+    "source": "https://reinventalbany.org/wp-content/uploads/2026/04/RA-Analysis_-77-million-Rockland-IDA-subsidy-for-One-Job-JP-Morgan-Data-Center-2.pdf",
+    "date": "2026-04-20"
+   },
+   "company_stage": {
+    "source": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+    "date": "2026-02-13"
+   },
+   "vertical": {
+    "source": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+    "date": "2026-02-13"
+   },
+   "motion": {
+    "source": "https://reinventalbany.org/wp-content/uploads/2026/04/RA-Analysis_-77-million-Rockland-IDA-subsidy-for-One-Job-JP-Morgan-Data-Center-2.pdf",
+    "date": "2026-04-20"
+   },
+   "priority": {
+    "source": "https://reinventalbany.org/wp-content/uploads/2026/04/RA-Analysis_-77-million-Rockland-IDA-subsidy-for-One-Job-JP-Morgan-Data-Center-2.pdf",
+    "date": "2026-04-20"
+   },
+   "buys_servers": {
+    "source": "https://reinventalbany.org/wp-content/uploads/2026/04/RA-Analysis_-77-million-Rockland-IDA-subsidy-for-One-Job-JP-Morgan-Data-Center-2.pdf",
+    "date": "2026-04-20"
+   },
+   "mw_or_proxy": {
+    "source": "https://reinventalbany.org/wp-content/uploads/2026/04/RA-Analysis_-77-million-Rockland-IDA-subsidy-for-One-Job-JP-Morgan-Data-Center-2.pdf",
+    "date": "2026-04-20"
+   },
+   "window": {
+    "source": "https://rocklandnews.com/ny-data-center-moratorium-2026/",
+    "date": "2026-07-14"
+   },
+   "classification": {
+    "source": "https://reinventalbany.org/wp-content/uploads/2026/04/RA-Analysis_-77-million-Rockland-IDA-subsidy-for-One-Job-JP-Morgan-Data-Center-2.pdf",
+    "date": "2026-04-20"
+   },
+   "next_action": {
+    "source": "https://reinventalbany.org/wp-content/uploads/2026/04/RA-Analysis_-77-million-Rockland-IDA-subsidy-for-One-Job-JP-Morgan-Data-Center-2.pdf",
+    "date": "2026-04-20"
+   },
+   "oem_lock": {
+    "source": "https://reinventalbany.org/wp-content/uploads/2026/04/RA-Analysis_-77-million-Rockland-IDA-subsidy-for-One-Job-JP-Morgan-Data-Center-2.pdf",
+    "date": "2026-04-20"
+   }
+  }
+ },
+ {
+  "ledger_id": "lambda",
+  "legal_name": "Lambda, Inc.",
+  "aka": [
+   "Lambda",
+   "Lambda Labs",
+   "Lambda Labs, Inc. (separate older Delaware/San Francisco entity)",
+   "Lambda Cloud",
+   "Lambda GPU Cloud",
+   "NOT AWS Lambda"
+  ],
+  "ticker_or_PRIVATE": "PRIVATE",
+  "hq": "San Jose, California, USA",
+  "territory": "United States only. Leased and colocated AI-factory capacity in Ohio (Columbus, Cologix COL4 Scalelogix, live since June 2025), Missouri (Kansas City AI factory), plus Texas, California and Illinois. Leases colocation; not a landlord. No non-US sites identified.",
+  "company_stage": "private-late",
+  "vertical": "gpu-cloud",
+  "motion": "direct",
+  "smci_relationship": "CUSTOMER",
+  "priority": "A",
+  "buys_servers": "YES",
+  "oem_lock": "CONFIRMED — Supermicro is the publicly named incumbent via a joint Supermicro/Lambda press release (2025-08-25) and a Supermicro customer success story naming the SKUs: SYS-A21GE-NBRT (NVIDIA HGX B200), SYS-821GE-TNHR (HGX H200), SYS-221HE-TNR, plus GB200/GB300 NVL72 SuperClusters, liquid-cooled. No rival OEM is publicly in Lambda's rack. WATCH: ODMs Pegatron, Wistron and Wiwynn took part in Lambda's Series D, a standing whitebox risk.",
+  "mw_or_proxy": "320+ MW of data center space leased, signed and committed to date per VP Data Center Infrastructure Ken Patchett; stated target 3 GW of AI compute under management by 2030. Site detail: Kansas City MO 24 MW at launch in early 2026 scaling past 100 MW, opening with 10,000+ NVIDIA Blackwell Ultra GPUs; Columbus OH at Cologix COL4 live June 2025, MW undisclosed, rack density moving from 44 kW air-cooled toward liquid. Patchett states the megawatt footprint multiplies about 4x between 2025 and 2026. The prior '25MW + 95MW planned' Columbus split and the ECL Mountain View site could not be substantiated and are withdrawn.",
+  "window": "EVENT-GATED{$926M senior secured term loan B priced 2026-08-12 at SOFR+300, Moody's Baa2, maturity 2030-12-31, proceeds earmarked for acquisition and installation of GPU servers and related infrastructure}",
+  "crm": "existing",
+  "classification": "end-user",
+  "next_action": "Meet Lambda's data centre team at their Gold booth and tie Supermicro GB300 NVL72 racks to the $926M term loan B that priced on August 12.",
+  "sources": {
+   "legal_name": {
+    "source": "https://lambda.ai/legal/terms-of-service",
+    "date": "2026-08-17"
+   },
+   "aka": {
+    "source": "https://research.contrary.com/company/lambda",
+    "date": "2025-10-30"
+   },
+   "ticker_or_PRIVATE": {
+    "source": "https://lambda.ai/blog/lambda-prices-926-million-senior-secured-term-loan-b-facility",
+    "date": "2026-08-12"
+   },
+   "hq": {
+    "source": "https://lambda.ai/legal/terms-of-service",
+    "date": "2026-08-17"
+   },
+   "territory": {
+    "source": "https://www.datacenterfrontier.com/podcasts/podcast/55315378/cologix-and-lambda-debut-nvidia-hgx-b200-ai-clusters-in-columbus-ohio",
+    "date": "2025-09-09"
+   },
+   "company_stage": {
+    "source": "https://lambda.ai/blog/lambda-prices-926-million-senior-secured-term-loan-b-facility",
+    "date": "2026-08-12"
+   },
+   "vertical": {
+    "source": "https://www.supermicro.com/en/pressreleases/lambda-builds-ai-factories-supermicro-nvidia-blackwell-gpu-server-clusters-deliver",
+    "date": "2025-08-25"
+   },
+   "motion": {
+    "source": "https://www.supermicro.com/en/pressreleases/lambda-builds-ai-factories-supermicro-nvidia-blackwell-gpu-server-clusters-deliver",
+    "date": "2025-08-25"
+   },
+   "smci_relationship": {
+    "source": "https://www.supermicro.com/en/pressreleases/lambda-builds-ai-factories-supermicro-nvidia-blackwell-gpu-server-clusters-deliver",
+    "date": "2025-08-25"
+   },
+   "priority": {
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "date": "2026-08-17"
+   },
+   "buys_servers": {
+    "source": "https://www.supermicro.com/en/pressreleases/lambda-builds-ai-factories-supermicro-nvidia-blackwell-gpu-server-clusters-deliver",
+    "date": "2025-08-25"
+   },
+   "oem_lock": {
+    "source": "https://www.supermicro.com/en/success-story/lambda",
+    "date": "2026-08-17"
+   },
+   "mw_or_proxy": {
+    "source": "https://lambda.ai/blog/lambda-assembles-leadership-team-to-power-gigawatt-scale-ai-infrastructure",
+    "date": "2026-05-05"
+   },
+   "window": {
+    "source": "https://lambda.ai/blog/lambda-prices-926-million-senior-secured-term-loan-b-facility",
+    "date": "2026-08-12"
+   },
+   "crm": {
+    "source": "https://www.supermicro.com/en/pressreleases/lambda-builds-ai-factories-supermicro-nvidia-blackwell-gpu-server-clusters-deliver",
+    "date": "2025-08-25"
+   },
+   "classification": {
+    "source": "https://research.contrary.com/company/lambda",
+    "date": "2025-10-30"
+   },
+   "next_action": {
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "date": "2026-08-17"
+   }
+  }
+ },
+ {
+  "ledger_id": "nebius",
+  "legal_name": "Nebius Group N.V.",
+  "aka": [
+   "Yandex N.V. (former legal name, EDGAR name change recorded 2024-08-16)",
+   "Nebius",
+   "Nebius AI",
+   "Nebius B.V. (principal operating subsidiary)",
+   "Nebius Inc. (US subsidiary)",
+   "Avride (autonomous-vehicle unit)",
+   "TripleTen (edtech unit)",
+   "Toloka and ClickHouse (former units, retained stakes)"
+  ],
+  "ticker_or_PRIVATE": "NASDAQ:NBIS",
+  "hq": "Amsterdam, Netherlands",
+  "territory": "Operates or is in-contract across 16+ data centre locations. Europe/Middle East: Finland (Mantsala greenfield, built to Nebius's own design specification), France (Paris colocation plus two further sites secured Feb 2026), Iceland (Keflavik), UK (London, plus a further UK site), Israel, Estonia, Spain. United States: Kansas City MO, Vineland NJ (build-to-suit, operational 2027), Missouri, Alabama, Minnesota, Oklahoma, Pennsylvania. The Netherlands is holding and HQ only, not a compute site.",
+  "company_stage": "public",
+  "vertical": "gpu-cloud",
+  "motion": "co-sell",
+  "smci_relationship": "GAP",
+  "priority": "B",
+  "buys_servers": "PARTIAL",
+  "oem_lock": "WHITEBOX — no OEM incumbent and the self-design is hard. The 20-F states Nebius designs, develops and produces its servers and racks in-house (engineered to 40C inlet against an ASHRAE 27C norm, proprietary firmware, toolless racks, roughly 20% less power than equivalent third-party hardware) and that the majority of contracted capacity will be deployed from data centres it owns and designs internally. It also claims 'longstanding partnerships with ... leading server original equipment manufacturers (OEMs)' but names no OEM anywhere in the filing.",
+  "mw_or_proxy": "ACTIVE: approximately 170 MW of active power capacity at 2025-12-31 (20-F Item 4; 'active power' is capacity being consumed by IT equipment and available for revenue). CONTRACTED: more than 2 GW as at February 2026 (20-F; 'contracted power' is capacity secured by land and contracted power commitments). GUIDANCE: year-end-2026 contracted-power target raised to 5 GW on 2026-08-12, progression >1 GW Aug 2025, >2.5 GW Nov 2025, 3 GW Feb 2026, 4 GW May 2026, 5 GW Aug 2026; year-end-2026 CONNECTED power guidance 800 MW to 1 GW; plans to deploy more than 1 GW of new capacity per year from 2027. IMPLIED 2026 BUILD FORMULA: year-end-2026 connected midpoint 900 MW minus 170 MW active at 2025-12-31 = approximately 730 MW to connect during 2026. Q2 2026 capex approximately $5.7bn, primarily GPUs and GPU-related hardware. Nebius publishes no per-site MW for any location, so every site-level number is GAP.",
+  "window": "2026-08..2026-12",
+  "crm": "GAP-not-checked",
+  "classification": "end-user",
+  "next_action": "Take Nebius's Gold stand and pitch Supermicro as the build partner for their asset-light reference designs against the 800MW-1GW year-end connected target.",
+  "sources": {
+   "legal_name": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+    "date": "2026-04-30"
+   },
+   "aka": {
+    "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001513845&type=&dateb=&owner=include&count=40&output=atom",
+    "date": "2024-08-16"
+   },
+   "ticker_or_PRIVATE": {
+    "source": "https://data.sec.gov/submissions/CIK0001513845.json",
+    "date": "2026-08-17"
+   },
+   "hq": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+    "date": "2026-04-30"
+   },
+   "territory": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+    "date": "2026-04-30"
+   },
+   "company_stage": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+    "date": "2026-04-30"
+   },
+   "vertical": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+    "date": "2026-04-30"
+   },
+   "motion": {
+    "source": "https://assets.nebius.com/assets/a6ecfd85-a6cb-4967-8ef7-9a25bd261f9c/SHLQ226.pdf",
+    "date": "2026-08-12"
+   },
+   "priority": {
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "date": "2026-08-17"
+   },
+   "buys_servers": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+    "date": "2026-04-30"
+   },
+   "oem_lock": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+    "date": "2026-04-30"
+   },
+   "mw_or_proxy": {
+    "source": "https://assets.nebius.com/assets/a6ecfd85-a6cb-4967-8ef7-9a25bd261f9c/SHLQ226.pdf",
+    "date": "2026-08-12"
+   },
+   "window": {
+    "source": "https://assets.nebius.com/assets/a6ecfd85-a6cb-4967-8ef7-9a25bd261f9c/SHLQ226.pdf",
+    "date": "2026-08-12"
+   },
+   "classification": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+    "date": "2026-04-30"
+   },
+   "next_action": {
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "date": "2026-08-17"
+   }
+  }
+ },
+ {
+  "ledger_id": "nscale",
+  "legal_name": "Nscale Global Holdings Limited (England and Wales, company number 15749408, incorporated 2024-05-29, registered office Level 5, 16 New Burlington Place, London W1S 2HX)",
+  "aka": [
+   "Nscale",
+   "Nscale Ward County LLC (US operating/lessee entity)",
+   "Nscale Global DC Holdings Limited (UK 16727516)",
+   "Nscale Limited (UK 16925886)",
+   "Nordscale Operations AS (Narvik JV with Nordkraft)",
+   "spun out of Arkon Energy in 2024"
+  ],
+  "ticker_or_PRIVATE": "PRIVATE",
+  "hq": "London, United Kingdom",
+  "territory": "Norway: Glomfjord (30 MW live, expandable to 60 MW, hosts the Svartisen cluster) and Narvik (230 MW phase 1, up to 520 MW, Nordscale JV with Nordkraft). United Kingdom: Loughton, Essex (50 MW scalable to 90 MW, first owned UK facility), up to 14 MW across three BT sites, plus Hayes. United States: Ward County, West Texas (leased from Ionic Digital), Monarch campus in West Virginia, and North Carolina. Portugal: Sines (Start Campus partner site). Iceland: Keflavik and Blonduos partner sites, plus Stavanger and Oslo partner capacity.",
+  "company_stage": "private-late",
+  "vertical": "gpu-cloud",
+  "motion": "direct",
+  "smci_relationship": "CUSTOMER",
+  "priority": "A",
+  "buys_servers": "YES",
+  "oem_lock": "LEAKING — Supermicro is the incumbent on the installed base: the Nscale Svartisen cluster at Nscale Glomfjord is a Supermicro AS-4124GQ-TNMI system (AMD EPYC 7713 plus Instinct MI250X, 66,528 cores, 7.40 PFlop/s Rmax), installed 2024 and still ranked #239 on the June 2026 TOP500. But Dell Technologies is named as the collaborator on the roughly 200,000 GB300 Microsoft buildout ('This work is in collaboration with Dell Technologies', Nscale release 2025-10-15) and Dell is also an Nscale investor, so the new-generation rack business is moving to Dell while Supermicro holds the legacy Norwegian cluster.",
+  "mw_or_proxy": "SITE BY SITE (published): Glomfjord Norway 30 MW operational, expandable to 60 MW. Narvik Norway 230 MW phase 1, up to 520 MW, with a $790m facility funding a further 115 MW and 30,000+ Rubin GPUs contracted to Microsoft for 2027. Loughton UK 50 MW scalable to 90 MW, approximately 23,000 GB300 from Q1 2027. Ward County TX 234 MW leased under a 126-month triple-net lease from Ionic Digital plus 89 MW Nscale is contractually obliged to lease when energised in 2H 2027; contracted rent approximately $1.95bn rising to $2.6bn; campus start Q3 2026 with approximately 104,000 GB300; NVIDIA guarantees rent for the first five lease years up to $860.3m and Microsoft holds a step-in right on Nscale insolvency; the landlord targets approximately 700 MW site-wide, which contradicts Nscale's own 1.2 GW marketing claim. Sines Portugal 200 MW second building, 66,000+ Rubin GPUs from late 2027. BT UK up to 14 MW across three sites. Monarch West Virginia 1.35 GW phase 1 targeted early 2028. NEAR-TERM FORMULA: 30 (Glomfjord live) + 230 (Narvik P1) + 50 (Loughton P1) + 234 (Ward County leased) + 89 (Ward County committed) + 200 (Sines building 2) + 14 (BT) = 847 MW active-plus-contracted, against a stated 10+ GW pipeline. Only about 30 MW of that is verifiably energised and revenue-producing today.",
+  "window": "EVENT-GATED{Josh Payne founder-CEO main-stage keynote at Ray Summit 2026, San Francisco Marriott Marquis, 2026-08-24..26, where Nscale is a Platinum sponsor; Anyscale acquisition announced 2026-07-30 and expected to close 2H 2026; Ward County monthly fixed rent commences 2026-08 with campus start Q3 2026}",
+  "crm": "existing",
+  "classification": "end-user",
+  "next_action": "Corner Josh Payne after his keynote, open on the Svartisen cluster Supermicro already runs, and demand a bid slot on Ward County GB300 racks.",
+  "sources": {
+   "legal_name": {
+    "source": "https://find-and-update.company-information.service.gov.uk/company/15749408",
+    "date": "2026-08-17"
+   },
+   "aka": {
+    "source": "https://www.nscale.com/press-releases/nscale-acquires-anyscale",
+    "date": "2026-07-30"
+   },
+   "ticker_or_PRIVATE": {
+    "source": "https://www.sec.gov/cgi-bin/browse-edgar?company=nscale&CIK=&type=&dateb=&owner=include&count=40&action=getcompany",
+    "date": "2026-08-17"
+   },
+   "hq": {
+    "source": "https://find-and-update.company-information.service.gov.uk/company/15749408",
+    "date": "2026-08-17"
+   },
+   "territory": {
+    "source": "https://www.nscale.com/ai-infrastructure",
+    "date": "2026-08-17"
+   },
+   "company_stage": {
+    "source": "https://techcrunch.com/2026/07/30/nscale-buys-anyscale-as-it-seeks-to-own-more-of-the-ai-compute-stack/",
+    "date": "2026-07-30"
+   },
+   "vertical": {
+    "source": "https://www.nscale.com/ai-infrastructure",
+    "date": "2026-08-17"
+   },
+   "motion": {
+    "source": "https://www.nscale.com/press-releases/nscale-acquires-anyscale",
+    "date": "2026-07-30"
+   },
+   "smci_relationship": {
+    "source": "https://top500.org/system/180343/",
+    "date": "2026-06-01"
+   },
+   "priority": {
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "date": "2026-08-17"
+   },
+   "buys_servers": {
+    "source": "https://top500.org/system/180343/",
+    "date": "2026-06-01"
+   },
+   "oem_lock": {
+    "source": "https://www.nscale.com/press-releases/nscale-microsoft-2025",
+    "date": "2025-10-15"
+   },
+   "mw_or_proxy": {
+    "source": "https://www.sec.gov/Archives/edgar/data/2007691/000118518526003152/ionicdigi424b4072026.htm",
+    "date": "2026-07-28"
+   },
+   "window": {
+    "source": "https://www.nscale.com/press-releases/nscale-acquires-anyscale",
+    "date": "2026-07-30"
+   },
+   "crm": {
+    "source": "https://top500.org/system/180343/",
+    "date": "2026-06-01"
+   },
+   "classification": {
+    "source": "https://www.nscale.com/ai-infrastructure",
+    "date": "2026-08-17"
+   },
+   "next_action": {
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "date": "2026-08-17"
+   }
+  }
+ },
+ {
+  "ledger_id": "verda",
+  "legal_name": "Verda Cloud Oy (Finnish osakeyhtiö, business ID 2886809-8, Helsinki; the registered entity formerly traded as DataCrunch Oy and was renamed at the November 2025 rebrand)",
+  "aka": [
+   "DataCrunch",
+   "DataCrunch Oy",
+   "DataCrunch.io",
+   "Verda",
+   "Verda Cloud Oy"
+  ],
+  "ticker_or_PRIVATE": "PRIVATE",
+  "hq": "Helsinki, Finland",
+  "territory": "Owns and operates its own data centres rather than reselling. LIVE: Finland (Helsinki FIN-01, FIN-02, FIN-03) and Iceland (Reykjanesbær ICE-01). BUILDING: Sundsvall, Sweden. PROPOSED: Akaa, Finland, the site pitched to the European Commission as an AI gigafactory at up to 100,000 accelerators. EXPANDING into the US and APAC alongside Europe and the UK. Corporate offices in Helsinki, London and San Francisco.",
+  "company_stage": "private-growth",
+  "vertical": "gpu-cloud",
+  "motion": "direct",
+  "smci_relationship": "CUSTOMER",
+  "priority": "A",
+  "buys_servers": "YES",
+  "oem_lock": "LEAKING — Supermicro is the named incumbent on the installed Blackwell base (joint press release 2026-05-27 covering NVIDIA GB300 NVL72 rack-scale, HGX B300, HGX B200 and RTX PRO 6000 Blackwell Server Edition systems, plus a Supermicro success story). BUT Verda's own 2026-06-02 forward-deployment post names Compal alongside Supermicro for the VR200 NVL72 / HGX Rubin wave landing in H2 2026. The prior CONFIRMED rating is downgraded: the Blackwell base is ours, the Rubin socket is contested.",
+  "mw_or_proxy": "Verda publishes PUE and renewable mix but no MW for any site. ESTIMATE from its one published capacity figure (more than 100,000 GPUs deployed through 2027): 100,000 GPUs / 72 GPUs per NVL72 rack = 1,389 racks; 1,389 racks x 132 kW IT per GB300 NVL72-class rack = 183 MW IT load; 183 MW x PUE 1.2 (Verda's published FIN-01/FIN-03 figure) = ~220 MW facility power by end-2027. The 132 kW rack figure and the 72-GPU divisor are assumptions applied to Verda's published GPU target, not Verda figures; VR200 NVL72 racks draw materially more, so ~220 MW is a floor.",
+  "window": "2026-08..2026-12",
+  "crm": "existing",
+  "classification": "end-user",
+  "next_action": "Meet founder-CEO Ruben Bryon at Verda's Gold booth and lock Supermicro VR200 NVL72 racks before Compal takes the H2 2026 Rubin wave.",
+  "sources": {
+   "legal_name": {
+    "source": "https://www.proff.fi/yrityksen/verda-cloud-oy/helsinki/it-alan-k%C3%A4ytt%C3%B6-ja-tukipalvelut/2886809-8I0ZDG",
+    "date": "2026-08-17"
+   },
+   "aka": {
+    "source": "https://verda.com/blog/datacrunch-is-changing-its-name-to-verda",
+    "date": "2025-11-05"
+   },
+   "ticker_or_PRIVATE": {
+    "source": "https://thenextweb.com/news/verda-117m-funding-lifeline-ventures-ai-cloud",
+    "date": "2026-04-24"
+   },
+   "hq": {
+    "source": "https://www.proff.fi/yrityksen/verda-cloud-oy/helsinki/it-alan-k%C3%A4ytt%C3%B6-ja-tukipalvelut/2886809-8I0ZDG",
+    "date": "2026-08-17"
+   },
+   "territory": {
+    "source": "https://docs.verda.com/welcome-to-verda/locations-and-sustainability/",
+    "date": "2026-08-17"
+   },
+   "company_stage": {
+    "source": "https://thenextweb.com/news/verda-117m-funding-lifeline-ventures-ai-cloud",
+    "date": "2026-04-24"
+   },
+   "vertical": {
+    "source": "https://www.supermicro.com/en/pressreleases/supermicro-and-verda-deliver-sustainable-full-stack-ai-cloud-infrastructure-next",
+    "date": "2026-05-27"
+   },
+   "motion": {
+    "source": "https://www.supermicro.com/en/pressreleases/supermicro-and-verda-deliver-sustainable-full-stack-ai-cloud-infrastructure-next",
+    "date": "2026-05-27"
+   },
+   "smci_relationship": {
+    "source": "https://www.supermicro.com/en/pressreleases/supermicro-and-verda-deliver-sustainable-full-stack-ai-cloud-infrastructure-next",
+    "date": "2026-05-27"
+   },
+   "priority": {
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "date": "2026-08-17"
+   },
+   "buys_servers": {
+    "source": "https://www.supermicro.com/en/pressreleases/supermicro-and-verda-deliver-sustainable-full-stack-ai-cloud-infrastructure-next",
+    "date": "2026-05-27"
+   },
+   "oem_lock": {
+    "source": "https://verda.com/blog/nvidia-vr200-r200-early-deployments",
+    "date": "2026-06-02"
+   },
+   "mw_or_proxy": {
+    "source": "https://verda.com/blog/nvidia-vr200-r200-early-deployments",
+    "date": "2026-06-02"
+   },
+   "window": {
+    "source": "https://verda.com/blog/nvidia-vr200-r200-early-deployments",
+    "date": "2026-06-02"
+   },
+   "crm": {
+    "source": "https://www.supermicro.com/en/pressreleases/supermicro-and-verda-deliver-sustainable-full-stack-ai-cloud-infrastructure-next",
+    "date": "2026-05-27"
+   },
+   "classification": {
+    "source": "https://docs.verda.com/welcome-to-verda/locations-and-sustainability/",
+    "date": "2026-08-17"
+   },
+   "next_action": {
+    "source": "https://www.supermicro.com/en/pressreleases/supermicro-and-verda-deliver-sustainable-full-stack-ai-cloud-infrastructure-next",
+    "date": "2026-05-27"
+   }
+  }
+ },
+ {
+  "ledger_id": "adyen",
+  "legal_name": "Adyen N.V.",
+  "aka": [
+   "Adyen"
+  ],
+  "ticker_or_PRIVATE": "AMS:ADYEN (Euronext Amsterdam, ISIN NL0012969182)",
+  "hq": "Amsterdam, Netherlands",
+  "territory": "Runs its own infrastructure in six regions: Europe, the United States, India, Singapore, Japan and Australia. Adyen states it does not outsource any administration to third parties and does not use any public cloud services for payment processing, so all six regions are self-operated buying territory.",
+  "company_stage": "public",
+  "vertical": "fintech",
+  "motion": "GAP",
+  "smci_relationship": "GAP",
+  "priority": "B",
+  "buys_servers": "YES",
+  "oem_lock": "GAP — Adyen names no hardware vendor. It states the platform is fully built on open-source software specifically so it stays vendor-independent, and describes dual internet uplinks, Ethernet bonding across redundant switches and dual power feeds, which is an own-build bare-metal posture rather than an OEM-locked one.",
+  "mw_or_proxy": "GAP — Adyen publishes region count, redundancy design and its no-public-cloud policy, but no megawatts, rack counts or server counts for any of the six regions.",
+  "window": "GAP",
+  "crm": "GAP-not-checked",
+  "classification": "end-user",
+  "next_action": "Catch Adyen speaker Hanna van der Vlis at Ray Summit and get the name of whoever owns hardware buying for the six self-run payment regions.",
+  "sources": {
+   "legal_name": {
+    "source": "https://investors.adyen.com/financials",
+    "date": "2026-08-17"
+   },
+   "aka": {
+    "source": "https://investors.adyen.com/financials",
+    "date": "2026-08-17"
+   },
+   "ticker_or_PRIVATE": {
+    "source": "https://live.euronext.com/en/product/equities/NL0012969182-XAMS",
+    "date": "2026-08-17"
+   },
+   "hq": {
+    "source": "https://investors.adyen.com/",
+    "date": "2026-08-17"
+   },
+   "territory": {
+    "source": "https://www.adyen.com/infrastructure",
+    "date": "2026-08-17"
+   },
+   "company_stage": {
+    "source": "https://live.euronext.com/en/product/equities/NL0012969182-XAMS",
+    "date": "2026-08-17"
+   },
+   "vertical": {
+    "source": "https://www.adyen.com/infrastructure",
+    "date": "2026-08-17"
+   },
+   "priority": {
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "date": "2026-08-17"
+   },
+   "buys_servers": {
+    "source": "https://www.adyen.com/infrastructure",
+    "date": "2026-08-17"
+   },
+   "oem_lock": {
+    "source": "https://www.adyen.com/infrastructure",
+    "date": "2026-08-17"
+   },
+   "classification": {
+    "source": "https://www.adyen.com/infrastructure",
+    "date": "2026-08-17"
+   },
+   "next_action": {
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "date": "2026-08-17"
+   },
+   "mw_or_proxy": {
+    "source": "https://www.adyen.com/infrastructure",
+    "date": "2026-08-17"
+   }
+  }
+ },
+ {
+  "ledger_id": "alibaba",
+  "legal_name": "Alibaba Group Holding Limited (Cayman Islands). Server and rack procurement is NOT executed by this entity: it is executed by Alibaba Cloud Computing Ltd / 阿里云计算有限公司, the operating entity of Alibaba Cloud Intelligence Group, with rack and silicon design by Alibaba Cloud Infrastructure and T-Head / 平头哥 Semiconductor.",
+  "aka": [
+   "Alibaba",
+   "Alibaba Group",
+   "阿里巴巴集团",
+   "Alibaba Cloud",
+   "Aliyun",
+   "阿里云",
+   "Alibaba Cloud Computing Ltd",
+   "Alibaba Cloud Intelligence Group",
+   "T-Head",
+   "平头哥 Pingtouge",
+   "Panjiu",
+   "磐久"
+  ],
+  "ticker_or_PRIVATE": "NYSE:BABA / HKEX:9988",
+  "hq": "Causeway Bay, Hong Kong SAR (20-F principal executive offices, 26/F Tower One, Times Square, 1 Matheson Street); cloud engineering centre in Hangzhou, China",
+  "territory": "Alibaba Cloud operates 30 regions and 104 availability zones. China mainland (13 regions incl. Hangzhou, Beijing, Shanghai, Shenzhen, Ulanqab, Zhangjiakou); Asia-Pacific (Hong Kong, Singapore, Tokyo, Kuala Lumpur, Johor, Jakarta, Manila, Bangkok, Seoul, Australia); Americas (US Silicon Valley, US Virginia, Mexico Querétaro); Europe (Frankfurt, London, Paris); Middle East (Dubai, Riyadh partner region). This is the field that governs the vertical call: the buying is a cloud-infrastructure buildout and the PO issuer is Alibaba Cloud Computing Ltd, so the account behaves as a hyperscaler even though group revenue is majority ecommerce.",
+  "company_stage": "public",
+  "vertical": "hyperscaler",
+  "motion": "none",
+  "smci_relationship": "LOCKED-COMPETITOR",
+  "priority": "X",
+  "buys_servers": "YES",
+  "oem_lock": "WHITEBOX — Alibaba Cloud self-designs the Panjiu (磐久) rack line end to end. Current flagship is the Panjiu AL128 supernode: 128-144 accelerators in a custom double-wide rack, 350 kW power supply capacity, 500 kW heat-rejection capacity. Silicon is in-house from T-Head (Zhenwu M890 AI accelerator, Yitian 710 Arm server CPU). Manufacturing is contracted to Chinese ODMs but no specific ODM is named in any primary source. The competitor in the rack is Alibaba's own Panjiu self-design.",
+  "mw_or_proxy": "Capex-derived; Alibaba publishes no MW. Basis: RMB 380bn (~USD 53bn) committed to AI and cloud infrastructure over three years from 2025-02-24; group capex actually incurred was RMB 32,087M (FY2024), RMB 85,972M (FY2025) and RMB 126,063M / USD 18,275M (FY2026), primarily for computer equipment and data centre construction for the Cloud business. FORMULA: USD 53bn / 3 years = USD 17.7bn per year; x 70% assumed allocation to AI data centre IT plus shell = USD 12.4bn per year; / USD 35M all-in per MW of GPU-dense capacity = 354 MW per year; x 3 years = ~1.06 GW over the plan. CROSS-CHECK: 1,060 MW / 0.35 MW per Panjiu AL128 rack = ~3,000 racks x 128 accelerators = ~384,000 accelerators, a consistent order of magnitude. The 70% allocation and the USD 35M/MW are assumptions, not Alibaba figures. None of this MW is addressable by Supermicro.",
+  "window": "EVENT-GATED{Alibaba June-quarter FY2027 results on 2026-08-20 update capex guidance four days before Ray Summit}",
+  "crm": "GAP-not-checked",
+  "classification": "end-user",
+  "next_action": "Mark Alibaba X and spend no booth time on it; recheck only if Washington lifts AI-hardware export controls on China.",
+  "sources": {
+   "legal_name": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1577552/000119312526231755/baba-20260331.htm",
+    "date": "2026-05-20"
+   },
+   "aka": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1577552/000119312526231755/baba-20260331.htm",
+    "date": "2026-05-20"
+   },
+   "ticker_or_PRIVATE": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1577552/000119312526231755/baba-20260331.htm",
+    "date": "2026-05-20"
+   },
+   "hq": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1577552/000119312526231755/baba-20260331.htm",
+    "date": "2026-05-20"
+   },
+   "territory": {
+    "source": "https://www.alibabacloud.com/en/global-locations",
+    "date": "2026-08-17"
+   },
+   "company_stage": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1577552/000119312526231755/baba-20260331.htm",
+    "date": "2026-05-20"
+   },
+   "vertical": {
+    "source": "https://www.alibabacloud.com/en/global-locations",
+    "date": "2026-08-17"
+   },
+   "motion": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1577552/000119312526231755/baba-20260331.htm",
+    "date": "2026-05-20"
+   },
+   "smci_relationship": {
+    "source": "https://www.alibabacloud.com/blog/in-depth-analysis-of-alibaba-cloud-panjiu-al128-supernode-ai-servers-and-their-interconnect-architecture_602665",
+    "date": "2025-11-14"
+   },
+   "priority": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1577552/000119312526231755/baba-20260331.htm",
+    "date": "2026-05-20"
+   },
+   "buys_servers": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1577552/000119312526231755/baba-20260331.htm",
+    "date": "2026-05-20"
+   },
+   "oem_lock": {
+    "source": "https://www.alibabacloud.com/blog/in-depth-analysis-of-alibaba-cloud-panjiu-al128-supernode-ai-servers-and-their-interconnect-architecture_602665",
+    "date": "2025-11-14"
+   },
+   "mw_or_proxy": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1577552/000119312526231755/baba-20260331.htm",
+    "date": "2026-05-20"
+   },
+   "window": {
+    "source": "https://www.alibabagroup.com/en-US/investor-relations",
+    "date": "2026-08-07"
+   },
+   "classification": {
+    "source": "https://www.alibabacloud.com/en/global-locations",
+    "date": "2026-08-17"
+   },
+   "next_action": {
+    "source": "https://www.sec.gov/Archives/edgar/data/1577552/000119312526231755/baba-20260331.htm",
+    "date": "2026-05-20"
+   }
+  }
+ }
+]
