@@ -522,6 +522,35 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 .xr:hover{background:var(--accent-bg)}
 .xr:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 .xr-org{font-weight:700}
+/* A chip mention keeps its mono face — it is still a locked run — and picks up
+   only a dotted rule, because 15 linked "H100"s on one page must not shout. */
+.xr-chip{border-bottom-style:dotted;border-bottom-color:var(--ink-3)}
+.xr-chip .lk{color:var(--ink)}
+.xr-chip:hover .lk{color:var(--accent)}
+
+/* --------------------------------------------------------- chip records --- */
+.chips{list-style:none;margin:var(--s4) 0 0;padding:0}
+.chip-rec{border-top:1px solid var(--rule);padding:var(--s4) 0}
+.chip-rec:first-child{border-top:0;padding-top:0}
+.chip-rec:target{background:var(--accent-bg)}
+.chip-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s2) var(--s3);margin:0}
+.chip-n{font-family:var(--f-mono);font-size:var(--t-h3);font-weight:700;
+  font-variant-numeric:tabular-nums}
+.chip-arch{font-size:var(--t-micro);letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-2);border:1px solid var(--rule);border-radius:2px;padding:2px 7px}
+.chip-age{margin-left:auto;font-family:var(--f-mono);font-size:var(--t-cap);
+  color:var(--ink-2);font-variant-numeric:tabular-nums}
+.chip-age.is-old{color:var(--gap-fg);font-weight:700}
+.chip-line{display:grid;gap:0 var(--s3);margin:var(--s3) 0 0;
+  grid-template-columns:minmax(0,1fr)}
+@media (min-width:600px){.chip-line{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.chip-cell{padding:var(--s2) 0;border-top:1px solid var(--rule);min-width:0}
+.chip-cell .k{display:block;font-size:var(--t-micro);letter-spacing:.09em;
+  color:var(--ink-3);margin-bottom:2px}
+.chip-cell .v{font-family:var(--f-mono);font-size:var(--t-cap);
+  font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.chip-read{margin:var(--s3) 0 0;font-size:var(--t-cap);color:var(--ink-2);
+  max-width:var(--measure)}
 
 /* ------------------------------------------------------------------ index --
    Built from the anchor table, so it cannot drift from the pages. */

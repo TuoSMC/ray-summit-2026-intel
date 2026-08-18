@@ -773,6 +773,10 @@ SECTIONS = [
     ('compare', 'their-case', '對方最強的說法', 'Their strongest argument',
      '如果租賃方只能講一句話說服買家,那句是什麼',
      'if the rental side got one sentence to win the buyer, this is the sentence'),
+    ('compare', 'chips', '晶片世代履歷', 'What generation each chip is',
+     '客戶講出一個型號的時候,那是新機隊還是舊機隊,差幾個月換一次',
+     'when a customer names a part, whether that is a new fleet or an old one, and how long until '
+     'it gets replaced'),
     ('compare', 'collisions', '同名陷阱', 'Names that collide',
      '這場有哪些名字會查錯人、查錯公司',
      'the names at this show that send research to the wrong company'),
@@ -824,6 +828,8 @@ INDEX_KINDS = [
     ('account', '公司', 'Companies', '這一板上的每一家,連到它的卡',
      'every company on the board, linked to its card'),
     ('session', '場次', 'Sessions', '目錄已公布的每一場', 'every session the catalogue publishes'),
+    ('chip', '晶片', 'Chips', '每一顆的世代履歷,文中提到就連過去',
+     'the generation record for each part; every mention in the text links here'),
 ]
 
 
@@ -930,6 +936,92 @@ def items_wrap(built):
     return '  <div class="itms">\n%s\n  </div>' % '\n'.join(built)
 
 
+# ---- chip generation records ------------------------------------------------
+# Why this table exists: this pack argues that the generation spread inside a
+# customer's fleet IS the refresh clock (gtm thesis T-refresh, and the third of
+# the five questions). An unannotated "H100" does not tell a rep whether that is
+# an old fleet or a current one. Every mention gets linked to its row here.
+#
+# name, arch, announced, available, predecessor, successor, still_shipping,
+# read_h, read_e, sources[]
+CHIPS = []
+
+CHIP_BY_NAME = {}
+CHIP_ALIASES = {}
+
+
+def _chip_index():
+    for c in CHIPS:
+        CHIP_BY_NAME[c['name']] = c
+        for a in [c['name']] + list(c.get('aka') or []):
+            CHIP_ALIASES[a] = c['name']
+
+
+def chip_age_months(available):
+    """Months from GA to the factbase as-of date. Computed, never typed —
+    a hand-typed age is wrong the day after it is written."""
+    try:
+        y, m = int(str(available)[:4]), int(str(available)[5:7])
+    except (ValueError, TypeError):
+        return None
+    try:
+        ay, am = int(str(ASOF)[:4]), int(str(ASOF)[5:7])
+    except (ValueError, TypeError):
+        return None
+    return (ay - y) * 12 + (am - m)
+
+
+def chipref(name, label=None):
+    """A chip mention, linked to its generation record. The chip name is a
+    locked run either way (B6) — the link wraps it, it does not translate it."""
+    key = CHIP_ALIASES.get(name, name)
+    aid = 'chip-' + slug(key)
+    text = esc(label or name)
+    if key not in CHIP_BY_NAME or aid not in ANCHORS:
+        return '<span class="lk">%s</span>' % text
+    return ('<a class="xr xr-chip" href="%s"><span class="lk">%s</span></a>'
+            % (att(href(aid)), text))
+
+
+# Longest-first so "GB200 NVL72" wins over "GB200", and "H100 SXM" over "H100".
+_CHIP_SKIP = re.compile(r'<(a|script|style)\b', re.I)
+
+
+def annotate_chips(html):
+    """Link every bare chip mention in built markup to its generation record.
+
+    Done mechanically on the output rather than by hand at 60-odd call sites,
+    because a hand-annotated corpus goes stale the first time someone adds a
+    sentence. Rewrites TEXT ONLY: never inside a tag, never inside an existing
+    <a>, so a source URL containing "H100" is left alone.
+    """
+    if not CHIPS:
+        return html, 0
+    names = sorted(CHIP_ALIASES, key=len, reverse=True)
+    pat = re.compile(r'(?<![\w-])(%s)(?![\w-])'
+                     % '|'.join(re.escape(n) for n in names))
+    out, n, depth_a, i = [], 0, 0, 0
+    for m in re.finditer(r'<[^>]+>|[^<]+', html):
+        chunk = m.group(0)
+        if chunk.startswith('<'):
+            low = chunk.lower()
+            if low.startswith('<a ') or low == '<a>':
+                depth_a += 1
+            elif low.startswith('</a'):
+                depth_a = max(0, depth_a - 1)
+            out.append(chunk)
+            continue
+        if depth_a:                      # already a link — never nest one
+            out.append(chunk)
+            continue
+        def _sub(mm):
+            nonlocal n
+            n += 1
+            return chipref(mm.group(1), mm.group(1))
+        out.append(pat.sub(_sub, chunk))
+    return ''.join(out), n
+
+
 # ---- every company and every session gets an anchor, up front ---------------
 # Registered BEFORE any fragment renders, because the plays page links at cards
 # the account board has not emitted yet. Registration order is not render order.
@@ -952,6 +1044,10 @@ for _s in sessions:
         continue
     _t = str(_s.get('title') or _sid)
     reg('ses-' + slug(_sid), 'session', 'agenda', _t, _t)
+
+_chip_index()
+for _c in CHIPS:
+    reg('chip-' + slug(_c['name']), 'chip', 'compare', _c['name'], _c['name'])
 
 
 
@@ -3335,6 +3431,75 @@ def frag_compare():
                '\n'.join(q), None, None),
           ]), block='counterparty'))
 
+    # ------------------------------------------- 7b. chip generation records -
+    # The refresh clock, made checkable. Age is computed from GA against the
+    # factbase date, so it cannot rot the way a typed "about two years old" does.
+    if True:
+        cr = ['  <div class="chips">']
+        for c in CHIPS:
+            age = chip_age_months(c.get('available'))
+            old_fleet = age is not None and age >= 30
+            cr.append('    <section class="chip-rec" id="%s">' % att('chip-' + slug(c['name'])))
+            cr.append('      <h3 class="chip-h"><span class="chip-n">%s</span>'
+                      '<span class="chip-arch">%s</span>%s</h3>'
+                      % (esc(c['name']), esc(c['arch']),
+                         ('<span class="chip-age%s">%s</span>'
+                          % (' is-old' if old_fleet else '',
+                             tt('上市 %d 個月' % age, '%d months on the market' % age)))
+                         if age is not None else ''))
+            cells = [
+                ('發布', 'Announced', c.get('announced')),
+                ('可買到', 'Available', c.get('available')),
+                ('上一代', 'Replaced', c.get('predecessor')),
+                ('下一代', 'Replaced by', c.get('successor')),
+            ]
+            cr.append('      <div class="chip-line">')
+            for kh, ke, v in cells:
+                cr.append('        <div class="chip-cell"><span class="k">%s</span>'
+                          '<span class="v">%s</span></div>'
+                          % (tt(esc(kh), esc(ke)),
+                             lk(v) if v and str(v) != 'GAP'
+                             else gap('這一格沒有公開來源', 'no public source for this cell')))
+            cr.append('      </div>')
+            if c.get('still_shipping'):
+                cr.append('      <p class="chip-read">%s %s</p>'
+                          % (tt('供貨狀態:', 'Supply: '),
+                             tt(esc(c['still_shipping'][0]), esc(c['still_shipping'][1]))))
+            cr.append('      <p class="chip-read">%s</p>'
+                      % tt(esc(c.get('read_h', '')), esc(c.get('read_e', ''))))
+            if c.get('sources'):
+                cr.append('      <p class="src">%s</p>'
+                          % ' '.join(src_a(u, d) for u, d in c['sources']))
+            cr.append('    </section>')
+        cr.append('  </div>')
+        a(sec('chips',
+              S(('%d 顆' % len(CHIPS), '%d parts' % len(CHIPS)), '·',
+                ('每一顆的上市日與下一代', 'each with its ship date and its successor'), '·',
+                ('文中提到就連過來', 'every mention in the pack links here')),
+              items('chips', [
+                  ('records', '一顆一列', 'One row per part',
+                   '上市幾個月是算出來的,不是寫死的 —— 這一頁明年打開仍然是對的',
+                   'the age in months is computed against the factbase date rather than typed, so '
+                   'this page is still right a year from now',
+                   '\n'.join(cr) if CHIPS else
+                   ('  <p>%s</p>'
+                    % gap('晶片世代表還沒建。要結案:把每一顆的發布日、量產日與下一代填進 CHIPS,'
+                          '每一格帶來源',
+                          'the chip generation table is not built yet. To close it: fill CHIPS with '
+                          'the announce date, GA date and successor for each part, every cell '
+                          'sourced'))),
+                  ('clock', '為什麼要看世代', 'Why the generation is the question',
+                   '客戶最舊的那批是哪一代,決定他多久之後會有一次汰換對話 —— 這是這包裡最短的資格判定',
+                   'which generation the oldest batch is decides how long until a replacement '
+                   'conversation, and that is the shortest qualifying question in this pack',
+                   '  <p>%s</p>'
+                   % tt('所以第三個問題問的是「你們最舊的那批 GPU 節點是哪一代」,'
+                        '不是「你們用什麼卡」。答案落在這張表的哪一列,就決定要不要排下一次拜訪。',
+                        'That is why the third question asks which generation the oldest batch is, '
+                        'not what card they run. Where the answer lands on this table decides '
+                        'whether the account earns a second visit.')),
+              ]), block='chip-records'))
+
     # -------------------------------------------------- 8. name collisions --
     traps = campaign.get('traps') or []
     tp = ['  <p class="note">%s</p>'
@@ -3464,11 +3629,13 @@ def main():
                                   'frag': 'build/frag/%s.html' % role})
         written.append(role)
     idx_html = build_index()
-    n_idx = 0
+    n_idx, chip_links = 0, 0
     for role, body in bodies.items():
         # The spine goes on EVERY page, from one place, so no page can be built
         # without its own map.
         body = spine(role) + '\n' + body
+        body, _n_chip = annotate_chips(body)
+        chip_links += _n_chip
         if INDEX_SLOT in body:
             body = body.replace(INDEX_SLOT, idx_html)
             n_idx += 1
@@ -3483,9 +3650,10 @@ def main():
     io.open(os.path.join(BUILD, 'manifest.json'), 'w', encoding='utf-8').write(
         json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
     print('build_fragments: %d fragments (%s) lang=%s asOf=%s drawers=%d cards=%s '
-          'cells=%d sourced=%d gap=%d evidence=%s'
+          'cells=%d sourced=%d gap=%d chips=%d/%d evidence=%s'
           % (len(written), ' '.join(written), src_lang, ASOF or 'UNSET', drawers,
              'GAP' if cards is None else N_CARDS, POP, SRCD, GAPC,
+             chip_links, len(CHIPS),
              ','.join('%s:%d' % (k, v) for k, v in RANKS.items() if v) or 'none'))
 
 

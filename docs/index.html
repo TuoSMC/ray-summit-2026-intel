@@ -522,6 +522,35 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 .xr:hover{background:var(--accent-bg)}
 .xr:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 .xr-org{font-weight:700}
+/* A chip mention keeps its mono face — it is still a locked run — and picks up
+   only a dotted rule, because 15 linked "H100"s on one page must not shout. */
+.xr-chip{border-bottom-style:dotted;border-bottom-color:var(--ink-3)}
+.xr-chip .lk{color:var(--ink)}
+.xr-chip:hover .lk{color:var(--accent)}
+
+/* --------------------------------------------------------- chip records --- */
+.chips{list-style:none;margin:var(--s4) 0 0;padding:0}
+.chip-rec{border-top:1px solid var(--rule);padding:var(--s4) 0}
+.chip-rec:first-child{border-top:0;padding-top:0}
+.chip-rec:target{background:var(--accent-bg)}
+.chip-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s2) var(--s3);margin:0}
+.chip-n{font-family:var(--f-mono);font-size:var(--t-h3);font-weight:700;
+  font-variant-numeric:tabular-nums}
+.chip-arch{font-size:var(--t-micro);letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-2);border:1px solid var(--rule);border-radius:2px;padding:2px 7px}
+.chip-age{margin-left:auto;font-family:var(--f-mono);font-size:var(--t-cap);
+  color:var(--ink-2);font-variant-numeric:tabular-nums}
+.chip-age.is-old{color:var(--gap-fg);font-weight:700}
+.chip-line{display:grid;gap:0 var(--s3);margin:var(--s3) 0 0;
+  grid-template-columns:minmax(0,1fr)}
+@media (min-width:600px){.chip-line{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.chip-cell{padding:var(--s2) 0;border-top:1px solid var(--rule);min-width:0}
+.chip-cell .k{display:block;font-size:var(--t-micro);letter-spacing:.09em;
+  color:var(--ink-3);margin-bottom:2px}
+.chip-cell .v{font-family:var(--f-mono);font-size:var(--t-cap);
+  font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.chip-read{margin:var(--s3) 0 0;font-size:var(--t-cap);color:var(--ink-2);
+  max-width:var(--measure)}
 
 /* ------------------------------------------------------------------ index --
    Built from the anchor table, so it cannot drift from the pages. */
@@ -867,7 +896,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
   <div class="dr-b">
   <div class="idx">
     <section class="idx-g">
-      <h3 class="idx-h"><span data-t="h">章節</span><span data-t="e">Sections</span> <span class="idx-c"><span class="lk">35</span></span></h3>
+      <h3 class="idx-h"><span data-t="h">章節</span><span data-t="e">Sections</span> <span class="idx-c"><span class="lk">36</span></span></h3>
       <p class="idx-w"><span data-t="h">每一節回答一個問題</span><span data-t="e">each answers one question</span></p>
       <ul class="idx-l">
         <li><a href="index.html#s-verdict"><span data-t="h">判斷</span><span data-t="e">The call</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
@@ -903,12 +932,13 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
         <li><a href="compare.html#s-we-win"><span data-t="h">我們在哪裡贏</span><span data-t="e">Where we win</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
         <li><a href="compare.html#s-we-lose"><span data-t="h">我們在哪裡輸</span><span data-t="e">Where we lose</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
         <li><a href="compare.html#s-their-case"><span data-t="h">對方最強的說法</span><span data-t="e">Their strongest argument</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
+        <li><a href="compare.html#s-chips"><span data-t="h">晶片世代履歷</span><span data-t="e">What generation each chip is</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
         <li><a href="compare.html#s-collisions"><span data-t="h">同名陷阱</span><span data-t="e">Names that collide</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
         <li><a href="compare.html#s-compare-open"><span data-t="h">這一頁還沒結案的</span><span data-t="e">What this page has not closed</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
       </ul>
     </section>
     <section class="idx-g">
-      <h3 class="idx-h"><span data-t="h">子項</span><span data-t="e">Items</span> <span class="idx-c"><span class="lk">101</span></span></h3>
+      <h3 class="idx-h"><span data-t="h">子項</span><span data-t="e">Items</span> <span class="idx-c"><span class="lk">103</span></span></h3>
       <p class="idx-w"><span data-t="h">每一節底下的每一項,可以單獨連結</span><span data-t="e">every item inside every section, each with its own link</span></p>
       <ul class="idx-l">
         <li><a href="index.html#i-room-audience"><span data-t="h">來的是誰</span><span data-t="e">Who is in the room</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
@@ -1006,6 +1036,8 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
         <li><a href="compare.html#i-we-lose-no-ops-team"><span data-t="h">沒有維運人手</span><span data-t="e">They have no operations team</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
         <li><a href="compare.html#i-we-lose-capex-blocked"><span data-t="h">資本支出過不了</span><span data-t="e">Capex will not clear</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
         <li><a href="compare.html#i-their-case-quote"><span data-t="h">他們會說的那一句</span><span data-t="e">The sentence they will say</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
+        <li><a href="compare.html#i-chips-records"><span data-t="h">一顆一列</span><span data-t="e">One row per part</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
+        <li><a href="compare.html#i-chips-clock"><span data-t="h">為什麼要看世代</span><span data-t="e">Why the generation is the question</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
         <li><a href="compare.html#i-collisions-pairs"><span data-t="h">會查錯的名字</span><span data-t="e">The names that send research astray</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
         <li><a href="compare.html#i-compare-open-commit-price"><span data-t="h">承諾價不公開</span><span data-t="e">Committed prices are not published</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
         <li><a href="compare.html#i-compare-open-customer-inputs"><span data-t="h">用的是市場均值不是客戶的數字</span><span data-t="e">Built on market averages, not the customer's own numbers</span></a><span class="idx-p"><span data-t="h">對位</span><span data-t="e">Matchup</span></span></li>
