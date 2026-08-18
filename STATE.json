@@ -91,10 +91,10 @@
     "orgs": "data/orgs.json"
   },
   "factbase": {
-    "asOf": "2026-08-17",
-    "staleAfter": "2026-08-18",
+    "asOf": "2026-08-18",
+    "staleAfter": "2026-08-21",
     "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
-    "sessionCount": 50,
+    "sessionCount": 62,
     "gaps": [
       "Aug 26 (day 3 of 3) publishes NO sessions in the catalogue as of 2026-08-17 — GAP, not 'no sessions'",
       "no session card exposes a speaker; speakers.json is a PARTIAL roster from the marketing page ('and others')",
@@ -559,6 +559,36 @@
       "outputTokens": 0,
       "at": "2026-08-18T11:07:54-07:00",
       "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-18T11:11:36-07:00",
+      "wallSeconds": 0,
+      "note": "5 pages built from accounts, agenda, command-center, compare, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-18T11:11:36-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-18T11:12:22-07:00",
+      "wallSeconds": 0,
+      "note": "5 pages built from accounts, agenda, command-center, compare, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-18T11:12:22-07:00",
+      "wallSeconds": 1
     }
   ],
   "pages": [
@@ -728,6 +758,16 @@
       "right": "Discord's physical servers are rented dedicated hosting (i3D.net owns the iron); most hardware is in Google Cloud -> ruled-out. Grab ran a documented cloud exit to a Malaysia colo: 250 self-racked machines, own core switches, 3-year replacement cycle, $2.4M TCO saving -> YES, top-3 target. The 'exhibitor' orgs sit in the 'Also featuring sessions from' strip = speaker-employers with NO booth.",
       "scope": "cards.json discord+grab; data/exhibitors.json capture text",
       "ruleAdded": "R8/R9"
+    },
+    {
+      "at": "2026-08-18",
+      "what": "The 2026-08-26 agenda was recorded as unpublished. The Linux Foundation catalogue still publishes nothing for that day, but the co-located vLLM Conference publishes a full day-3 agenda with speakers. Eleven day-3 rows and one omitted 2026-08-25 row were added from vllm.ai, sourced to vllm.ai and NOT to the catalogue, so a reader cannot mistake them for catalogue content. Rooms and end times stay GAP because vllm.ai publishes neither.",
+      "source": "https://vllm.ai/events/vllm-conference/2026"
+    },
+    {
+      "at": "2026-08-18",
+      "what": "The Nscale/Anyscale acquisition was published as unconfirmed by both parties. Both have published it: a definitive agreement announced 2026-07-30, signed and not yet closed, expected to close H2 2026 subject to conditions and regulatory approval. The page states the correction rather than swapping the claim silently.",
+      "source": "https://www.nscale.com/press-releases/nscale-acquires-anyscale"
     }
   ],
   "termbase": "data/termbase.json",

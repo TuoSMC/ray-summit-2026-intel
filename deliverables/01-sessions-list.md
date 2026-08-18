@@ -4,12 +4,13 @@
 > 下一次建置會整份覆蓋。要改內容就改 JSON（RULES D2 —— JSON 贏，view 是產物）。
 
 - 來源：https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue
-- 狀態截至：2026-08-17
-- 場次總數（計算值）：50
+- 狀態截至：2026-08-18
+- 場次總數（計算值）：62
   - 2026-08-24：8 場
-  - 2026-08-25：42 場
-- 主題標籤（計算值）：Inference 23、Train 18、Multimodal Data 16、Post Train/RL 10
-- 會議室（計算值）：15 間
+  - 2026-08-25：43 場
+  - 2026-08-26：11 場
+- 主題標籤（計算值）：Inference 23、Train 18、Multimodal Data 16、vLLM Conference 12、Post Train/RL 10
+- 會議室（計算值）：16 間
 - 座位數：GAP —— 官方目錄沒有揭露任何一場的容量；未揭露不等於沒有座位（B13）
 
 | id | day | start_end | room | title | tags | seats |
@@ -64,6 +65,18 @@
 | S048 | 2026-08-25 | 4:15 PM-4:45 PM | Breakout 5 | Scaling PyTorch Training with Ray Data on Uber's Michelangelo AI Platform | Train | GAP（GAP — catalogue does not expose capacity） |
 | S049 | 2026-08-25 | 4:15 PM-4:45 PM | Breakout 2 | The Synthetic Data Flywheel: Ray Data, vLLM, and Iterative DPO at Pinterest | Post Train/RL、Inference、Multimodal Data | GAP（GAP — catalogue does not expose capacity） |
 | S050 | 2026-08-25 | 5:00 PM-5:30 PM | Breakout 1 | Batch Inference and LLM Evaluation at Scale | Inference、Multimodal Data | GAP（GAP — catalogue does not expose capacity） |
+| V001 | 2026-08-26 | 8:30 AM | GAP | Registration + Breakfast + Networking | vLLM Conference | GAP（GAP — vLLM 官網未公布會議室） |
+| V002 | 2026-08-26 | 9:30 AM | GAP | Keynotes | vLLM Conference | GAP（GAP — vLLM 官網未公布會議室） |
+| V003 | 2026-08-26 | 11:30 AM | GAP | Networking Lunch | vLLM Conference | GAP（GAP — vLLM 官網未公布會議室） |
+| V004 | 2026-08-26 | 12:30 PM | GAP | Serving vLLM on Agentic Production Workloads | vLLM Conference | GAP（GAP — vLLM 官網未公布會議室） |
+| V005 | 2026-08-26 | 1:15 PM | GAP | AMD and vLLM: What's New | vLLM Conference | GAP（GAP — vLLM 官網未公布會議室） |
+| V006 | 2026-08-26 | 2:00 PM | GAP | Lightning on Agentic: Embedded LM, Anyscale, Novita, and Verda | vLLM Conference | GAP（GAP — vLLM 官網未公布會議室） |
+| V007 | 2026-08-26 | 2:45 PM | GAP | Highly Compressed Gemma Models with Custom Quantization-Aware Training | vLLM Conference | GAP（GAP — vLLM 官網未公布會議室） |
+| V008 | 2026-08-26 | 3:30 PM | GAP | Serving vLLM on Intel GPUs, CPUs, and Gaudi | vLLM Conference | GAP（GAP — vLLM 官網未公布會議室） |
+| V009 | 2026-08-26 | 4:15 PM | GAP | TorchSpec: Speculative Decoding Training at Scale | vLLM Conference | GAP（GAP — vLLM 官網未公布會議室） |
+| V010 | 2026-08-26 | 5:00 PM | GAP | Serving MiniMax M3 at Scale | vLLM Conference | GAP（GAP — vLLM 官網未公布會議室） |
+| V011 | 2026-08-26 | 5:30 PM | GAP | Event Ends | vLLM Conference | GAP（GAP — vLLM 官網未公布會議室） |
+| S051 | 2026-08-25 | 5:00 PM | Breakout 3 (vLLM) | GLM-5 RL Training with vLLM | vLLM Conference | GAP（GAP — catalogue does not expose capacity） |
 
 ## 已登記的缺口（STATE.factbase.gaps）
 

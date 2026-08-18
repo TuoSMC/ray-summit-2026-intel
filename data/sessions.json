@@ -808,5 +808,197 @@
     "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
     "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
     "asOf": "2026-08-17"
+  },
+  {
+    "id": "V001",
+    "day": "2026-08-26",
+    "start_end": "8:30 AM",
+    "title": "Registration + Breakfast + Networking",
+    "room": "GAP",
+    "seats": null,
+    "seats_note": "GAP — vLLM 官網未公布會議室",
+    "tags": [
+      "vLLM Conference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — 講者與公司取自同場 vLLM 大會官網,不是 Ray Summit 目錄;目錄至今未公布 8/26 任何場次",
+    "source": "https://vllm.ai/events/vllm-conference/2026",
+    "asOf": "2026-08-18"
+  },
+  {
+    "id": "V002",
+    "day": "2026-08-26",
+    "start_end": "9:30 AM",
+    "title": "Keynotes",
+    "room": "GAP",
+    "seats": null,
+    "seats_note": "GAP — vLLM 官網未公布會議室",
+    "tags": [
+      "vLLM Conference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — 講者與公司取自同場 vLLM 大會官網,不是 Ray Summit 目錄;目錄至今未公布 8/26 任何場次",
+    "source": "https://vllm.ai/events/vllm-conference/2026",
+    "asOf": "2026-08-18"
+  },
+  {
+    "id": "V003",
+    "day": "2026-08-26",
+    "start_end": "11:30 AM",
+    "title": "Networking Lunch",
+    "room": "GAP",
+    "seats": null,
+    "seats_note": "GAP — vLLM 官網未公布會議室",
+    "tags": [
+      "vLLM Conference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — 講者與公司取自同場 vLLM 大會官網,不是 Ray Summit 目錄;目錄至今未公布 8/26 任何場次",
+    "source": "https://vllm.ai/events/vllm-conference/2026",
+    "asOf": "2026-08-18"
+  },
+  {
+    "id": "V004",
+    "day": "2026-08-26",
+    "start_end": "12:30 PM",
+    "title": "Serving vLLM on Agentic Production Workloads",
+    "room": "GAP",
+    "seats": null,
+    "seats_note": "GAP — vLLM 官網未公布會議室",
+    "tags": [
+      "vLLM Conference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — 講者與公司取自同場 vLLM 大會官網,不是 Ray Summit 目錄;目錄至今未公布 8/26 任何場次 — Yifan Qiao (Inferact); Zijing Liu (Inferact)",
+    "source": "https://vllm.ai/events/vllm-conference/2026",
+    "asOf": "2026-08-18"
+  },
+  {
+    "id": "V005",
+    "day": "2026-08-26",
+    "start_end": "1:15 PM",
+    "title": "AMD and vLLM: What's New",
+    "room": "GAP",
+    "seats": null,
+    "seats_note": "GAP — vLLM 官網未公布會議室",
+    "tags": [
+      "vLLM Conference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — 講者與公司取自同場 vLLM 大會官網,不是 Ray Summit 目錄;目錄至今未公布 8/26 任何場次 — Douglas Lehr (AMD)",
+    "source": "https://vllm.ai/events/vllm-conference/2026",
+    "asOf": "2026-08-18"
+  },
+  {
+    "id": "V006",
+    "day": "2026-08-26",
+    "start_end": "2:00 PM",
+    "title": "Lightning on Agentic: Embedded LM, Anyscale, Novita, and Verda",
+    "room": "GAP",
+    "seats": null,
+    "seats_note": "GAP — vLLM 官網未公布會議室",
+    "tags": [
+      "vLLM Conference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — 講者與公司取自同場 vLLM 大會官網,不是 Ray Summit 目錄;目錄至今未公布 8/26 任何場次 — Tun Jian Tan (Embedded LM); Jeffrey Wang (Anyscale); Danny An (Novita); Ananth Mahadevan (Verda)",
+    "source": "https://vllm.ai/events/vllm-conference/2026",
+    "asOf": "2026-08-18"
+  },
+  {
+    "id": "V007",
+    "day": "2026-08-26",
+    "start_end": "2:45 PM",
+    "title": "Highly Compressed Gemma Models with Custom Quantization-Aware Training",
+    "room": "GAP",
+    "seats": null,
+    "seats_note": "GAP — vLLM 官網未公布會議室",
+    "tags": [
+      "vLLM Conference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — 講者與公司取自同場 vLLM 大會官網,不是 Ray Summit 目錄;目錄至今未公布 8/26 任何場次 — Sara Smoot (Google DeepMind)",
+    "source": "https://vllm.ai/events/vllm-conference/2026",
+    "asOf": "2026-08-18"
+  },
+  {
+    "id": "V008",
+    "day": "2026-08-26",
+    "start_end": "3:30 PM",
+    "title": "Serving vLLM on Intel GPUs, CPUs, and Gaudi",
+    "room": "GAP",
+    "seats": null,
+    "seats_note": "GAP — vLLM 官網未公布會議室",
+    "tags": [
+      "vLLM Conference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — 講者與公司取自同場 vLLM 大會官網,不是 Ray Summit 目錄;目錄至今未公布 8/26 任何場次 — Chendi Xue (Intel)",
+    "source": "https://vllm.ai/events/vllm-conference/2026",
+    "asOf": "2026-08-18"
+  },
+  {
+    "id": "V009",
+    "day": "2026-08-26",
+    "start_end": "4:15 PM",
+    "title": "TorchSpec: Speculative Decoding Training at Scale",
+    "room": "GAP",
+    "seats": null,
+    "seats_note": "GAP — vLLM 官網未公布會議室",
+    "tags": [
+      "vLLM Conference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — 講者與公司取自同場 vLLM 大會官網,不是 Ray Summit 目錄;目錄至今未公布 8/26 任何場次 — Fred Wang (Together AI / LightSeek)",
+    "source": "https://vllm.ai/events/vllm-conference/2026",
+    "asOf": "2026-08-18"
+  },
+  {
+    "id": "V010",
+    "day": "2026-08-26",
+    "start_end": "5:00 PM",
+    "title": "Serving MiniMax M3 at Scale",
+    "room": "GAP",
+    "seats": null,
+    "seats_note": "GAP — vLLM 官網未公布會議室",
+    "tags": [
+      "vLLM Conference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — 講者與公司取自同場 vLLM 大會官網,不是 Ray Summit 目錄;目錄至今未公布 8/26 任何場次 — Victor Su-Ortiz (MiniMax)",
+    "source": "https://vllm.ai/events/vllm-conference/2026",
+    "asOf": "2026-08-18"
+  },
+  {
+    "id": "V011",
+    "day": "2026-08-26",
+    "start_end": "5:30 PM",
+    "title": "Event Ends",
+    "room": "GAP",
+    "seats": null,
+    "seats_note": "GAP — vLLM 官網未公布會議室",
+    "tags": [
+      "vLLM Conference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — 講者與公司取自同場 vLLM 大會官網,不是 Ray Summit 目錄;目錄至今未公布 8/26 任何場次",
+    "source": "https://vllm.ai/events/vllm-conference/2026",
+    "asOf": "2026-08-18"
+  },
+  {
+    "id": "S051",
+    "day": "2026-08-25",
+    "start_end": "5:00 PM",
+    "title": "GLM-5 RL Training with vLLM",
+    "room": "Breakout 3 (vLLM)",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "vLLM Conference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "Sami Jaghouar (Prime Intellect) — 取自 vLLM 官網;Ray Summit 目錄在 Breakout 3 的這個時段是空的",
+    "source": "https://vllm.ai/events/vllm-conference/2026",
+    "asOf": "2026-08-18"
   }
 ]

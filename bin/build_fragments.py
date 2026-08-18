@@ -1824,6 +1824,31 @@ def frag_agenda():
                        'cards, which makes it a partial list: treat it as a floor, not a '
                        'total.')),
                  'GAP', None))
+    # Day 3 exists in this pack, but not from the catalogue. A reader who does
+    # not know that will quote it as official and be wrong.
+    _v = [x for x in sessions if 'vllm.ai' in str(x.get('source') or '')]
+    if _v:
+        rows.append(('day3-source', '2026-08-26 不是目錄給的', '2026-08-26 does not come from the catalogue',
+                     '主辦目錄至今沒有公布 2026-08-26 任何一場。這一天的 %d 場來自同場的 vLLM 大會官網'
+                     % len(_v),
+                     'the official catalogue still publishes nothing at all for 2026-08-26. The %d '
+                     'rows on that day come from the co-located vLLM Conference site instead'
+                     % len(_v),
+                     '  <p>%s</p>\n  <p>%s</p>\n  <p>%s</p>'
+                     % (tt('每一場的來源連結都指向 vLLM 官網,不是目錄 —— 點開就看得到出處。'
+                           '引用給客戶時要說清楚是哪一邊發的,因為主辦自己還沒公布這份議程。',
+                           'Every one of those rows links to the vLLM site rather than to the '
+                           'catalogue, so the provenance is visible on the row itself. Say which '
+                           'source it came from when you quote it: the organisers have not '
+                           'published this agenda themselves.'),
+                        S(('Ray 主軌在 2026-08-26 的場次,兩邊都沒有公布。',
+                           'The Ray-track sessions for 2026-08-26 are unpublished on both sites.')),
+                        gap('會議室與結束時間 vLLM 官網都沒有給,所以那兩格是 GAP,不是我們沒抄。'
+                            '要結案:出發前再刷一次目錄,或現場用活動 App',
+                            'the vLLM site publishes neither rooms nor end times, so those two '
+                            'cells are GAP rather than an omission on our side. To close it: '
+                            'refresh the catalogue before you fly, or use the event app on site')),
+                     '%d 場' % len(_v), '%d rows' % len(_v)))
     rows.append(('booths', '攤位號碼', 'Booth numbers',
                  '未公布,所以走廊順序現在排不出來',
                  'unpublished, so the corridor route cannot be planned in advance',
