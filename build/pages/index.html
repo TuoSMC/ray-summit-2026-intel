@@ -517,6 +517,27 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 .itm-b > :first-child{margin-top:0}
 .itm-b details.dr{margin-bottom:var(--s2)}
 
+/* ------------------------------------------------------- the chain diagram --
+   Inline SVG, tokens only, viewBox-scaled. The two bands that actually sign a
+   server order carry the heavy edge; everything else is furniture. */
+.chain{display:block;width:100%;height:auto;margin:var(--s4) 0 0;
+  font-family:var(--f-text)}
+.chain .cb rect{fill:var(--card);stroke:var(--rule);stroke-width:1.8}
+.chain .cb.is-hot rect{stroke:var(--rule-hard);stroke-width:5}
+.chain text{fill:var(--ink)}
+.chain .cb-n{font-size:35px;font-weight:700;font-family:var(--f-display)}
+.chain .cb-ne{font-size:25px;fill:var(--ink-3);letter-spacing:.06em}
+.chain .cb-d{font-size:29px;fill:var(--ink-2)}
+.chain .cb-de{font-size:25px;fill:var(--ink-3)}
+.chain .cb-m{font-size:24px;fill:var(--ink-3);font-family:var(--f-mono)}
+.chain .cb-c{font-size:54px;font-weight:700;text-anchor:end;
+  font-family:var(--f-display);font-variant-numeric:tabular-nums}
+.chain .cb-cl{font-size:24px;fill:var(--ink-3);text-anchor:end;
+  font-family:var(--f-mono)}
+.chain .cb.is-hot .cb-c{fill:var(--accent)}
+.chain .cb-a{stroke:var(--ink-3);stroke-width:2.5;marker-end:none}
+@media print{.chain .cb rect{fill:none}}
+
 /* --------------------------------------------------------- cross-references */
 /* A cross-reference is a different animal from a source link: it goes sideways
    inside the pack, not outward to the web. Dotted underline says "same pack". */
@@ -667,7 +688,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 </nav>
 <main class="wrap">
 <nav class="spine" data-block="spine" aria-label="Sections on this page / 本頁章節">
-  <p class="spine-h"><span data-t="h">這一頁有 10 節。每一節回答一個問題。</span><span data-t="e">This page has 10 sections. Each one answers one question.</span></p>
+  <p class="spine-h"><span data-t="h">這一頁有 11 節。每一節回答一個問題。</span><span data-t="e">This page has 11 sections. Each one answers one question.</span></p>
   <ol class="spine-l">
     <li><a href="index.html#s-verdict"><span class="spine-n" aria-hidden="true">01</span><span class="spine-t"><span data-t="h">判斷</span><span data-t="e">The call</span></span><span class="spine-q"><span data-t="h">這一場的錢花在哪裡，我方該用什麼身分走進去</span><span data-t="e">where the money in this room actually goes, and what we walk in as</span></span></a></li>
     <li><a href="index.html#s-numbers"><span class="spine-n" aria-hidden="true">02</span><span class="spine-t"><span data-t="h">四個數字</span><span data-t="e">Four numbers</span></span><span class="spine-q"><span data-t="h">這場的規模,四個從資料算出來、不是打上去的數字</span><span data-t="e">the size of the thing, in four figures computed from the data rather than typed</span></span></a></li>
@@ -678,7 +699,8 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <li><a href="index.html#s-signals"><span class="spine-n" aria-hidden="true">07</span><span class="spine-t"><span data-t="h">前瞻訊號</span><span data-t="e">Forward signals</span></span><span class="spine-q"><span data-t="h">還沒發生但已經看得到的事,以及看到之後要做什麼</span><span data-t="e">what has not happened yet but is already visible, and what to do about each</span></span></a></li>
     <li><a href="index.html#s-open"><span class="spine-n" aria-hidden="true">08</span><span class="spine-t"><span data-t="h">本場 GAP</span><span data-t="e">What is still open</span></span><span class="spine-q"><span data-t="h">這一包還不知道的事,以及什麼證據能結案</span><span data-t="e">what this pack does not know, and what evidence would close each one</span></span></a></li>
     <li><a href="index.html#s-method"><span class="spine-n" aria-hidden="true">09</span><span class="spine-t"><span data-t="h">方法與來源</span><span data-t="e">Method and sources</span></span><span class="spine-q"><span data-t="h">這些結論怎麼來的,哪一步可以被推翻</span><span data-t="e">how these conclusions were produced, and which step you could overturn</span></span></a></li>
-    <li><a href="index.html#s-index"><span class="spine-n" aria-hidden="true">10</span><span class="spine-t"><span data-t="h">索引</span><span data-t="e">Index</span></span><span class="spine-q"><span data-t="h">這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結</span><span data-t="e">every section, every company and every session in this pack, listed once, each one a link</span></span></a></li>
+    <li><a href="index.html#s-chain"><span class="spine-n" aria-hidden="true">10</span><span class="spine-t"><span data-t="h">架構圖</span><span data-t="e">How the money moves</span></span><span class="spine-q"><span data-t="h">錢從誰手上出發,經過誰,最後變成誰的伺服器訂單 —— 以及我方站在哪一格</span><span data-t="e">where the money starts, who it passes through, whose server order it finally becomes, and which box we stand in</span></span></a></li>
+    <li><a href="index.html#s-index"><span class="spine-n" aria-hidden="true">11</span><span class="spine-t"><span data-t="h">索引</span><span data-t="e">Index</span></span><span class="spine-q"><span data-t="h">這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結</span><span data-t="e">every section, every company and every session in this pack, listed once, each one a link</span></span></a></li>
   </ol>
 </nav>
 <details class="dr sec verdict" id="s-verdict" data-block="verdict" data-fresh="1" open>
@@ -893,12 +915,76 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p><span data-t="h">目錄來源：</span><span data-t="e">Catalogue source:</span> <a href="https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue">https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue</a></p>
   </div>
 </details>
+<details class="dr sec" id="s-chain" data-block="chain">
+  <summary><span class="dr-t"><span class="sec-n" aria-hidden="true">10</span><span data-t="h">架構圖</span><span data-t="e">How the money moves</span></span><span class="sec-w"><span data-t="h">錢從誰手上出發,經過誰,最後變成誰的伺服器訂單 —— 以及我方站在哪一格</span><span data-t="e">where the money starts, who it passes through, whose server order it finally becomes, and which box we stand in</span></span><span class="dr-s"><span data-t="h">四層</span><span data-t="e">four layers</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">58 家已分層</span><span data-t="e">58 companies placed</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">粗框那兩層才簽伺服器訂單</span><span data-t="e">the heavy-edged bands are the ones that sign server orders</span></span></summary>
+  <div class="dr-b">
+  <div class="itms">
+<section class="itm" id="i-chain-picture">
+  <h3 class="itm-h"><span class="itm-n" aria-hidden="true">1</span><span class="itm-l"><span data-t="h">一張圖看完這一場</span><span data-t="e">The whole show in one picture</span></span><a class="itm-a" href="#i-chain-picture" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
+  <p class="itm-w"><span data-t="h">四層由上往下,錢從房東那一層開始流。每一層的家數與名字都是從帳戶板算出來的,不是畫上去的</span><span data-t="e">four layers, top to bottom, with the money starting at the landlord band. Every count and every name is computed from the account board rather than drawn in</span></p>
+  <div class="itm-b"><svg class="chain" viewBox="0 0 1000 756" role="img" aria-labelledby="chain-t chain-d" preserveAspectRatio="xMidYMin meet">
+  <title id="chain-t">這一場的價值鏈:四層,以及每一層有幾家 / The value chain at this show: four layers and how many companies sit in each</title>
+  <desc id="chain-d">由上而下:房東出租機房,營運商買機器把算力租出去,租戶租算力跑自己的產品,通路把硬體賣給上面兩層。伺服器訂單簽在營運商與自建的租戶那兩格。 / Top to bottom: landlords rent the hall, operators buy machines and rent the compute on, tenants rent compute to run their products, and the channel sells hardware to the layers above. The server order is signed in the operator band and by the tenants that build.</desc>
+  <g class="cb">
+    <rect x="10" y="20" width="980" height="155" rx="6"/>
+    <text class="cb-n" x="32" y="70">房東</text>
+    <text class="cb-ne" x="32" y="114">Landlord</text>
+    <text class="cb-d" x="200" y="70">出租機房、電力、冷卻</text>
+    <text class="cb-de" x="200" y="114">rents the hall, the power and the coolin…</text>
+    <text class="cb-c" x="968" y="82">1</text>
+    <text class="cb-cl" x="968" y="124">0 家買機器</text>
+    <text class="cb-m" x="32" y="156">Google LLC, a subsidiary of Alphabet Inc.</text>
+  </g>
+  <path class="cb-a" d="M500 180 L500 202"/>
+  <g class="cb is-hot">
+    <rect x="10" y="207" width="980" height="155" rx="6"/>
+    <text class="cb-n" x="32" y="257">營運商</text>
+    <text class="cb-ne" x="32" y="301">Operator</text>
+    <text class="cb-d" x="200" y="257">買機器,把 GPU 變成可租算力</text>
+    <text class="cb-de" x="200" y="301">buys the machines and sells the GPUs on…</text>
+    <text class="cb-c" x="968" y="269">11</text>
+    <text class="cb-cl" x="968" y="311">8 家買機器</text>
+    <text class="cb-m" x="32" y="343">CoreWeave, Inc. · Lambda, Inc. · Nscale Global Holdings L…</text>
+  </g>
+  <path class="cb-a" d="M500 367 L500 389"/>
+  <g class="cb is-hot">
+    <rect x="10" y="394" width="980" height="155" rx="6"/>
+    <text class="cb-n" x="32" y="444">租戶</text>
+    <text class="cb-ne" x="32" y="488">Tenant</text>
+    <text class="cb-d" x="200" y="444">買算力跑自己的模型與產品</text>
+    <text class="cb-de" x="200" y="488">buys compute to run its own models and p…</text>
+    <text class="cb-c" x="968" y="456">34</text>
+    <text class="cb-cl" x="968" y="498">8 家買機器</text>
+    <text class="cb-m" x="32" y="530">Hyundai Motor Company · JPMorgan Chase &amp; Co. · Latitude A…</text>
+  </g>
+  <path class="cb-a" d="M500 554 L500 576"/>
+  <g class="cb is-hot">
+    <rect x="10" y="581" width="980" height="155" rx="6"/>
+    <text class="cb-n" x="32" y="631">通路</text>
+    <text class="cb-ne" x="32" y="675">Channel</text>
+    <text class="cb-d" x="200" y="631">把硬體或方案賣給上面兩層</text>
+    <text class="cb-de" x="200" y="675">sells hardware or solutions to the layer…</text>
+    <text class="cb-c" x="968" y="643">12</text>
+    <text class="cb-cl" x="968" y="685">1 家買機器</text>
+    <text class="cb-m" x="32" y="717">Anyscale, Inc. · Assemble Platforms, Inc. · Encord · Foxg…</text>
+  </g>
+</svg></div>
+</section>
+<section class="itm" id="i-chain-where-we-stand">
+  <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span data-t="h">我方站在哪一格</span><span data-t="e">Which box we stand in</span></span><a class="itm-a" href="#i-chain-where-we-stand" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
+  <p class="itm-w"><span data-t="h">我們不在這四層裡的任何一層 —— 我們賣機器給第二層和第三層裡自建的那些人</span><span data-t="e">we are in none of the four bands — we sell the machines to the second band and to the tenants in the third that build rather than rent</span></p>
+  <div class="itm-b">  <p><span data-t="h">所以這一場對我方的意義不是「跟誰競爭攤位」,而是「誰在替第三層的人簽算力的帳」。答案幾乎都在第二層。</span><span data-t="e">So this show is not about competing for a booth. It is about who signs the compute bill for the third band — and the answer is nearly always somebody in the second.</span></p>
+  <p><span data-t="h">第四層是通路,可能是對手也可能是共同提案的夥伴,先弄清楚是哪一種再開口。</span><span data-t="e">The fourth band is the channel: some of them are rivals and some are co-sell partners, and it is worth knowing which before you speak.</span></p></div>
+</section>
+  </div>
+  </div>
+</details>
 <details class="dr sec" id="s-index" data-block="index">
-  <summary><span class="dr-t"><span class="sec-n" aria-hidden="true">10</span><span data-t="h">索引</span><span data-t="e">Index</span></span><span class="sec-w"><span data-t="h">這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結</span><span data-t="e">every section, every company and every session in this pack, listed once, each one a link</span></span><span class="dr-s"><span data-t="h">每一條都是連結</span><span data-t="e">every line is a link</span></span></summary>
+  <summary><span class="dr-t"><span class="sec-n" aria-hidden="true">11</span><span data-t="h">索引</span><span data-t="e">Index</span></span><span class="sec-w"><span data-t="h">這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結</span><span data-t="e">every section, every company and every session in this pack, listed once, each one a link</span></span><span class="dr-s"><span data-t="h">每一條都是連結</span><span data-t="e">every line is a link</span></span></summary>
   <div class="dr-b">
   <div class="idx">
     <section class="idx-g">
-      <h3 class="idx-h"><span data-t="h">章節</span><span data-t="e">Sections</span> <span class="idx-c"><span class="lk">36</span></span></h3>
+      <h3 class="idx-h"><span data-t="h">章節</span><span data-t="e">Sections</span> <span class="idx-c"><span class="lk">37</span></span></h3>
       <p class="idx-w"><span data-t="h">每一節回答一個問題</span><span data-t="e">each answers one question</span></p>
       <ul class="idx-l">
         <li><a href="index.html#s-verdict"><span data-t="h">判斷</span><span data-t="e">The call</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
@@ -910,6 +996,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
         <li><a href="index.html#s-signals"><span data-t="h">前瞻訊號</span><span data-t="e">Forward signals</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#s-open"><span data-t="h">本場 GAP</span><span data-t="e">What is still open</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#s-method"><span data-t="h">方法與來源</span><span data-t="e">Method and sources</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
+        <li><a href="index.html#s-chain"><span data-t="h">架構圖</span><span data-t="e">How the money moves</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#s-index"><span data-t="h">索引</span><span data-t="e">Index</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="agenda.html#s-queue"><span data-t="h">先卡這幾場</span><span data-t="e">Queue for these first</span></a><span class="idx-p"><span data-t="h">議程</span><span data-t="e">Agenda</span></span></li>
         <li><a href="agenda.html#s-all-sessions"><span data-t="h">全部場次</span><span data-t="e">Every session</span></a><span class="idx-p"><span data-t="h">議程</span><span data-t="e">Agenda</span></span></li>
@@ -940,7 +1027,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
       </ul>
     </section>
     <section class="idx-g">
-      <h3 class="idx-h"><span data-t="h">子項</span><span data-t="e">Items</span> <span class="idx-c"><span class="lk">103</span></span></h3>
+      <h3 class="idx-h"><span data-t="h">子項</span><span data-t="e">Items</span> <span class="idx-c"><span class="lk">105</span></span></h3>
       <p class="idx-w"><span data-t="h">每一節底下的每一項,可以單獨連結</span><span data-t="e">every item inside every section, each with its own link</span></p>
       <ul class="idx-l">
         <li><a href="index.html#i-room-audience"><span data-t="h">來的是誰</span><span data-t="e">Who is in the room</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
@@ -960,6 +1047,8 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
         <li><a href="index.html#i-turn-prefill-decode"><span data-t="h">prefill / decode</span><span data-t="e">prefill / decode</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#i-turn-gb300-nvl72"><span data-t="h">GB300 NVL72</span><span data-t="e">GB300 NVL72</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="index.html#i-turn-tpu-amd-intel"><span data-t="h">TPU / AMD / Intel</span><span data-t="e">TPU / AMD / Intel</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
+        <li><a href="index.html#i-chain-picture"><span data-t="h">一張圖看完這一場</span><span data-t="e">The whole show in one picture</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
+        <li><a href="index.html#i-chain-where-we-stand"><span data-t="h">我方站在哪一格</span><span data-t="e">Which box we stand in</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="agenda.html#i-queue-s037"><span data-t="h">&lt;span class="lk"&gt;#1&lt;/span&gt;&lt;a class="xr xr-ses" href="agenda.html#ses-s037"&gt;&lt;span class="lk"&gt;How the Data Center Shapes the workload&lt;/span&gt;&lt;/a&gt;</span><span data-t="e">&lt;span class="lk"&gt;#1&lt;/span&gt;&lt;a class="xr xr-ses" href="agenda.html#ses-s037"&gt;&lt;span class="lk"&gt;How the Data Center Shapes the workload&lt;/span&gt;&lt;/a&gt;</span></a><span class="idx-p"><span data-t="h">議程</span><span data-t="e">Agenda</span></span></li>
         <li><a href="agenda.html#i-queue-s011"><span data-t="h">&lt;span class="lk"&gt;#2&lt;/span&gt;&lt;a class="xr xr-ses" href="agenda.html#ses-s011"&gt;&lt;span class="lk"&gt;Industry Leaders Roundtable - Physical AI&lt;/span&gt;&lt;/a&gt;</span><span data-t="e">&lt;span class="lk"&gt;#2&lt;/span&gt;&lt;a class="xr xr-ses" href="agenda.html#ses-s011"&gt;&lt;span class="lk"&gt;Industry Leaders Roundtable - Physical AI&lt;/span&gt;&lt;/a&gt;</span></a><span class="idx-p"><span data-t="h">議程</span><span data-t="e">Agenda</span></span></li>
         <li><a href="agenda.html#i-queue-s021"><span data-t="h">&lt;span class="lk"&gt;#3&lt;/span&gt;&lt;a class="xr xr-ses" href="agenda.html#ses-s021"&gt;&lt;span class="lk"&gt;Maximizing GB200 and GB300 Performance with Domain-Aware Scheduling in Ray&lt;/span&gt;&lt;/a&gt;</span><span data-t="e">&lt;span class="lk"&gt;#3&lt;/span&gt;&lt;a class="xr xr-ses" href="agenda.html#ses-s021"&gt;&lt;span class="lk"&gt;Maximizing GB200 and GB300 Performance with Domain-Aware Scheduling in Ray&lt;/span&gt;&lt;/a&gt;</span></a><span class="idx-p"><span data-t="h">議程</span><span data-t="e">Agenda</span></span></li>

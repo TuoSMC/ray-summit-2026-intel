@@ -517,6 +517,27 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 .itm-b > :first-child{margin-top:0}
 .itm-b details.dr{margin-bottom:var(--s2)}
 
+/* ------------------------------------------------------- the chain diagram --
+   Inline SVG, tokens only, viewBox-scaled. The two bands that actually sign a
+   server order carry the heavy edge; everything else is furniture. */
+.chain{display:block;width:100%;height:auto;margin:var(--s4) 0 0;
+  font-family:var(--f-text)}
+.chain .cb rect{fill:var(--card);stroke:var(--rule);stroke-width:1.8}
+.chain .cb.is-hot rect{stroke:var(--rule-hard);stroke-width:5}
+.chain text{fill:var(--ink)}
+.chain .cb-n{font-size:35px;font-weight:700;font-family:var(--f-display)}
+.chain .cb-ne{font-size:25px;fill:var(--ink-3);letter-spacing:.06em}
+.chain .cb-d{font-size:29px;fill:var(--ink-2)}
+.chain .cb-de{font-size:25px;fill:var(--ink-3)}
+.chain .cb-m{font-size:24px;fill:var(--ink-3);font-family:var(--f-mono)}
+.chain .cb-c{font-size:54px;font-weight:700;text-anchor:end;
+  font-family:var(--f-display);font-variant-numeric:tabular-nums}
+.chain .cb-cl{font-size:24px;fill:var(--ink-3);text-anchor:end;
+  font-family:var(--f-mono)}
+.chain .cb.is-hot .cb-c{fill:var(--accent)}
+.chain .cb-a{stroke:var(--ink-3);stroke-width:2.5;marker-end:none}
+@media print{.chain .cb rect{fill:none}}
+
 /* --------------------------------------------------------- cross-references */
 /* A cross-reference is a different animal from a source link: it goes sideways
    inside the pack, not outward to the web. Dotted underline says "same pack". */

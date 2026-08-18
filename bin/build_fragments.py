@@ -702,6 +702,10 @@ SECTIONS = [
      '這些結論怎麼來的,哪一步可以被推翻',
      'how these conclusions were produced, and which step you could overturn'),
 
+    ('command-center', 'chain', '架構圖', 'How the money moves',
+     '錢從誰手上出發,經過誰,最後變成誰的伺服器訂單 —— 以及我方站在哪一格',
+     'where the money starts, who it passes through, whose server order it finally becomes, and '
+     'which box we stand in'),
     ('command-center', 'index', '索引', 'Index',
      '這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結',
      'every section, every company and every session in this pack, listed once, each one a link'),
@@ -1159,6 +1163,91 @@ for _c in CHIPS:
 # ============================================================ command-center ==
 # Research draft 01 reaches the reader HERE. Every claim keeps the hedge it was
 # written with (B6): "未經雙方證實" does not become a bare assertion in English.
+
+def chain_svg():
+    """The value chain, drawn from the cards rather than hand-drawn.
+
+    Every band's population and every name in it comes from the account board,
+    so the picture cannot disagree with the tables underneath it. Inline SVG:
+    no external resource (A3), colours from the same tokens as the page, and a
+    viewBox so it scales instead of overflowing on a phone.
+    """
+    BANDS = [
+        ('landlord', '房東', 'Landlord', '出租機房、電力、冷卻',
+         'rents the hall, the power and the cooling'),
+        ('operator', '營運商', 'Operator', '買機器,把 GPU 變成可租算力',
+         'buys the machines and sells the GPUs on as rentable compute'),
+        ('tenant', '租戶', 'Tenant', '買算力跑自己的模型與產品',
+         'buys compute to run its own models and products'),
+        ('channel', '通路', 'Channel', '把硬體或方案賣給上面兩層',
+         'sells hardware or solutions to the layers above'),
+    ]
+    rows = []
+    for key, nh, ne, dh, de in BANDS:
+        mem = [c for c in (cards or []) if band_key(c.get('layer')) == key]
+        buys = [c for c in mem if str(c.get('buys_servers')) == 'YES']
+        top = sorted(mem, key=lambda c: (0 if c.get('full') else 1,
+                                         str(c.get('legal_name') or '')))[:5]
+        rows.append((key, nh, ne, dh, de, len(mem), len(buys), top))
+
+    def fit(text, units, em, latin=0.55):
+        """Trim to what actually fits. SVG text neither wraps nor clips, so an
+        unbudgeted string runs straight off the edge of its own box.
+
+        A CJK glyph is about one em. Latin depends on the face: ~0.55 em in the
+        proportional text face, but ~0.68 in the mono one, which is what the
+        member line uses — estimating that at 0.52 overflowed by a third.
+        """
+        budget, out = units, []
+        for ch in str(text):
+            w = em if ord(ch) > 0x2E80 else em * latin
+            if budget - w < 0:
+                return ''.join(out).rstrip(' ·,') + '…'
+            budget -= w
+            out.append(ch)
+        return ''.join(out)
+
+    W, RH, GAP_Y, PAD = 1000, 155, 32, 20
+    DESC_X, DESC_W = 200, 560
+    H = PAD * 2 + len(rows) * RH + (len(rows) - 1) * GAP_Y
+    out = ['<svg class="chain" viewBox="0 0 %g %g" role="img" '
+           'aria-labelledby="chain-t chain-d" preserveAspectRatio="xMidYMin meet">' % (W, H)]
+    out.append('  <title id="chain-t">%s</title>'
+               % esc('這一場的價值鏈:四層,以及每一層有幾家 / '
+                     'The value chain at this show: four layers and how many companies sit in each'))
+    out.append('  <desc id="chain-d">%s</desc>'
+               % esc('由上而下:房東出租機房,營運商買機器把算力租出去,租戶租算力跑自己的產品,'
+                     '通路把硬體賣給上面兩層。伺服器訂單簽在營運商與自建的租戶那兩格。 / '
+                     'Top to bottom: landlords rent the hall, operators buy machines and rent the '
+                     'compute on, tenants rent compute to run their products, and the channel '
+                     'sells hardware to the layers above. The server order is signed in the '
+                     'operator band and by the tenants that build.'))
+    y = PAD
+    for i, (key, nh, ne, dh, de, n, nbuy, top) in enumerate(rows):
+        hot = nbuy > 0
+        out.append('  <g class="cb%s">' % (' is-hot' if hot else ''))
+        out.append('    <rect x="10" y="%g" width="%g" height="%g" rx="6"/>' % (y, W - 20, RH))
+        out.append('    <text class="cb-n" x="32" y="%g">%s</text>' % (y + 50, esc(nh)))
+        out.append('    <text class="cb-ne" x="32" y="%g">%s</text>' % (y + 94, esc(ne)))
+        out.append('    <text class="cb-d" x="%g" y="%g">%s</text>'
+                   % (DESC_X, y + 50, esc(fit(dh, DESC_W, 29))))
+        out.append('    <text class="cb-de" x="%g" y="%g">%s</text>'
+                   % (DESC_X, y + 94, esc(fit(de, DESC_W, 25))))
+        out.append('    <text class="cb-c" x="%g" y="%g">%d</text>' % (W - 32, y + 62, n))
+        out.append('    <text class="cb-cl" x="%g" y="%g">%s</text>'
+                   % (W - 32, y + 104, esc('%d 家買機器' % nbuy)))
+        if top:
+            names = ' · '.join(str(c.get('legal_name') or '') for c in top)
+            out.append('    <text class="cb-m" x="32" y="%g">%s</text>'
+                       % (y + 136, esc(fit(names, W - 64, 24, latin=0.68))))
+        out.append('  </g>')
+        if i < len(rows) - 1:
+            ay = y + RH
+            out.append('  <path class="cb-a" d="M500 %g L500 %g"/>' % (ay + 5, ay + GAP_Y - 5))
+        y += RH + GAP_Y
+    out.append('</svg>')
+    return '\n'.join(out)
+
 
 def frag_command_center():
     h = []
@@ -1706,6 +1795,35 @@ def frag_command_center():
     # The index is filled in by main() once every fragment has registered its
     # anchors: command-center renders first, so it cannot see the item anchors
     # the other four pages create. A placeholder here, resolved there.
+    a(sec('chain',
+          S(('四層', 'four layers'), '·',
+            ('%d 家已分層' % len([c for c in (cards or []) if band_key(c.get('layer'))]),
+             '%d companies placed' % len([c for c in (cards or []) if band_key(c.get('layer'))])),
+            '·', ('粗框那兩層才簽伺服器訂單',
+                  'the heavy-edged bands are the ones that sign server orders')),
+          items('chain', [
+              ('picture', '一張圖看完這一場', 'The whole show in one picture',
+               '四層由上往下,錢從房東那一層開始流。每一層的家數與名字都是從帳戶板算出來的,'
+               '不是畫上去的',
+               'four layers, top to bottom, with the money starting at the landlord band. Every '
+               'count and every name is computed from the account board rather than drawn in',
+               chain_svg()),
+              ('where-we-stand', '我方站在哪一格', 'Which box we stand in',
+               '我們不在這四層裡的任何一層 —— 我們賣機器給第二層和第三層裡自建的那些人',
+               'we are in none of the four bands — we sell the machines to the second band and to '
+               'the tenants in the third that build rather than rent',
+               '  <p>%s</p>\n  <p>%s</p>'
+               % (tt('所以這一場對我方的意義不是「跟誰競爭攤位」,而是「誰在替第三層的人簽算力的帳」。'
+                     '答案幾乎都在第二層。',
+                     'So this show is not about competing for a booth. It is about who signs the '
+                     'compute bill for the third band — and the answer is nearly always somebody '
+                     'in the second.'),
+                  tt('第四層是通路,可能是對手也可能是共同提案的夥伴,先弄清楚是哪一種再開口。',
+                     'The fourth band is the channel: some of them are rivals and some are '
+                     'co-sell partners, and it is worth knowing which before you speak.')),
+               None, None),
+          ]), block='chain'))
+
     h.append(sec('index',
                  tt('每一條都是連結', 'every line is a link'),
                  INDEX_SLOT, block='index'))

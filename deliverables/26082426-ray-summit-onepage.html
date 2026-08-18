@@ -12,10 +12,10 @@
 .reg.ratecard td,.reg.crossover td{vertical-align:top}
 
 :root{
-  --paper:#FAF8F3; --card:#FFFFFF; --sunk:#F2EEE4;
-  --ink:#14161A; --ink-2:#3D434E; --ink-3:#5E6675;
-  --rule:#E5E0D5; --rule-hard:#14161A;
-  --accent:#123A8C; --accent-bg:#E9EEFB;
+  --paper:#FCFBF8; --card:#FFFFFF; --sunk:#F4F2EC;
+  --ink:#12141A; --ink-2:#414855; --ink-3:#6B7280;
+  --rule:#E4E1D9; --rule-hard:#12141A;
+  --accent:#0F3573; --accent-bg:#EBF0FA;
   --gap-fg:#7A4400; --gap-bg:#FBEEDA;
   --stop:#8C1D18; --focus:#123A8C;
 
@@ -136,13 +136,13 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
   padding:1px 5px;border-radius:3px;overflow-wrap:anywhere}
 
 /* --- evidence chips (DESIGN.md 4) ----------------------------------------- */
-.ev{display:inline-flex;align-items:center;gap:6px;font-size:var(--t-micro);
-  letter-spacing:.07em;line-height:1.3;border:1px solid var(--rule);
-  border-radius:3px;padding:3px 8px;margin:2px 6px 2px 0;color:var(--ink-2);
-  background:var(--card)}
+.ev{display:inline-flex;align-items:center;gap:5px;font-size:var(--t-micro);
+  letter-spacing:.06em;line-height:1.3;border:0;
+  padding:0;margin:0 var(--s3) 0 var(--s1);color:var(--ink-3);
+  background:none;white-space:nowrap;vertical-align:baseline}
 .ev-mark{flex:0 0 auto;width:9px;height:9px;border:1.5px solid currentColor;
   border-radius:1px}
-.ev-official{color:var(--ink);border-color:var(--ink-3)}
+.ev-official{color:var(--ink-2)}
 .ev-official .ev-mark{background:currentColor}
 .ev-vendor .ev-mark{background:linear-gradient(90deg,currentColor 50%,
   transparent 50%)}
@@ -154,8 +154,8 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
    ground, the status wears sunk ground and no mark. */
 :root[data-lang="e"] .ev{text-transform:uppercase}
 .chip{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
-  letter-spacing:.06em;color:var(--ink-2);background:var(--sunk);
-  border-radius:3px;padding:3px 8px;margin:2px 6px 2px 0}
+  letter-spacing:.05em;color:var(--ink-2);background:var(--sunk);
+  border-radius:2px;padding:2px 7px;margin:2px 5px 2px 0}
 
 /* --- verdict -------------------------------------------------------------- */
 .verdict{border-top:3px solid var(--accent);padding-top:var(--s5)}
@@ -451,8 +451,8 @@ details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
    knows what the page holds and can jump at the one section they need. It is
    a list of QUESTIONS, not a list of nouns: "what changed since last year"
    tells you whether to open it; "Changes" does not. */
-.spine{margin:0 0 var(--s7);border-top:2px solid var(--rule-hard);
-  border-bottom:1px solid var(--rule);padding:var(--s4) 0 var(--s2)}
+.spine{margin:0 0 var(--s8);border-top:2px solid var(--rule-hard);
+  border-bottom:1px solid var(--rule);padding:var(--s4) 0 0}
 .spine-h{font-size:var(--t-cap);color:var(--ink-3);margin:0 0 var(--s3);
   max-width:var(--measure)}
 .spine-l{list-style:none;margin:0;padding:0;display:grid;gap:1px;
@@ -464,8 +464,8 @@ details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
   text-decoration:none;color:var(--ink)}
 .spine-l a:hover{background:var(--accent-bg)}
 .spine-l a:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
-.spine-n{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--ink-3);
-  font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.spine-n{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--accent);
+  font-variant-numeric:tabular-nums;letter-spacing:.06em;font-weight:700}
 .spine-t{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;
   line-height:1.3}
 .spine-l a:hover .spine-t{color:var(--accent)}
@@ -486,30 +486,54 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
    they can send to someone else. The heading is the scanning surface: on a
    show floor a reader reads headings and stops at one. */
 .itms{margin:var(--s4) 0 0}
-.itm{margin:0 0 var(--s6);padding-left:var(--s4);
-  border-left:2px solid var(--rule)}
-.itm:target{border-left-color:var(--accent);background:var(--accent-bg)}
-.itm-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 var(--s2);
-  margin:0 0 var(--s1);font-size:var(--t-h3);line-height:1.36}
+.itm{margin:0 0 var(--s7);padding-left:var(--s5);position:relative}
+.itm::before{content:"";position:absolute;left:0;top:.42em;bottom:.2em;
+  width:2px;background:var(--rule)}
+.itm:target::before{background:var(--accent);width:3px}
+.itm-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s1) var(--s3);
+  margin:0 0 var(--s2);font-size:var(--t-h3);line-height:1.34}
 .itm-n{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--ink-3);
-  font-variant-numeric:tabular-nums}
+  font-variant-numeric:tabular-nums;align-self:baseline}
 .itm-l{font-family:var(--f-display);font-weight:700;font-size:var(--t-h3);
-  color:var(--ink);letter-spacing:-.005em;
-  box-shadow:inset 0 -.42em 0 var(--accent-bg)}
+  color:var(--ink);letter-spacing:-.008em}
 .itm-l .lk,.itm-l a{font-family:var(--f-display);font-size:inherit;
   letter-spacing:inherit}
-.itm-tag{font-size:var(--t-micro);text-transform:uppercase;letter-spacing:.09em;
-  color:var(--ink-2);border:1px solid var(--rule);border-radius:2px;
-  padding:1px 6px;white-space:normal}
+.itm-tag{font-size:var(--t-micro);letter-spacing:.06em;color:var(--ink-3);
+  white-space:normal;font-family:var(--f-mono)}
+.itm-tag::before{content:"— ";color:var(--rule)}
+:root[data-lang="e"] .itm-tag{text-transform:uppercase}
 .itm-a{margin-left:auto;font-size:var(--t-cap);color:var(--ink-3);
   text-decoration:none;min-width:44px;min-height:44px;
   display:inline-flex;align-items:center;justify-content:flex-end;opacity:0}
 .itm-h:hover .itm-a,.itm-a:focus-visible{opacity:1;color:var(--accent)}
 .itm-a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.itm-w{font-size:var(--t-cap);color:var(--ink-2);line-height:1.5;
-  margin:0 0 var(--s3);max-width:var(--measure)}
+.itm-w{font-size:var(--t-cap);color:var(--ink-2);line-height:1.55;
+  margin:0 0 var(--s4);max-width:var(--measure)}
+.itm-b{color:var(--ink)}
+.itm-b p{margin-bottom:var(--s3)}
 .itm-b > :first-child{margin-top:0}
 .itm-b details.dr{margin-bottom:var(--s2)}
+
+/* ------------------------------------------------------- the chain diagram --
+   Inline SVG, tokens only, viewBox-scaled. The two bands that actually sign a
+   server order carry the heavy edge; everything else is furniture. */
+.chain{display:block;width:100%;height:auto;margin:var(--s4) 0 0;
+  font-family:var(--f-text)}
+.chain .cb rect{fill:var(--card);stroke:var(--rule);stroke-width:1.8}
+.chain .cb.is-hot rect{stroke:var(--rule-hard);stroke-width:5}
+.chain text{fill:var(--ink)}
+.chain .cb-n{font-size:35px;font-weight:700;font-family:var(--f-display)}
+.chain .cb-ne{font-size:25px;fill:var(--ink-3);letter-spacing:.06em}
+.chain .cb-d{font-size:29px;fill:var(--ink-2)}
+.chain .cb-de{font-size:25px;fill:var(--ink-3)}
+.chain .cb-m{font-size:24px;fill:var(--ink-3);font-family:var(--f-mono)}
+.chain .cb-c{font-size:54px;font-weight:700;text-anchor:end;
+  font-family:var(--f-display);font-variant-numeric:tabular-nums}
+.chain .cb-cl{font-size:24px;fill:var(--ink-3);text-anchor:end;
+  font-family:var(--f-mono)}
+.chain .cb.is-hot .cb-c{fill:var(--accent)}
+.chain .cb-a{stroke:var(--ink-3);stroke-width:2.5;marker-end:none}
+@media print{.chain .cb rect{fill:none}}
 
 /* --------------------------------------------------------- cross-references */
 /* A cross-reference is a different animal from a source link: it goes sideways
@@ -631,7 +655,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 <section id="war-room" class="onepage-sec" data-role="command-center" tabindex="-1">
 
 <nav class="spine" data-block="spine" aria-label="Sections on this page / 本頁章節">
-  <p class="spine-h"><span data-t="h">這一頁有 10 節。每一節回答一個問題。</span><span data-t="e">This page has 10 sections. Each one answers one question.</span></p>
+  <p class="spine-h"><span data-t="h">這一頁有 11 節。每一節回答一個問題。</span><span data-t="e">This page has 11 sections. Each one answers one question.</span></p>
   <ol class="spine-l">
     <li><a href="#s-verdict"><span class="spine-n" aria-hidden="true">01</span><span class="spine-t"><span data-t="h">判斷</span><span data-t="e">The call</span></span><span class="spine-q"><span data-t="h">這一場的錢花在哪裡，我方該用什麼身分走進去</span><span data-t="e">where the money in this room actually goes, and what we walk in as</span></span></a></li>
     <li><a href="#s-numbers"><span class="spine-n" aria-hidden="true">02</span><span class="spine-t"><span data-t="h">四個數字</span><span data-t="e">Four numbers</span></span><span class="spine-q"><span data-t="h">這場的規模,四個從資料算出來、不是打上去的數字</span><span data-t="e">the size of the thing, in four figures computed from the data rather than typed</span></span></a></li>
@@ -642,7 +666,8 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <li><a href="#s-signals"><span class="spine-n" aria-hidden="true">07</span><span class="spine-t"><span data-t="h">前瞻訊號</span><span data-t="e">Forward signals</span></span><span class="spine-q"><span data-t="h">還沒發生但已經看得到的事,以及看到之後要做什麼</span><span data-t="e">what has not happened yet but is already visible, and what to do about each</span></span></a></li>
     <li><a href="#s-open"><span class="spine-n" aria-hidden="true">08</span><span class="spine-t"><span data-t="h">本場 GAP</span><span data-t="e">What is still open</span></span><span class="spine-q"><span data-t="h">這一包還不知道的事,以及什麼證據能結案</span><span data-t="e">what this pack does not know, and what evidence would close each one</span></span></a></li>
     <li><a href="#s-method"><span class="spine-n" aria-hidden="true">09</span><span class="spine-t"><span data-t="h">方法與來源</span><span data-t="e">Method and sources</span></span><span class="spine-q"><span data-t="h">這些結論怎麼來的,哪一步可以被推翻</span><span data-t="e">how these conclusions were produced, and which step you could overturn</span></span></a></li>
-    <li><a href="#s-index"><span class="spine-n" aria-hidden="true">10</span><span class="spine-t"><span data-t="h">索引</span><span data-t="e">Index</span></span><span class="spine-q"><span data-t="h">這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結</span><span data-t="e">every section, every company and every session in this pack, listed once, each one a link</span></span></a></li>
+    <li><a href="#s-chain"><span class="spine-n" aria-hidden="true">10</span><span class="spine-t"><span data-t="h">架構圖</span><span data-t="e">How the money moves</span></span><span class="spine-q"><span data-t="h">錢從誰手上出發,經過誰,最後變成誰的伺服器訂單 —— 以及我方站在哪一格</span><span data-t="e">where the money starts, who it passes through, whose server order it finally becomes, and which box we stand in</span></span></a></li>
+    <li><a href="#s-index"><span class="spine-n" aria-hidden="true">11</span><span class="spine-t"><span data-t="h">索引</span><span data-t="e">Index</span></span><span class="spine-q"><span data-t="h">這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結</span><span data-t="e">every section, every company and every session in this pack, listed once, each one a link</span></span></a></li>
   </ol>
 </nav>
 <details class="dr sec verdict" id="s-verdict" data-block="verdict" data-fresh="1" open>
@@ -689,7 +714,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
       <p><span data-t="h">自建或 colo 就能直銷；純雲端的人是情報來源，不是買家 —— 一句話就分完。</span><span data-t="e">Own hall or colo means you can sell direct. Pure cloud means the person is intelligence, not pipeline. One sentence sorts the room.</span></p>
       <p><span data-t="h">白金以上 5 家先問：</span><span data-t="e">Start with the 5 at platinum or above:</span></p>
       <p><span class="chip">Amazon Web Services</span><span class="chip">CoreWeave</span><span class="chip">Google</span><span class="chip">Inferact (vLLM)</span><span class="chip">Nscale</span></p>
-<span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span>
+
     </li>
   </ol>
   </div>
@@ -706,7 +731,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 <section class="itm" id="i-room-ticket">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span data-t="h">票價說明了誰付錢</span><span data-t="e">What the ticket price tells you</span></span><span class="itm-tag"><span data-t="h">USD 400-750</span><span data-t="e">USD 400-750</span></span><a class="itm-a" href="#i-room-ticket" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">票價低到工程師自己刷卡就能來,所以現場多半不是簽核者</span><span data-t="e">the ticket is cheap enough to be expensed by an individual engineer, so the room is mostly not the people who sign</span></p>
-  <div class="itm-b"><p><span data-t="h">票價</span><span data-t="e">Tickets run</span> <span class="lk">USD 400-450</span> <span data-t="h">，五張套票每張</span><span data-t="e">, or five-packs at</span> <span class="lk">USD 750</span> <span data-t="h">。工程師自費就進得來 —— 來的人多半是實作者，不是簽核者。把「誰簽字」當成每一次對話要挖出來的東西。</span><span data-t="e"> each. That is self-funded-engineer money, so the room is implementers, not signatories. Treat "who signs" as the thing every conversation has to surface.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p></div>
+  <div class="itm-b"><p><span data-t="h">票價</span><span data-t="e">Tickets run</span> <span class="lk">USD 400-450</span> <span data-t="h">，五張套票每張</span><span data-t="e">, or five-packs at</span> <span class="lk">USD 750</span> <span data-t="h">。工程師自費就進得來 —— 來的人多半是實作者，不是簽核者。把「誰簽字」當成每一次對話要挖出來的東西。</span><span data-t="e"> each. That is self-funded-engineer money, so the room is implementers, not signatories. Treat "who signs" as the thing every conversation has to surface.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></p></div>
 </section>
 <section class="itm" id="i-room-governance">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span data-t="h">Ray 歸誰管</span><span data-t="e">Who owns Ray</span></span><span class="itm-tag"><span data-t="h">基金會治理</span><span data-t="e">foundation-governed</span></span><a class="itm-a" href="#i-room-governance" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -728,7 +753,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 <section class="itm" id="i-room-buying-reason">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">6</span><span class="itm-l"><span data-t="h">他們用什麼標準買東西</span><span data-t="e">What they actually buy on</span></span><span class="itm-tag"><span data-t="h">利用率,不是規格</span><span data-t="e">utilisation, not spec</span></span><a class="itm-a" href="#i-room-buying-reason" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">這一條直接決定你開口講什麼。講錯軸就冷場</span><span data-t="e">this one decides your opening sentence — the wrong axis kills the conversation</span></p>
-  <div class="itm-b"><p><span data-t="h">這房間的購買理由是「利用率」，不是規格。</span><span data-t="e">This room buys on utilisation, not on spec. </span><a class="xr xr-org" href="#acct-torc">Torc</a> <span data-t="h">自報 GPU 利用率從</span><span data-t="e">reports GPU utilisation moving from</span> <span class="lk">30-40%</span> <span data-t="h">拉到約</span><span data-t="e">to about</span> <span class="lk">90%</span> <span data-t="h">，同等牆鐘時間內處理的資料量從</span><span data-t="e">, and data processed in the same wall clock from</span> <span class="lk">4TB</span> <span data-t="h">變成</span><span data-t="e">to</span> <span class="lk">38TB</span> <span data-t="h">。跟這群人談 TFLOPS 會冷場，談「同樣機櫃多跑幾成」會熱。</span><span data-t="e">. Talk TFLOPS to these people and the conversation dies; talk "more work out of the same rack" and it opens.</span> <span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p></div>
+  <div class="itm-b"><p><span data-t="h">這房間的購買理由是「利用率」，不是規格。</span><span data-t="e">This room buys on utilisation, not on spec. </span><a class="xr xr-org" href="#acct-torc">Torc</a> <span data-t="h">自報 GPU 利用率從</span><span data-t="e">reports GPU utilisation moving from</span> <span class="lk">30-40%</span> <span data-t="h">拉到約</span><span data-t="e">to about</span> <span class="lk">90%</span> <span data-t="h">，同等牆鐘時間內處理的資料量從</span><span data-t="e">, and data processed in the same wall clock from</span> <span class="lk">4TB</span> <span data-t="h">變成</span><span data-t="e">to</span> <span class="lk">38TB</span> <span data-t="h">。跟這群人談 TFLOPS 會冷場，談「同樣機櫃多跑幾成」會熱。</span><span data-t="e">. Talk TFLOPS to these people and the conversation dies; talk "more work out of the same rack" and it opens.</span> <span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span></p></div>
 </section>
   </div>
   </div>
@@ -745,7 +770,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 <section class="itm" id="i-changed-tracks">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span data-t="h">主軸從八條收成四條</span><span data-t="e">Eight tracks became four</span></span><span class="itm-tag"><span data-t="h">8 -&gt; 4</span><span data-t="e">8 -&gt; 4</span></span><a class="itm-a" href="#i-changed-tracks" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">被留下來的四條全部吃 GPU。軟體題被擠掉,代表這場已經是算力場</span><span data-t="e">all four survivors eat GPU. The software topics were squeezed out, which means this is now a compute show</span></p>
-  <div class="itm-b"><p><span data-t="h">每一條都吃 GPU：Foundation Model Training、Multimodal Data Curation、Physical AI、LLM RL。去年還有 Ray Ecosystem、Generative AI、Research Frontiers —— 軟體話題被擠掉，剩下全是算力題。</span><span data-t="e">Every one of them eats GPU: Foundation Model Training, Multimodal Data Curation, Physical AI, LLM RL. Last year still had Ray Ecosystem, Generative AI and Research Frontiers. The software topics were squeezed out; what is left is all compute.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p></div>
+  <div class="itm-b"><p><span data-t="h">每一條都吃 GPU：Foundation Model Training、Multimodal Data Curation、Physical AI、LLM RL。去年還有 Ray Ecosystem、Generative AI、Research Frontiers —— 軟體話題被擠掉，剩下全是算力題。</span><span data-t="e">Every one of them eats GPU: Foundation Model Training, Multimodal Data Curation, Physical AI, LLM RL. Last year still had Ray Ecosystem, Generative AI and Research Frontiers. The software topics were squeezed out; what is left is all compute.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></p></div>
 </section>
 <section class="itm" id="i-changed-vllm-conf">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span data-t="h">vLLM 第一次在場內開自己的會</span><span data-t="e">vLLM runs its own conference inside the show</span></span><span class="itm-tag"><span data-t="h">8/25-8/26</span><span data-t="e">8/25-8/26</span></span><a class="itm-a" href="#i-changed-vllm-conf" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -755,12 +780,12 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 <section class="itm" id="i-changed-inferact">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">4</span><span class="itm-l"><span data-t="h">vLLM 有公司了</span><span data-t="e">vLLM has a company now</span></span><span class="itm-tag"><span data-t="h">USD 150M seed</span><span data-t="e">USD 150M seed</span></span><a class="itm-a" href="#i-changed-inferact" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">去年掛專案名的人,今年掛公司抬頭。同一批人,不同的談判位置</span><span data-t="e">the people who wore a project name last year wear a company title this year — same people, different negotiating position</span></p>
-  <div class="itm-b"><p><span data-t="h">Inferact 於</span><span data-t="e">Inferact was founded in</span> <span class="lk">2026-01</span> <span data-t="h">成立，種子輪</span><span data-t="e">, raised a</span> <span class="lk">USD 150M</span> <span data-t="h">、估值</span><span data-t="e">seed at a</span> <span class="lk">USD 800M</span> <span data-t="h">，a16z 與 Lightspeed 領投。</span><span data-t="e"> valuation, led by a16z and Lightspeed.</span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p></div>
+  <div class="itm-b"><p><span data-t="h">Inferact 於</span><span data-t="e">Inferact was founded in</span> <span class="lk">2026-01</span> <span data-t="h">成立，種子輪</span><span data-t="e">, raised a</span> <span class="lk">USD 150M</span> <span data-t="h">、估值</span><span data-t="e">seed at a</span> <span class="lk">USD 800M</span> <span data-t="h">，a16z 與 Lightspeed 領投。</span><span data-t="e"> valuation, led by a16z and Lightspeed.</span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span></p></div>
 </section>
 <section class="itm" id="i-changed-rack-aware">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">5</span><span class="itm-l"><span data-t="h">軟體開始感知機櫃</span><span data-t="e">The software started noticing racks</span></span><span class="itm-tag"><span data-t="h"><a class="xr xr-chip" href="#chip-gb300-nvl72">GB300 NVL72</a></span><span data-t="e"><a class="xr xr-chip" href="#chip-gb300-nvl72">GB300 NVL72</a></span></span><a class="itm-a" href="#i-changed-rack-aware" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">排程器開始管拓撲,代表客戶已經跨多機櫃在跑 —— 那是我方的尺寸</span><span data-t="e">a scheduler that manages topology means customers are already running across several racks, and that is our size of problem</span></p>
-  <div class="itm-b"><p><span data-t="h">話題從「怎麼管工作」變成「怎麼貼合機櫃」：去年 keynote 發表排程器與執行環境，今年上半年發表的是 <a class="xr xr-chip" href="#chip-gb300-nvl72">GB300 NVL72</a> 的拓撲感知排程。</span><span data-t="e">The subject moved from "how to manage jobs" to "how to fit the rack": last year's keynote shipped a scheduler and a runtime, this year's first half shipped topology-aware scheduling for <a class="xr xr-chip" href="#chip-gb300-nvl72">GB300 NVL72</a>.</span> <span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p></div>
+  <div class="itm-b"><p><span data-t="h">話題從「怎麼管工作」變成「怎麼貼合機櫃」：去年 keynote 發表排程器與執行環境，今年上半年發表的是 <a class="xr xr-chip" href="#chip-gb300-nvl72">GB300 NVL72</a> 的拓撲感知排程。</span><span data-t="e">The subject moved from "how to manage jobs" to "how to fit the rack": last year's keynote shipped a scheduler and a runtime, this year's first half shipped topology-aware scheduling for <a class="xr xr-chip" href="#chip-gb300-nvl72">GB300 NVL72</a>.</span> <span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span></p></div>
 </section>
   </div>
   </div>
@@ -773,37 +798,37 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">1</span><span class="itm-l"><span data-t="h">Physical AI</span><span data-t="e">Physical AI</span></span><a class="itm-a" href="#i-turn-physical-ai" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">機器人與自駕升為四大主軸，訓練日有 workshop、keynote 有 Torc 與 Bedrock</span><span data-t="e">Robotics and autonomy became one of the four tracks; there is a training-day workshop and Torc and Bedrock on the keynote stage</span></p>
   <div class="itm-b">    <p><span data-t="h">新增一整類自建叢集買主。形狀是大量影片前處理加上 VLA 大模型訓練，資料量跳檔。這類客戶不租雲，會直接買機器 —— 對業務是新名單，不是新話術。</span><span data-t="e">A whole new class of cluster-building buyer. The shape is heavy video pre-processing plus large vision-language-action training, and the data volume steps up a gear. These customers do not rent; they buy. That is a new list, not a new pitch.</span></p>
-    <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p></div>
+    <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> </p></div>
 </section>
 <section class="itm" id="i-turn-rl-post-training">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span data-t="h">RL post-training</span><span data-t="e">RL post-training</span></span><a class="itm-a" href="#i-turn-rl-post-training" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">RL 後訓練獨立成一條主軸</span><span data-t="e">RL post-training became a track of its own</span></p>
   <div class="itm-b">    <p><span data-t="h">RL 要在同一張網裡同時跑訓練與推論 rollout，要的是混合角色節點與統一互聯，不是純訓練機或純推論機。報價單的形狀會變。</span><span data-t="e">RL runs training and inference rollout inside one fabric, so it wants mixed-role nodes and one interconnect — not a pure training box and not a pure inference box. The shape of the quote changes.</span></p>
-    <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p></div>
+    <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> </p></div>
 </section>
 <section class="itm" id="i-turn-multimodal-data-curation">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span data-t="h">Multimodal Data Curation</span><span data-t="e">Multimodal Data Curation</span></span><a class="itm-a" href="#i-turn-multimodal-data-curation" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">多模態資料策展成主軸；Anyscale 以 NVIDIA RTX PRO 4500 Blackwell Server Edition 宣稱大規模去重成本較純 CPU 管線低八成</span><span data-t="e">Multimodal data curation became a track; Anyscale claims large-scale de-duplication at about four fifths below a CPU-only pipeline on NVIDIA RTX PRO 4500 Blackwell Server Edition</span></p>
   <div class="itm-b">    <p><span data-t="h">這是非旗艦 PCIe GPU 伺服器的新需求池 —— 不是 NVL72，是可以大量出貨的標準機。對我方最直接、最好賣的一塊，而且沒有整櫃交期的問題。</span><span data-t="e">A demand pool for non-flagship PCIe GPU servers — not NVL72, but the standard boxes that ship in volume. The most directly sellable slice for us, and it carries none of the rack-level lead-time problem.</span></p>
-    <p><span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p></div>
+    <p><span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span> </p></div>
 </section>
 <section class="itm" id="i-turn-prefill-decode">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">4</span><span class="itm-l"><span data-t="h">prefill / decode</span><span data-t="e">prefill / decode</span></span><a class="itm-a" href="#i-turn-prefill-decode" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">MoE 服務加上分離式 prefill 與 decode、多層 KV offload</span><span data-t="e">MoE serving with disaggregated prefill and decode and tiered KV offload</span></p>
   <div class="itm-b">    <p><span data-t="h">prefill 與 decode 獨立擴縮，於是異質節點配比、巨量快取記憶體與本地 NVMe、節點間高頻寬全變成規格重點。儲存側被拉進這場對話，VAST Data 掛金級正好呼應。</span><span data-t="e">Prefill and decode scale independently, so node mix, very large cache memory with local NVMe, and node-to-node bandwidth all become spec points. Storage gets pulled into the conversation — VAST Data sponsoring at Gold is the same signal.</span></p>
-    <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p></div>
+    <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> </p></div>
 </section>
 <section class="itm" id="i-turn-gb300-nvl72">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">5</span><span class="itm-l"><span data-t="h"><a class="xr xr-chip" href="#chip-gb300-nvl72">GB300 NVL72</a></span><span data-t="e"><a class="xr xr-chip" href="#chip-gb300-nvl72">GB300 NVL72</a></span></span><a class="itm-a" href="#i-turn-gb300-nvl72" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">議程出現整櫃拓撲感知排程</span><span data-t="e">The agenda now carries rack-topology-aware scheduling</span></p>
   <div class="itm-b">    <p><span data-t="h">軟體開始感知機櫃，代表客戶已經跨多機櫃跑數百顆 GPU。命題從「賣一台」變成「交付完整 NVLink 網域與跨櫃網路」，對話對象也從工程師往上移。</span><span data-t="e">Software noticing racks means customers already run hundreds of GPUs across several of them. The proposition moves from selling a box to delivering a whole NVLink domain plus the network between racks — and the person you need moves up with it.</span></p>
-    <p><span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p></div>
+    <p><span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span> </p></div>
 </section>
 <section class="itm" id="i-turn-tpu-amd-intel">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">6</span><span class="itm-l"><span data-t="h">TPU / AMD / Intel</span><span data-t="e">TPU / AMD / Intel</span></span><a class="itm-a" href="#i-turn-tpu-amd-intel" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">非 NVIDIA 路線各有專場</span><span data-t="e">Non-NVIDIA silicon has its own sessions</span></p>
   <div class="itm-b">    <p><span data-t="h">非 NVIDIA 在這房間是被正常化的，多矽晶機型有真實聽眾。可以主動開這個話題探需求，不必怕踩線。</span><span data-t="e">Non-NVIDIA is normalised here, so multi-silicon platforms have a real audience. You can open that topic deliberately instead of stepping around it.</span></p>
-    <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></p></div>
+    <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> </p></div>
 </section>
   </div>
   </div>
@@ -813,10 +838,10 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
   <div class="dr-b">
   <ul class="ev-list">
     <li><span data-t="h">Nscale 展台與 Josh Payne 的 keynote 是本屆第一優先。已與微軟簽約約</span><span data-t="e">The Nscale booth and Josh Payne's keynote are the first priority of the show. Contracted with Microsoft for roughly</span> <span class="lk">200,000</span> <span data-t="h">顆 <a class="xr xr-chip" href="#chip-gb300-nvl72">GB300</a>：德州園區約</span><span data-t="e"><a class="xr xr-chip" href="#chip-gb300-nvl72">GB300</a>: a Texas campus of about</span> <span class="lk">240MW</span> <span data-t="h">、約</span><span data-t="e">and roughly</span> <span class="lk">104,000</span> <span data-t="h">顆，自</span><span data-t="e">of them, from</span> <span class="lk">2026 Q3</span> <span data-t="h">起分批；葡萄牙 Sines 約</span><span data-t="e">in batches; Sines in Portugal about</span> <span class="lk">12,600</span> <span data-t="h">顆自</span><span data-t="e">from</span> <span class="lk">2026 Q1</span> <span data-t="h">；英國 Loughton</span><span data-t="e">; Loughton in the UK</span> <span class="lk">50MW</span> <span data-t="h">、約</span><span data-t="e">and about</span> <span class="lk">23,000</span> <span data-t="h">顆自</span><span data-t="e">from</span> <span class="lk">2027 Q1</span> <span data-t="h">。這是真實的機櫃交付時間表，不是願景稿。</span><span data-t="e">. That is a real rack delivery schedule, not a vision slide.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span><span class="src"><a class="srcl" href="https://www.nscale.com/press-releases" title="https://www.nscale.com/press-releases">nscale.com/press-releases</a> <span class="lk">2026-08-18</span></span></li>
-    <li><span data-t="h">競爭旗標：Dell 是 Nscale 的投資人，與 NVIDIA、Nokia、Blue Owl、Aker 並列。談 Nscale 供應鏈時要預設 Dell 已經在裡面，別把它當空白戰場。</span><span data-t="e">Competitive flag: Dell is an investor in Nscale, alongside NVIDIA, Nokia, Blue Owl and Aker. Assume Dell is already inside that supply chain; do not walk in treating it as open ground.</span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></li>
+    <li><span data-t="h">競爭旗標：Dell 是 Nscale 的投資人，與 NVIDIA、Nokia、Blue Owl、Aker 並列。談 Nscale 供應鏈時要預設 Dell 已經在裡面，別把它當空白戰場。</span><span data-t="e">Competitive flag: Dell is an investor in Nscale, alongside NVIDIA, Nokia, Blue Owl and Aker. Assume Dell is already inside that supply chain; do not walk in treating it as open ground.</span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span></li>
     <li><span data-t="h">新雲密度異常高：白金含 CoreWeave 與 Nscale，金級含 Nebius 與 Lambda，再加上三家超大規模。一場會至少五家 GPU 雲同時在場 —— 這是買方密度，不是展商密度。</span><span data-t="e">Neocloud density is unusual: CoreWeave and Nscale at Platinum, Nebius and Lambda at Gold, plus three hyperscalers. At least five GPU clouds in one hall. That is buyer density, not exhibitor density.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></li>
-    <li><span data-t="h">Nscale 的融資動能：收購前不到一個月剛完成</span><span data-t="e">Nscale's funding momentum: less than a month before the acquisition it closed a</span> <span class="lk">USD 900M</span> <span data-t="h">循環信貸，十二家銀行聯貸，含 J.P. Morgan、Goldman Sachs、Morgan Stanley。有錢，而且會繼續買。</span><span data-t="e"> revolving facility syndicated across twelve banks including J.P. Morgan, Goldman Sachs and Morgan Stanley. They have money and they will keep buying.</span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></li>
-    <li><span data-t="h">推論堆疊的硬體適配決策權正在集中到 Inferact。vLLM 是各家硬體後端進入生產的必經之路，NVIDIA、AMD、Google TPU、Intel 都派人上台；誰先進 vLLM 的支援列表，誰的機型就先賣得動。認識 Inferact 的人，價值高於認識任何一家雲。</span><span data-t="e">The power to decide which hardware the inference stack supports is concentrating inside Inferact. vLLM is the road every hardware back end takes into production, and NVIDIA, AMD, Google TPU and Intel all put people on that stage. Whoever lands in the vLLM support list first sells first. Knowing someone at Inferact is worth more than knowing any one cloud.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/01-room-and-forward.md</span></span></li>
+    <li><span data-t="h">Nscale 的融資動能：收購前不到一個月剛完成</span><span data-t="e">Nscale's funding momentum: less than a month before the acquisition it closed a</span> <span class="lk">USD 900M</span> <span data-t="h">循環信貸，十二家銀行聯貸，含 J.P. Morgan、Goldman Sachs、Morgan Stanley。有錢，而且會繼續買。</span><span data-t="e"> revolving facility syndicated across twelve banks including J.P. Morgan, Goldman Sachs and Morgan Stanley. They have money and they will keep buying.</span> <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span></li>
+    <li><span data-t="h">推論堆疊的硬體適配決策權正在集中到 Inferact。vLLM 是各家硬體後端進入生產的必經之路，NVIDIA、AMD、Google TPU、Intel 都派人上台；誰先進 vLLM 的支援列表，誰的機型就先賣得動。認識 Inferact 的人，價值高於認識任何一家雲。</span><span data-t="e">The power to decide which hardware the inference stack supports is concentrating inside Inferact. vLLM is the road every hardware back end takes into production, and NVIDIA, AMD, Google TPU and Intel all put people on that stage. Whoever lands in the vLLM support list first sells first. Knowing someone at Inferact is worth more than knowing any one cloud.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></li>
   </ul>
   </div>
 </details>
@@ -841,14 +866,11 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
   <div class="dr-b">
     <p><span data-t="h">這一頁的每個數字都是建置時從 JSON 算出來的，沒有一個是打字打上去的。算不出來的欄位印 GAP 和原因，不印零。</span><span data-t="e">Every number on this page is computed from JSON at build time; none of them is typed. A field that cannot be computed prints GAP and its reason, never a zero.</span></p>
     <ul>
-      <li><code>data/sessions.json</code> <span data-t="h">62 筆</span><span data-t="e">62 records</span></li>
-      <li><code>data/speakers.json</code> <span data-t="h">18 筆</span><span data-t="e">18 records</span></li>
-      <li><code>data/sponsors.json</code> <span data-t="h">23 筆</span><span data-t="e">23 records</span></li>
-      <li><code>data/orgs.json</code> <span data-t="h">58 筆</span><span data-t="e">58 records</span></li>
-      <li><code>deliverables/accounts/cards.json</code> <span data-t="h">58 筆</span><span data-t="e">58 records</span></li>
-      <li><code>deliverables/research/01-room-and-forward.md</code></li>
-      <li><code>deliverables/research/03-compare-build-vs-rent.md</code></li>
-      <li><code>deliverables/research/05-theses-and-actions.md</code></li>
+      <li><span data-t="h">議程場次</span><span data-t="e">Catalogued sessions</span> <span class="lk">62</span></li>
+      <li><span data-t="h">講者名單</span><span data-t="e">Speaker roster</span> <span class="lk">18</span></li>
+      <li><span data-t="h">贊助商名單</span><span data-t="e">Sponsor list</span> <span class="lk">23</span></li>
+      <li><span data-t="h">到場組織</span><span data-t="e">Organisations on site</span> <span class="lk">58</span></li>
+      <li><span data-t="h">帳戶卡</span><span data-t="e">Account cards</span> <span class="lk">58</span></li>
     </ul>
     <p><span data-t="h">帳戶板 688 格已填的證據等級（計算值）：</span><span data-t="e">Evidence rank of the 688 populated account-board cells (computed):</span></p>
     <p>
@@ -860,12 +882,76 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p><span data-t="h">目錄來源：</span><span data-t="e">Catalogue source:</span> <a href="https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue">https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue</a></p>
   </div>
 </details>
+<details class="dr sec" id="s-chain" data-block="chain">
+  <summary><span class="dr-t"><span class="sec-n" aria-hidden="true">10</span><span data-t="h">架構圖</span><span data-t="e">How the money moves</span></span><span class="sec-w"><span data-t="h">錢從誰手上出發,經過誰,最後變成誰的伺服器訂單 —— 以及我方站在哪一格</span><span data-t="e">where the money starts, who it passes through, whose server order it finally becomes, and which box we stand in</span></span><span class="dr-s"><span data-t="h">四層</span><span data-t="e">four layers</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">58 家已分層</span><span data-t="e">58 companies placed</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">粗框那兩層才簽伺服器訂單</span><span data-t="e">the heavy-edged bands are the ones that sign server orders</span></span></summary>
+  <div class="dr-b">
+  <div class="itms">
+<section class="itm" id="i-chain-picture">
+  <h3 class="itm-h"><span class="itm-n" aria-hidden="true">1</span><span class="itm-l"><span data-t="h">一張圖看完這一場</span><span data-t="e">The whole show in one picture</span></span><a class="itm-a" href="#i-chain-picture" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
+  <p class="itm-w"><span data-t="h">四層由上往下,錢從房東那一層開始流。每一層的家數與名字都是從帳戶板算出來的,不是畫上去的</span><span data-t="e">four layers, top to bottom, with the money starting at the landlord band. Every count and every name is computed from the account board rather than drawn in</span></p>
+  <div class="itm-b"><svg class="chain" viewBox="0 0 1000 756" role="img" aria-labelledby="chain-t chain-d" preserveAspectRatio="xMidYMin meet">
+  <title id="chain-t">這一場的價值鏈:四層,以及每一層有幾家 / The value chain at this show: four layers and how many companies sit in each</title>
+  <desc id="chain-d">由上而下:房東出租機房,營運商買機器把算力租出去,租戶租算力跑自己的產品,通路把硬體賣給上面兩層。伺服器訂單簽在營運商與自建的租戶那兩格。 / Top to bottom: landlords rent the hall, operators buy machines and rent the compute on, tenants rent compute to run their products, and the channel sells hardware to the layers above. The server order is signed in the operator band and by the tenants that build.</desc>
+  <g class="cb">
+    <rect x="10" y="20" width="980" height="155" rx="6"/>
+    <text class="cb-n" x="32" y="70">房東</text>
+    <text class="cb-ne" x="32" y="114">Landlord</text>
+    <text class="cb-d" x="200" y="70">出租機房、電力、冷卻</text>
+    <text class="cb-de" x="200" y="114">rents the hall, the power and the coolin…</text>
+    <text class="cb-c" x="968" y="82">1</text>
+    <text class="cb-cl" x="968" y="124">0 家買機器</text>
+    <text class="cb-m" x="32" y="156">Google LLC, a subsidiary of Alphabet Inc.</text>
+  </g>
+  <path class="cb-a" d="M500 180 L500 202"/>
+  <g class="cb is-hot">
+    <rect x="10" y="207" width="980" height="155" rx="6"/>
+    <text class="cb-n" x="32" y="257">營運商</text>
+    <text class="cb-ne" x="32" y="301">Operator</text>
+    <text class="cb-d" x="200" y="257">買機器,把 GPU 變成可租算力</text>
+    <text class="cb-de" x="200" y="301">buys the machines and sells the GPUs on…</text>
+    <text class="cb-c" x="968" y="269">11</text>
+    <text class="cb-cl" x="968" y="311">8 家買機器</text>
+    <text class="cb-m" x="32" y="343">CoreWeave, Inc. · Lambda, Inc. · Nscale Global Holdings L…</text>
+  </g>
+  <path class="cb-a" d="M500 367 L500 389"/>
+  <g class="cb is-hot">
+    <rect x="10" y="394" width="980" height="155" rx="6"/>
+    <text class="cb-n" x="32" y="444">租戶</text>
+    <text class="cb-ne" x="32" y="488">Tenant</text>
+    <text class="cb-d" x="200" y="444">買算力跑自己的模型與產品</text>
+    <text class="cb-de" x="200" y="488">buys compute to run its own models and p…</text>
+    <text class="cb-c" x="968" y="456">34</text>
+    <text class="cb-cl" x="968" y="498">8 家買機器</text>
+    <text class="cb-m" x="32" y="530">Hyundai Motor Company · JPMorgan Chase &amp; Co. · Latitude A…</text>
+  </g>
+  <path class="cb-a" d="M500 554 L500 576"/>
+  <g class="cb is-hot">
+    <rect x="10" y="581" width="980" height="155" rx="6"/>
+    <text class="cb-n" x="32" y="631">通路</text>
+    <text class="cb-ne" x="32" y="675">Channel</text>
+    <text class="cb-d" x="200" y="631">把硬體或方案賣給上面兩層</text>
+    <text class="cb-de" x="200" y="675">sells hardware or solutions to the layer…</text>
+    <text class="cb-c" x="968" y="643">12</text>
+    <text class="cb-cl" x="968" y="685">1 家買機器</text>
+    <text class="cb-m" x="32" y="717">Anyscale, Inc. · Assemble Platforms, Inc. · Encord · Foxg…</text>
+  </g>
+</svg></div>
+</section>
+<section class="itm" id="i-chain-where-we-stand">
+  <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span data-t="h">我方站在哪一格</span><span data-t="e">Which box we stand in</span></span><a class="itm-a" href="#i-chain-where-we-stand" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
+  <p class="itm-w"><span data-t="h">我們不在這四層裡的任何一層 —— 我們賣機器給第二層和第三層裡自建的那些人</span><span data-t="e">we are in none of the four bands — we sell the machines to the second band and to the tenants in the third that build rather than rent</span></p>
+  <div class="itm-b">  <p><span data-t="h">所以這一場對我方的意義不是「跟誰競爭攤位」,而是「誰在替第三層的人簽算力的帳」。答案幾乎都在第二層。</span><span data-t="e">So this show is not about competing for a booth. It is about who signs the compute bill for the third band — and the answer is nearly always somebody in the second.</span></p>
+  <p><span data-t="h">第四層是通路,可能是對手也可能是共同提案的夥伴,先弄清楚是哪一種再開口。</span><span data-t="e">The fourth band is the channel: some of them are rivals and some are co-sell partners, and it is worth knowing which before you speak.</span></p></div>
+</section>
+  </div>
+  </div>
+</details>
 <details class="dr sec" id="s-index" data-block="index">
-  <summary><span class="dr-t"><span class="sec-n" aria-hidden="true">10</span><span data-t="h">索引</span><span data-t="e">Index</span></span><span class="sec-w"><span data-t="h">這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結</span><span data-t="e">every section, every company and every session in this pack, listed once, each one a link</span></span><span class="dr-s"><span data-t="h">每一條都是連結</span><span data-t="e">every line is a link</span></span></summary>
+  <summary><span class="dr-t"><span class="sec-n" aria-hidden="true">11</span><span data-t="h">索引</span><span data-t="e">Index</span></span><span class="sec-w"><span data-t="h">這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結</span><span data-t="e">every section, every company and every session in this pack, listed once, each one a link</span></span><span class="dr-s"><span data-t="h">每一條都是連結</span><span data-t="e">every line is a link</span></span></summary>
   <div class="dr-b">
   <div class="idx">
     <section class="idx-g">
-      <h3 class="idx-h"><span data-t="h">章節</span><span data-t="e">Sections</span> <span class="idx-c"><span class="lk">36</span></span></h3>
+      <h3 class="idx-h"><span data-t="h">章節</span><span data-t="e">Sections</span> <span class="idx-c"><span class="lk">37</span></span></h3>
       <p class="idx-w"><span data-t="h">每一節回答一個問題</span><span data-t="e">each answers one question</span></p>
       <ul class="idx-l">
         <li><a href="#s-verdict"><span data-t="h">判斷</span><span data-t="e">The call</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
@@ -877,6 +963,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
         <li><a href="#s-signals"><span data-t="h">前瞻訊號</span><span data-t="e">Forward signals</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="#s-open"><span data-t="h">本場 GAP</span><span data-t="e">What is still open</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="#s-method"><span data-t="h">方法與來源</span><span data-t="e">Method and sources</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
+        <li><a href="#s-chain"><span data-t="h">架構圖</span><span data-t="e">How the money moves</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="#s-index"><span data-t="h">索引</span><span data-t="e">Index</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="#s-queue"><span data-t="h">先卡這幾場</span><span data-t="e">Queue for these first</span></a><span class="idx-p"><span data-t="h">議程</span><span data-t="e">Agenda</span></span></li>
         <li><a href="#s-all-sessions"><span data-t="h">全部場次</span><span data-t="e">Every session</span></a><span class="idx-p"><span data-t="h">議程</span><span data-t="e">Agenda</span></span></li>
@@ -907,7 +994,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
       </ul>
     </section>
     <section class="idx-g">
-      <h3 class="idx-h"><span data-t="h">子項</span><span data-t="e">Items</span> <span class="idx-c"><span class="lk">103</span></span></h3>
+      <h3 class="idx-h"><span data-t="h">子項</span><span data-t="e">Items</span> <span class="idx-c"><span class="lk">105</span></span></h3>
       <p class="idx-w"><span data-t="h">每一節底下的每一項,可以單獨連結</span><span data-t="e">every item inside every section, each with its own link</span></p>
       <ul class="idx-l">
         <li><a href="#i-room-audience"><span data-t="h">來的是誰</span><span data-t="e">Who is in the room</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
@@ -927,6 +1014,8 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
         <li><a href="#i-turn-prefill-decode"><span data-t="h">prefill / decode</span><span data-t="e">prefill / decode</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="#i-turn-gb300-nvl72"><span data-t="h">GB300 NVL72</span><span data-t="e">GB300 NVL72</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="#i-turn-tpu-amd-intel"><span data-t="h">TPU / AMD / Intel</span><span data-t="e">TPU / AMD / Intel</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
+        <li><a href="#i-chain-picture"><span data-t="h">一張圖看完這一場</span><span data-t="e">The whole show in one picture</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
+        <li><a href="#i-chain-where-we-stand"><span data-t="h">我方站在哪一格</span><span data-t="e">Which box we stand in</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
         <li><a href="#i-queue-s037"><span data-t="h">&lt;span class="lk"&gt;#1&lt;/span&gt;&lt;a class="xr xr-ses" href="#ses-s037"&gt;&lt;span class="lk"&gt;How the Data Center Shapes the workload&lt;/span&gt;&lt;/a&gt;</span><span data-t="e">&lt;span class="lk"&gt;#1&lt;/span&gt;&lt;a class="xr xr-ses" href="#ses-s037"&gt;&lt;span class="lk"&gt;How the Data Center Shapes the workload&lt;/span&gt;&lt;/a&gt;</span></a><span class="idx-p"><span data-t="h">議程</span><span data-t="e">Agenda</span></span></li>
         <li><a href="#i-queue-s011"><span data-t="h">&lt;span class="lk"&gt;#2&lt;/span&gt;&lt;a class="xr xr-ses" href="#ses-s011"&gt;&lt;span class="lk"&gt;Industry Leaders Roundtable - Physical AI&lt;/span&gt;&lt;/a&gt;</span><span data-t="e">&lt;span class="lk"&gt;#2&lt;/span&gt;&lt;a class="xr xr-ses" href="#ses-s011"&gt;&lt;span class="lk"&gt;Industry Leaders Roundtable - Physical AI&lt;/span&gt;&lt;/a&gt;</span></a><span class="idx-p"><span data-t="h">議程</span><span data-t="e">Agenda</span></span></li>
         <li><a href="#i-queue-s021"><span data-t="h">&lt;span class="lk"&gt;#3&lt;/span&gt;&lt;a class="xr xr-ses" href="#ses-s021"&gt;&lt;span class="lk"&gt;Maximizing GB200 and GB300 Performance with Domain-Aware Scheduling in Ray&lt;/span&gt;&lt;/a&gt;</span><span data-t="e">&lt;span class="lk"&gt;#3&lt;/span&gt;&lt;a class="xr xr-ses" href="#ses-s021"&gt;&lt;span class="lk"&gt;Maximizing GB200 and GB300 Performance with Domain-Aware Scheduling in Ray&lt;/span&gt;&lt;/a&gt;</span></a><span class="idx-p"><span data-t="h">議程</span><span data-t="e">Agenda</span></span></li>
@@ -1191,7 +1280,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">15</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤，主題只能從標題判斷</span><span data-t="e">the catalogue gives this session no track tag, so the subject has to be read off the title</span></span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s011">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span class="lk">#2</span><a class="xr xr-ses" href="#ses-s011"><span class="lk">Industry Leaders Roundtable - Physical AI</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">11:30 AM-1:00 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Soma</span></span><a class="itm-a" href="#i-queue-s011" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -1201,7 +1290,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">90</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤，主題只能從標題判斷</span><span data-t="e">the catalogue gives this session no track tag, so the subject has to be read off the title</span></span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s021">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span class="lk">#3</span><a class="xr xr-ses" href="#ses-s021"><span class="lk">Maximizing GB200 and GB300 Performance with Domain-Aware Scheduling in Ray</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 2</span></span><a class="itm-a" href="#i-queue-s021" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -1211,7 +1300,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">30</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="chip">Post Train/RL</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s023">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">4</span><span class="itm-l"><span class="lk">#4</span><a class="xr xr-ses" href="#ses-s023"><span class="lk">Right Resource, Right Job: Robinhood's Journey to Heterogeneous Ray Clusters on Amazon EKS</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 5</span></span><a class="itm-a" href="#i-queue-s023" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -1221,7 +1310,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">30</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="chip">Train</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s034">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">5</span><span class="itm-l"><span class="lk">#5</span><a class="xr xr-ses" href="#ses-s034"><span class="lk">Petabyte-Scale Video Curation on CoreWeave: Production AI Pipelines with Ray Data</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:15 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 4</span></span><a class="itm-a" href="#i-queue-s034" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -1231,7 +1320,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">30</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s042">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">6</span><span class="itm-l"><span class="lk">#6</span><a class="xr xr-ses" href="#ses-s042"><span class="lk">Serving Frontier MoE Models at the Lowest Token Cost</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-3:45 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Lightning Theater</span></span><a class="itm-a" href="#i-queue-s042" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -1241,7 +1330,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">15</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="chip">Inference</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s029">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">7</span><span class="itm-l"><span class="lk">#7</span><a class="xr xr-ses" href="#ses-s029"><span class="lk">Scaling LLM Workloads on TPUs with Ray: From Pre-Training to Inference</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 5</span></span><a class="itm-a" href="#i-queue-s029" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -1251,7 +1340,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">30</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="chip">Train</span><span class="chip">Post Train/RL</span><span class="chip">Inference</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s035">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">8</span><span class="itm-l"><span class="lk">#8</span><a class="xr xr-ses" href="#ses-s035"><span class="lk">Physical AI at Aerospace Scale: Building Distributed Simulation-to-Autonomy Pipelines</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:45 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 1</span></span><a class="itm-a" href="#i-queue-s035" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -1261,7 +1350,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">60</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="chip">Train</span><span class="chip">Post Train/RL</span><span class="chip">Multimodal Data</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
   </div>
   </div>
@@ -2018,12 +2107,12 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 <section class="itm" id="i-judgement-who-signs">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">1</span><span class="itm-l"><span data-t="h">誰真的簽伺服器訂單</span><span data-t="e">Who actually signs the server order</span></span><span class="itm-tag"><span data-t="h">新雲</span><span data-t="e">the neoclouds</span></span><a class="itm-a" href="#i-judgement-who-signs" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">把房間裡的人分成兩類:簽得了單的,和簽不了單但知道內情的</span><span data-t="e">sorts the room into two kinds of person — the ones who can sign, and the ones who cannot but know what is happening</span></p>
-  <div class="itm-b">  <p><span data-t="h">這房間裡真正簽伺服器訂單的是新雲，不是平台團隊。四家新雲贊助商裡，CoreWeave 與 Nscale 已公開綁 Dell、Nebius 自研走 ODM，只有 Lambda 是既有客戶。此行是情報場，不是開單場。</span><span data-t="e">The people in this room who actually sign server orders are the neoclouds, not the platform teams. Of the four neocloud sponsors, CoreWeave and Nscale are publicly tied to Dell and Nebius self-designs through ODMs — only Lambda is an existing customer. This trip is reconnaissance, not order-taking.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></p></div>
+  <div class="itm-b">  <p><span data-t="h">這房間裡真正簽伺服器訂單的是新雲，不是平台團隊。四家新雲贊助商裡，CoreWeave 與 Nscale 已公開綁 Dell、Nebius 自研走 ODM，只有 Lambda 是既有客戶。此行是情報場，不是開單場。</span><span data-t="e">The people in this room who actually sign server orders are the neoclouds, not the platform teams. Of the four neocloud sponsors, CoreWeave and Nscale are publicly tied to Dell and Nebius self-designs through ODMs — only Lambda is an existing customer. This trip is reconnaissance, not order-taking.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></p></div>
 </section>
 <section class="itm" id="i-judgement-headwind">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span data-t="h">Ray 對機箱生意是逆風</span><span data-t="e">Ray is a headwind for box sales</span></span><span class="itm-tag"><span data-t="h">賣異質節點與機房層</span><span data-t="e">sell mixed nodes and the hall layer</span></span><a class="itm-a" href="#i-judgement-headwind" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">這場的主角技術會讓客戶「暫時不用加機器」,所以要賣的東西必須換一個</span><span data-t="e">the technology this show is about lets a customer defer buying hardware, so what we sell has to change</span></p>
-  <div class="itm-b">  <p><span data-t="h">Ray 的核心賣點是「同樣硬體多榨兩到三倍」，短期對機箱生意是逆風。Torc 把 GPU 利用率從三成多拉到九成、epoch 從二十分鐘壓到五分鐘，而且明說沒有加機器。要賣的是異質節點與機房層，不是多賣一櫃。</span><span data-t="e">Ray's core promise is two to three times more out of the same hardware, which is a headwind for box sales in the short run. Torc took GPU utilisation from the thirties to ninety per cent and an epoch from twenty minutes to five — explicitly without adding hardware. What sells here is mixed nodes and the hall layer, not one more rack.</span> <span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span><span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></p></div>
+  <div class="itm-b">  <p><span data-t="h">Ray 的核心賣點是「同樣硬體多榨兩到三倍」，短期對機箱生意是逆風。Torc 把 GPU 利用率從三成多拉到九成、epoch 從二十分鐘壓到五分鐘，而且明說沒有加機器。要賣的是異質節點與機房層，不是多賣一櫃。</span><span data-t="e">Ray's core promise is two to three times more out of the same hardware, which is a headwind for box sales in the short run. Torc took GPU utilisation from the thirties to ninety per cent and an epoch from twenty minutes to five — explicitly without adding hardware. What sells here is mixed nodes and the hall layer, not one more rack.</span> <span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span></p></div>
 </section>
 <section class="itm" id="i-judgement-no-home">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span data-t="h">我方沒有主場</span><span data-t="e">We have no home ground</span></span><span class="itm-tag"><span data-t="h">GAP,不是被排除</span><span data-t="e">a gap, not an exclusion</span></span><a class="itm-a" href="#i-judgement-no-home" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -2044,7 +2133,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
       <dt><span data-t="h">證據</span><span data-t="e">Evidence</span></dt><dd><span data-t="h">交付 CoreWeave 市場首套 <a class="xr xr-chip" href="#chip-gb300-nvl72">GB300 NVL72</a> 與首套 Vera Rubin NVL72 的是 Dell；Nscale 用 Dell PowerEdge XE9712 整櫃交付，且已簽微軟約二十萬顆 <a class="xr xr-chip" href="#chip-gb300-nvl72">GB300</a>。Verda 自有 Helsinki 與冰島機房、剛募得新資金，硬體供應商未證。</span><span data-t="e">Dell delivered the market-first <a class="xr xr-chip" href="#chip-gb300-nvl72">GB300 NVL72</a> and the first Vera Rubin NVL72 to CoreWeave, and Nscale takes Dell PowerEdge XE9712 as integrated racks while holding a Microsoft contract for about two hundred thousand <a class="xr xr-chip" href="#chip-gb300-nvl72">GB300</a>. Verda owns halls in Helsinki and Iceland and has just raised — and has never named a hardware supplier.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></dd>
       <dt class="kill"><span data-t="h">什麼話會當場推翻它</span><span data-t="e">What kills it on the spot</span></dt><dd><span data-t="h">現場任何一位新雲工程師說整櫃供應商是多源、或正在認證第二供應商，T1 立刻失效，改打正面競標。</span><span data-t="e">If any neocloud engineer on the floor says racks are multi-sourced, or that a second supplier is being qualified, T1 is dead and you switch to bidding head-on.</span></dd>
     </dl>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-theses-t2">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span class="lk">T2</span> <span data-t="h">利用率提升會延後而不是拉動節點採購 —— 除非工作佇列同步變長。</span><span data-t="e">Better utilisation delays node purchases rather than pulling them in — unless the job queue grows at the same time.</span></span><span class="itm-tag"><span data-t="h">可被推翻</span><span data-t="e">falsifiable</span></span><a class="itm-a" href="#i-theses-t2" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -2053,7 +2142,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
       <dt><span data-t="h">證據</span><span data-t="e">Evidence</span></dt><dd><span data-t="h">Torc 四倍提速零增購，明說沒有加機器；議程上 Robinhood 講的就是用異質叢集把成本壓下來。</span><span data-t="e">Torc got a fourfold speed-up with no extra hardware and says so explicitly, and Robinhood is on the agenda talking about taking cost out with a mixed cluster.</span> <span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span></dd>
       <dt class="kill"><span data-t="h">什麼話會當場推翻它</span><span data-t="e">What kills it on the spot</span></dt><dd><span data-t="h">若平台團隊說利用率上去以後排隊時間沒有下降、反而把訓練規模擴大了，利用率就是需求放大器，這條論點反轉，該加碼而不是收手。</span><span data-t="e">If a platform team says queue time did not fall and they grew the training runs instead, then utilisation is a demand multiplier, the thesis inverts, and you lean in rather than back off.</span></dd>
     </dl>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-theses-t3">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span class="lk">T3</span> <span data-t="h">近場機會是 CPU 前處理節點與資料節點，不是 NVL72。</span><span data-t="e">The near-term opening is CPU pre-processing and data nodes, not NVL72.</span></span><span class="itm-tag"><span data-t="h">可被推翻</span><span data-t="e">falsifiable</span></span><a class="itm-a" href="#i-theses-t3" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -2062,7 +2151,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
       <dt><span data-t="h">證據</span><span data-t="e">Evidence</span></dt><dd><span data-t="h">Torc 的症狀是 GPU 餓著、同機 CPU 打滿；議程有 Robinhood 的異質叢集與 CoreWeave 的 PB 級影片策展；我方與 VAST 已有現成的聯合方案與具名機型。</span><span data-t="e">Torc's symptom is starved GPUs next to pinned CPUs; the agenda carries Robinhood's mixed cluster and CoreWeave's petabyte-scale video curation; and we already have a joint solution with VAST with named platforms.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></dd>
       <dt class="kill"><span data-t="h">什麼話會當場推翻它</span><span data-t="e">What kills it on the spot</span></dt><dd><span data-t="h">若這些工作全部以雲端執行個體消費、而且沒有落地計畫，就沒有 BOM 可談，退回情報收集。</span><span data-t="e">If those workloads are consumed purely as cloud instances with no on-prem plan, there is no bill of materials to discuss and you fall back to collecting intelligence.</span></dd>
     </dl>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-theses-t4">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">4</span><span class="itm-l"><span class="lk">T4</span> <span data-t="h">Physical AI 是唯一可能自建機房的買家群。</span><span data-t="e">Physical AI is the only group in this room that might build its own hall.</span></span><span class="itm-tag"><span data-t="h">可被推翻</span><span data-t="e">falsifiable</span></span><a class="itm-a" href="#i-theses-t4" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -2071,7 +2160,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
       <dt><span data-t="h">證據</span><span data-t="e">Evidence</span></dt><dd><span data-t="h">議程排了 Physical AI 的產業圓桌；Silver 贊助含 Path Robotics 與 Foxglove；Torc 單一管線已達 38TB。</span><span data-t="e">The agenda schedules an industry roundtable on Physical AI, the Silver tier carries Path Robotics and Foxglove, and Torc's single pipeline already runs at 38TB.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></dd>
       <dt class="kill"><span data-t="h">什麼話會當場推翻它</span><span data-t="e">What kills it on the spot</span></dt><dd><span data-t="h">若圓桌上這些公司都說模擬與訓練全部在超大規模雲上，資料落地的論點就不成立。這是待驗條件，不是既有數據。</span><span data-t="e">If every company on that roundtable says simulation and training run entirely on hyperscale cloud, the data-gravity argument does not hold. This is a condition to test, not a number we already have.</span></dd>
     </dl>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
   </div>
   </div>
@@ -2083,32 +2172,32 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 <section class="itm" id="i-booths-lambda">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">1</span><span class="itm-l"><span class="lk">#1</span> <a class="xr xr-org" href="#acct-lambda">Lambda</a></span><a class="itm-a" href="#i-booths-lambda" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">唯一既有關係。我方曾代租 Vernon 21MW、十年逾六億美元並轉分租。目標：下一批機型與時程。</span><span data-t="e">The only existing relationship. We took the Vernon 21MW lease, ten years and over six hundred million dollars, and sublet it. Target: the next platform and its dates.</span></p>
-  <div class="itm-b">  <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></p></div>
+  <div class="itm-b">  <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> </p></div>
 </section>
 <section class="itm" id="i-booths-verda">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span class="lk">#2</span> <a class="xr xr-org" href="#acct-verda">Verda</a></span><a class="itm-a" href="#i-booths-verda" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">自有機房加上新資金，OEM 未證 —— 全場賠率最高的新名字。</span><span data-t="e">Owns its halls, just raised, and has never named an OEM. The best odds on any new name here.</span></p>
-  <div class="itm-b">  <p><span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></p></div>
+  <div class="itm-b">  <p><span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span> </p></div>
 </section>
 <section class="itm" id="i-booths-vast-data">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span class="lk">#3</span> <a class="xr xr-org" href="#acct-vast">VAST Data</a></span><a class="itm-a" href="#i-booths-vast-data" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">有現成的聯合方案。走共同提案，不走直銷。</span><span data-t="e">A joint solution already exists. Co-sell, do not direct-sell.</span></p>
-  <div class="itm-b">  <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></p></div>
+  <div class="itm-b">  <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> </p></div>
 </section>
 <section class="itm" id="i-booths-nebius">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">4</span><span class="itm-l"><span class="lk">#4</span> <a class="xr xr-org" href="#acct-nebius">Nebius</a></span><a class="itm-a" href="#i-booths-nebius" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">自研加上台系 ODM。只問一題：CPU、儲存、網路節點是否外購。</span><span data-t="e">Self-designed with Taiwanese ODMs. Ask one question only: are the CPU, storage and network nodes bought outside.</span></p>
-  <div class="itm-b">  <p><span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></p></div>
+  <div class="itm-b">  <p><span class="ev ev-vendor"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">廠商自報</span><span data-t="e">Vendor-reported</span></span> </p></div>
 </section>
 <section class="itm" id="i-booths-coreweave-nscale">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">5</span><span class="itm-l"><span class="lk">#5</span> <a class="xr xr-org" href="#acct-coreweave">CoreWeave / Nscale</a></span><a class="itm-a" href="#i-booths-coreweave-nscale" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">只做確認題，不推銷。它們是白金主辦夥伴，且已公開綁 Dell。</span><span data-t="e">Confirmation questions only, no pitching. They are Platinum partners of the host and are publicly tied to Dell.</span></p>
-  <div class="itm-b">  <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></p></div>
+  <div class="itm-b">  <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> </p></div>
 </section>
 <section class="itm" id="i-booths-platform-teams">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">6</span><span class="itm-l"><span class="lk">#6</span> 平台團隊 / Platform teams</span><a class="itm-a" href="#i-booths-platform-teams" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">Uber、Pinterest、Netflix、Discord、Spotify、Apple、BMW、Robinhood —— 情報價值高於成交價值。</span><span data-t="e">Uber, Pinterest, Netflix, Discord, Spotify, Apple, BMW, Robinhood — worth more as intelligence than as pipeline.</span></p>
-  <div class="itm-b">  <p><span class="ev ev-unverified"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">未證</span><span data-t="e">Unverified</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></p></div>
+  <div class="itm-b">  <p><span class="ev ev-unverified"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">未證</span><span data-t="e">Unverified</span></span> </p></div>
 </section>
   </div>
   </div>
@@ -2138,7 +2227,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
       <dt><span data-t="h">開場那一句</span><span data-t="e">The opening line</span></dt>
       <dd><span data-t="h">先問資料能不能出場域。不能出＝租賃不是選項，是不合規。</span><span data-t="e">Open by asking whether the data may leave the premises. If it may not, renting is not an option, it is a compliance failure.</span></dd>
       <dt><span data-t="h">現場候選</span><span data-t="e">On-site shortlist</span></dt>
-      <dd><span class="chip">Adyen</span><span class="chip">Anyscale</span><span class="chip">Apple</span><span class="chip">Bedrock</span><span class="chip">Discord</span><span class="chip">Elorian AI</span><span class="chip">Inception Labs</span><span class="chip">Inferact (vLLM) presenting</span><span class="chip">Lila Sciences</span><span class="chip">Mercor</span><span class="chip">Mimic</span><span class="chip">Nscale platinum</span><span class="chip">NVIDIA gold</span><span class="chip">Periodic Labs</span><span class="chip">Spotify</span><span class="chip">Torc Robotics</span><span class="src"><span data-t="h">依 在 orgs.json 裡有講者席次的公司，共 16 家</span><span data-t="e">by companies with a speaker slot in orgs.json, 16 in total</span></span></dd>
+      <dd><span class="chip">Adyen</span><span class="chip">Anyscale</span><span class="chip">Apple</span><span class="chip">Bedrock</span><span class="chip">Discord</span><span class="chip">Elorian AI</span><span class="chip">Inception Labs</span><span class="chip">Inferact (vLLM) presenting</span><span class="chip">Lila Sciences</span><span class="chip">Mercor</span><span class="chip">Mimic</span><span class="chip">Nscale platinum</span><span class="chip">NVIDIA gold</span><span class="chip">Periodic Labs</span><span class="chip">Spotify</span><span class="chip">Torc Robotics</span><span class="src"><span data-t="h">依 在名單上有講者席次的公司，共 16 家</span><span data-t="e">by companies holding a speaker slot on the roster, 16 in total</span></span></dd>
       <dt><span data-t="h">其中自己買機器的</span><span data-t="e">Of those, buy their own machines</span></dt>
       <dd><span data-t="h">3 / 16 家；16 家已經分好層</span><span data-t="e">3 of 16; 16 already placed in a layer</span></dd>
       <dt><span data-t="h">離場前要拿到</span><span data-t="e">Leave with</span></dt>
@@ -2169,27 +2258,27 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 <section class="itm" id="i-questions-q1">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">1</span><span class="itm-l"><span class="lk">Q1</span> <span data-t="h">你們的 Ray 叢集跑在自己機房、租的 colo，還是純雲端執行個體？</span><span data-t="e">Does your Ray cluster run in your own hall, in colo you rent, or purely on cloud instances?</span></span><a class="itm-a" href="#i-questions-q1" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">自建或 colo 就能直銷；純雲端的話這個人是情報來源，不是買家，只能經新雲間接觸及。</span><span data-t="e">Own hall or colo means you can sell direct. Pure cloud means this person is a source, not a buyer, and you only reach them through a neocloud.</span></p>
-  <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+  <div class="itm-b">    </div>
 </section>
 <section class="itm" id="i-questions-q2">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span class="lk">Q2</span> <span data-t="h">CPU 前處理節點跟 GPU 節點是同一批機器、同一個採購週期嗎？</span><span data-t="e">Are the CPU pre-processing nodes and the GPU nodes the same batch on the same purchasing cycle?</span></span><a class="itm-a" href="#i-questions-q2" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">分開＝異質節點有獨立的 BOM 與獨立的汰換窗口，近場機會成立；同一批＝只能等整體 refresh。</span><span data-t="e">Separate means the mixed nodes have their own bill of materials and their own replacement window, and the near-term opening is real. Same batch means you wait for the whole refresh.</span></p>
-  <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+  <div class="itm-b">    </div>
 </section>
 <section class="itm" id="i-questions-q3">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span class="lk">Q3</span> <span data-t="h">你們最舊的那批 GPU 節點是哪一代，現在還在跑什麼？</span><span data-t="e">Which generation is your oldest batch of GPU nodes, and what still runs on it?</span></span><a class="itm-a" href="#i-questions-q3" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">世代分佈告訴你機隊多舊,不等於快要換。NVIDIA 財務長說六年前的 <a class="xr xr-chip" href="#chip-a100-80gb">A100</a> 現在還在滿載跑、租金還在漲,CoreWeave 簽的 <a class="xr xr-chip" href="#chip-a100-80gb">A100</a> 合約到 2029。所以不要問「什麼時候換」,要問「舊的那批現在還在賺錢嗎」—— 答案是還在,那就代表他擴充會加機器,不是換機器。</span><span data-t="e">The generation spread tells you how old a fleet is, not that it is about to be replaced. NVIDIA's CFO says six-year-old A100s still run at full utilisation with rental prices rising, and CoreWeave has signed an <a class="xr xr-chip" href="#chip-a100-80gb">A100</a> contract running into 2029. So do not ask when they will replace it — ask whether the old batch still earns. If it does, their next expansion ADDS machines rather than swapping them.</span></p>
-  <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+  <div class="itm-b">    </div>
 </section>
 <section class="itm" id="i-questions-q4">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">4</span><span class="itm-l"><span class="lk">Q4</span> <span data-t="h">這一櫃是誰整合的、on-site 誰做？</span><span data-t="e">Who integrated this rack, and who does the on-site work?</span></span><a class="itm-a" href="#i-questions-q4" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">「OEM 整櫃交付」＝已經鎖住；「我們自己 rack and stack」＝有縫，機房層方案切得進去。</span><span data-t="e">"The OEM delivers the rack" means locked. "We rack and stack it ourselves" means there is a seam, and a hall-level proposal fits into it.</span></p>
-  <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+  <div class="itm-b">    </div>
 </section>
 <section class="itm" id="i-questions-q5">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">5</span><span class="itm-l"><span class="lk">Q5</span> <span data-t="h">下一批容量的瓶頸是 GPU 交期、電力，還是機房空間？</span><span data-t="e">For the next tranche of capacity, is the bottleneck GPU lead time, power, or floor space?</span></span><a class="itm-a" href="#i-questions-q5" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">電力或空間＝液冷與機房層方案可以談；GPU 交期＝我們幫不上，禮貌結束，把時間留給下一個人。</span><span data-t="e">Power or space means liquid cooling and a hall-level proposal are in play. GPU lead time means we cannot help — close politely and give the time to the next person.</span></p>
-  <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+  <div class="itm-b">    </div>
 </section>
   </div>
   </div>
@@ -2201,32 +2290,32 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 <section class="itm" id="i-dont-pitch-partner-booth">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">1</span><span class="itm-l"><span data-t="h">不在別人主場推銷</span><span data-t="e">Do not pitch on a partner's home ground</span></span><a class="itm-a" href="#i-dont-pitch-partner-booth" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">不要在 CoreWeave 或 Nscale 攤位 pitch。它們是白金主辦夥伴且已公開綁 Dell；在別人主場推銷會燒掉未來共同提案的門。</span><span data-t="e">Do not pitch at the CoreWeave or Nscale booths. They are Platinum partners of the host and publicly tied to Dell; selling on someone else's home ground burns the co-sell door.</span></p>
-  <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+  <div class="itm-b">    </div>
 </section>
 <section class="itm" id="i-dont-spec-opener">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span data-t="h">不用規格開場</span><span data-t="e">Do not open with a spec</span></span><a class="itm-a" href="#i-dont-spec-opener" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">不要用「我們也有 <a class="xr xr-chip" href="#chip-gb300-nvl72">GB300 NVL72</a>」當開場。這房間買的是排程與利用率，規格開場會被歸類成機箱廠。</span><span data-t="e">Do not open with "we also have <a class="xr xr-chip" href="#chip-gb300-nvl72">GB300 NVL72</a>". This room buys scheduling and utilisation; a spec opener files you under box vendor.</span></p>
-  <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+  <div class="itm-b">    </div>
 </section>
 <section class="itm" id="i-dont-unconfirmed-fleet">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span data-t="h">不複述未證實的機隊數字</span><span data-t="e">Do not repeat unconfirmed fleet numbers</span></span><a class="itm-a" href="#i-dont-unconfirmed-fleet" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">不要複述任何未經對方確認的機隊數字。問，不要說。</span><span data-t="e">Do not repeat any fleet number the other side has not confirmed. Ask; do not tell.</span></p>
-  <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+  <div class="itm-b">    </div>
 </section>
 <section class="itm" id="i-dont-absence-as-exclusion">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">4</span><span class="itm-l"><span data-t="h">不把缺席讀成被排除</span><span data-t="e">Do not read absence as exclusion</span></span><a class="itm-a" href="#i-dont-absence-as-exclusion" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">不要把「不在贊助名單」讀成「被排除」。那只證明沒買贊助。</span><span data-t="e">Do not read "not on the sponsor list" as "excluded". It only proves nobody bought sponsorship.</span></p>
-  <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+  <div class="itm-b">    </div>
 </section>
 <section class="itm" id="i-dont-cards-as-kpi">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">5</span><span class="itm-l"><span data-t="h">不用名片數當 KPI</span><span data-t="e">Do not make business cards the KPI</span></span><a class="itm-a" href="#i-dont-cards-as-kpi" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">不要以名片數當 KPI。帶回五個具名、可追的答案，勝過五十張名片。</span><span data-t="e">Do not use business cards as the KPI. Five named, followable answers beat fifty cards.</span></p>
-  <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+  <div class="itm-b">    </div>
 </section>
 <section class="itm" id="i-dont-quote-first">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">6</span><span class="itm-l"><span data-t="h">不報價、不承諾交期</span><span data-t="e">Do not quote and do not promise dates</span></span><a class="itm-a" href="#i-dont-quote-first" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
   <p class="itm-w"><span data-t="h">不要報價、不要承諾交期。scout 沒有定價授權；先報價等於提前讓出議價權。</span><span data-t="e">Do not quote and do not promise lead times. A scout has no pricing authority, and quoting first hands over the negotiating position.</span></p>
-  <div class="itm-b">    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+  <div class="itm-b">    </div>
 </section>
   </div>
   </div>
@@ -4442,7 +4531,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 </details>
   <p class="punch"><span data-t="h">常被略過的一點：一年期預留合約的稼動率風險與自建完全相同 —— 用不用都要付。唯一沒有稼動率風險的是隨需，而隨需最貴。所以在高承諾情境下兩邊幾乎是同一題，租賃贏的是速度與選擇權，不是單位成本。</span><span data-t="e">The point everyone skips: a one-year reserved contract carries exactly the same utilisation risk as building — you pay whether you use it or not. The only thing with no utilisation risk is on-demand, and on-demand is the most expensive. So at high commitment the two sides are nearly the same question, and what renting wins is speed and optionality, not unit cost.</span></p>
   <p><span data-t="h">真正不確定的是租金方向。<a class="xr xr-chip" href="#chip-h100-sxm">H100</a> 的每小時租金在</span><span data-t="e">What is genuinely uncertain is which way rent moves. <a class="xr xr-chip" href="#chip-h100-sxm">H100</a> rent per hour was</span> <span class="lk">USD 7-10</span> <span data-t="h">，是</span><span data-t="e"> in</span> <span class="lk">2023</span> <span data-t="h">年的水準；到</span><span data-t="e">; by</span> <span class="lk">2024-2025</span> <span data-t="h">一度跌破</span><span data-t="e">it had briefly dropped under</span> <span class="lk">USD 2</span> <span data-t="h">，跌幅約七成。但一年期合約價從</span><span data-t="e">, about seventy per cent down. Then the one-year contract price went from</span> <span class="lk">USD 1.70</span> <span data-t="h">（</span><span data-t="e">(</span> <span class="lk">2025-10</span> <span data-t="h">）反彈約四成，到</span><span data-t="e">) back up about forty per cent to</span> <span class="lk">USD 2.35</span> <span data-t="h">（</span><span data-t="e">(</span> <span class="lk">2026-03</span> <span data-t="h">）。任何以「租金會一直跌」或「一直漲」為前提的模型都不可信，包括對方拿給客戶看的那一份。</span><span data-t="e">). Any model that assumes rent only falls, or only rises, is not worth showing anyone, including the one the other side shows your customer.</span></p>
-  <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/03-compare-build-vs-rent.md</span></span></div>
+  <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span> </div>
 </section>
 <section class="itm" id="i-crossover-colo-tier">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span data-t="h">機櫃租金的級距陷阱</span><span data-t="e">The colocation tier trap</span></span><span class="itm-tag"><span data-t="h">租金差 2 倍</span><span data-t="e">the rent differs by 2 times</span></span><a class="itm-a" href="#i-crossover-colo-tier" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -4495,7 +4584,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <li><span data-t="h">Google（白金）走開源路線，GKE 團隊與主辦方共同 upstream。</span><span data-t="e">Google (Platinum) plays the open-source card, with the GKE team upstreaming alongside the host.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></li>
   </ul>
   <p class="punch"><span data-t="h">三家的共同賣點不是價格，是「韌性與維運外包」。他們不比每小時單價，比的是你不用養 SRE、不用處理壞卡。這是自建方最難反駁的一段 ——不要試著用規格反駁它，要問對方有沒有那個團隊。</span><span data-t="e">What all three sell is not price, it is outsourced resilience and operations. They do not compete on the hourly rate; they compete on you not having to keep an SRE team or deal with dead accelerators. This is the hardest passage to answer from the build side — do not try to answer it with specs, ask whether the customer has that team.</span></p>
-  <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/03-compare-build-vs-rent.md</span></span></div>
+  </div>
 </section>
   </div>
   </div>
@@ -4525,7 +4614,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
   <div class="itm-b">  <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></p></div>
 </section>
   </div>
-  <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/03-compare-build-vs-rent.md</span></span>
+  
   </div>
 </details>
 <details class="dr sec" id="s-we-lose" data-block="losses">
@@ -4553,7 +4642,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
   <div class="itm-b">  <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></p></div>
 </section>
   </div>
-  <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/03-compare-build-vs-rent.md</span></span>
+  
   </div>
 </details>
 <details class="dr sec" id="s-their-case" data-block="counterparty">
@@ -4567,7 +4656,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
   <p class="dt2"><span data-t="h">可用的反擊，只有一句</span><span data-t="e">The counter, and it is one line</span></p>
   <p class="punch"><span data-t="h">這段話在稼動率穩定超過七成、電力已經到位、資料受監管的客戶身上全部失效；而且對方的六折承諾價，其稼動率風險與自建完全相同。</span><span data-t="e">Every word of that fails on a customer with steady utilisation above about seventy per cent, power already in place, and regulated data — and their own committed price carries exactly the same utilisation risk that building does.</span></p>
   <p class="note"><span data-t="h">這段是照他們最強的樣子寫的，不是照我們好打的樣子寫的。你在現場會聽到的版本只會比這更順。</span><span data-t="e">That is written the way they would say it, not the way we would like them to. The version you hear on the floor will be smoother, not weaker.</span></p>
-  <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/03-compare-build-vs-rent.md</span></span></div>
+  </div>
 </section>
   </div>
   </div>
