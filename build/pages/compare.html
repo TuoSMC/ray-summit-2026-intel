@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>對位 · Ray Summit 2026</title>
 <style>
+/* rate card + crossover — the number is the point, the label is scaffolding */
+.ratecard .rate,.crossover .rate{font-family:var(--f-mono);font-size:1.06em;font-variant-numeric:tabular-nums}
+.ratecard .chip-c{font-family:var(--f-mono);white-space:nowrap}
+.rawrate{display:block;font-size:.82em;color:var(--ink3);font-family:var(--f-mono);margin-top:.15rem}
+.spread,.xover{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.1em;color:var(--stop,#8a2b12)}
+.spread-c{white-space:nowrap}
+.crossover .xover{color:var(--ok,#0f5132)}
+.reg.ratecard td,.reg.crossover td{vertical-align:top}
+
 :root{
   --paper:#FAF8F3; --card:#FFFFFF; --sunk:#F2EEE4;
   --ink:#14161A; --ink-2:#3D434E; --ink-3:#5E6675;
@@ -606,82 +615,65 @@ details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
   </div>
 </details>
 <details class="dr" data-block="rate-cards">
-  <summary><span class="dr-t"><span data-t="h">公開牌價</span><span data-t="e">The published rate cards</span></span><span class="dr-s"><span data-t="h">9 條牌價</span><span data-t="e">9 published rates</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">只有兩家公布數字</span><span data-t="e">only two vendors publish anything</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">同一顆 H100 有約五成價差</span><span data-t="e">about a five-tenths spread on the same H100</span></span></summary>
+  <summary><span class="dr-t"><span data-t="h">公開牌價</span><span data-t="e">The published rate cards</span></span><span class="dr-s"><span data-t="h">只有兩家公布數字</span><span data-t="e">only two vendors publish anything</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">同一顆 H100 差 54%</span><span data-t="e">the same H100 differs by 54%</span> <span class="sep" aria-hidden="true">·</span> <span data-t="h">多節點反而更貴</span><span data-t="e">multi-node costs more</span></span></summary>
   <div class="dr-b">
-  <p><span data-t="h">只有兩家真的公布數字。剩下的都靠客戶手上的報價單，所以現場要索取。</span><span data-t="e">Only two of them actually publish numbers. Everything else lives on a quote in a customer's hands, which is why you ask for one on the floor.</span></p>
+  <p><span data-t="h">只有兩家真的公布數字，所以這張表只有兩欄。全部換算成「每 GPU 每小時」才比得下去；對方按整台報價的，原始數字也印在旁邊，不用相信我們的算術。</span><span data-t="e">Only two of them publish numbers, so the table has two columns. Everything is normalised to one GPU for one hour or the columns cannot be compared; where a vendor quotes by the node, the raw figure prints beside it so you need not trust our arithmetic.</span></p>
   <div class="regwrap">
-  <table class="reg">
-    <thead><tr><th><span data-t="h">廠商</span><span data-t="e">Vendor</span></th><th><span data-t="h">機型</span><span data-t="e">Platform</span></th><th><span data-t="h">公開牌價</span><span data-t="e">Published rate</span></th><th><span data-t="h">單位</span><span data-t="e">Unit</span></th><th><span data-t="h">來源</span><span data-t="e">Source</span></th></tr></thead>
+  <table class="reg ratecard">
+    <thead><tr><th><span data-t="h">晶片</span><span data-t="e">Chip</span></th><th>Lambda</th><th>CoreWeave</th><th><span data-t="h">價差</span><span data-t="e">Spread</span></th></tr></thead>
     <tbody>
       <tr>
-        <td><span class="lbl"><span data-t="h">廠商</span><span data-t="e">Vendor</span></span><span class="lk">Lambda</span></td>
-        <td><span class="lbl"><span data-t="h">機型</span><span data-t="e">Platform</span></span><span class="lk">B200 (8x)</span></td>
-        <td><span class="lbl"><span data-t="h">公開牌價</span><span data-t="e">Published rate</span></span><span class="lk">USD 6.69</span></td>
-        <td><span class="lbl"><span data-t="h">單位</span><span data-t="e">Unit</span></span><span class="lk">GPU-hr</span></td>
-        <td><span class="lbl"><span data-t="h">來源</span><span data-t="e">Source</span></span><span class="src"><a class="srcl" href="https://lambda.ai/pricing" title="https://lambda.ai/pricing">lambda.ai/pricing</a> <span class="lk">2026-08-17</span></span></td>
+        <td class="chip-c"><span class="lbl"><span data-t="h">晶片</span><span data-t="e">Chip</span></span><span class="lk">B200</span></td>
+        <td><span class="lbl"><span data-t="h">每 GPU-hr</span><span data-t="e">per GPU-hr</span></span><b class="rate"><span class="lk">USD 6.69</span></b></td>
+        <td><span class="lbl"><span data-t="h">每 GPU-hr</span><span data-t="e">per GPU-hr</span></span><b class="rate"><span class="lk">USD 8.60</span></b></td>
+        <td class="spread-c"><span class="lbl"><span data-t="h">價差</span><span data-t="e">Spread</span></span><b class="spread">+29%</b> <span class="cap"><span data-t="h">CoreWeave 較貴</span><span data-t="e">CoreWeave dearer</span></span></td>
       </tr>
       <tr>
-        <td><span class="lbl"><span data-t="h">廠商</span><span data-t="e">Vendor</span></span><span class="lk">Lambda</span></td>
-        <td><span class="lbl"><span data-t="h">機型</span><span data-t="e">Platform</span></span><span class="lk">H100 SXM</span></td>
-        <td><span class="lbl"><span data-t="h">公開牌價</span><span data-t="e">Published rate</span></span><span class="lk">USD 3.99</span></td>
-        <td><span class="lbl"><span data-t="h">單位</span><span data-t="e">Unit</span></span><span class="lk">GPU-hr</span></td>
-        <td><span class="lbl"><span data-t="h">來源</span><span data-t="e">Source</span></span><span class="src"><a class="srcl" href="https://lambda.ai/pricing" title="https://lambda.ai/pricing">lambda.ai/pricing</a> <span class="lk">2026-08-17</span></span></td>
+        <td class="chip-c"><span class="lbl"><span data-t="h">晶片</span><span data-t="e">Chip</span></span><span class="lk">H200</span></td>
+        <td><span class="lbl"><span data-t="h">每 GPU-hr</span><span data-t="e">per GPU-hr</span></span><span class="gap">GAP</span> <span class="why"><span data-t="h">未公布這一顆</span><span data-t="e">does not publish this one</span></span></td>
+        <td><span class="lbl"><span data-t="h">每 GPU-hr</span><span data-t="e">per GPU-hr</span></span><b class="rate"><span class="lk">USD 6.31</span></b><span class="rawrate"><span data-t="h">USD 50.44 / 8-GPU hr</span><span data-t="e">USD 50.44 per 8-GPU hour</span></span></td>
+        <td class="spread-c"><span class="lbl"><span data-t="h">價差</span><span data-t="e">Spread</span></span><span class="gap">GAP</span> <span class="why"><span data-t="h">只有一家報這顆，比不了</span><span data-t="e">only one vendor lists it, so there is nothing to compare</span></span></td>
       </tr>
       <tr>
-        <td><span class="lbl"><span data-t="h">廠商</span><span data-t="e">Vendor</span></span><span class="lk">Lambda</span></td>
-        <td><span class="lbl"><span data-t="h">機型</span><span data-t="e">Platform</span></span><span class="lk">A100 80GB</span></td>
-        <td><span class="lbl"><span data-t="h">公開牌價</span><span data-t="e">Published rate</span></span><span class="lk">USD 2.79</span></td>
-        <td><span class="lbl"><span data-t="h">單位</span><span data-t="e">Unit</span></span><span class="lk">GPU-hr</span></td>
-        <td><span class="lbl"><span data-t="h">來源</span><span data-t="e">Source</span></span><span class="src"><a class="srcl" href="https://lambda.ai/pricing" title="https://lambda.ai/pricing">lambda.ai/pricing</a> <span class="lk">2026-08-17</span></span></td>
+        <td class="chip-c"><span class="lbl"><span data-t="h">晶片</span><span data-t="e">Chip</span></span><span class="lk">H100 SXM</span></td>
+        <td><span class="lbl"><span data-t="h">每 GPU-hr</span><span data-t="e">per GPU-hr</span></span><b class="rate"><span class="lk">USD 3.99</span></b></td>
+        <td><span class="lbl"><span data-t="h">每 GPU-hr</span><span data-t="e">per GPU-hr</span></span><b class="rate"><span class="lk">USD 6.16</span></b><span class="rawrate"><span data-t="h">USD 49.24 / 8-GPU hr</span><span data-t="e">USD 49.24 per 8-GPU hour</span></span></td>
+        <td class="spread-c"><span class="lbl"><span data-t="h">價差</span><span data-t="e">Spread</span></span><b class="spread">+54%</b> <span class="cap"><span data-t="h">CoreWeave 較貴</span><span data-t="e">CoreWeave dearer</span></span></td>
       </tr>
       <tr>
-        <td><span class="lbl"><span data-t="h">廠商</span><span data-t="e">Vendor</span></span><span class="lk">Lambda</span></td>
-        <td><span class="lbl"><span data-t="h">機型</span><span data-t="e">Platform</span></span><span class="lk">B200 1-Click Cluster</span></td>
-        <td><span class="lbl"><span data-t="h">公開牌價</span><span data-t="e">Published rate</span></span><span class="lk">USD 8.87–9.86</span></td>
-        <td><span class="lbl"><span data-t="h">單位</span><span data-t="e">Unit</span></span><span class="lk">GPU-hr</span></td>
-        <td><span class="lbl"><span data-t="h">來源</span><span data-t="e">Source</span></span><span class="src"><a class="srcl" href="https://lambda.ai/pricing" title="https://lambda.ai/pricing">lambda.ai/pricing</a> <span class="lk">2026-08-17</span></span></td>
+        <td class="chip-c"><span class="lbl"><span data-t="h">晶片</span><span data-t="e">Chip</span></span><span class="lk">A100 80GB</span></td>
+        <td><span class="lbl"><span data-t="h">每 GPU-hr</span><span data-t="e">per GPU-hr</span></span><b class="rate"><span class="lk">USD 2.79</span></b></td>
+        <td><span class="lbl"><span data-t="h">每 GPU-hr</span><span data-t="e">per GPU-hr</span></span><span class="gap">GAP</span> <span class="why"><span data-t="h">未公布這一顆</span><span data-t="e">does not publish this one</span></span></td>
+        <td class="spread-c"><span class="lbl"><span data-t="h">價差</span><span data-t="e">Spread</span></span><span class="gap">GAP</span> <span class="why"><span data-t="h">只有一家報這顆，比不了</span><span data-t="e">only one vendor lists it, so there is nothing to compare</span></span></td>
       </tr>
       <tr>
-        <td><span class="lbl"><span data-t="h">廠商</span><span data-t="e">Vendor</span></span><span class="lk">Lambda</span></td>
-        <td><span class="lbl"><span data-t="h">機型</span><span data-t="e">Platform</span></span><span class="lk">H100 1-Click Cluster</span></td>
-        <td><span class="lbl"><span data-t="h">公開牌價</span><span data-t="e">Published rate</span></span><span class="lk">USD 5.54–6.16</span></td>
-        <td><span class="lbl"><span data-t="h">單位</span><span data-t="e">Unit</span></span><span class="lk">GPU-hr</span></td>
-        <td><span class="lbl"><span data-t="h">來源</span><span data-t="e">Source</span></span><span class="src"><a class="srcl" href="https://lambda.ai/pricing" title="https://lambda.ai/pricing">lambda.ai/pricing</a> <span class="lk">2026-08-17</span></span></td>
-      </tr>
-      <tr>
-        <td><span class="lbl"><span data-t="h">廠商</span><span data-t="e">Vendor</span></span><span class="lk">CoreWeave</span></td>
-        <td><span class="lbl"><span data-t="h">機型</span><span data-t="e">Platform</span></span><span class="lk">B200 (8x)</span></td>
-        <td><span class="lbl"><span data-t="h">公開牌價</span><span data-t="e">Published rate</span></span><span class="lk">USD 8.60</span></td>
-        <td><span class="lbl"><span data-t="h">單位</span><span data-t="e">Unit</span></span><span class="lk">GPU-hr</span></td>
-        <td><span class="lbl"><span data-t="h">來源</span><span data-t="e">Source</span></span><span class="src"><a class="srcl" href="https://www.coreweave.com/pricing" title="https://www.coreweave.com/pricing">coreweave.com/pricing</a> <span class="lk">2026-08-17</span></span></td>
-      </tr>
-      <tr>
-        <td><span class="lbl"><span data-t="h">廠商</span><span data-t="e">Vendor</span></span><span class="lk">CoreWeave</span></td>
-        <td><span class="lbl"><span data-t="h">機型</span><span data-t="e">Platform</span></span><span class="lk">H100 (8x)</span></td>
-        <td><span class="lbl"><span data-t="h">公開牌價</span><span data-t="e">Published rate</span></span><span class="lk">USD 6.16</span></td>
-        <td><span class="lbl"><span data-t="h">單位</span><span data-t="e">Unit</span></span><span class="lk">GPU-hr</span></td>
-        <td><span class="lbl"><span data-t="h">來源</span><span data-t="e">Source</span></span><span class="src"><a class="srcl" href="https://www.coreweave.com/pricing" title="https://www.coreweave.com/pricing">coreweave.com/pricing</a> <span class="lk">2026-08-17</span></span></td>
-      </tr>
-      <tr>
-        <td><span class="lbl"><span data-t="h">廠商</span><span data-t="e">Vendor</span></span><span class="lk">CoreWeave</span></td>
-        <td><span class="lbl"><span data-t="h">機型</span><span data-t="e">Platform</span></span><span class="lk">H200 (8x)</span></td>
-        <td><span class="lbl"><span data-t="h">公開牌價</span><span data-t="e">Published rate</span></span><span class="lk">USD 50.44</span></td>
-        <td><span class="lbl"><span data-t="h">單位</span><span data-t="e">Unit</span></span><span class="lk">per 8-GPU hr</span></td>
-        <td><span class="lbl"><span data-t="h">來源</span><span data-t="e">Source</span></span><span class="src"><a class="srcl" href="https://www.coreweave.com/pricing" title="https://www.coreweave.com/pricing">coreweave.com/pricing</a> <span class="lk">2026-08-17</span></span></td>
-      </tr>
-      <tr>
-        <td><span class="lbl"><span data-t="h">廠商</span><span data-t="e">Vendor</span></span><span class="lk">CoreWeave</span></td>
-        <td><span class="lbl"><span data-t="h">機型</span><span data-t="e">Platform</span></span><span class="lk">GB200 NVL72 (4x)</span></td>
-        <td><span class="lbl"><span data-t="h">公開牌價</span><span data-t="e">Published rate</span></span><span class="lk">USD 10.50</span></td>
-        <td><span class="lbl"><span data-t="h">單位</span><span data-t="e">Unit</span></span><span class="lk">GPU-hr</span></td>
-        <td><span class="lbl"><span data-t="h">來源</span><span data-t="e">Source</span></span><span class="src"><a class="srcl" href="https://www.coreweave.com/pricing" title="https://www.coreweave.com/pricing">coreweave.com/pricing</a> <span class="lk">2026-08-17</span></span></td>
+        <td class="chip-c"><span class="lbl"><span data-t="h">晶片</span><span data-t="e">Chip</span></span><span class="lk">GB200 NVL72</span></td>
+        <td><span class="lbl"><span data-t="h">每 GPU-hr</span><span data-t="e">per GPU-hr</span></span><span class="gap">GAP</span> <span class="why"><span data-t="h">未公布這一顆</span><span data-t="e">does not publish this one</span></span></td>
+        <td><span class="lbl"><span data-t="h">每 GPU-hr</span><span data-t="e">per GPU-hr</span></span><b class="rate"><span class="lk">USD 10.50</span></b><span class="rawrate"><span data-t="h">USD 42.00 / 4-GPU hr</span><span data-t="e">USD 42.00 per 4-GPU hour</span></span></td>
+        <td class="spread-c"><span class="lbl"><span data-t="h">價差</span><span data-t="e">Spread</span></span><span class="gap">GAP</span> <span class="why"><span data-t="h">只有一家報這顆，比不了</span><span data-t="e">only one vendor lists it, so there is nothing to compare</span></span></td>
       </tr>
     </tbody>
   </table>
   </div>
-  <p class="punch"><span data-t="h">同一顆 H100：Lambda</span><span data-t="e">The same H100: Lambda at</span> <span class="lk">USD 3.99</span> <span data-t="h">對 CoreWeave</span><span data-t="e">against CoreWeave at</span> <span class="lk">USD 6.16</span> <span data-t="h">。租賃市場自己就有約五成價差 ——「租比較便宜」不是一個事實，是一句沒有講完的話。</span><span data-t="e">. The rental market carries about a fifty per cent spread inside itself. "Renting is cheaper" is not a fact, it is an unfinished sentence.</span></p>
-  <p><span data-t="h">CoreWeave 的承諾用量寫「最高六折」，但合約長度與級距未公布 —— 這是 GAP，不是可以拿來算的數字。要結案：向客戶索取他手上的實際報價單。</span><span data-t="e">CoreWeave says committed use goes "up to forty per cent off" but publishes neither contract length nor tiers. That is a gap, not a number you can compute with. To close it, ask the customer for the quote they are actually holding.</span></p>
-  <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><a class="srcl" href="https://www.coreweave.com/pricing" title="https://www.coreweave.com/pricing">coreweave.com/pricing</a> <span class="lk">2026-08-17</span></span>
+  <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><a class="srcl" href="https://lambda.ai/pricing" title="https://lambda.ai/pricing">lambda.ai/pricing</a> <span class="lk">2026-08-17</span></span> <span class="src"><a class="srcl" href="https://www.coreweave.com/pricing" title="https://www.coreweave.com/pricing">coreweave.com/pricing</a> <span class="lk">2026-08-17</span></span>
+  <p class="punch"><span data-t="h">同一顆 H100，一家</span><span data-t="e">The same H100, one vendor at</span> <span class="lk">USD 3.99</span> <span data-t="h">，另一家</span><span data-t="e">, the other at</span> <span class="lk">USD 6.16</span> <span data-t="h">。差</span><span data-t="e">. That is</span> <span class="lk">54%</span> <span data-t="h">，而且兩家都在這場展會裡。租賃市場自己就有這麼大的價差 ——「租比較便宜」不是一個事實，是一句沒有講完的話。</span><span data-t="e">, and both of them are at this show. The rental market carries that spread inside itself. "Renting is cheaper" is not a fact, it is an unfinished sentence.</span></p>
+<details class="dr">
+  <summary><span class="dr-t"><span data-t="h">多節點反而更貴</span><span data-t="e">Multi-node costs more, not less</span></span><span class="dr-s"><span data-t="h">叢集價比單機價高兩到四成</span><span data-t="e">clusters run twenty to forty per cent above single nodes</span></span></summary>
+  <div class="dr-b">
+  <p><span data-t="h">買家預期量大變便宜。Lambda 的多節點叢集比單機貴 —— 因為那條 InfiniBand 要錢。這是現場可以直接問的一句話。</span><span data-t="e">A buyer expects volume to get cheaper. Lambda's multi-node clusters cost more than single nodes, because the InfiniBand fabric is not free. That is a question you can ask on the floor as it stands.</span></p>
+  <div class="regwrap">
+  <table class="reg">
+    <thead><tr><th><span data-t="h">叢集方案</span><span data-t="e">Cluster offer</span></th><th><span data-t="h">叢集價</span><span data-t="e">Cluster rate</span></th><th><span data-t="h">同顆單機價</span><span data-t="e">Single-node rate</span></th><th><span data-t="h">貴多少</span><span data-t="e">Premium</span></th></tr></thead>
+    <tbody>
+      <tr><td><span class="lbl"><span data-t="h">叢集方案</span><span data-t="e">Cluster offer</span></span><span class="lk">B200 1-Click Cluster</span></td><td><span class="lbl"><span data-t="h">叢集價</span><span data-t="e">Cluster rate</span></span><b class="rate"><span class="lk">USD 8.87–9.86</span></b></td><td><span class="lbl"><span data-t="h">同顆單機價</span><span data-t="e">Single-node rate</span></span><span class="lk">USD 6.69</span></td><td><span class="lbl"><span data-t="h">貴多少</span><span data-t="e">Premium</span></span><b class="spread">+33%</b></td></tr>
+      <tr><td><span class="lbl"><span data-t="h">叢集方案</span><span data-t="e">Cluster offer</span></span><span class="lk">H100 1-Click Cluster</span></td><td><span class="lbl"><span data-t="h">叢集價</span><span data-t="e">Cluster rate</span></span><b class="rate"><span class="lk">USD 5.54–6.16</span></b></td><td><span class="lbl"><span data-t="h">同顆單機價</span><span data-t="e">Single-node rate</span></span><span class="lk">USD 3.99</span></td><td><span class="lbl"><span data-t="h">貴多少</span><span data-t="e">Premium</span></span><b class="spread">+39%</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span> <span class="src"><a class="srcl" href="https://lambda.ai/pricing" title="https://lambda.ai/pricing">lambda.ai/pricing</a> <span class="lk">2026-08-17</span></span>
+  </div>
+</details>
+  <p><span data-t="h">CoreWeave 的承諾用量寫「最高六折」，但合約長度與級距沒公布。</span><span data-t="e">CoreWeave says committed use goes up to forty per cent off but publishes neither contract length nor tiers.</span> <span class="lk">&lt;span class="gap"&gt;GAP&lt;/span&gt; &lt;span class="why"&gt;&lt;span data-t="h"&gt;那是 GAP，不是可以拿來算的數字。要結案：向客戶索取他手上的實際報價單&lt;/span&gt;&lt;span data-t="e"&gt;that is a gap, not a number you can compute with. To close it, ask the customer for the quote they are actually holding&lt;/span&gt;&lt;/span&gt;</span></p>
   </div>
 </details>
 <details class="dr" data-block="crossover">
@@ -696,6 +688,21 @@ details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
   <p class="dt2"><span data-t="h">推算式，原樣寫出來</span><span data-t="e">The formula, written out</span></p>
   <p class="formula">ESTIMATE{ (B200 USD 40,000/GPU &#247; 0.30 TCO share) &#247; (5 years &#215; 8,760 hours &#215; utilisation) }</p>
   <p class="note"><span data-t="h">這是推算，不是報價。輸入來源都是第三方，讀取日期見下方。拿去對話可以，拿去當價格不行。</span><span data-t="e">This is an estimate and it is not a quote. Both inputs are third-party and the read dates are below. Use it to have a conversation, never as a price.</span></p>
+  <p class="dt2"><span data-t="h">自建從幾成稼動開始贏</span><span data-t="e">The utilisation at which building starts to win</span></p>
+  <div class="regwrap">
+  <table class="reg crossover">
+    <thead><tr><th><span data-t="h">比的對象</span><span data-t="e">Against</span></th><th><span data-t="h">對方每 GPU-hr</span><span data-t="e">Their rate, per GPU-hr</span></th><th><span data-t="h">自建從這裡開始贏</span><span data-t="e">Build wins from</span></th></tr></thead>
+    <tbody>
+      <tr><td><span class="lbl"><span data-t="h">比的對象</span><span data-t="e">Against</span></span><span data-t="h">CoreWeave 隨需</span><span data-t="e">CoreWeave on demand</span></td><td><span class="lbl"><span data-t="h">對方每 GPU-hr</span><span data-t="e">Their rate, per GPU-hr</span></span><span class="lk">USD 8.60</span></td><td><span class="lbl"><span data-t="h">自建從這裡開始贏</span><span data-t="e">Build wins from</span></span><b class="xover"><span class="lk">35%</span></b></td></tr>
+      <tr><td><span class="lbl"><span data-t="h">比的對象</span><span data-t="e">Against</span></span><span data-t="h">Lambda 隨需</span><span data-t="e">Lambda on demand</span></td><td><span class="lbl"><span data-t="h">對方每 GPU-hr</span><span data-t="e">Their rate, per GPU-hr</span></span><span class="lk">USD 6.69</span></td><td><span class="lbl"><span data-t="h">自建從這裡開始贏</span><span data-t="e">Build wins from</span></span><b class="xover"><span class="lk">45%</span></b></td></tr>
+      <tr><td><span class="lbl"><span data-t="h">比的對象</span><span data-t="e">Against</span></span><span data-t="h">CoreWeave 承諾用量（最高六折）</span><span data-t="e">CoreWeave committed, up to forty per cent off</span></td><td><span class="lbl"><span data-t="h">對方每 GPU-hr</span><span data-t="e">Their rate, per GPU-hr</span></span><span class="lk">USD 3.44</span> <span class="cap"><span class="gap">GAP</span> <span class="why"><span data-t="h">合約長度與級距未公布，這個數字是從「最高六折」回推</span><span data-t="e">contract length and tiers are unpublished; this figure is derived back from the up-to-forty-per-cent-off line</span></span></span></td><td><span class="lbl"><span data-t="h">自建從這裡開始贏</span><span data-t="e">Build wins from</span></span><b class="xover"><span class="lk">88%</span></b></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="punch"><span data-t="h">同一套自建成本，換一個比較對象，門檻從三成五跳到將近九成。所以「幾成稼動才划算」這個問題,沒有先問「跟哪一種租賃比」就沒有答案。</span><span data-t="e">One build cost, three different answers — the bar moves from thirty-five per cent to nearly ninety depending only on what you compare against. "What utilisation do I need" has no answer until someone says which rental.</span></p>
+<details class="dr">
+  <summary><span class="dr-t"><span data-t="h">自建成本階梯</span><span data-t="e">The build-cost ladder behind it</span></span><span class="dr-s"><span data-t="h">四個稼動率下的每 GPU-hr 成本</span><span data-t="e">per GPU-hour at four utilisation levels</span></span></summary>
+  <div class="dr-b">
   <div class="regwrap">
   <table class="reg">
     <thead><tr><th><span data-t="h">稼動率</span><span data-t="e">Utilisation</span></th><th><span data-t="h">自建每 GPU-hr</span><span data-t="e">Build, per GPU-hr</span></th></tr></thead>
@@ -707,12 +714,8 @@ details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
     </tbody>
   </table>
   </div>
-  <p class="dt2"><span data-t="h">交叉點</span><span data-t="e">Where it crosses</span></p>
-  <ul class="ev-list">
-    <li><span data-t="h">對 CoreWeave 隨需</span><span data-t="e">Against CoreWeave on demand at</span> <span class="lk">USD 8.60</span> <span data-t="h">，約</span><span data-t="e">, build wins above about</span> <span class="lk">35%</span> <span data-t="h">稼動就贏。</span><span data-t="e">utilisation.</span></li>
-    <li><span data-t="h">對 Lambda 隨需</span><span data-t="e">Against Lambda on demand at</span> <span class="lk">USD 6.69</span> <span data-t="h">，約</span><span data-t="e">, about</span> <span class="lk">45%</span> <span data-t="h">。</span><span data-t="e">.</span></li>
-    <li><span data-t="h">對 CoreWeave 六折承諾價</span><span data-t="e">Against CoreWeave's committed price of about</span> <span class="lk">USD 3.44</span> <span data-t="h">，要</span><span data-t="e">, you need</span> <span class="lk">88%</span> <span data-t="h">才贏。</span><span data-t="e">before you win.</span></li>
-  </ul>
+  </div>
+</details>
   <p class="punch"><span data-t="h">常被略過的一點：一年期預留合約的稼動率風險與自建完全相同 —— 用不用都要付。唯一沒有稼動率風險的是隨需，而隨需最貴。所以在高承諾情境下兩邊幾乎是同一題，租賃贏的是速度與選擇權，不是單位成本。</span><span data-t="e">The point everyone skips: a one-year reserved contract carries exactly the same utilisation risk as building — you pay whether you use it or not. The only thing with no utilisation risk is on-demand, and on-demand is the most expensive. So at high commitment the two sides are nearly the same question, and what renting wins is speed and optionality, not unit cost.</span></p>
   <p><span data-t="h">真正不確定的是租金方向。H100 的每小時租金在</span><span data-t="e">What is genuinely uncertain is which way rent moves. H100 rent per hour was</span> <span class="lk">USD 7-10</span> <span data-t="h">，是</span><span data-t="e"> in</span> <span class="lk">2023</span> <span data-t="h">年的水準；到</span><span data-t="e">; by</span> <span class="lk">2024-2025</span> <span data-t="h">一度跌破</span><span data-t="e">it had briefly dropped under</span> <span class="lk">USD 2</span> <span data-t="h">，跌幅約七成。但一年期合約價從</span><span data-t="e">, about seventy per cent down. Then the one-year contract price went from</span> <span class="lk">USD 1.70</span> <span data-t="h">（</span><span data-t="e">(</span> <span class="lk">2025-10</span> <span data-t="h">）反彈約四成，到</span><span data-t="e">) back up about forty per cent to</span> <span class="lk">USD 2.35</span> <span data-t="h">（</span><span data-t="e">(</span> <span class="lk">2026-03</span> <span data-t="h">）。任何以「租金會一直跌」或「一直漲」為前提的模型都不可信，包括對方拿給客戶看的那一份。</span><span data-t="e">). Any model that assumes rent only falls, or only rises, is not worth showing anyone, including the one the other side shows your customer.</span></p>
   <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/03-compare-build-vs-rent.md</span></span>

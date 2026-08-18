@@ -58,6 +58,15 @@ HTML_LANG = {'h': 'zh-Hant', 's': 'zh-Hans', 'e': 'en'}
 # --------------------------------------------------------------------- CSS ---
 # DESIGN.md sections 1-9, in order: tokens, base, chrome, components, response.
 CSS = """
+/* rate card + crossover — the number is the point, the label is scaffolding */
+.ratecard .rate,.crossover .rate{font-family:var(--f-mono);font-size:1.06em;font-variant-numeric:tabular-nums}
+.ratecard .chip-c{font-family:var(--f-mono);white-space:nowrap}
+.rawrate{display:block;font-size:.82em;color:var(--ink3);font-family:var(--f-mono);margin-top:.15rem}
+.spread,.xover{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.1em;color:var(--stop,#8a2b12)}
+.spread-c{white-space:nowrap}
+.crossover .xover{color:var(--ok,#0f5132)}
+.reg.ratecard td,.reg.crossover td{vertical-align:top}
+
 :root{
   --paper:#FAF8F3; --card:#FFFFFF; --sunk:#F2EEE4;
   --ink:#14161A; --ink-2:#3D434E; --ink-3:#5E6675;

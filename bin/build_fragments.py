@@ -1970,19 +1970,38 @@ RENTERS = [
      'https://lambda.ai', '2026-08-17', 'third'),
 ]
 
-RATE_ROWS = [
-    ('Lambda', 'B200 (8x)', 'USD 6.69', 'GPU-hr', 'https://lambda.ai/pricing'),
-    ('Lambda', 'H100 SXM', 'USD 3.99', 'GPU-hr', 'https://lambda.ai/pricing'),
-    ('Lambda', 'A100 80GB', 'USD 2.79', 'GPU-hr', 'https://lambda.ai/pricing'),
-    ('Lambda', 'B200 1-Click Cluster', 'USD 8.87–9.86', 'GPU-hr', 'https://lambda.ai/pricing'),
-    ('Lambda', 'H100 1-Click Cluster', 'USD 5.54–6.16', 'GPU-hr', 'https://lambda.ai/pricing'),
-    ('CoreWeave', 'B200 (8x)', 'USD 8.60', 'GPU-hr', 'https://www.coreweave.com/pricing'),
-    ('CoreWeave', 'H100 (8x)', 'USD 6.16', 'GPU-hr', 'https://www.coreweave.com/pricing'),
-    ('CoreWeave', 'H200 (8x)', 'USD 50.44', 'per 8-GPU hr', 'https://www.coreweave.com/pricing'),
-    ('CoreWeave', 'GB200 NVL72 (4x)', 'USD 10.50', 'GPU-hr', 'https://www.coreweave.com/pricing'),
+# Rate card pivoted on the GPU, because the story is the SPREAD on one chip,
+# not a list of prices. Every rate normalised to USD per GPU-hour so the columns
+# are actually comparable; where a vendor quotes per-node the raw figure is kept
+# in `raw` and shown, so nobody has to trust our arithmetic.
+# None = that vendor does not publish this part. That is a GAP, never a zero.
+LAMBDA_URL = 'https://lambda.ai/pricing'
+CW_URL = 'https://www.coreweave.com/pricing'
+
+# (chip, lambda_per_gpu_hr, coreweave_per_gpu_hr, coreweave_raw_note)
+RATE_PIVOT = [
+    ('B200',          6.69,  8.60,  None),
+    ('H200',          None,  6.31,  ('USD 50.44 / 8-GPU hr', 'USD 50.44 per 8-GPU hour')),
+    ('H100 SXM',      3.99,  6.16,  ('USD 49.24 / 8-GPU hr', 'USD 49.24 per 8-GPU hour')),
+    ('A100 80GB',     2.79,  None,  None),
+    ('GB200 NVL72',   None, 10.50,  ('USD 42.00 / 4-GPU hr', 'USD 42.00 per 4-GPU hour')),
+]
+
+# Multi-node costs MORE than single node at Lambda — the opposite of the volume
+# discount a buyer expects, and worth its own line rather than a row in the grid.
+CLUSTER_ROWS = [
+    ('B200 1-Click Cluster', 'USD 8.87–9.86', 6.69),
+    ('H100 1-Click Cluster', 'USD 5.54–6.16', 3.99),
 ]
 
 LADDER = [('100%', 'USD 3.0'), ('70%', 'USD 4.3'), ('50%', 'USD 6.1'), ('30%', 'USD 10.1')]
+
+# (label_h, label_e, rate_per_gpu_hr, crossover_pct, is_gap_on_terms)
+CROSSOVERS = [
+    ('CoreWeave 隨需', 'CoreWeave on demand', 8.60, '35%', False),
+    ('Lambda 隨需', 'Lambda on demand', 6.69, '45%', False),
+    ('CoreWeave 承諾用量（最高六折）', 'CoreWeave committed, up to forty per cent off', 3.44, '88%', True),
+]
 
 WINS = [
     ('高稼動、長期穩態推論：稼動率超過七成、且看得到三年以上需求時，自建的單位成本明確勝出。',
@@ -2099,51 +2118,118 @@ def frag_compare():
          '\n'.join(rn), block='renters'))
 
     # ---------------------------------------------------- 3. the rate card --
+    def spread(a, b):
+        """Percentage the dearer side sits above the cheaper one."""
+        if a is None or b is None:
+            return None
+        lo, hi = min(a, b), max(a, b)
+        return int(round((hi - lo) / lo * 100)), ('CoreWeave' if b > a else 'Lambda')
+
     rc = ['  <p>%s</p>'
-          % tt('只有兩家真的公布數字。剩下的都靠客戶手上的報價單，所以現場要索取。',
-               'Only two of them actually publish numbers. Everything else lives on a quote in a '
-               'customer\'s hands, which is why you ask for one on the floor.')]
+          % tt('只有兩家真的公布數字，所以這張表只有兩欄。全部換算成「每 GPU 每小時」才比得下去；'
+               '對方按整台報價的，原始數字也印在旁邊，不用相信我們的算術。',
+               'Only two of them publish numbers, so the table has two columns. Everything is '
+               'normalised to one GPU for one hour or the columns cannot be compared; where a '
+               'vendor quotes by the node, the raw figure prints beside it so you need not trust '
+               'our arithmetic.')]
     rc.append('  <div class="regwrap">')
-    rc.append('  <table class="reg">')
+    rc.append('  <table class="reg ratecard">')
     rc.append('    <thead><tr>%s</tr></thead>'
-              % ''.join('<th>%s</th>' % tt(esc(a1), esc(b1))
-                        for a1, b1 in (('廠商', 'Vendor'), ('機型', 'Platform'),
-                                       ('公開牌價', 'Published rate'), ('單位', 'Unit'),
-                                       ('來源', 'Source'))))
+              % ''.join('<th>%s</th>' % h for h in (
+                  tt('晶片', 'Chip'), 'Lambda', 'CoreWeave',
+                  tt('價差', 'Spread'))))
     rc.append('    <tbody>')
-    for vendor, plat, price, unit, url in RATE_ROWS:
+    for chip, lam, cw, raw in RATE_PIVOT:
+        sp = spread(lam, cw)
+        def cell(v, url, rawnote=None):
+            if v is None:
+                return ('<span class="lbl">%s</span>%s'
+                        % (tt('每 GPU-hr', 'per GPU-hr'),
+                           gap('未公布這一顆', 'does not publish this one')))
+            extra = ('<span class="rawrate">%s</span>'
+                     % tt(esc(rawnote[0]), esc(rawnote[1]))) if rawnote else ''
+            return ('<span class="lbl">%s</span><b class="rate">%s</b>%s'
+                    % (tt('每 GPU-hr', 'per GPU-hr'), lk('USD %.2f' % v), extra))
         rc.append('      <tr>')
-        rc.append('        <td><span class="lbl">%s</span>%s</td>'
-                  % (tt('廠商', 'Vendor'), lk(vendor)))
-        rc.append('        <td><span class="lbl">%s</span>%s</td>'
-                  % (tt('機型', 'Platform'), lk(plat)))
-        rc.append('        <td><span class="lbl">%s</span>%s</td>'
-                  % (tt('公開牌價', 'Published rate'), lk(price)))
-        rc.append('        <td><span class="lbl">%s</span>%s</td>'
-                  % (tt('單位', 'Unit'), lk(unit)))
-        rc.append('        <td><span class="lbl">%s</span>%s</td>'
-                  % (tt('來源', 'Source'), src_a(url, ASOF)))
+        rc.append('        <td class="chip-c"><span class="lbl">%s</span>%s</td>'
+                  % (tt('晶片', 'Chip'), lk(chip)))
+        rc.append('        <td>%s</td>' % cell(lam, LAMBDA_URL))
+        rc.append('        <td>%s</td>' % cell(cw, CW_URL, raw))
+        if sp:
+            pct, dearer = sp
+            rc.append('        <td class="spread-c"><span class="lbl">%s</span>'
+                      '<b class="spread">+%d%%</b> <span class="cap">%s</span></td>'
+                      % (tt('價差', 'Spread'), pct,
+                         tt('%s 較貴' % esc(dearer), '%s dearer' % esc(dearer))))
+        else:
+            rc.append('        <td class="spread-c"><span class="lbl">%s</span>%s</td>'
+                      % (tt('價差', 'Spread'),
+                         gap('只有一家報這顆，比不了',
+                             'only one vendor lists it, so there is nothing to compare')))
         rc.append('      </tr>')
     rc.append('    </tbody>')
     rc.append('  </table>')
     rc.append('  </div>')
-    rc.append('  <p class="punch">%s</p>'
-              % S(('同一顆 H100：Lambda', 'The same H100: Lambda at'), 'USD 3.99',
-                  ('對 CoreWeave', 'against CoreWeave at'), 'USD 6.16',
-                  ('。租賃市場自己就有約五成價差 ——「租比較便宜」不是一個事實，是一句沒有講完的話。',
-                   '. The rental market carries about a fifty per cent spread inside itself. '
-                   '"Renting is cheaper" is not a fact, it is an unfinished sentence.')))
+    rc.append('  %s %s %s' % (ev('official'), src_a(LAMBDA_URL, ASOF), src_a(CW_URL, ASOF)))
+
+    h100 = next((r for r in RATE_PIVOT if r[0].startswith('H100')), None)
+    if h100 and h100[1] and h100[2]:
+        pct, dearer = spread(h100[1], h100[2])
+        rc.append('  <p class="punch">%s</p>'
+                  % S(('同一顆 H100，一家', 'The same H100, one vendor at'),
+                      'USD %.2f' % h100[1], ('，另一家', ', the other at'),
+                      'USD %.2f' % h100[2], ('。差', '. That is'), '%d%%' % pct,
+                      ('，而且兩家都在這場展會裡。租賃市場自己就有這麼大的價差 ——'
+                       '「租比較便宜」不是一個事實，是一句沒有講完的話。',
+                       ', and both of them are at this show. The rental market carries that spread '
+                       'inside itself. "Renting is cheaper" is not a fact, it is an unfinished '
+                       'sentence.')))
+
+    # multi-node costs more, not less
+    cl = ['  <p>%s</p>'
+          % tt('買家預期量大變便宜。Lambda 的多節點叢集比單機貴 —— 因為那條 InfiniBand 要錢。'
+               '這是現場可以直接問的一句話。',
+               'A buyer expects volume to get cheaper. Lambda\'s multi-node clusters cost more than '
+               'single nodes, because the InfiniBand fabric is not free. That is a question you can '
+               'ask on the floor as it stands.')]
+    cl.append('  <div class="regwrap">')
+    cl.append('  <table class="reg">')
+    cl.append('    <thead><tr>%s</tr></thead>'
+              % ''.join('<th>%s</th>' % h for h in (
+                  tt('叢集方案', 'Cluster offer'), tt('叢集價', 'Cluster rate'),
+                  tt('同顆單機價', 'Single-node rate'), tt('貴多少', 'Premium'))))
+    cl.append('    <tbody>')
+    for label, band, single in CLUSTER_ROWS:
+        lo = float(re.findall(r'[\d.]+', band)[0])
+        prem = int(round((lo - single) / single * 100))
+        cl.append('      <tr><td><span class="lbl">%s</span>%s</td>'
+                  '<td><span class="lbl">%s</span><b class="rate">%s</b></td>'
+                  '<td><span class="lbl">%s</span>%s</td>'
+                  '<td><span class="lbl">%s</span><b class="spread">+%d%%</b></td></tr>'
+                  % (tt('叢集方案', 'Cluster offer'), lk(label),
+                     tt('叢集價', 'Cluster rate'), lk(band),
+                     tt('同顆單機價', 'Single-node rate'), lk('USD %.2f' % single),
+                     tt('貴多少', 'Premium'), prem))
+    cl.append('    </tbody>')
+    cl.append('  </table>')
+    cl.append('  </div>')
+    cl.append('  %s %s' % (ev('official'), src_a(LAMBDA_URL, ASOF)))
+    rc.append(dr(tt('多節點反而更貴', 'Multi-node costs more, not less'),
+                 tt('叢集價比單機價高兩到四成', 'clusters run twenty to forty per cent above single nodes'),
+                 '\n'.join(cl)))
+
     rc.append('  <p>%s</p>'
-              % S(('CoreWeave 的承諾用量寫「最高六折」，但合約長度與級距未公布 —— 這是 GAP，'
-                   '不是可以拿來算的數字。要結案：向客戶索取他手上的實際報價單。',
-                   'CoreWeave says committed use goes "up to forty per cent off" but publishes neither contract '
-                   'length nor tiers. That is a gap, not a number you can compute with. To close it, '
-                   'ask the customer for the quote they are actually holding.')))
-    rc.append('  %s %s' % (ev('official'), src_a('https://www.coreweave.com/pricing', ASOF)))
+              % S(('CoreWeave 的承諾用量寫「最高六折」，但合約長度與級距沒公布。',
+                   'CoreWeave says committed use goes up to forty per cent off but publishes '
+                   'neither contract length nor tiers.'),
+                  gap('那是 GAP，不是可以拿來算的數字。要結案：向客戶索取他手上的實際報價單',
+                      'that is a gap, not a number you can compute with. To close it, ask the '
+                      'customer for the quote they are actually holding')))
     a(dr(tt('公開牌價', 'The published rate cards'),
-         S(('%d 條牌價' % len(RATE_ROWS), pl(len(RATE_ROWS), 'published rate', 'published rates')),
-           '·', ('只有兩家公布數字', 'only two vendors publish anything'), '·',
-           ('同一顆 H100 有約五成價差', 'about a five-tenths spread on the same H100')),
+         S(('只有兩家公布數字', 'only two vendors publish anything'), '·',
+           ('同一顆 H100 差 %d%%' % (spread(h100[1], h100[2])[0] if h100 and h100[1] and h100[2] else 0),
+            'the same H100 differs by %d%%' % (spread(h100[1], h100[2])[0] if h100 and h100[1] and h100[2] else 0)),
+           '·', ('多節點反而更貴', 'multi-node costs more')),
          '\n'.join(rc), block='rate-cards'))
 
     # ------------------------------------- 4. the arithmetic, with formula --
@@ -2175,28 +2261,53 @@ def frag_compare():
                    '拿去對話可以，拿去當價格不行。',
                    'This is an estimate and it is not a quote. Both inputs are third-party and the '
                    'read dates are below. Use it to have a conversation, never as a price.'))
+    # The answer belongs IN the table. A ladder of build costs makes the reader
+    # do the join; the question they actually carry is "against what, and from
+    # what utilisation do I win".
+    ec.append('  <p class="dt2">%s</p>'
+              % tt('自建從幾成稼動開始贏', 'The utilisation at which building starts to win'))
     ec.append('  <div class="regwrap">')
-    ec.append('  <table class="reg">')
-    ec.append('    <thead><tr><th>%s</th><th>%s</th></tr></thead>'
-              % (tt('稼動率', 'Utilisation'), tt('自建每 GPU-hr', 'Build, per GPU-hr')))
+    ec.append('  <table class="reg crossover">')
+    ec.append('    <thead><tr>%s</tr></thead>'
+              % ''.join('<th>%s</th>' % h for h in (
+                  tt('比的對象', 'Against'), tt('對方每 GPU-hr', 'Their rate, per GPU-hr'),
+                  tt('自建從這裡開始贏', 'Build wins from'))))
     ec.append('    <tbody>')
-    for u, c in LADDER:
+    for lh, le, rate, pct, terms_gap in CROSSOVERS:
+        rate_cell = lk('USD %.2f' % rate)
+        if terms_gap:
+            rate_cell += (' <span class="cap">%s</span>'
+                          % gap('合約長度與級距未公布，這個數字是從「最高六折」回推',
+                                'contract length and tiers are unpublished; this figure is '
+                                'derived back from the up-to-forty-per-cent-off line'))
         ec.append('      <tr><td><span class="lbl">%s</span>%s</td>'
-                  '<td><span class="lbl">%s</span>%s</td></tr>'
-                  % (tt('稼動率', 'Utilisation'), lk(u),
-                     tt('自建每 GPU-hr', 'Build, per GPU-hr'), lk(c)))
+                  '<td><span class="lbl">%s</span>%s</td>'
+                  '<td><span class="lbl">%s</span><b class="xover">%s</b></td></tr>'
+                  % (tt('比的對象', 'Against'), tt(esc(lh), esc(le)),
+                     tt('對方每 GPU-hr', 'Their rate, per GPU-hr'), rate_cell,
+                     tt('自建從這裡開始贏', 'Build wins from'), lk(pct)))
     ec.append('    </tbody>')
     ec.append('  </table>')
     ec.append('  </div>')
-    ec.append('  <p class="dt2">%s</p>' % tt('交叉點', 'Where it crosses'))
-    ec.append(ul([
-        S(('對 CoreWeave 隨需', 'Against CoreWeave on demand at'), 'USD 8.60',
-          ('，約', ', build wins above about'), '35%', ('稼動就贏。', 'utilisation.')),
-        S(('對 Lambda 隨需', 'Against Lambda on demand at'), 'USD 6.69',
-          ('，約', ', about'), '45%', ('。', '.')),
-        S(('對 CoreWeave 六折承諾價', 'Against CoreWeave\'s committed price of about'),
-          'USD 3.44', ('，要', ', you need'), '88%', ('才贏。', 'before you win.')),
-    ]))
+    ec.append('  <p class="punch">%s</p>'
+              % tt('同一套自建成本，換一個比較對象，門檻從三成五跳到將近九成。'
+                   '所以「幾成稼動才划算」這個問題,沒有先問「跟哪一種租賃比」就沒有答案。',
+                   'One build cost, three different answers — the bar moves from thirty-five per '
+                   'cent to nearly ninety depending only on what you compare against. '
+                   '"What utilisation do I need" has no answer until someone says which rental.'))
+    ec.append(dr(tt('自建成本階梯', 'The build-cost ladder behind it'),
+                 tt('四個稼動率下的每 GPU-hr 成本', 'per GPU-hour at four utilisation levels'),
+                 '  <div class="regwrap">\n  <table class="reg">\n'
+                 + '    <thead><tr><th>%s</th><th>%s</th></tr></thead>\n'
+                 % (tt('稼動率', 'Utilisation'), tt('自建每 GPU-hr', 'Build, per GPU-hr'))
+                 + '    <tbody>\n'
+                 + '\n'.join(
+                     '      <tr><td><span class="lbl">%s</span>%s</td>'
+                     '<td><span class="lbl">%s</span>%s</td></tr>'
+                     % (tt('稼動率', 'Utilisation'), lk(u),
+                        tt('自建每 GPU-hr', 'Build, per GPU-hr'), lk(c))
+                     for u, c in LADDER)
+                 + '\n    </tbody>\n  </table>\n  </div>'))
     ec.append('  <p class="punch">%s</p>'
               % tt('常被略過的一點：一年期預留合約的稼動率風險與自建完全相同 —— 用不用都要付。'
                    '唯一沒有稼動率風險的是隨需，而隨需最貴。所以在高承諾情境下兩邊幾乎是同一題，'
