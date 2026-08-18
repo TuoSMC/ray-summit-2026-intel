@@ -197,11 +197,13 @@ def src_a(url, date=None, note_h=None, note_e=None):
     return '<span class="src">%s</span>' % ' '.join(bits)
 
 
-def dr(title_html, scent_html, body, is_open=False, cls='', block='', fresh=False):
+def dr(title_html, scent_html, body, is_open=False, cls='', block='', fresh=False, aid=None):
     """A drawer. The summary carries the title AND a scent line — what is inside
     plus a count or a verdict — so a closed drawer still informs (RULES C6: the
     control is >=44px, focusable, and native, so keyboard works for free)."""
     at = ['class="dr%s"' % ((' ' + cls) if cls else '')]
+    if aid:
+        at.append('id="%s"' % att(aid))
     if block:
         at.append('data-block="%s"' % att(block))
     if fresh:
@@ -570,6 +572,389 @@ def ul(items, cls='ev-list'):
             % (cls, '\n'.join('    <li>%s</li>' % x for x in items))) if items else ''
 
 
+# ==================================================== structure & wayfinding ==
+# Three problems this block exists to solve, all of them the same problem seen
+# from different distances:
+#
+#   1. A long section reads as a wall. The reader cannot tell what is in it
+#      without opening it, and cannot tell what it is FOR even then.  -> spine()
+#   2. A bullet is a sentence with no handle. The reader who wants "the pricing
+#      one" has to read all nine to find it.                          -> item()
+#   3. A company named in the plays page is the same company that has a card on
+#      the account board, and the two never touched.                  -> xref()
+#
+# Everything here is anchor-based and computed. An anchor that is not registered
+# cannot be linked at (xref/secref refuse), so a rename can never silently
+# produce a dead link — it produces a build failure instead.
+
+PAGE_FILE = {r: f for r, f, _th, _te, _nh, _ne in PAGES}
+PAGE_ZH = {r: nh for r, _f, _th, _te, nh, _ne in PAGES}
+PAGE_EN = {r: ne for r, _f, _th, _te, _nh, ne in PAGES}
+
+# id -> (kind, page_role, zh, en). Ordered, because the index prints in order.
+ANCHORS = OrderedDict()
+
+
+def slug(v):
+    """A stable anchor fragment. Same input, same URL, forever (RULES A5)."""
+    s = re.sub(r'[^a-z0-9]+', '-', str(v or '').lower()).strip('-')
+    return s or 'x'
+
+
+def reg(aid, kind, role, zh, en):
+    """Register an anchor. Duplicate ids are a build failure, not a warning:
+    two elements answering to one href is how a 'working' link lands on the
+    wrong thing."""
+    if aid in ANCHORS:
+        sys.exit('build_fragments: FAIL duplicate anchor id "%s" (%s vs %s). '
+                 'Anchors are URLs; two things cannot share one.'
+                 % (aid, ANCHORS[aid][0], kind))
+    ANCHORS[aid] = (kind, role, zh, en)
+    return aid
+
+
+def href(aid):
+    """Cross-page while the pack is six files, in-page once onepage.py folds it.
+    onepage.py rewrites "<file>#frag" to "#frag"; nothing here needs to know
+    which edition it is being built for."""
+    if aid not in ANCHORS:
+        sys.exit('build_fragments: FAIL link to unregistered anchor "%s". '
+                 'Register it with reg() at the place it is emitted, or fix the id.' % aid)
+    role = ANCHORS[aid][1]
+    return '%s#%s' % (PAGE_FILE.get(role, ''), aid)
+
+
+def a_to(aid, label_h=None, label_e=None, cls='xr'):
+    """A cross-reference. The label defaults to the target's own registered
+    name, so a renamed target renames every link to it."""
+    _k, _r, zh, en = ANCHORS[aid]
+    return ('<a class="%s" href="%s">%s</a>'
+            % (cls, att(href(aid)), tt(esc(label_h or zh), esc(label_e or en))))
+
+
+def secref(sid, label_h=None, label_e=None):
+    """Link to another section, by section id."""
+    return a_to('s-' + sid, label_h, label_e, cls='xr xr-sec')
+
+
+def xref(oid_or_lid, label=None):
+    """Link a company mention to its card. A company with no card is emitted as
+    plain text — a link to nothing is worse than no link (B13 in spirit: do not
+    imply a file exists)."""
+    key = str(oid_or_lid or '')
+    lid = ORG_TO_CARD.get(key) or ORG_TO_CARD.get(key.lower())
+    name = label or (CARD_NAME.get(lid) if lid else None) or org_name(key)
+    if not lid:
+        return esc(name)
+    aid = 'acct-' + slug(lid)
+    if aid not in ANCHORS:
+        return esc(name)
+    return '<a class="xr xr-org" href="%s">%s</a>' % (att(href(aid)), esc(name))
+
+
+def sesref(sess):
+    """Link a session mention to its row in the agenda."""
+    sid = str((sess or {}).get('id') or '')
+    aid = 'ses-' + slug(sid)
+    title = str((sess or {}).get('title') or sid)
+    if not sid or aid not in ANCHORS:
+        return lk(title)
+    return '<a class="xr xr-ses" href="%s">%s</a>' % (att(href(aid)), lk(title))
+
+
+# ---- the section table: one row per section, and it IS the spine ------------
+# The spine, the anchor registry, the in-page index and the section heading all
+# read this table. They cannot drift apart, because there is nothing to drift.
+#
+# columns: role, sid, ZH title, EN title, ZH "what this answers", EN
+SECTIONS = [
+    ('command-center', 'verdict', '判斷', 'The call',
+     '這一場的錢花在哪裡，我方該用什麼身分走進去',
+     'where the money in this room actually goes, and what we walk in as'),
+    ('command-center', 'numbers', '四個數字', 'Four numbers',
+     '這場的規模,四個從資料算出來、不是打上去的數字',
+     'the size of the thing, in four figures computed from the data rather than typed'),
+    ('command-center', 'actions', '兩個動作', 'Two actions',
+     '到現場先站哪裡、開口先問什麼',
+     'where to stand when you arrive, and what to say first'),
+    ('command-center', 'room', '這是什麼房間', 'What room this is',
+     '來的是哪一種人、誰付的錢、他們用什麼標準判斷東西好不好',
+     'who is in the room, who paid to be here, and what they judge a product by'),
+    ('command-center', 'changed', '2025 → 2026 變了什麼', 'What changed from 2025 to 2026',
+     '跟上屆比,哪幾件事變了,以及變的那幾件事怎麼改寫我們的說法',
+     'what moved since the last edition, and how each move rewrites our pitch'),
+    ('command-center', 'turn', '技術轉向與伺服器含意', 'The technical turn',
+     '議程上的技術重心往哪裡移,那個移動會不會變成伺服器訂單',
+     'where the agenda has moved technically, and whether that movement becomes a server order'),
+    ('command-center', 'signals', '前瞻訊號', 'Forward signals',
+     '還沒發生但已經看得到的事,以及看到之後要做什麼',
+     'what has not happened yet but is already visible, and what to do about each'),
+    ('command-center', 'open', '本場 GAP', 'What is still open',
+     '這一包還不知道的事,以及什麼證據能結案',
+     'what this pack does not know, and what evidence would close each one'),
+    ('command-center', 'method', '方法與來源', 'Method and sources',
+     '這些結論怎麼來的,哪一步可以被推翻',
+     'how these conclusions were produced, and which step you could overturn'),
+
+    ('command-center', 'index', '索引', 'Index',
+     '這一包裡的每一節、每一家公司、每一場,一次列完,每一條都是連結',
+     'every section, every company and every session in this pack, listed once, each one a link'),
+
+    ('agenda', 'queue', '先卡這幾場', 'Queue for these first',
+     '時間有限的話,哪幾場非去不可,理由是什麼',
+     'if time is short, which rooms are non-negotiable and why'),
+    ('agenda', 'all-sessions', '全部場次', 'Every session',
+     '目錄已公布的每一場,可以自己重排',
+     'every session the catalogue has published, so you can re-rank it yourself'),
+    ('agenda', 'rooms', '會議室', 'Rooms',
+     '哪一間房間裝哪一種人,走廊怎麼走',
+     'which room holds which kind of person, and how the corridor runs'),
+    ('agenda', 'catalog-gap', '目錄沒有給的東西', 'What the catalogue does not give',
+     '議程資料本身缺什麼,缺的地方怎麼補',
+     'what the agenda data itself is missing, and how to work around it'),
+
+    ('gtm', 'judgement', '判斷', 'The judgement',
+     '這一場我方的打法是什麼,一句話',
+     'our play at this show, in one sentence'),
+    ('gtm', 'theses', '論點與反證', 'Theses, each with what kills it',
+     '我們相信的每一件事,以及什麼事發生就代表我們錯了',
+     'each thing we believe, paired with the observation that would prove it wrong'),
+    ('gtm', 'booths', '攤位對話,按賠率排序', 'Booth conversations, by odds',
+     '走廊上每一攤值不值得停,停下來要拿到什麼',
+     'whether each booth is worth stopping at, and what to walk away holding'),
+    ('gtm', 'segments', '分客群打法', 'Play by segment',
+     '同一場活動裡有幾種買家,每一種的開場句和候選名單都不一樣',
+     'this show holds several kinds of buyer, and each one takes a different opening line and a '
+     'different shortlist'),
+    ('gtm', 'questions', '五個問題', 'Five questions',
+     '五句問話,每一句的答案會透露什麼',
+     'five things to ask, and what each answer actually reveals'),
+    ('gtm', 'dont', '不要做什麼', 'What not to do',
+     '在這個房間會直接把對話講死的幾件事',
+     'the moves that kill a conversation in this particular room'),
+    ('gtm', 'register', '現場登記簿', 'The floor register',
+     '現場收到的訊號往哪裡記,回去以後誰接手',
+     'where the signal you collect gets written down, and who picks it up afterwards'),
+    ('gtm', 'gtm-open', '這一頁還沒結案的', 'What this page has not closed',
+     '打法上還沒想清楚的部分',
+     'the parts of the play that are not settled'),
+
+    ('accounts', 'board', '這一板現在的狀態', 'Where this board stands',
+     '這板子填到什麼程度,哪些格子還開著',
+     'how far this board is filled, and which cells are still open'),
+    ('accounts', 'bands', '四層', 'The four layers',
+     '每一家落在哪一層,那一層代表他會不會簽伺服器訂單',
+     'which layer each company sits in, and what that layer says about whether they sign a server order'),
+    ('accounts', 'solidity', '這些格子站得多穩', 'How solid any of this is',
+     '每一格背後是法說原文還是部落格轉述',
+     'whether a given cell rests on an earnings filing or a blog paraphrase'),
+
+    ('compare', 'axis', '這一場真正的對照軸', 'The axis this show is on',
+     '這場的競爭不在攤位之間,在哪裡',
+     'the competition at this show is not booth against booth — this is where it is'),
+    ('compare', 'renters', '租賃方是誰、賣什麼', 'Who rents, and what they sell',
+     '在場的算力出租方各是誰,各自賣什麼',
+     'which compute landlords are in the room, and what each one sells'),
+    ('compare', 'rates', '公開牌價', 'The published rate cards',
+     '同一顆晶片,租一小時各家要多少錢',
+     'the same chip, hour by hour, priced across every vendor in the room'),
+    ('compare', 'crossover', '自建對租賃的真實算術', 'Build versus rent, and where it crosses',
+     '買機器什麼時候比租便宜,交叉點在哪',
+     'when owning beats renting, and where exactly the line is'),
+    ('compare', 'hyperscalers', '超大規模那一邊', 'The hyperscaler side',
+     '雲廠在這場的位置',
+     'where the hyperscalers sit at this show'),
+    ('compare', 'we-win', '我們在哪裡贏', 'Where we win',
+     '對上租賃方,我方站得住的地方',
+     'the ground we hold against the rental case'),
+    ('compare', 'we-lose', '我們在哪裡輸', 'Where we lose',
+     '對上租賃方,我方站不住的地方 —— 先講,免得被別人講',
+     'the ground we do not hold — said here first, so it is not said to us'),
+    ('compare', 'their-case', '對方最強的說法', 'Their strongest argument',
+     '如果租賃方只能講一句話說服買家,那句是什麼',
+     'if the rental side got one sentence to win the buyer, this is the sentence'),
+    ('compare', 'collisions', '同名陷阱', 'Names that collide',
+     '這場有哪些名字會查錯人、查錯公司',
+     'the names at this show that send research to the wrong company'),
+    ('compare', 'compare-open', '這一頁還沒結案的', 'What this page has not closed',
+     '對位上還沒查清楚的部分',
+     'the parts of the matchup that are not settled'),
+]
+
+SEC_BY_ID = OrderedDict()
+for _role, _sid, _th, _te, _wh, _we in SECTIONS:
+    if _sid in SEC_BY_ID:
+        sys.exit('build_fragments: FAIL duplicate section id "%s" in SECTIONS' % _sid)
+    SEC_BY_ID[_sid] = (_role, _th, _te, _wh, _we)
+    reg('s-' + _sid, 'section', _role, _th, _te)
+
+
+def sec(sid, scent_html, body, is_open=False, cls='', block='', fresh=False,
+        title_html=None, count_h=None, count_e=None):
+    """A section. Same drawer as before, plus three things it did not have:
+    a stable anchor, its own number, and one line saying what question it
+    answers. The number and the question come from SECTIONS, so the spine at
+    the top of the page and the section itself can never disagree."""
+    if sid not in SEC_BY_ID:
+        sys.exit('build_fragments: FAIL section "%s" is not in SECTIONS. Add the row first — '
+                 'the spine reads that table, so an unlisted section is invisible.' % sid)
+    role, th, te, wh, we = SEC_BY_ID[sid]
+    n = [s for _r, s, _a, _b, _c, _d in SECTIONS if _r == role].index(sid) + 1
+    at = ['class="dr sec%s"' % ((' ' + cls) if cls else ''), 'id="s-%s"' % sid]
+    if block:
+        at.append('data-block="%s"' % att(block))
+    if fresh:
+        at.append('data-fresh="1"')
+    if is_open:
+        at.append('open')
+    title = title_html or ('<span class="sec-n" aria-hidden="true">%02d</span>%s' % (n, tt(esc(th), esc(te))))
+    what = '<span class="sec-w">%s</span>' % tt(esc(wh), esc(we))
+    return ('<details %s>\n'
+            '  <summary><span class="dr-t">%s</span>%s<span class="dr-s">%s</span></summary>\n'
+            '  <div class="dr-b">\n%s\n  </div>\n'
+            '</details>' % (' '.join(at), title, what, scent_html, body))
+
+
+INDEX_SLOT = '<!--INDEX-SLOT-->'
+
+INDEX_KINDS = [
+    ('section', '章節', 'Sections', '每一節回答一個問題', 'each answers one question'),
+    ('item', '子項', 'Items', '每一節底下的每一項,可以單獨連結',
+     'every item inside every section, each with its own link'),
+    ('account', '公司', 'Companies', '這一板上的每一家,連到它的卡',
+     'every company on the board, linked to its card'),
+    ('session', '場次', 'Sessions', '目錄已公布的每一場', 'every session the catalogue publishes'),
+]
+
+
+def build_index():
+    """Every registered anchor, grouped by what it is. Built from ANCHORS, so
+    it cannot drift from the pages: an anchor that exists is listed, and an
+    anchor that is listed exists — href() would have failed the build otherwise.
+    """
+    out = ['  <div class="idx">']
+    for kind, kh, ke, wh, we in INDEX_KINDS:
+        rows = [(aid, meta) for aid, meta in ANCHORS.items() if meta[0] == kind]
+        if not rows:
+            continue
+        out.append('    <section class="idx-g">')
+        out.append('      <h3 class="idx-h">%s <span class="idx-c">%s</span></h3>'
+                   % (tt(esc(kh), esc(ke)), lk('%d' % len(rows))))
+        out.append('      <p class="idx-w">%s</p>' % tt(esc(wh), esc(we)))
+        out.append('      <ul class="idx-l">')
+        for aid, (_k, role, zh, en) in rows:
+            out.append('        <li><a href="%s">%s</a><span class="idx-p">%s</span></li>'
+                       % (att(href(aid)), tt(esc(zh), esc(en)),
+                          tt(esc(PAGE_ZH.get(role, role)), esc(PAGE_EN.get(role, role)))))
+        out.append('      </ul>')
+        out.append('    </section>')
+    out.append('  </div>')
+    return '\n'.join(out)
+
+
+def spine(role):
+    """The architectural map, printed at the top of a page: every section in it,
+    numbered, with the question it answers. A reader who reads only this knows
+    what the page contains and can jump straight at the one they need."""
+    rows = [(sid, th, te, wh, we) for r, sid, th, te, wh, we in SECTIONS if r == role]
+    if not rows:
+        return ''
+    out = ['<nav class="spine" data-block="spine" aria-label="%s">'
+           % att('Sections on this page / 本頁章節')]
+    out.append('  <p class="spine-h">%s</p>'
+               % tt('這一頁有 %d 節。每一節回答一個問題。' % len(rows),
+                    'This page has %d sections. Each one answers one question.' % len(rows)))
+    out.append('  <ol class="spine-l">')
+    for i, (sid, th, te, wh, we) in enumerate(rows, 1):
+        out.append('    <li><a href="%s">'
+                   '<span class="spine-n" aria-hidden="true">%02d</span>'
+                   '<span class="spine-t">%s</span>'
+                   '<span class="spine-q">%s</span></a></li>'
+                   % (att(href('s-' + sid)), i, tt(esc(th), esc(te)), tt(esc(wh), esc(we))))
+    out.append('  </ol>')
+    out.append('</nav>')
+    return '\n'.join(out)
+
+
+# ---- sub-items: a heading with a handle, and a line saying what it is -------
+_ITEM_N = {}
+
+
+def item(sid, key, label_h, label_e, what_h, what_e, body, tag_h=None, tag_e=None):
+    """One sub-item inside a section.
+
+    A bullet gives the reader a sentence. An item gives them a heading they can
+    aim at, a line telling them what the heading IS before they read the body,
+    and a URL they can send to someone else. The heading is highlighted because
+    it is the scanning surface: on a show floor the reader reads headings and
+    stops at one.
+
+    `tag` is the optional right-hand chip — a verdict, a count, an evidence
+    rank. It is what the item resolves to, so the reader can skip the body when
+    the answer is enough.
+    """
+    # A label or a "what" passed with its second arm None is already-built HTML
+    # (a locked title, a cross-reference). Passing it through esc() would print
+    # the tags. One arm means one language-neutral run, which is exactly what a
+    # session title or a company name is.
+    lab = label_h if label_e is None else tt(esc(label_h), esc(label_e))
+    wht = what_h if what_e is None else tt(esc(what_h), esc(what_e))
+    aid = reg('i-%s-%s' % (sid, slug(key)), 'item', SEC_BY_ID[sid][0],
+              label_h if label_e is None else label_h, label_e or label_h)
+    _ITEM_N[sid] = _ITEM_N.get(sid, 0) + 1
+    n = _ITEM_N[sid]
+    tag = ('<span class="itm-tag">%s</span>'
+           % (tag_h if tag_e is None else tt(esc(tag_h or ''), esc(tag_e or '')))) \
+        if (tag_h or tag_e) else ''
+    return ('<section class="itm" id="%s">\n'
+            '  <h3 class="itm-h"><span class="itm-n" aria-hidden="true">%d</span>'
+            '<span class="itm-l">%s</span>%s'
+            '<a class="itm-a" href="#%s" aria-label="%s">&#167;</a></h3>\n'
+            '  <p class="itm-w">%s</p>\n'
+            '  <div class="itm-b">%s</div>\n'
+            '</section>'
+            % (aid, n, lab, tag, aid,
+               att('Link to this item / 連到這一項'),
+               wht, body))
+
+
+def items(sid, rows):
+    """rows: (key, label_h, label_e, what_h, what_e, body[, tag_h, tag_e])"""
+    return items_wrap([item(sid, *r) for r in rows])
+
+
+def items_wrap(built):
+    """Same container, for items already built one at a time in a loop."""
+    if not built:
+        return ''
+    return '  <div class="itms">\n%s\n  </div>' % '\n'.join(built)
+
+
+# ---- every company and every session gets an anchor, up front ---------------
+# Registered BEFORE any fragment renders, because the plays page links at cards
+# the account board has not emitted yet. Registration order is not render order.
+ORG_TO_CARD = {}
+CARD_NAME = {}
+for _c in (cards or []):
+    _lid = str(_c.get('ledger_id') or _c.get('org_id') or '')
+    if not _lid:
+        continue
+    _nm = str(_c.get('legal_name') or _lid)
+    CARD_NAME[_lid] = _nm
+    reg('acct-' + slug(_lid), 'account', 'accounts', _nm, _nm)
+    for _k in filter(None, [_lid, str(_c.get('org_id') or ''), _nm] + list(_c.get('aka') or [])):
+        ORG_TO_CARD.setdefault(str(_k), _lid)
+        ORG_TO_CARD.setdefault(str(_k).lower(), _lid)
+
+for _s in sessions:
+    _sid = str(_s.get('id') or '')
+    if not _sid:
+        continue
+    _t = str(_s.get('title') or _sid)
+    reg('ses-' + slug(_sid), 'session', 'agenda', _t, _t)
+
+
+
 # ============================================================ command-center ==
 # Research draft 01 reaches the reader HERE. Every claim keeps the hedge it was
 # written with (B6): "未經雙方證實" does not become a bare assertion in English.
@@ -618,10 +1003,11 @@ def frag_command_center():
                           'Not one traditional server rival is here. You are not looking for a rival '
                           'booth — you are looking for whoever signs the compute bill for these '
                           'people.'))
-    a(dr(verdict_title, verdict_scent,
-         '  <ul class="grounds">\n%s\n  </ul>\n  %s'
-         % ('\n'.join('    <li>%s</li>' % g for g in grounds), STAMP),
-         is_open=OPEN, cls='verdict', block='verdict', fresh=True))
+    a(sec('verdict', verdict_scent,
+          '  <ul class="grounds">\n%s\n  </ul>\n  %s'
+          % ('\n'.join('    <li>%s</li>' % g for g in grounds), STAMP),
+          is_open=OPEN, cls='verdict', block='verdict', fresh=True,
+          title_html=verdict_title))
     a('<p class="stamp topstamp" data-block="asOf-stamp" data-fresh="1">%s</p>'
       % tt('狀態截至 %s' % esc(ASOF), 'Status as of %s' % esc(ASOF)))
 
@@ -659,10 +1045,10 @@ def frag_command_center():
                             tt(esc(kh), esc(ke)), tt(esc(sh), esc(se))))
     figs_html.append('  </ol>')
     figs_html.append('  %s' % STAMP)
-    a(dr(tt('四個數字', 'Four numbers'),
-         tt('全部在建置時從資料算出來，沒有一個是打上去的',
-            'all computed from the data at build time, not one of them typed'),
-         '\n'.join(figs_html), is_open=OPEN, block='four-numbers', fresh=True))
+    a(sec('numbers',
+          tt('全部在建置時從資料算出來，沒有一個是打上去的',
+             'all computed from the data at build time, not one of them typed'),
+          '\n'.join(figs_html), is_open=OPEN, block='four-numbers', fresh=True))
 
     # ----------------------------------------------------- 3. two actions ---
     prio = floor_priority()
@@ -707,103 +1093,215 @@ def frag_command_center():
     acts.append('%s' % from_draft(D05))
     acts.append('    </li>')
     acts.append('  </ol>')
-    a(dr(tt('兩個動作', 'Two actions'),
-         tt('一個是站位，一個是問句。其餘等現場',
-            'one is where to stand, one is what to ask. The rest waits for the floor'),
-         '\n'.join(acts), is_open=OPEN, block='two-actions'))
+    a(sec('actions',
+          tt('一個是站位，一個是問句。其餘等現場',
+             'one is where to stand, one is what to ask. The rest waits for the floor'),
+          '\n'.join(acts), is_open=OPEN, block='two-actions'))
 
     # ------------------------------------------------ 4. what room this is --
-    room = []
-    room.append(ul([
-        '%s %s' % (S(('不是廠商展會，是工程社群年會加上供應商聚集。官方寫給的對象是 builders、'
-                      'platform leads 與 researchers ——', 'Not a trade show: an engineering '
-                      'community conference with vendors around it. The official audience line '
-                      'reads builders, platform leads and researchers —'),
-                     ('自建叢集的平台工程主管，不是採購。', 'the platform engineering leads who run '
-                      'their own clusters, not procurement.')),
-                   ev('official') + src_a(CATALOG, ASOF)),
-        '%s %s' % (S(('票價', 'Tickets run'), 'USD 400–450',
-                     ('，五張套票每張', ', or five-packs at'), 'USD 750',
-                     ('。工程師自費就進得來 —— 來的人多半是實作者，不是簽核者。把「誰簽字」當成'
-                      '每一次對話要挖出來的東西。',
-                      ' each. That is self-funded-engineer money, so the room is implementers, not '
-                      'signatories. Treat "who signs" as the thing every conversation has to '
-                      'surface.')),
-                   ev('official') + from_draft(D01)),
-        '%s %s' % (S(('Ray 的治理已經交給 PyTorch Foundation，累計下載',
-                      'Ray governance has moved to the PyTorch Foundation; cumulative downloads'),
-                     '237M', ('，名單上的用戶含 OpenAI、Uber、Shopify、Netflix。'
-                              '治理中立，商業層在 Nscale 手上。',
-                              ', with OpenAI, Uber, Shopify and Netflix named as users. Neutral '
-                              'governance, commercial layer in Nscale\'s hands.')),
-                   ev('official') + src_a('https://pytorch.org', '2025-10-22')),
-        '%s %s' % (S(('主辦權在會前三週半換人，換給了買機櫃的人：', 'Ownership of the show changed '
-                      'hands three and a half weeks before it opens, to someone who buys racks: '),
-                     'Nscale', ('於', 'agreed on'), '2026-07-30',
-                     ('宣布收購 Anyscale，同時是本屆白金贊助商並有 keynote 席位。'
-                      '雙方均未官方證實，寫進客戶簡報時這個 hedge 要跟著走。',
-                      ' to acquire Anyscale, while also being a Platinum sponsor with a keynote '
-                      'slot this year. Neither side has officially confirmed it; that hedge travels '
-                      'with the claim into any customer deck.')),
-                   ev('third')
-                   + src_a('https://techcrunch.com/2026/07/30/nscale-buys-anyscale-as-it-seeks-to-own-more-of-the-ai-compute-stack/',
-                           '2026-07-30')),
-        '%s %s' % (S(('這房間的購買理由是「利用率」，不是規格。Torc 自報 GPU 利用率從',
-                      'This room buys on utilisation, not on spec. Torc reports GPU utilisation '
-                      'moving from'), '30–40%', ('拉到約', 'to about'), '90%',
-                     ('，同等牆鐘時間內處理的資料量從', ', and data processed in the same wall clock '
-                      'from'), '4TB', ('變成', 'to'), '38TB',
-                     ('。跟這群人談 TFLOPS 會冷場，談「同樣機櫃多跑幾成」會熱。',
-                      '. Talk TFLOPS to these people and the conversation dies; talk "more work out '
-                      'of the same rack" and it opens.')),
-                   ev('vendor') + from_draft(D01)),
-    ]))
-    a(dr(tt('這是什麼房間', 'What room this is'),
-         tt('工程社群年會，實作者為主，買點是利用率不是規格',
-            'an engineering community conference: implementers, and the buying reason is '
-            'utilisation, not spec'),
-         '\n'.join(room), is_open=OPEN))
+    # Five separate facts, each with its own handle, because a rep looking for
+    # "the ticket-price one" should find it by scanning headings, not by reading
+    # five paragraphs to the end.
+    room = [items('room', [
+        ('audience', '來的是誰', 'Who is in the room',
+         '判斷你在跟哪一種人講話 —— 決定要不要花時間往下挖',
+         'tells you which kind of person you are talking to, which decides whether to keep digging',
+         '<p>%s %s</p>' % (
+             S(('不是廠商展會，是工程社群年會加上供應商聚集。官方寫給的對象是 builders、'
+                'platform leads 與 researchers ——', 'Not a trade show: an engineering '
+                'community conference with vendors around it. The official audience line '
+                'reads builders, platform leads and researchers —'),
+               ('自建叢集的平台工程主管，不是採購。', 'the platform engineering leads who run '
+                'their own clusters, not procurement.')),
+             ev('official') + src_a(CATALOG, ASOF)),
+         '工程師,非採購', 'engineers, not procurement'),
+
+        ('ticket', '票價說明了誰付錢', 'What the ticket price tells you',
+         '票價低到工程師自己刷卡就能來,所以現場多半不是簽核者',
+         'the ticket is cheap enough to be expensed by an individual engineer, so the room is '
+         'mostly not the people who sign',
+         '<p>%s %s</p>' % (
+             S(('票價', 'Tickets run'), 'USD 400-450',
+               ('，五張套票每張', ', or five-packs at'), 'USD 750',
+               ('。工程師自費就進得來 —— 來的人多半是實作者，不是簽核者。把「誰簽字」當成'
+                '每一次對話要挖出來的東西。',
+                ' each. That is self-funded-engineer money, so the room is implementers, not '
+                'signatories. Treat "who signs" as the thing every conversation has to '
+                'surface.')),
+             ev('official') + from_draft(D01)),
+         'USD 400-750', 'USD 400-750'),
+
+        ('governance', 'Ray 歸誰管', 'Who owns Ray',
+         '治理中立、商業層有主。這一條決定 Anyscale 的話能不能代表整個生態',
+         'governance is neutral but the commercial layer is not — this decides whether Anyscale '
+         'speaks for the ecosystem or only for itself',
+         '<p>%s %s</p>' % (
+             S(('Ray 的治理已經交給 PyTorch Foundation，累計下載',
+                'Ray governance has moved to the PyTorch Foundation; cumulative downloads'),
+               '237M', ('，名單上的用戶含 OpenAI、Uber、Shopify、Netflix。'
+                        '治理中立，商業層在 Nscale 手上。',
+                        ', with OpenAI, Uber, Shopify and Netflix named as users. Neutral '
+                        'governance, commercial layer in Nscale\'s hands.')),
+             ev('official') + src_a('https://pytorch.org', '2025-10-22')),
+         '基金會治理', 'foundation-governed'),
+
+        ('owner', '主辦權三週半前易主', 'The show changed owner three weeks ago',
+         '買下主辦方的人自己就是買機櫃的人 —— 這改變了整場的動機結構',
+         'the company that bought the host is itself a rack buyer, which changes the motive '
+         'structure of the whole event',
+         # CORRECTION 2026-08-18: this pack shipped saying neither side had
+         # confirmed. Both have. The deal is signed and not yet closed — which
+         # is a different hedge, not the absence of one.
+         '<p>%s %s</p>\n         <p>%s %s</p>\n         <p>%s %s</p>' % (
+             S(('主辦權在會前三週半換人，換給了買機櫃的人：', 'Ownership of the show changed '
+                'hands three and a half weeks before it opens, to someone who buys racks: '),
+               'Nscale', ('於', 'announced a definitive agreement on'), '2026-07-30',
+               ('宣布與 Anyscale 簽定確定協議，同時是本屆白金贊助商並有 keynote 席位。'
+                '兩邊都已官方發布 —— 這一條先前寫成「未經雙方證實」，是錯的,已更正。',
+                ' to acquire Anyscale, while also being a Platinum sponsor with a keynote slot '
+                'this year. Both sides have now published it — this pack previously said neither '
+                'had confirmed, which was wrong and is corrected here.')),
+             ev('official')
+             + src_a('https://www.anyscale.com/press/nscale-acquires-anyscale-enhancing-its-full-stack-ai-cloud-platform', '2026-08-18')
+             + src_a('https://www.nscale.com/press-releases/nscale-acquires-anyscale', '2026-08-18'),
+             S(('已簽約，尚未交割。預計', 'Signed, not closed. Expected to close in'),
+               'H2 2026',
+               ('完成，仍須通過交割條件與主管機關核可。約 200 名 Anyscale 員工移轉，'
+                'Anyscale 品牌續存。Ray 續留 PyTorch Foundation，Nscale 承諾加入該基金會。',
+                ', subject to closing conditions and regulatory approval. About 200 Anyscale '
+                'employees transfer and the Anyscale brand continues. Ray stays with the PyTorch '
+                'Foundation, and Nscale has committed to join it.')),
+             ev('official')
+             + src_a('https://www.nscale.com/press-releases/nscale-acquires-anyscale', '2026-08-18'),
+             S(('價格兩家都沒揭露。', 'Neither company disclosed a price.'),
+               ('彭博引述知情人士報約', 'Bloomberg reported roughly'), 'USD 1.65B',
+               ('—— 這是單一未具名消息來源，不是公司說法,講給客戶時要帶著這個 hedge。',
+                ', citing one person familiar with the deal. That is a single unnamed source and '
+                'not a company statement; the hedge travels with the number.')),
+             ev('third')
+             + src_a('https://thenextweb.com/news/nscale-anyscale-acquisition-full-stack-ai-cloud',
+                     '2026-08-18')),
+         '已簽,未交割', 'signed, not closed'),
+
+        ('bathurst', 'Nscale 自己講的話,對你有用', 'What Nscale itself said, and why it helps you',
+         '收購方的產品長公開講了三句話,每一句都能直接拿去回客戶的疑慮',
+         'the acquirer\'s chief product officer said three things on the record, and each one '
+         'answers a question your customer is about to ask',
+         '<p>%s %s</p>' % (
+             S(('Nscale 產品長 Dan Bathurst：Anyscale 在 AWS、GCP、Azure 上的 BYOC 部署照常,'
+                '既有承諾延續;',
+                'Nscale CPO Dan Bathurst: Anyscale bring-your-own-cloud deployments on AWS, GCP '
+                'and Azure continue and existing commitments carry forward;'),
+               ('他把定位講成「平台層中立,基礎設施層做差異化」,並說「我們要贏的是效能,'
+                '不是任何形式的廠商鎖定」。這幾句是你回答「被買走以後會不會被鎖住」的現成材料。',
+                ' he frames the position as "neutrality on the platform layer, but differentiation '
+                'on the infrastructure layer", and says "where we want to win is on performance, '
+                'not on any sort of vendor lock-in". That is ready-made material for the question '
+                'your customer will ask — does the acquisition lock me in?')),
+             ev('third')
+             + src_a('https://thenewstack.io/nscale-anyscale-acquisition-neocloud-lockin/',
+                     '2026-07-31')),
+         '公開發言', 'on the record'),
+
+        ('buying-reason', '他們用什麼標準買東西', 'What they actually buy on',
+         '這一條直接決定你開口講什麼。講錯軸就冷場',
+         'this one decides your opening sentence — the wrong axis kills the conversation',
+         '<p>%s %s</p>' % (
+             S(('這房間的購買理由是「利用率」，不是規格。', 'This room buys on utilisation, not on '
+                'spec. '), None,
+               ) + xref('torc', 'Torc') + ' ' +
+             S(('自報 GPU 利用率從', 'reports GPU utilisation moving from'),
+               '30-40%', ('拉到約', 'to about'), '90%',
+               ('，同等牆鐘時間內處理的資料量從', ', and data processed in the same wall clock '
+                'from'), '4TB', ('變成', 'to'), '38TB',
+               ('。跟這群人談 TFLOPS 會冷場，談「同樣機櫃多跑幾成」會熱。',
+                '. Talk TFLOPS to these people and the conversation dies; talk "more work out '
+                'of the same rack" and it opens.')),
+             ev('vendor') + from_draft(D01)),
+         '利用率,不是規格', 'utilisation, not spec'),
+    ])]
+    a(sec('room',
+          tt('工程社群年會，實作者為主，買點是利用率不是規格',
+             'an engineering community conference: implementers, and the buying reason is '
+             'utilisation, not spec'),
+          '\n'.join(room), is_open=OPEN))
 
     # --------------------------------------------------- 5. 2025 -> 2026 ----
-    ch = []
-    ch.append(ul([
-        S(('時間前挪十週：上一屆是', 'Ten weeks earlier: last year ran'), '2025-11-03',
-          ('至', 'to'), '2025-11-05', ('，這一屆是', ', this one runs'), '2026-08-24',
-          ('至', 'to'), '2026-08-26',
-          ('，同一個 Marriott Marquis。兩屆只隔約九個半月，客戶的預算年度沒有跟著走。',
-           ', in the same Marriott Marquis. Two editions about nine and a half months apart — '
-           'the customer budget year did not move with it.')) + ' ' + ev('official'),
-        S(('主軸從八條收斂成四條，每一條都吃 GPU：Foundation Model Training、Multimodal Data '
-           'Curation、Physical AI、LLM RL。去年還有 Ray Ecosystem、Generative AI、Research '
-           'Frontiers —— 軟體話題被擠掉，剩下全是算力題。',
-           'The tracks narrowed from eight to four, and every one of them eats GPU: Foundation '
-           'Model Training, Multimodal Data Curation, Physical AI, LLM RL. Last year still had Ray '
-           'Ecosystem, Generative AI and Research Frontiers. The software topics were squeezed '
-           'out; what is left is all compute.')) + ' ' + ev('official') + from_draft(D01),
-        S(('vLLM 第一次以獨立會議共構，同場舉行、Summit 票含全程，橫跨',
-           'A first-ever standalone vLLM conference runs inside the show, covered by the Summit '
-           'ticket, spanning'), '2026-08-25', ('與', 'and'), '2026-08-26',
-          ('。硬體話題藏在那半場，不在 Ray 主軌。',
-           '. The hardware conversation lives in that half of the building, not on the Ray '
-           'track.')) + ' ' + ev('official') + src_a('https://vllm.ai', ASOF),
-        S(('vLLM 商業化了：Inferact 於', 'vLLM has a company now: Inferact was founded in'),
-          '2026-01', ('成立，種子輪', ', raised a'), 'USD 150M', ('、估值', 'seed at a'),
-          'USD 800M', ('，a16z 與 Lightspeed 領投。去年掛專案名的人，今年掛公司抬頭。',
-                       ' valuation, led by a16z and Lightspeed. The people who wore a project name '
-                       'last year wear a company title this year.')) + ' ' + ev('third')
-        + from_draft(D01),
-        S(('話題從「怎麼管工作」變成「怎麼貼合機櫃」：去年 keynote 發表排程器與執行環境，'
-           '今年上半年發表的是 GB300 NVL72 的拓撲感知排程。軟體開始感知機櫃，代表客戶已經跨多機櫃在跑。',
-           'The subject moved from "how to manage jobs" to "how to fit the rack": last year\'s '
-           'keynote shipped a scheduler and a runtime, this year\'s first half shipped '
-           'topology-aware scheduling for GB300 NVL72. Software noticing racks means customers are '
-           'already running across several of them.')) + ' ' + ev('vendor') + from_draft(D01),
-    ]))
-    a(dr(tt('2025 → 2026 變了什麼', 'What changed from 2025 to 2026'),
-         tt('主軸從八條收成四條、全部吃 GPU；vLLM 有公司了；主辦權易主',
-            'eight tracks became four and all of them eat GPU; vLLM has a company; the show '
-            'changed owner'),
-         '\n'.join(ch), is_open=OPEN))
+    # Each change gets a handle AND a "so what" line, because a change the
+    # reader cannot act on is trivia. The heading is the change; the line under
+    # it is what the change does to our pitch.
+    ch = [items('changed', [
+        ('calendar', '日期前挪十週', 'The calendar moved ten weeks earlier',
+         '兩屆只隔九個半月,客戶的預算年度沒有跟著搬 —— 錢還在上一個週期裡',
+         'two editions nine and a half months apart, and the customer budget year did not move '
+         'with them — the money is still in the previous cycle',
+         '<p>%s %s</p>' % (
+             S(('上一屆是', 'Last year ran'), '2025-11-03',
+               ('至', 'to'), '2025-11-05', ('，這一屆是', ', this one runs'), '2026-08-24',
+               ('至', 'to'), '2026-08-26',
+               ('，同一個 Marriott Marquis。兩屆只隔約九個半月，客戶的預算年度沒有跟著走。',
+                ', in the same Marriott Marquis. Two editions about nine and a half months apart — '
+                'the customer budget year did not move with it.')), ev('official')),
+         '早 10 週', '10 weeks earlier'),
+
+        ('tracks', '主軸從八條收成四條', 'Eight tracks became four',
+         '被留下來的四條全部吃 GPU。軟體題被擠掉,代表這場已經是算力場',
+         'all four survivors eat GPU. The software topics were squeezed out, which means this is '
+         'now a compute show',
+         '<p>%s %s</p>' % (
+             S(('每一條都吃 GPU：Foundation Model Training、Multimodal Data '
+                'Curation、Physical AI、LLM RL。去年還有 Ray Ecosystem、Generative AI、Research '
+                'Frontiers —— 軟體話題被擠掉，剩下全是算力題。',
+                'Every one of them eats GPU: Foundation Model Training, Multimodal Data '
+                'Curation, Physical AI, LLM RL. Last year still had Ray Ecosystem, Generative AI '
+                'and Research Frontiers. The software topics were squeezed out; what is left is '
+                'all compute.')),
+             ev('official') + from_draft(D01)),
+         '8 -> 4', '8 -> 4'),
+
+        ('vllm-conf', 'vLLM 第一次在場內開自己的會', 'vLLM runs its own conference inside the show',
+         '硬體話題搬到那半場去了。你要找的人在那邊,不在 Ray 主軌',
+         'the hardware conversation moved into that half of the building — the people you want are '
+         'there, not on the Ray track',
+         '<p>%s %s</p>' % (
+             S(('同場舉行、Summit 票含全程，橫跨',
+                'Held inside the show, covered by the Summit ticket, spanning'),
+               '2026-08-25', ('與', 'and'), '2026-08-26',
+               ('。硬體話題藏在那半場，不在 Ray 主軌。',
+                '. The hardware conversation lives in that half of the building, not on the Ray '
+                'track.')), ev('official') + src_a('https://vllm.ai', ASOF)),
+         '8/25-8/26', '8/25-8/26'),
+
+        ('inferact', 'vLLM 有公司了', 'vLLM has a company now',
+         '去年掛專案名的人,今年掛公司抬頭。同一批人,不同的談判位置',
+         'the people who wore a project name last year wear a company title this year — same '
+         'people, different negotiating position',
+         '<p>%s %s</p>' % (
+             S(('Inferact 於', 'Inferact was founded in'),
+               '2026-01', ('成立，種子輪', ', raised a'), 'USD 150M', ('、估值', 'seed at a'),
+               'USD 800M', ('，a16z 與 Lightspeed 領投。',
+                            ' valuation, led by a16z and Lightspeed.')),
+             ev('third') + from_draft(D01)),
+         'USD 150M seed', 'USD 150M seed'),
+
+        ('rack-aware', '軟體開始感知機櫃', 'The software started noticing racks',
+         '排程器開始管拓撲,代表客戶已經跨多機櫃在跑 —— 那是我方的尺寸',
+         'a scheduler that manages topology means customers are already running across several '
+         'racks, and that is our size of problem',
+         '<p>%s %s</p>' % (
+             S(('話題從「怎麼管工作」變成「怎麼貼合機櫃」：去年 keynote 發表排程器與執行環境，'
+                '今年上半年發表的是 GB300 NVL72 的拓撲感知排程。',
+                'The subject moved from "how to manage jobs" to "how to fit the rack": last '
+                'year\'s keynote shipped a scheduler and a runtime, this year\'s first half '
+                'shipped topology-aware scheduling for GB300 NVL72.')),
+             ev('vendor') + from_draft(D01)),
+         'GB300 NVL72', 'GB300 NVL72'),
+    ])]
+    a(sec('changed',
+          tt('主軸從八條收成四條、全部吃 GPU；vLLM 有公司了；主辦權易主',
+             'eight tracks became four and all of them eat GPU; vLLM has a company; the show '
+             'changed owner'),
+          '\n'.join(ch), is_open=OPEN))
 
     # ------------------------- 6. technical turn -> server demand -----------
     turns = [
@@ -859,16 +1357,18 @@ def frag_command_center():
          'open that topic deliberately instead of stepping around it.',
          'official'),
     ]
-    tb = []
-    for term, sig_h, sig_e, imp_h, imp_e, rank in turns:
-        tb.append(dr('%s' % lk(term),
-                     tt(esc(sig_h), esc(sig_e)),
-                     '    <p>%s</p>\n    <p>%s %s</p>'
-                     % (tt(esc(imp_h), esc(imp_e)), ev(rank), from_draft(D01))))
-    a(dr(tt('技術轉向與伺服器需求含意', 'The technical turn, and what it means for server demand'),
-         tt('%d 個議程訊號，每一個都翻成一句對報價單的影響' % len(turns),
-            '%d agenda signals, each translated into one line about the quote' % len(turns)),
-         '\n'.join(tb), is_open=OPEN))
+    # The heading is the term the agenda uses; the line under it is the signal
+    # that put the term there; the body is what it does to a quote. Three
+    # altitudes, so the reader can stop at whichever one answers their question.
+    tb = [items('turn', [
+        (term, term, term, sig_h, sig_e,
+         '    <p>%s</p>\n    <p>%s %s</p>'
+         % (tt(esc(imp_h), esc(imp_e)), ev(rank), from_draft(D01)))
+        for term, sig_h, sig_e, imp_h, imp_e, rank in turns])]
+    a(sec('turn',
+          tt('%d 個議程訊號，每一個都翻成一句對報價單的影響' % len(turns),
+             '%d agenda signals, each translated into one line about the quote' % len(turns)),
+          '\n'.join(tb), is_open=OPEN))
 
     # ------------------------------------------------- 7. forward signals ---
     fw = []
@@ -916,10 +1416,10 @@ def frag_command_center():
                       'Knowing someone at Inferact is worth more than knowing any one cloud.')),
                    ev('official') + from_draft(D01)),
     ]))
-    a(dr(tt('前瞻訊號', 'Forward signals'),
-         tt('走廊上要抓的五件事，含一面競爭旗標', 'five things to catch in the corridor, one of them '
-            'a competitive flag'),
-         '\n'.join(fw), is_open=OPEN))
+    a(sec('signals',
+          tt('走廊上要抓的五件事，含一面競爭旗標', 'five things to catch in the corridor, one of them '
+             'a competitive flag'),
+          '\n'.join(fw), is_open=OPEN))
 
     # ------------------------------------------------------- 8. the gaps ----
     gaps = []
@@ -962,10 +1462,10 @@ def frag_command_center():
                 + ' ' + ev('unverified'))
     for g in (factbase.get('gaps') or []):
         gaps.append(gap(g, g))
-    a(dr(tt('本場 GAP', 'What is still open'),
-         tt('%d 個缺口，每一個都寫了什麼證據能結案' % len(gaps),
-            '%d open questions, each with what would close it' % len(gaps)),
-         ul(gaps) + '\n  %s' % STAMP, is_open=OPEN, cls='caveat', fresh=True))
+    a(sec('open',
+          tt('%d 個缺口，每一個都寫了什麼證據能結案' % len(gaps),
+             '%d open questions, each with what would close it' % len(gaps)),
+          ul(gaps) + '\n  %s' % STAMP, is_open=OPEN, cls='caveat', fresh=True))
 
     # ------- method LAST, below the verdict (page-role.json forbids above) ---
     m = []
@@ -997,10 +1497,16 @@ def frag_command_center():
     if SOURCE:
         m.append('    <p>%s <a href="%s">%s</a></p>'
                  % (tt('目錄來源：', 'Catalogue source:'), att(SOURCE), esc(SOURCE)))
-    a(dr(tt('方法與來源', 'Method and sources'),
-         tt('數字從哪裡來、哪一格還沒結案', 'where the numbers come from, and which cells are '
-            'still open'),
-         '\n'.join(m), is_open=False, cls='method', block='method'))
+    a(sec('method',
+          tt('數字從哪裡來、哪一格還沒結案', 'where the numbers come from, and which cells are '
+             'still open'),
+          '\n'.join(m), is_open=False, cls='method', block='method'))
+    # The index is filled in by main() once every fragment has registered its
+    # anchors: command-center renders first, so it cannot see the item anchors
+    # the other four pages create. A placeholder here, resolved there.
+    h.append(sec('index',
+                 tt('每一條都是連結', 'every line is a link'),
+                 INDEX_SLOT, block='index'))
     return '\n'.join(h)
 
 
@@ -1143,17 +1649,32 @@ def frag_agenda():
                                           'the speaker name and employer are unverified. Fill them '
                                           'in from the event app on day one and re-plan'))
         body.append('    %s' % from_draft(D05))
-        pr.append(dr(head, scent, '\n'.join(body)))
+        # The session title is the heading a reader scans for, so it IS the
+        # heading — and it links to the same session's row in section 02, which
+        # carries the speakers and the full block. The line under the heading
+        # says why this room, before the reader commits to the body.
+        pr.append(item(
+            'queue', s.get('id') or ('rank%d' % p['rank']),
+            '%s%s' % (lk('#%d' % p['rank']), sesref(s)), None,
+            p['why_h'], p['why_e'],
+            '\n'.join(body),
+            S(s.get('day'), s.get('start_end'), '·', s.get('room')), None))
     for p in unmatched:
-        pr.append('  <p>%s %s</p>'
-                  % (lk(p['probe']),
-                     gap('底稿點名這一場，但目錄裡找不到對得上的標題 —— 可能改名或撤場，到場確認',
-                         'the draft names this session but no catalogue title matches it — renamed '
-                         'or pulled, settle it on site')))
-    a(dr(tt('先卡這幾場', 'Queue for these first'),
-         tt('%d 場排好順位，%d 場對不上目錄' % (len(matched), len(unmatched)),
-            '%d sessions ranked, %d with no catalogue match' % (len(matched), len(unmatched))),
-         '\n'.join(pr), block='priority-queue'))
+        pr.append(item(
+            'queue', 'unmatched-%s' % slug(p['probe']),
+            lk(p['probe']), None,
+            '底稿點名這一場，目錄裡沒有對得上的標題',
+            'the draft names this session; the catalogue has no title that matches it',
+            '  <p>%s</p>'
+            % gap('可能改名，可能撤場，也可能還沒公布。到場用活動 App 確認,別在客戶面前引用',
+                  'renamed, pulled, or not yet published. Settle it on the event app when you '
+                  'arrive; do not quote it to a customer before then'),
+            '對不上', 'no match'))
+    a(sec('queue',
+          S(('%d 場排好順位' % len(matched), '%d ranked' % len(matched)), '·',
+            ('%d 場對不上目錄' % len(unmatched), '%d with no catalogue match' % len(unmatched)), '·',
+            ('每一場都寫了為什麼是這一場', 'each carrying why this room and not another')),
+          items_wrap(pr), block='priority-queue'))
 
     # ----------------------- 2. every session, day > time block > session ---
     days_html = []
@@ -1165,13 +1686,16 @@ def frag_agenda():
         n_hw = len([s for s in by_day[d] if hw_marks(s)])
         rooms_today = len({str(s.get('room') or '') for s in by_day[d] if s.get('room')})
         blocks_html = []
-        for be, items in blocks.items():
+        for be, blk in blocks.items():
             cards_html = ['    <ol class="ses">']
-            for s in items:
+            for s in blk:
                 sid = str(s.get('id') or '')
                 marks = hw_marks(s)
                 dur = duration_min(s.get('start_end'))
-                cards_html.append('      <li%s>' % (' class="is-hw"' if marks else ''))
+                _said = 'ses-' + slug(sid)
+                cards_html.append('      <li%s%s>'
+                                  % (' class="is-hw"' if marks else '',
+                                     (' id="%s"' % att(_said)) if _said in ANCHORS else ''))
                 cards_html.append('        <p class="when">%s %s%s</p>'
                                   % (lk(s.get('start_end') or ''), lk(sid),
                                      (' ' + lk('%d min' % dur)) if dur else ''))
@@ -1195,9 +1719,9 @@ def frag_agenda():
                                           % (lk(probe), tt(esc(wh), esc(we))))
                 cards_html.append('      </li>')
             cards_html.append('    </ol>')
-            hw_here = len([s for s in items if hw_marks(s)])
-            rooms_here = sorted({str(s.get('room') or '') for s in items if s.get('room')})
-            scent = [('%d 場' % len(items), pl(len(items), 'session', 'sessions')), '·',
+            hw_here = len([s for s in blk if hw_marks(s)])
+            rooms_here = sorted({str(s.get('room') or '') for s in blk if s.get('room')})
+            scent = [('%d 場' % len(blk), pl(len(blk), 'session', 'sessions')), '·',
                      (' / '.join(rooms_here[:3]) + ('…' if len(rooms_here) > 3 else ''),
                       ' / '.join(rooms_here[:3]) + ('…' if len(rooms_here) > 3 else ''))]
             if hw_here:
@@ -1218,14 +1742,14 @@ def frag_agenda():
                                'the catalogue publishes no session at all on %s inside the event '
                                'window — unpublished, not absent. Refresh the agenda before you fly'
                                % ', '.join(MISSING_DAYS)))
-    a(dr(tt('全部場次', 'Every session'),
-         S(('%d 場' % N_SESS, pl(N_SESS, 'session', 'sessions')), '·',
-           ('%d 天已公布' % len(DAYS), pl(len(DAYS), 'day published', 'days published')), '·',
-           ('%d 間會議室' % len(ROOMS), pl(len(ROOMS), 'room', 'rooms')), '·',
-           ('%d 場帶硬體需求訊號' % len(HW_SESSIONS),
-            '%d carrying a hardware-demand signal' % len(HW_SESSIONS))),
-         '\n'.join(days_html) + '\n  %s' % STAMP,
-         block='day-filter', fresh=True))
+    a(sec('all-sessions',
+          S(('%d 場' % N_SESS, pl(N_SESS, 'session', 'sessions')), '·',
+            ('%d 天已公布' % len(DAYS), pl(len(DAYS), 'day published', 'days published')), '·',
+            ('%d 間會議室' % len(ROOMS), pl(len(ROOMS), 'room', 'rooms')), '·',
+            ('%d 場帶硬體需求訊號' % len(HW_SESSIONS),
+             '%d carrying a hardware-demand signal' % len(HW_SESSIONS))),
+          '\n'.join(days_html) + '\n  %s' % STAMP,
+          block='day-filter', fresh=True))
 
     # ------------------------------------------------------- 3. the rooms ---
     rl = ['  <ul class="rooms">']
@@ -1240,35 +1764,79 @@ def frag_agenda():
                    'byte-identical in both languages: what you read aloud matches what is on the '
                    'door.'))
     busiest = ROOMS[0] if ROOMS else ''
-    a(dr(tt('會議室', 'Rooms'),
-         S(('%d 間' % len(ROOMS), pl(len(ROOMS), 'room', 'rooms')), '·',
-           ('最忙的是', 'busiest is'), busiest, '·',
-           ('%d 場' % room_count.get(busiest, 0),
-            pl(room_count.get(busiest, 0), 'session', 'sessions'))),
-         '\n'.join(rl), block='room'))
+    a(sec('rooms',
+          S(('%d 間' % len(ROOMS), pl(len(ROOMS), 'room', 'rooms')), '·',
+            ('最忙的是', 'busiest is'), busiest, '·',
+            ('%d 場' % room_count.get(busiest, 0),
+             pl(room_count.get(busiest, 0), 'session', 'sessions'))),
+          items('rooms', [
+              ('load', '哪一間最忙', 'Where the traffic is',
+               '每一間排了幾場。場次最多的那一間,走廊也最擠',
+               'how many sessions each room holds. The busiest room is also the busiest corridor',
+               '\n'.join(rl)),
+              ('verbatim', '房間名為什麼不翻譯', 'Why the room names are not translated',
+               '中英兩版的房間名逐字元相同,你唸出來的就是門口貼的',
+               'the room name is byte-identical in both languages, so what you read aloud matches '
+               'what is on the door',
+               '  <p>%s</p>'
+               % tt('會議室名稱、時間、日期一律維持目錄原文。翻譯這幾個字省不了力,'
+                    '卻會讓一個人站錯門口。',
+                    'Room names, times and dates stay exactly as the catalogue prints them. '
+                    'Translating them saves nobody anything and can put a person at the wrong '
+                    'door.')),
+          ]), block='room'))
 
     # ------------------------------------------ 4. what the catalogue lacks -
-    cav = []
+    # Three named holes, each with the move that closes it on site. A flat list
+    # of caveats reads as apology; a named hole with a fix reads as a task.
+    rows = []
     if seats_known:
-        cav.append(tt('座位數：%d / %d 場有揭露。' % (len(seats_known), N_SESS),
-                      'Seat counts: disclosed for %d of %d sessions.' % (len(seats_known), N_SESS)))
+        rows.append(('seats', '座位數', 'Seat counts',
+                     '%d / %d 場有揭露,所以「會不會滿」這一題部分可答'
+                     % (len(seats_known), N_SESS),
+                     'disclosed for %d of %d sessions, so "will it fill up" is partly answerable'
+                     % (len(seats_known), N_SESS),
+                     '  <p>%s</p>'
+                     % tt('沒揭露的那幾場仍以活動 App 為準。',
+                          'For the rest, the event app is the authority.'),
+                     '%d/%d' % (len(seats_known), N_SESS), None))
     else:
-        cav.append('%s %s' % (tt('座位數：', 'Seat counts: '), gap(SEAT_WHY_H, SEAT_WHY_E)))
-        cav.append(tt('所以「會不會滿」這件事現在無法回答。現場以活動 App 為準，別在客戶面前用猜的。',
-                      'So "will it fill up" cannot be answered today. Defer to the event app on '
-                      'site; do not guess in front of a customer.'))
-    cav.append('%s %s' % (tt('講者對應：', 'Speaker linkage: '), gap(LINK_WHY_H, LINK_WHY_E)))
-    cav.append(tt('名單上的 %d 位講者來自官方活動頁，不是場次卡片 —— 誰講哪一場尚未證實，'
-                  '官方自己還寫了「and others」，所以這份名單是部分名單。' % N_SPK,
-                  'The %d speakers we hold come from the official event page, not from the session '
-                  'cards, so who speaks where is unverified — and the page says "and others", which '
-                  'makes the roster partial by the organisers\' own admission.' % N_SPK))
-    cav.append(tt('攤位號碼未公布。第一件事是拿 expo 平面圖。',
-                  'Booth numbers are not published. First thing on arrival: get the floor plan.'))
-    a(dr(tt('目錄沒有給的東西', 'What the catalogue does not give'),
-         S(('%d 件' % len(cav), pl(len(cav), 'item', 'items')), '·',
-           ('每一件都寫了現場怎麼補', 'each with how to close it on site')),
-         ul(cav) + '\n  %s' % STAMP, cls='caveat', block='seats-caveat', fresh=True))
+        rows.append(('seats', '座位數', 'Seat counts',
+                     '目錄一場都沒給,所以現在沒有人能說哪一場會爆滿',
+                     'the catalogue gives none, so nobody can say today which room fills up',
+                     '  <p>%s</p>\n  <p>%s</p>'
+                     % (gap(SEAT_WHY_H, SEAT_WHY_E),
+                        tt('現場以活動 App 為準,別在客戶面前用猜的 —— '
+                           '猜錯一次,後面每個數字都要重新被信任。',
+                           'Defer to the event app on site and do not guess in front of a '
+                           'customer: one wrong guess and every other figure has to earn trust '
+                           'again.')),
+                     'GAP', None))
+    rows.append(('linkage', '講者對場次', 'Which speaker is in which room',
+                 '名單有 %d 位講者,但誰講哪一場沒有對應 —— 官方自己寫了 and others' % N_SPK,
+                 'we hold %d speakers but no mapping from speaker to session, and the organisers '
+                 'themselves wrote "and others"' % N_SPK,
+                 '  <p>%s</p>\n  <p>%s</p>'
+                 % (gap(LINK_WHY_H, LINK_WHY_E),
+                    tt('名單來自官方活動頁,不是場次卡片,所以這是一份部分名單 —— '
+                       '把它當成下限,不是全部。',
+                       'The roster comes from the official event page, not from the session '
+                       'cards, which makes it a partial list: treat it as a floor, not a '
+                       'total.')),
+                 'GAP', None))
+    rows.append(('booths', '攤位號碼', 'Booth numbers',
+                 '未公布,所以走廊順序現在排不出來',
+                 'unpublished, so the corridor route cannot be planned in advance',
+                 '  <p>%s</p>'
+                 % tt('落地第一件事是拿 expo 平面圖,再把 %s 那一節的順位貼上去。'
+                      % '打法', 'First thing after you land: get the expo floor plan, then lay '
+                      'the ranked order from the plays page over it.'),
+                 'GAP', None))
+    a(sec('catalog-gap',
+          S(('%d 件' % len(rows), pl(len(rows), 'hole', 'holes')), '·',
+            ('每一件都寫了現場怎麼補', 'each with the move that closes it on site')),
+          items('catalog-gap', rows) + '\n  %s' % STAMP,
+          cls='caveat', block='seats-caveat', fresh=True))
     return '\n'.join(h)
 
 
@@ -1430,10 +1998,27 @@ def frag_gtm():
                       'Every conversation has to be earned in a corridor.')),
                    ev('official')),
     ]
-    a(dr(tt('判斷', 'The judgement'),
-         tt('簽單的是新雲；Ray 短期是逆風；我方沒有主場',
-            'the neoclouds sign; Ray is a short-run headwind; we have no home ground'),
-         ul(jd), block='judgement'))
+    a(sec('judgement',
+          tt('簽單的是新雲；Ray 短期是逆風；我方沒有主場',
+             'the neoclouds sign; Ray is a short-run headwind; we have no home ground'),
+          items('judgement', [
+              ('who-signs', '誰真的簽伺服器訂單', 'Who actually signs the server order',
+               '把房間裡的人分成兩類:簽得了單的,和簽不了單但知道內情的',
+               'sorts the room into two kinds of person — the ones who can sign, and the ones who '
+               'cannot but know what is happening',
+               '  <p>%s</p>' % jd[0], '新雲', 'the neoclouds'),
+              ('headwind', 'Ray 對機箱生意是逆風', 'Ray is a headwind for box sales',
+               '這場的主角技術會讓客戶「暫時不用加機器」,所以要賣的東西必須換一個',
+               'the technology this show is about lets a customer defer buying hardware, so what '
+               'we sell has to change',
+               '  <p>%s</p>' % jd[1], '賣異質節點與機房層',
+               'sell mixed nodes and the hall layer'),
+              ('no-home', '我方沒有主場', 'We have no home ground',
+               '不在贊助名單上代表沒有攤位、沒有正當推銷位置,每一次對話都得靠走廊',
+               'not being on the sponsor list means no booth and no legitimate place to sell from; '
+               'every conversation is earned in a corridor',
+               '  <p>%s</p>' % jd[2], 'GAP,不是被排除', 'a gap, not an exclusion'),
+          ]), block='judgement'))
 
     # ------------------------------------------- 2. theses and falsifiers ---
     th = []
@@ -1446,27 +2031,37 @@ def frag_gtm():
                        tt(esc(kill_h), esc(kill_e))))
         body.append('    </dl>')
         body.append('    %s' % from_draft(D05))
-        th.append(dr('%s %s' % (lk(tag), tt(esc(claim_h), esc(claim_e))),
-                     tt('證據與反證都在裡面', 'evidence and the falsifier, both inside'),
-                     '\n'.join(body)))
-    a(dr(tt('論點與反證', 'Theses, each with what kills it'),
-         S(('%d 條論點' % len(THESES), pl(len(THESES), 'thesis', 'theses')), '·',
-           ('每一條都寫了現場聽到什麼就作廢',
-            'each carries the sentence that would void it on the floor')),
-         '\n'.join(th), block='theses'))
+        # The claim is the heading. The line under it is not a restatement — it
+        # is what believing this thesis commits you to doing differently.
+        th.append(item('theses', tag,
+                       '%s %s' % (lk(tag), tt(esc(claim_h), esc(claim_e))), None,
+                       ev_h, ev_e, '\n'.join(body),
+                       '可被推翻', 'falsifiable'))
+    a(sec('theses',
+          S(('%d 條論點' % len(THESES), pl(len(THESES), 'thesis', 'theses')), '·',
+            ('每一條都寫了現場聽到什麼就作廢',
+             'each carries the sentence that would void it on the floor')),
+          items_wrap(th), block='theses'))
 
     # --------------------------------------------------- 3. booth odds ------
+    # Each booth is a company you can walk to, so the company name is the
+    # heading — and it links straight at that company's card, because the
+    # question a rep asks next ("what do we already know?") is answered there.
     bo = []
     for i, (name, why_h, why_e, rank) in enumerate(BOOTHS, start=1):
-        bo.append('    <li><span class="rank">%s</span> %s %s %s</li>'
-                  % (lk('%d' % i), lk(name), tt(esc(why_h), esc(why_e)), ev(rank)))
-    a(dr(tt('攤位對話，按賠率排序', 'Booth conversations, ranked by odds'),
-         S(('%d 個攤位' % len(BOOTHS), pl(len(BOOTHS), 'booth', 'booths')), '·',
-           ('第一順位是唯一的既有客戶', 'the first is the only existing customer')),
-         '  <ol class="odds">\n%s\n  </ol>\n  %s' % ('\n'.join(bo), from_draft(D05)),
-         block='booth-odds'))
+        bo.append(item('booths', name,
+                       '%s %s' % (lk('#%d' % i), xref(name.split(' / ')[0], name)), None,
+                       why_h, why_e,
+                       '  <p>%s %s</p>' % (ev(rank), from_draft(D05)),
+                       None, None))
+    a(sec('booths',
+          S(('%d 個攤位' % len(BOOTHS), pl(len(BOOTHS), 'booth', 'booths')), '·',
+            ('第一順位是唯一的既有客戶', 'the first is the only existing customer'), '·',
+            ('每個名字連到它的帳戶卡', 'every name links to its account card')),
+          items_wrap(bo), block='booth-odds'))
 
     # -------------------------------------------------- 4. segment plays ----
+    seg_items = []
     for i, seg in enumerate(SEGMENTS, start=1):
         low = seg.lower()
         if 'neocloud' in low or 'gpu' in low:
@@ -1532,29 +2127,55 @@ def frag_gtm():
                          'when all three are filled. An empty one gets GAP and what is missing, '
                          'never "none".'))
         body.append('    </dl>')
-        a(dr(lk(seg),
-             S(('%d 家候選' % len(oids), pl(len(oids), 'candidate', 'candidates')), '·',
-               ('%d 家自己買機器' % len(yes), '%d buy their own machines' % len(yes))),
-             '\n'.join(body), cls='play', block='segment-play'))
+        seg_items.append(item('segments', seg, lk(seg), None,
+                              open_h, open_e, '\n'.join(body),
+                              S(('%d 家候選' % len(oids), '%d candidates' % len(oids)), '·',
+                                ('%d 家買機器' % len(yes), '%d buy' % len(yes))), None))
+    a(sec('segments',
+          S(('%d 個客群' % len(SEGMENTS), pl(len(SEGMENTS), 'segment', 'segments')), '·',
+            ('每一群一句開場、一份候選名單',
+             'one opening line and one shortlist per segment')),
+          items_wrap(seg_items) or
+          ('  <p>%s</p>'
+           % gap('STATE.campaign.segments 是空的,所以沒有客群可以分',
+                 'STATE.campaign.segments is empty, so there is no segmentation to print')),
+          cls='play', block='segment-play'))
 
     # ------------------------------------------- 5. the five questions ------
+    # The question is the heading because the question is what a rep says out
+    # loud. The line beneath is what the answer tells you — the reason to ask.
     qs = []
     for i, (q_h, q_e, r_h, r_e) in enumerate(QUESTIONS, start=1):
-        qs.append(dr('%s %s' % (lk('Q%d' % i), tt(esc(q_h), esc(q_e))),
-                     tt('答案代表什麼', 'what the answer means'),
-                     '    <p>%s</p>\n    %s' % (tt(esc(r_h), esc(r_e)), from_draft(D05))))
-    a(dr(tt('五個問題，與它們揭露什麼', 'Five questions, and what each answer reveals'),
-         S(('%d 題' % len(QUESTIONS), pl(len(QUESTIONS), 'question', 'questions')), '·',
-           ('每一題的答案都直接分類這個帳戶',
-            'every answer sorts the account on the spot')),
-         '\n'.join(qs), block='discovery'))
+        qs.append(item('questions', 'q%d' % i,
+                       '%s %s' % (lk('Q%d' % i), tt(esc(q_h), esc(q_e))), None,
+                       r_h, r_e,
+                       '    %s' % from_draft(D05), None, None))
+    a(sec('questions',
+          S(('%d 題' % len(QUESTIONS), pl(len(QUESTIONS), 'question', 'questions')), '·',
+            ('每一題的答案都直接分類這個帳戶',
+             'every answer sorts the account on the spot')),
+          items_wrap(qs), block='discovery'))
 
     # --------------------------------------------------- 6. do not do -------
-    a(dr(tt('不要做什麼', 'What not to do'),
-         S(('%d 條' % len(DONTS), pl(len(DONTS), 'rule', 'rules')), '·',
-           ('每一條都花過錢', 'every one of them has cost money before')),
-         ul(['%s' % tt(esc(x), esc(y)) for x, y in DONTS], cls='donts')
-         + '\n  %s' % from_draft(D05), block='donts'))
+    # Each rule gets the short name of the mistake as its heading, so a rep
+    # scanning before they walk in remembers the shape rather than the sentence.
+    DONT_KEYS = [
+        ('pitch-partner-booth', '不在別人主場推銷', 'Do not pitch on a partner\'s home ground'),
+        ('spec-opener', '不用規格開場', 'Do not open with a spec'),
+        ('unconfirmed-fleet', '不複述未證實的機隊數字', 'Do not repeat unconfirmed fleet numbers'),
+        ('absence-as-exclusion', '不把缺席讀成被排除', 'Do not read absence as exclusion'),
+        ('cards-as-kpi', '不用名片數當 KPI', 'Do not make business cards the KPI'),
+        ('quote-first', '不報價、不承諾交期', 'Do not quote and do not promise dates'),
+    ]
+    dn = []
+    for i, (x, y) in enumerate(DONTS):
+        k, lh, le = DONT_KEYS[i] if i < len(DONT_KEYS) else ('dont%d' % i, x[:12], y[:24])
+        dn.append(item('dont', k, lh, le, x, y,
+                       '    %s' % from_draft(D05), None, None))
+    a(sec('dont',
+          S(('%d 條' % len(DONTS), pl(len(DONTS), 'rule', 'rules')), '·',
+            ('每一條都花過錢', 'every one of them has cost money before')),
+          items_wrap(dn), block='donts'))
 
     # --------------------------------------------------- 7. the register ----
     cols = [('客群', 'Segment'), ('需求', 'Need'), ('誰簽字', 'Who signs'),
@@ -1588,11 +2209,17 @@ def frag_gtm():
                    'Fill it the moment a conversation ends. Not asked and not there are different '
                    'findings; not asked is a GAP.'))
     rg.append('  %s' % STAMP)
-    a(dr(tt('現場登記簿', 'The floor register'),
-         S(('%d 個客群 × 3 格' % len(SEGMENTS or [1]),
-            '%d segments x 3 cells' % len(SEGMENTS or [1])), '·',
-           ('現在全部是空的，這是預期狀態', 'all empty right now, which is the expected state')),
-         '\n'.join(rg), block='d-register', fresh=True))
+    a(sec('register',
+          S(('%d 個客群 × 3 格' % len(SEGMENTS or [1]),
+             '%d segments x 3 cells' % len(SEGMENTS or [1])), '·',
+            ('現在全部是空的，這是預期狀態', 'all empty right now, which is the expected state')),
+          items('register', [
+              ('grid', '要填的三格', 'The three cells to fill',
+               '每一次對話結束就地填。三格填滿才算一次有效對話',
+               'fill it the moment a conversation ends; a conversation only counts when all three '
+               'are filled',
+               '\n'.join(rg)),
+          ]), block='d-register', fresh=True))
 
     # -------------------------------------------------------- 8. the gaps ---
     g = [
@@ -1612,10 +2239,31 @@ def frag_gtm():
             'The real fleet size and purchasing window of every platform team here is unverified. '
             'Nothing on this page estimates them.'),
     ]
-    a(dr(tt('這一頁還沒結案的', 'What this page has not closed'),
-         S(('%d 個缺口' % len(g), pl(len(g), 'open question', 'open questions')), '·',
-           ('每一個都寫了現場怎麼問掉它', 'each with the question that closes it on the floor')),
-         ul(g) + '\n  %s' % STAMP, cls='caveat', fresh=True))
+    GAP_KEYS = [
+        ('speaker-employer', '講者對不上公司', 'Speakers are not matched to employers',
+         '沒有這個對應,走廊上遇到一個人也不知道他代表誰',
+         'without the mapping, meeting someone in a corridor tells you nothing about who they '
+         'represent'),
+        ('unknown-oem', '六家的整櫃供應商不明', 'Six rack suppliers are unknown',
+         '不知道誰供櫃,就不知道該正面競標還是側面切入',
+         'not knowing who supplies the rack means not knowing whether to bid head-on or find a '
+         'seam'),
+        ('one-sided', '兩家只有單邊公告', 'Two rest on one-sided announcements',
+         '只有廠商自己講的話,對方沒有證實過',
+         'only the vendor has said it; the other side has never confirmed'),
+        ('fleet-size', '平台團隊的機隊規模全部未證', 'Every platform team fleet size is unverified',
+         '規模是排不排這一趟的依據,所以這一格空著就沒有排序依據',
+         'scale is what decides whether an account is worth a trip, so an empty cell means no way '
+         'to rank'),
+    ]
+    a(sec('gtm-open',
+          S(('%d 個缺口' % len(g), pl(len(g), 'open question', 'open questions')), '·',
+            ('每一個都寫了現場怎麼問掉它', 'each with the question that closes it on the floor')),
+          items('gtm-open', [(GAP_KEYS[i][0], GAP_KEYS[i][1], GAP_KEYS[i][2],
+                              GAP_KEYS[i][3], GAP_KEYS[i][4],
+                              '  <p>%s</p>' % g[i], 'GAP', None)
+                             for i in range(min(len(g), len(GAP_KEYS)))])
+          + '\n  %s' % STAMP, cls='caveat', fresh=True))
     return '\n'.join(h)
 
 
@@ -1726,6 +2374,7 @@ def card_cell(c, key, name):
 def card_drawer(c):
     name = str(c.get('legal_name') or c.get('org_id') or c.get('ledger_id') or '?')
     oid = str(c.get('org_id') or '')
+    lid = str(c.get('ledger_id') or c.get('org_id') or '')
     is_full = c.get('full') is True
     body = []
 
@@ -1808,8 +2457,12 @@ def card_drawer(c):
     head = '%s%s' % (lk(name),
                      (' <span class="fullmark">%s</span>'
                       % tt('完整檔', 'full dossier')) if is_full else '')
+    # The anchor lands HERE, on the card itself, because this is what every
+    # xref() in the pack promises to take the reader to.
+    _aid = 'acct-' + slug(lid)
     return dr(head, scent, '\n'.join(body),
-              cls='acct%s' % (' is-full' if is_full else ''))
+              cls='acct%s' % (' is-full' if is_full else ''),
+              aid=_aid if _aid in ANCHORS else None)
 
 
 def _flat(c, key):
@@ -1865,15 +2518,28 @@ def frag_accounts():
                       tt('個不同網址', 'separate URLs')))
     cov.append('  %s' % STAMP)
     open_layer = cards is None or [c for c in cards if not band_key(c.get('layer'))]
-    a(dr(tt('這一板現在的狀態', 'Where this board stands'),
-         (S(('%d 家' % N_CARDS, pl(N_CARDS, 'company', 'companies')), '·',
-            ('%d 格已填' % POP, '%d cells filled' % POP), '·',
-            ('%d 格帶來源' % SRCD, '%d sourced' % SRCD), '·',
-            ('%d 格待補' % GAPC, '%d still open' % GAPC), '·',
-            ('%d 份完整檔' % N_FULL, '%d full dossiers' % N_FULL))
-          if cards is not None else tt('帳戶卡尚未產生', 'the account cards are not built yet')),
-         '\n'.join(cov), cls='caveat%s' % ('' if open_layer else ' is-clear'),
-         block='gap-visible', fresh=True))
+    a(sec('board',
+          (S(('%d 家' % N_CARDS, pl(N_CARDS, 'company', 'companies')), '·',
+             ('%d 格已填' % POP, '%d cells filled' % POP), '·',
+             ('%d 格帶來源' % SRCD, '%d sourced' % SRCD), '·',
+             ('%d 格待補' % GAPC, '%d still open' % GAPC), '·',
+             ('%d 份完整檔' % N_FULL, '%d full dossiers' % N_FULL))
+           if cards is not None else tt('帳戶卡尚未產生', 'the account cards are not built yet')),
+          items('board', [
+              ('fill', '填到什麼程度', 'How far this board is filled',
+               '已填、帶來源、還開著各多少格。帶來源的那些點得進原文',
+               'how many cells are filled, how many carry a source, how many are still open — the '
+               'sourced ones click through to the original',
+               '\n'.join(cov[:1] + cov[3:]) if len(cov) > 3 else '\n'.join(cov[:1])),
+              ('actionable', '拿得動的名單', 'The list you can act on',
+               '自己買機器的、部分自購的、查完判定不是買方的,三堆分開 —— '
+               '「查過沒有」和「還沒查」不是同一件事',
+               'who buys, who partly buys, and who was researched and found not to be a buyer — '
+               'three different stacks, because researched-and-empty is not the same finding as '
+               'not-yet-researched',
+               '\n'.join(cov[1:3]) if len(cov) > 2 else ''),
+          ]), cls='caveat%s' % ('' if open_layer else ' is-clear'),
+          block='gap-visible', fresh=True))
 
     # ------------------------------------------------------ 2. the bands ----
     banded = OrderedDict((k, []) for k, _n, _e, _d, _de in LAYERS)
@@ -1882,36 +2548,59 @@ def frag_accounts():
         key = band_key(c.get('layer'))
         (banded[key] if key else unbanded).append(c)
 
-    def band(key, nh, ne, dh, de, items):
-        yes = [c for c in items if str(c.get('buys_servers')) == 'YES']
-        full = [c for c in items if c.get('full') is True]
-        out = [c for c in items if str(c.get('classification')) == 'ruled-out']
+    def band(key, nh, ne, dh, de, mem):
+        yes = [c for c in mem if str(c.get('buys_servers')) == 'YES']
+        full = [c for c in mem if c.get('full') is True]
+        out = [c for c in mem if str(c.get('classification')) == 'ruled-out']
         body = ['  <p class="banddesc">%s</p>' % tt(esc(dh), esc(de))]
         body.append('  <div class="accts" data-block="card-grid">')
-        if not items:
+        if not mem:
             body.append('    <p>%s</p>'
                         % gap('這一層目前沒有卡片。沒有人落到這一層是「未查證」，不是「不屬於」',
                               'no card lands in this layer yet. Nobody here means unverified, not '
                               'unaffiliated'))
-        for c in sorted(items, key=lambda c: (0 if c.get('full') else 1,
+        for c in sorted(mem, key=lambda c: (0 if c.get('full') else 1,
                                               TIER_RANK.get(tier_of.get(str(c.get('org_id') or ''), ''), 9),
                                               str(c.get('legal_name') or ''))):
             body.append(card_drawer(c))
         body.append('  </div>')
         return dr('%s %s' % (lk(key), tt(esc(nh), esc(ne))),
-                  S(('%d 家' % len(items), pl(len(items), 'company', 'companies')), '·',
+                  S(('%d 家' % len(mem), pl(len(mem), 'company', 'companies')), '·',
                     ('%d 家自己買機器' % len(yes), '%d buy their own machines' % len(yes)), '·',
                     ('%d 份完整檔' % len(full), '%d full dossiers' % len(full)), '·',
                     ('%d 家這輪判定不是買方' % len(out), '%d called out this lap' % len(out))),
                   '\n'.join(body), cls='band', block='layer-band')
 
+    # One section, one item per layer. The layer name is the heading and the
+    # line beneath says what that layer MEANS for a rep standing in front of one
+    # of these companies — not what the taxonomy calls it.
+    bd = []
     for key, nh, ne, dh, de in LAYERS:
-        a(band(key, nh, ne, dh, de, banded[key]))
+        mem = banded[key]
+        yes = [c for c in mem if str(c.get('buys_servers')) == 'YES']
+        bd.append(item('bands', key,
+                       '%s %s' % (lk(key), tt(esc(nh), esc(ne))), None,
+                       dh, de,
+                       band(key, nh, ne, dh, de, mem),
+                       S(('%d 家' % len(mem), '%d' % len(mem)), '·',
+                         ('%d 家買機器' % len(yes), '%d buy' % len(yes))), None))
     if unbanded:
-        a(band('unlayered', '還沒分層', 'Not yet placed',
-               '分層欄位還是 GAP —— 未查證，不是不屬於任何一層。這一疊就是下一輪的排隊名單',
-               'the layer cell is still open — unverified, not unaffiliated. This stack is the '
-               'queue for the next lap', unbanded))
+        bd.append(item('bands', 'unlayered',
+                       '%s %s' % (lk('unlayered'), tt('還沒分層', 'Not yet placed')), None,
+                       '分層欄位還是 GAP —— 未查證,不是不屬於任何一層。這一疊是下一輪的排隊名單',
+                       'the layer cell is still open — unverified, not unaffiliated. This stack is '
+                       'the queue for the next lap',
+                       band('unlayered', '還沒分層', 'Not yet placed',
+                            '分層欄位還是 GAP —— 未查證，不是不屬於任何一層。這一疊就是下一輪的排隊名單',
+                            'the layer cell is still open — unverified, not unaffiliated. This '
+                            'stack is the queue for the next lap', unbanded),
+                       '%d 家' % len(unbanded), '%d' % len(unbanded)))
+    a(sec('bands',
+          S(('%d 層' % len(LAYERS), '%d layers' % len(LAYERS)), '·',
+            ('%d 家已分層' % sum(len(v) for v in banded.values()),
+             '%d placed' % sum(len(v) for v in banded.values())), '·',
+            ('%d 家還沒分' % len(unbanded), '%d unplaced' % len(unbanded))),
+          items_wrap(bd), block='layer-band'))
 
     # -------------------------------------------- 3. how solid any of it is -
     if cards is not None:
@@ -1932,11 +2621,23 @@ def frag_accounts():
                        tt('個不同來源網址，每一格都可以點開原文',
                           'separate source URLs, every cell clickable through to the original')))
         body.append('  %s' % STAMP)
-        a(dr(tt('這些格子站得多穩', 'How solid any of this is'),
-             S(('%d 格已填' % POP, '%d cells filled' % POP), '·',
-               ('%d 格待補' % GAPC, '%d still open' % GAPC), '·',
-               ('%d 個來源網址' % N_SRCURL, '%d source URLs' % N_SRCURL)),
-             '\n'.join(body), fresh=True))
+        a(sec('solidity',
+              S(('%d 格已填' % POP, '%d cells filled' % POP), '·',
+                ('%d 格待補' % GAPC, '%d still open' % GAPC), '·',
+                ('%d 個來源網址' % N_SRCURL, '%d source URLs' % N_SRCURL)),
+              items('solidity', [
+                  ('mixed', '同一張卡上的證據不同級', 'Two cells on one card can rest on very '
+                   'different ground',
+                   '一格可能是法說原文,隔壁一格是部落格轉述。哪一格是哪一種,印在那一格旁邊',
+                   'one cell can be an earnings filing and the next a blog paraphrase; which is '
+                   'which prints next to the cell itself',
+                   '\n'.join(body[:1])),
+                  ('tally', '四級各有多少格', 'How many cells sit at each rank',
+                   '證據等級是排序,不是配色。看這一列就知道整板有多少是一手',
+                   'evidence quality is a rank, not a colour scheme — this row says how much of the '
+                   'whole board is first-party',
+                   '\n'.join(body[1:])),
+              ]), fresh=True))
     return '\n'.join(h)
 
 
@@ -1979,6 +2680,45 @@ LAMBDA_URL = 'https://lambda.ai/pricing'
 CW_URL = 'https://www.coreweave.com/pricing'
 
 # (chip, lambda_per_gpu_hr, coreweave_per_gpu_hr, coreweave_raw_note)
+# Five vendors publish, not two. All USD per GPU per hour, on demand, every
+# page read 2026-08-18. A column of None is a vendor that does not publish that
+# chip — which is a finding about the vendor, not a hole in the table.
+# Order is cheapest-first so the spread reads off the row without arithmetic.
+RATE_VENDORS = [
+    ('Verda',     'https://www.verda.com/pricing'),
+    ('Lambda',    'https://lambda.ai/pricing'),
+    ('Nebius',    'https://nebius.com/prices'),
+    ('Together',  'https://www.together.ai/pricing'),
+    ('CoreWeave', 'https://www.coreweave.com/pricing'),
+]
+
+# chip, [Verda, Lambda, Nebius, Together, CoreWeave], note
+RATE_GRID = [
+    ('B200',        [6.11, 6.69, 7.15, 8.19, 8.60], None),
+    ('H200',        [4.00, None, 4.50, 5.99, 6.31], None),
+    ('H100 SXM',    [3.25, 3.99, 3.85, 3.99, 6.16], None),
+    ('A100 80GB',   [1.79, 2.79, None, None, 2.70], None),
+    ('GB200 NVL72', [None, None, None, None, 10.50],
+     ('全場七家只有一家公布', 'one published rate across all seven vendors')),
+    ('GB300 NVL72', [8.62, None, None, None, None],
+     ('全場唯一公布的 GB300 牌價', 'the only published GB300 rate anywhere in the room')),
+    ('B300',        [None, None, 7.85, None, None], None),
+]
+
+# Vendors in the room that publish NOTHING. Their silence is content.
+RATE_SILENT = [
+    ('Nscale', '白金', 'Platinum',
+     '沒有公開牌價。/pricing 與 /products/compute 皆回 404（2026-08-18 實測）',
+     'no public rate card at all: /pricing and /products/compute both return 404, probed 2026-08-18'),
+    ('Parasail', '銀', 'Silver',
+     '刻意不公布 GPU 時價,只公布每 token 價格,機時「來信報價」',
+     'withholds GPU-hour pricing by design, publishes per-token inference pricing instead and quotes '
+     'machine time on request'),
+    ('AWS / Google Cloud / Azure', '白金與金', 'Platinum and Gold',
+     '本輪未抓取,不是沒有牌價 —— 這是我們的缺口,不是他們的',
+     'not fetched this lap. They do publish; this gap is ours, not theirs'),
+]
+
 RATE_PIVOT = [
     ('B200',          6.69,  8.60,  None),
     ('H200',          None,  6.31,  ('USD 50.44 / 8-GPU hr', 'USD 50.44 per 8-GPU hour')),
@@ -2094,11 +2834,28 @@ def frag_compare():
     ax.append('  </div>')
     ax.append('  %s' % STAMP)
     n_present = sum(len([o for o in hits if not o.startswith('!')]) for _x, hits in AXIS_HITS)
-    a(dr(tt('這一場真正的對照軸', 'The axis this show is actually on'),
-         S(('自建對租賃', 'Build versus rent'), '·',
-           ('%d 條軸線' % len(AXES), pl(len(AXES), 'axis', 'axes')), '·',
-           ('對面 %d 家在現場' % n_present, '%d of the other side are in the room' % n_present)),
-         '\n'.join(ax), block='axis-from-STATE', fresh=True))
+    a(sec('axis',
+          S(('自建對租賃', 'Build versus rent'), '·',
+            ('%d 條軸線' % len(AXES), pl(len(AXES), 'axis', 'axes')), '·',
+            ('對面 %d 家在現場' % n_present, '%d of the other side are in the room' % n_present)),
+          items('axis', [
+              ('not-booths', '對手不在攤位之間', 'The rival is not another booth',
+               '這場一個傳統伺服器對手都沒有。真正在搶同一筆預算的,是把算力按小時租出去的人',
+               'not one traditional server rival is here. What competes for the same budget is the '
+               'people renting compute by the hour',
+               '  <p>%s</p>'
+               % tt('所以「誰的規格好」在這個房間裡不是問題,'
+                    '「買下來還是租」才是 —— 那一題的答案寫在 %s。'
+                    % '下面的交叉點那一節',
+                    'So "whose spec is better" is not the question in this room. "Own it or rent '
+                    'it" is — and the answer to that one is in the crossover section below.'),
+               None, None),
+              ('who', '對面現在有誰在場', 'Who from that side is actually here',
+               '每一條軸線點名的公司,哪些真的在名單上、哪些不在 —— 不在不等於沒來',
+               'for each axis, which named companies are really on the roster and which are not — '
+               'and absent from the roster is not the same as absent from the show',
+               '\n'.join(ax), None, None),
+          ]), block='axis-from-STATE', fresh=True))
 
     # ------------------------------------------------- 2. who rents, what ---
     rn = []
@@ -2106,16 +2863,17 @@ def frag_compare():
         body = ['    <p>%s</p>' % tt(esc(sell_h), esc(sell_e))]
         body.append(ul([lk(x) for x in signals], cls='spell'))
         body.append('    %s %s' % (ev(rank), src_a(url, date)))
-        rn.append(dr('%s <span class="chip">%s</span>' % (lk(name), esc(tier)),
-                     S(('%d 個規模訊號' % len(signals),
-                        pl(len(signals), 'scale signal', 'scale signals')), '·',
-                       ('全部有來源', 'all sourced')),
-                     '\n'.join(body)))
-    a(dr(tt('租賃方是誰、賣什麼', 'Who rents, and what they sell'),
-         S(('%d 家' % len(RENTERS), pl(len(RENTERS), 'renter', 'renters')), '·',
-           ('全部在現場，全部是白金或金級',
-            'all in the room, all at Platinum or Gold')),
-         '\n'.join(rn), block='renters'))
+        rn.append(item('renters', name,
+                       '%s <span class="chip">%s</span>' % (xref(name), esc(tier)), None,
+                       sell_h, sell_e,
+                       '\n'.join(body[1:]),
+                       S(('%d 個規模訊號' % len(signals), '%d scale signals' % len(signals))), None))
+    a(sec('renters',
+          S(('%d 家' % len(RENTERS), pl(len(RENTERS), 'renter', 'renters')), '·',
+            ('全部在現場，全部是白金或金級',
+             'all in the room, all at Platinum or Gold'), '·',
+            ('每個名字連到它的帳戶卡', 'every name links to its account card')),
+          items_wrap(rn), block='renters'))
 
     # ---------------------------------------------------- 3. the rate card --
     def spread(a, b):
@@ -2125,112 +2883,113 @@ def frag_compare():
         lo, hi = min(a, b), max(a, b)
         return int(round((hi - lo) / lo * 100)), ('CoreWeave' if b > a else 'Lambda')
 
-    rc = ['  <p>%s</p>'
-          % tt('只有兩家真的公布數字，所以這張表只有兩欄。全部換算成「每 GPU 每小時」才比得下去；'
-               '對方按整台報價的，原始數字也印在旁邊，不用相信我們的算術。',
-               'Only two of them publish numbers, so the table has two columns. Everything is '
-               'normalised to one GPU for one hour or the columns cannot be compared; where a '
-               'vendor quotes by the node, the raw figure prints beside it so you need not trust '
-               'our arithmetic.')]
+    # Five vendors, one normalised unit. The row is sorted cheapest-first at the
+    # data level, so the spread is a subtraction the reader can do by eye.
+    def row_spread(vals):
+        got = [v for v in vals if v is not None]
+        if len(got) < 2:
+            return None
+        lo, hi = min(got), max(got)
+        return int(round((hi - lo) / lo * 100))
+
+    rc = []
     rc.append('  <div class="regwrap">')
     rc.append('  <table class="reg ratecard">')
-    rc.append('    <thead><tr>%s</tr></thead>'
-              % ''.join('<th>%s</th>' % h for h in (
-                  tt('晶片', 'Chip'), 'Lambda', 'CoreWeave',
-                  tt('價差', 'Spread'))))
+    rc.append('    <thead><tr><th>%s</th>%s<th>%s</th></tr></thead>'
+              % (tt('晶片', 'Chip'),
+                 ''.join('<th>%s</th>' % esc(n) for n, _u in RATE_VENDORS),
+                 tt('價差', 'Spread')))
     rc.append('    <tbody>')
-    for chip, lam, cw, raw in RATE_PIVOT:
-        sp = spread(lam, cw)
-        def cell(v, url, rawnote=None):
-            if v is None:
-                return ('<span class="lbl">%s</span>%s'
-                        % (tt('每 GPU-hr', 'per GPU-hr'),
-                           gap('未公布這一顆', 'does not publish this one')))
-            extra = ('<span class="rawrate">%s</span>'
-                     % tt(esc(rawnote[0]), esc(rawnote[1]))) if rawnote else ''
-            return ('<span class="lbl">%s</span><b class="rate">%s</b>%s'
-                    % (tt('每 GPU-hr', 'per GPU-hr'), lk('USD %.2f' % v), extra))
+    for chip, vals, note in RATE_GRID:
+        got = [v for v in vals if v is not None]
+        lo = min(got) if got else None
         rc.append('      <tr>')
-        rc.append('        <td class="chip-c"><span class="lbl">%s</span>%s</td>'
+        rc.append('        <td><span class="lbl">%s</span>%s</td>'
                   % (tt('晶片', 'Chip'), lk(chip)))
-        rc.append('        <td>%s</td>' % cell(lam, LAMBDA_URL))
-        rc.append('        <td>%s</td>' % cell(cw, CW_URL, raw))
-        if sp:
-            pct, dearer = sp
-            rc.append('        <td class="spread-c"><span class="lbl">%s</span>'
-                      '<b class="spread">+%d%%</b> <span class="cap">%s</span></td>'
-                      % (tt('價差', 'Spread'), pct,
-                         tt('%s 較貴' % esc(dearer), '%s dearer' % esc(dearer))))
-        else:
-            rc.append('        <td class="spread-c"><span class="lbl">%s</span>%s</td>'
-                      % (tt('價差', 'Spread'),
-                         gap('只有一家報這顆，比不了',
-                             'only one vendor lists it, so there is nothing to compare')))
+        for (vn, vu), v in zip(RATE_VENDORS, vals):
+            if v is None:
+                rc.append('        <td><span class="lbl">%s</span>%s</td>'
+                          % (esc(vn), gap('這一家沒有公布這顆晶片的牌價',
+                                          'this vendor publishes no rate for this chip')))
+            else:
+                rc.append('        <td class="%s"><span class="lbl">%s</span>%s %s</td>'
+                          % ('cheap' if v == lo else '', esc(vn),
+                             lk('USD %.2f' % v),
+                             ('<span class="lowmark">%s</span>'
+                              % tt('最低', 'lowest')) if v == lo else ''))
+        sp = row_spread(vals)
+        rc.append('        <td><span class="lbl">%s</span>%s</td>'
+                  % (tt('價差', 'Spread'),
+                     (lk('%d%%' % sp) if sp is not None
+                      else gap('只有一家公布,無從比價', 'only one vendor publishes it, so there is '
+                               'nothing to compare against'))))
+        if note:
+            rc.append('        <td class="rn">%s</td>' % tt(esc(note[0]), esc(note[1])))
         rc.append('      </tr>')
     rc.append('    </tbody>')
     rc.append('  </table>')
     rc.append('  </div>')
-    rc.append('  %s %s %s' % (ev('official'), src_a(LAMBDA_URL, ASOF), src_a(CW_URL, ASOF)))
+    rc.append('  <p class="src">%s</p>'
+              % ' '.join(src_a(u, '2026-08-18', n, n) for n, u in RATE_VENDORS))
 
-    h100 = next((r for r in RATE_PIVOT if r[0].startswith('H100')), None)
-    if h100 and h100[1] and h100[2]:
-        pct, dearer = spread(h100[1], h100[2])
-        rc.append('  <p class="punch">%s</p>'
-                  % S(('同一顆 H100，一家', 'The same H100, one vendor at'),
-                      'USD %.2f' % h100[1], ('，另一家', ', the other at'),
-                      'USD %.2f' % h100[2], ('。差', '. That is'), '%d%%' % pct,
-                      ('，而且兩家都在這場展會裡。租賃市場自己就有這麼大的價差 ——'
-                       '「租比較便宜」不是一個事實，是一句沒有講完的話。',
-                       ', and both of them are at this show. The rental market carries that spread '
-                       'inside itself. "Renting is cheaper" is not a fact, it is an unfinished '
-                       'sentence.')))
+    sil = ['  <ul class="ev-list">']
+    for name, th, te, wh, we in RATE_SILENT:
+        sil.append('    <li>%s <span class="chip">%s</span> %s</li>'
+                   % (lk(name), tt(esc(th), esc(te)), tt(esc(wh), esc(we))))
+    sil.append('  </ul>')
 
-    # multi-node costs more, not less
-    cl = ['  <p>%s</p>'
-          % tt('買家預期量大變便宜。Lambda 的多節點叢集比單機貴 —— 因為那條 InfiniBand 要錢。'
-               '這是現場可以直接問的一句話。',
-               'A buyer expects volume to get cheaper. Lambda\'s multi-node clusters cost more than '
-               'single nodes, because the InfiniBand fabric is not free. That is a question you can '
-               'ask on the floor as it stands.')]
-    cl.append('  <div class="regwrap">')
-    cl.append('  <table class="reg">')
-    cl.append('    <thead><tr>%s</tr></thead>'
-              % ''.join('<th>%s</th>' % h for h in (
-                  tt('叢集方案', 'Cluster offer'), tt('叢集價', 'Cluster rate'),
-                  tt('同顆單機價', 'Single-node rate'), tt('貴多少', 'Premium'))))
-    cl.append('    <tbody>')
-    for label, band, single in CLUSTER_ROWS:
-        lo = float(re.findall(r'[\d.]+', band)[0])
-        prem = int(round((lo - single) / single * 100))
-        cl.append('      <tr><td><span class="lbl">%s</span>%s</td>'
-                  '<td><span class="lbl">%s</span><b class="rate">%s</b></td>'
-                  '<td><span class="lbl">%s</span>%s</td>'
-                  '<td><span class="lbl">%s</span><b class="spread">+%d%%</b></td></tr>'
-                  % (tt('叢集方案', 'Cluster offer'), lk(label),
-                     tt('叢集價', 'Cluster rate'), lk(band),
-                     tt('同顆單機價', 'Single-node rate'), lk('USD %.2f' % single),
-                     tt('貴多少', 'Premium'), prem))
-    cl.append('    </tbody>')
-    cl.append('  </table>')
-    cl.append('  </div>')
-    cl.append('  %s %s' % (ev('official'), src_a(LAMBDA_URL, ASOF)))
-    rc.append(dr(tt('多節點反而更貴', 'Multi-node costs more, not less'),
-                 tt('叢集價比單機價高兩到四成', 'clusters run twenty to forty per cent above single nodes'),
-                 '\n'.join(cl)))
-
-    rc.append('  <p>%s</p>'
-              % S(('CoreWeave 的承諾用量寫「最高六折」，但合約長度與級距沒公布。',
-                   'CoreWeave says committed use goes up to forty per cent off but publishes '
-                   'neither contract length nor tiers.'),
-                  gap('那是 GAP，不是可以拿來算的數字。要結案：向客戶索取他手上的實際報價單',
-                      'that is a gap, not a number you can compute with. To close it, ask the '
-                      'customer for the quote they are actually holding')))
-    a(dr(tt('公開牌價', 'The published rate cards'),
-         S(('只有兩家公布數字', 'only two vendors publish anything'), '·',
-           ('同一顆 H100 差 %d%%' % (spread(h100[1], h100[2])[0] if h100 and h100[1] and h100[2] else 0),
-            'the same H100 differs by %d%%' % (spread(h100[1], h100[2])[0] if h100 and h100[1] and h100[2] else 0)),
-           '·', ('多節點反而更貴', 'multi-node costs more')),
-         '\n'.join(rc), block='rate-cards'))
+    _h100 = next((v for c, v, _n in RATE_GRID if c == 'H100 SXM'), None)
+    _sp100 = row_spread(_h100) if _h100 else 0
+    _b200 = next((v for c, v, _n in RATE_GRID if c == 'B200'), None)
+    _sp200 = row_spread(_b200) if _b200 else 0
+    a(sec('rates',
+          S(('五家公布,三家不公布', 'five publish, three do not'), '·',
+            ('同一顆 H100 最高差 %d%%' % _sp100, 'the same H100 varies by %d%%' % _sp100), '·',
+            ('B200 差 %d%%' % _sp200, 'B200 by %d%%' % _sp200)),
+          items('rates', [
+              ('grid', '同一顆晶片,五家報價', 'The same chip, priced by five vendors',
+               '全部換算成每 GPU 每小時才比得下去。每一列標出最低價那一家,價差直接印在右邊',
+               'everything normalised to one GPU for one hour, or the columns cannot be compared. '
+               'The cheapest vendor is marked on every row and the spread prints on the right',
+               '\n'.join(rc)),
+              ('spread', '價差大到不像同一個市場', 'The spread is too wide to be one market',
+               '同一顆 H100,最貴的比最便宜的貴 %d%%。這不是議價空間的問題,是牌價本身就不一致'
+               % _sp100,
+               'on the same H100 the dearest sits %d%% above the cheapest. That is not negotiating '
+               'room, it is a market whose list prices do not agree with each other' % _sp100,
+               '  <p>%s</p>\n  <p>%s</p>'
+               % (S(('客戶拿一張報價來問「這樣算貴嗎」的時候,先問他比的是哪一家。',
+                     'When a customer holds up a quote and asks whether it is expensive, ask which '
+                     'vendor they are comparing against first.'),
+                    ('H100 從', 'H100 runs from'), 'USD 3.25', ('到', 'to'), 'USD 6.16',
+                    ('、B200 從', ', B200 from'), 'USD 6.11', ('到', 'to'), 'USD 8.60',
+                    ('，全部是公開牌價,不是談出來的價。',
+                     ' — all published list, none of it negotiated.')),
+                  tt('CoreWeave 是這五家裡最貴的一家,而它同時是本場白金贊助商。'
+                     '這不是它做錯了什麼,是它賣的東西不只有機時。',
+                     'CoreWeave is the dearest of the five and is also a Platinum sponsor of this '
+                     'show. That is not a mistake on their part — it means what they sell is not '
+                     'only machine time.')),
+               'USD 3.25 - 6.16', 'USD 3.25 - 6.16'),
+              ('silence', '不公布的那幾家', 'The ones that publish nothing',
+               '在場的贊助商裡有幾家完全不給牌價。沉默本身就是情報,不是空白',
+               'several sponsors in this room publish no rate at all. The silence is intelligence, '
+               'not an empty cell',
+               '\n'.join(sil), '3', '3'),
+              ('movement', '有沒有降價?查不到', 'Has anything been cut? Cannot tell',
+               '沒有任何一家的牌價頁帶生效日或變更紀錄,所以「最近降價了」這句話我們講不出口',
+               'not one vendor pricing page carries an effective date or a changelog, so we cannot '
+               'say a price was recently cut',
+               '  <p>%s</p>' % gap('牌價頁沒有日期,無法證明漲跌。市場彙整文提到「AWS 最多降 45%」,'
+                                   '但那句沒有日期也不是 AWS 自己說的,不能引用。'
+                                   '要結案:向客戶索取他手上不同時間的兩張報價單',
+                                   'the pricing pages carry no dates, so no movement can be proven. '
+                                   'A market survey mentions an AWS cut of up to 45% , but that line '
+                                   'is undated and not attributed to AWS, so it cannot be quoted. '
+                                   'To close it: ask a customer for two of their own quotes taken '
+                                   'at different times'),
+               'GAP', 'GAP'),
+          ]), block='rate-cards'))
 
     # ------------------------------------- 4. the arithmetic, with formula --
     ec = ['  <p>%s</p>'
@@ -2330,11 +3089,131 @@ def frag_compare():
                    '). Any model that assumes rent only falls, or only rises, is not worth showing '
                    'anyone, including the one the other side shows your customer.')))
     ec.append('  %s %s' % (ev('third'), from_draft(D03)))
-    a(dr(tt('自建對租賃的真實算術', 'What building actually costs, and where it crosses'),
-         S(('推算式原樣寫出來', 'the formula is written out'), '·',
-           ('三個交叉點', 'three crossover points'), '·',
-           ('%d 級稼動率階梯' % len(LADDER), '%d-step utilisation ladder' % len(LADDER))),
-         '\n'.join(ec), block='crossover'))
+    a(sec('crossover',
+          S(('推算式原樣寫出來', 'the formula is written out'), '·',
+            ('三個交叉點', 'three crossover points'), '·',
+            ('%d 級稼動率階梯' % len(LADDER), '%d-step utilisation ladder' % len(LADDER))),
+          items('crossover', [
+              ('arithmetic', '算式,原樣寫出來', 'The arithmetic, written out',
+               '每一個輸入值都印在旁邊,你可以換掉任何一個重算 —— 不必相信我們的結論',
+               'every input prints beside the result, so you can swap any one of them and redo it '
+               'yourself rather than trusting our conclusion',
+               '\n'.join(ec), None, None),
+
+              ('colo-tier', '機櫃租金的級距陷阱', 'The colocation tier trap',
+               '同樣一度電,小單位租金是大單位的 2 倍。你的情境落在哪一邊,'
+               '對結果的影響比任何其他輸入都大',
+               'the same kilowatt costs 2 times as much in a small deployment as in a large '
+               'one, and which side of that line a scenario falls on moves the answer more than any '
+               'other input here',
+               '  <p>%s %s</p>\n  <p>%s %s</p>\n  <p>%s</p>'
+               % (S(('250–500 kW 級距的北美主要市場,平均要價', 'In the 250-500 kW band across North '
+                     'American primary markets the average asking rate is'),
+                    'USD 195.94', ('每 kW 每月,年增', 'per kW per month, up'), '6.5%',
+                    ('；主要市場空置率創新低', '. Primary-market vacancy hit a record low of'),
+                    '1.4%', ('。', '.')),
+                  ev('third') + src_a('https://www.cbre.com/insights/books/north-america-data-center-trends-h2-2025', '2026-08-18'),
+                  S(('但 4 MW 以上的超大規模級距,同一份市場報價落在',
+                     'Above 4 MW, though, the hyperscale tier quotes at'),
+                    'USD 86–110', ('每 kW 每月,一筆 4 MW 的需求約', 'per kW per month — a 4 MW '
+                    'requirement is quoted at about'), 'USD 98',
+                    ('。兩個級距差 2 倍。', '. That is a 2 times difference between tiers.')),
+                  ev('third') + src_a('https://datacenterhawk.com/resources/fundamentals/colocation-data-center-pricing-a-2026-beginner-s-guide', '2026-08-18'),
+                  tt('一櫃 GB200 NVL72 約 120 kW —— 落在貴的那一級。'
+                     '大到能拿到便宜級距的建置,規模已經完全不同。'
+                     '所以「租比較貴」這句話,不問規模就是錯的。',
+                     'One GB200 NVL72 rack draws about 120 kW, which lands in the expensive tier. A '
+                     'build large enough to reach the cheap tier is a completely different size of '
+                     'project. So "renting costs more" is simply wrong until you have asked how '
+                     'big.')),
+               '租金差 2 倍', 'the rent differs by 2 times'),
+
+              ('machine-price', '機器價格現在查不到準的', 'Nobody publishes what the machine costs',
+               '同一台 8 卡 B200,三個來源從 USD 380,000 到 USD 792,000。沒有任何 OEM 公布定價,'
+               '所以交叉點要用區間算,不能用單點',
+               'the same 8-GPU B200 box ranges from USD 380,000 to USD 792,000 across three '
+               'sources, and no OEM publishes list pricing at all — so the crossover has to be run '
+               'as a band, never as a point',
+               '  <p>%s %s</p>\n  <p>%s %s</p>\n  <p>%s</p>'
+               % (S(('分析估算落在', 'Analyst estimates cluster at'), 'USD 400,000–500,000',
+                    ('，約', ', or roughly'), 'USD 56,000',
+                    ('每卡部署成本。', 'per GPU deployed.')),
+                  ev('third') + src_a('https://www.mercatus-ai.com/blog/b200-server-price', '2026-08-18'),
+                  S(('但唯一查得到實際掛價的經銷商,把一台 8 卡 B200 標在',
+                     'But the one reseller listing with an actual price on it tags an 8-GPU B200 at'),
+                    'USD 792,000',
+                    ('，比分析中位數高約 76%,該頁把價差歸因於 2026 年 3 次各 30% 的基準漲價。'
+                     '那是單一經銷商的滿配報價,含通路加價 —— 不是市場價,但也不是假的。',
+                     ', about 76% above the analyst midpoint, and attributes the gap to '
+                     '3 consecutive 30% baseline increases during 2026. That is one reseller quoting '
+                     'a fully-loaded configuration with channel margin — not the market price, but '
+                     'not fiction either.')),
+                  ev('vendor') + src_a('https://viperatech.com/product/supermicro-10u-b200-gold-series-gpu-server-sys-a21ge-nbrt-g1', '2026-08-18'),
+                  gap('沒有任何 OEM 公布 8 卡 B200 的定價 —— 我方自家商店列了料號但不顯示價格,'
+                      'Dell 的對應機型只給「加入詢價」。所以這一格沒有權威錨點,'
+                      '交叉點請用上下限各算一次。要結案:內部報價單',
+                      'no OEM publishes a list price for an 8-GPU B200 — our own store lists the SKU '
+                      'without a price and the Dell equivalent is quote-only. There is no '
+                      'authoritative anchor, so run the crossover at both ends of the band. To '
+                      'close it: an internal quote')),
+               'USD 380k–792k', 'USD 380k-792k'),
+
+              ('depreciation', '攤提年限:今年沒有人改', 'Useful life: nobody moved it this year',
+               '攤提年限直接決定自建的年成本。查過 6 家的原始申報書, 2026 年到今天沒有一家改過,'
+               '真正的分歧發生在 2025 ,而且方向相反',
+               'the depreciation schedule sets the annual cost of owning, and a check of 6 '
+               'companies\' own filings shows not one changed it during 2026 to date. The real '
+               'divergence happened in 2025 , and it went in both directions at once',
+               '  <div class="regwrap">\n  <table class="reg">\n'
+               '    <thead><tr><th>%s</th><th>%s</th><th>%s</th></tr></thead>\n    <tbody>\n'
+               % (tt('公司', 'Company'), tt('年限', 'Useful life'), tt('最近一次變動', 'Last change'))
+               + '\n'.join(
+                   '      <tr><td><span class="lbl">%s</span>%s</td>'
+                   '<td><span class="lbl">%s</span>%s</td>'
+                   '<td><span class="lbl">%s</span>%s</td></tr>'
+                   % (tt('公司', 'Company'), lk(n),
+                      tt('年限', 'Useful life'), lk(y),
+                      tt('最近一次變動', 'Last change'), tt(esc(ch), esc(ce)))
+                   for n, y, ch, ce in [
+                       ('Amazon', '5–6', '2025-01-01 部分機隊由 6 年縮到 5 年,'
+                        '理由寫的是 AI 帶動的技術迭代加快;當年折舊增 USD 1.4B、淨利減 USD 1.0B',
+                        'a subset shortened 6 to 5 years on 2025-01-01, citing the pace of AI-driven '
+                        'technology change; FY2025 depreciation up USD 1.4B and net income down USD 1.0B'),
+                       ('Meta', '5–5.5', '2025-01-01 反向拉長到 5.5 年;'
+                        '當年折舊減 USD 2.92B、淨利增 USD 2.59B',
+                        'lengthened to 5.5 years on 2025-01-01 — the opposite move; FY2025 '
+                        'depreciation down USD 2.92B and net income up USD 2.59B'),
+                       ('Nebius', '5', '2026-01-01 由 4 年拉長到 5 年,'
+                        '是本場贊助商中唯一今年動過的;半年折舊減 USD 86.1M',
+                        'extended 4 to 5 years on 2026-01-01 — the only sponsor here that moved it '
+                        'this year; H1 depreciation down USD 86.1M'),
+                       ('Microsoft', '2–6', '未變動(FY2026 10-K)', 'unchanged (FY2026 10-K)'),
+                       ('Alphabet', '6', '未變動', 'unchanged'),
+                       ('Oracle', '6', '未變動', 'unchanged'),
+                       ('CoreWeave', '6', '2023-01-01 由 5 年拉長到 6 年,之後未動',
+                        'lengthened 5 to 6 years on 2023-01-01 and untouched since'),
+                   ])
+               + '\n    </tbody>\n  </table>\n  </div>\n'
+               + '  <p class="src">%s %s %s</p>\n' % (
+                   ev('official'),
+                   src_a('https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm', '2026-08-18'),
+                   src_a('https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm', '2026-08-18'))
+               + '  <p>%s</p>\n' % tt(
+                   'Amazon 縮短、Meta 拉長,同一年、相反方向 —— '
+                   '代表這個數字是判斷,不是事實。客戶用幾年攤,決定自建划不划算,'
+                   '而這一題目前業界自己都沒有共識。',
+                   'Amazon shortened and Meta lengthened in the same year, in opposite directions. '
+                   'That tells you the number is a judgement rather than a fact — and the customer\'s '
+                   'own choice of schedule decides whether building pencils out, on a question the '
+                   'industry has not settled among itself.')
+               + '  <p>%s</p>' % tt(
+                   '反方最強的說法是 GPU 兩三年就過時,拉長年限等於美化獲利;'
+                   'NVIDIA 財務長的反駁是六年前出的 A100 現在還在滿載跑。兩邊都要會講。',
+                   'The strongest bear case is that GPUs are obsolete in two to three years and that '
+                   'longer schedules flatter earnings; NVIDIA\'s CFO answers that A100s shipped six '
+                   'years ago still run at full utilisation today. Be able to say both.'),
+               '2026 沒人動', 'nobody moved it in 2026'),
+          ]), block='crossover'))
 
     # ------------------------------------------------ 5. hyperscalers -------
     hs = [ul([
@@ -2360,22 +3239,50 @@ def frag_compare():
                    'answer from the build side — do not try to answer it with specs, ask whether '
                    'the customer has that team.'))
     hs.append('  %s' % from_draft(D03))
-    a(dr(tt('超大規模那一邊', 'The hyperscaler side'),
-         S(('三家都在現場', 'all three are in the room'), '·',
-           ('賣的不是價格，是維運外包', 'they sell outsourced operations, not price')),
-         '\n'.join(hs), block='hyperscalers'))
+    a(sec('hyperscalers',
+          S(('三家都在現場', 'all three are in the room'), '·',
+            ('賣的不是價格，是維運外包', 'they sell outsourced operations, not price')),
+          items('hyperscalers', [
+              ('pitch', '他們賣的不是價格', 'What they sell is not price',
+               '雲廠在這場的訴求是「叢集不用你顧」。要對打就打維運,不是打單價',
+               'the hyperscaler pitch here is that the cluster is somebody else\'s problem — so '
+               'the counter is about operations, not about unit price',
+               '\n'.join(hs), None, None),
+          ]), block='hyperscalers'))
 
     # -------------------------------------------- 6. where we win and lose --
-    a(dr(tt('我們在哪裡贏', 'Where we win'),
-         S(('%d 個情境' % len(WINS), pl(len(WINS), 'situation', 'situations')), '·',
-           ('其中一個是「賣給對手」', 'one of them is selling to the competition')),
-         ul(['%s %s' % (tt(esc(x), esc(y)), ev(r)) for x, y, r in WINS])
-         + '\n  %s' % from_draft(D03), block='wins'))
-    a(dr(tt('我們在哪裡輸', 'Where we lose'),
-         S(('%d 個情境' % len(LOSSES), pl(len(LOSSES), 'situation', 'situations')), '·',
-           ('照原樣寫，不打折', 'written at full strength, not discounted')),
-         ul(['%s %s' % (tt(esc(x), esc(y)), ev(r)) for x, y, r in LOSSES])
-         + '\n  %s' % from_draft(D03), block='losses'))
+    WIN_KEYS = [('own-hall', '自有機房', 'They own the hall'),
+                ('data-cannot-leave', '資料不能出場域', 'The data may not leave'),
+                ('steady-load', '負載長期滿載', 'The load runs flat out'),
+                ('sell-to-rival', '賣給對手', 'Selling to the competition'),
+                ('mixed-nodes', '異質節點', 'Mixed nodes'),
+                ('hall-layer', '機房層', 'The hall layer')]
+    a(sec('we-win',
+          S(('%d 個情境' % len(WINS), pl(len(WINS), 'situation', 'situations')), '·',
+            ('其中一個是「賣給對手」', 'one of them is selling to the competition')),
+          items('we-win', [
+              (WIN_KEYS[i][0] if i < len(WIN_KEYS) else 'win%d' % i,
+               WIN_KEYS[i][1] if i < len(WIN_KEYS) else x[:10],
+               WIN_KEYS[i][2] if i < len(WIN_KEYS) else y[:24],
+               x, y, '  <p>%s</p>' % ev(r), None, None)
+              for i, (x, y, r) in enumerate(WINS)])
+          + '\n  %s' % from_draft(D03), block='wins'))
+    LOSS_KEYS = [('spiky-load', '負載忽高忽低', 'The load is spiky'),
+                 ('no-hall', '沒有機房', 'They have no hall'),
+                 ('no-ops-team', '沒有維運人手', 'They have no operations team'),
+                 ('capex-blocked', '資本支出過不了', 'Capex will not clear'),
+                 ('locked-oem', '已被綁定', 'Already locked to an OEM'),
+                 ('short-horizon', '看不到三年', 'They cannot see three years out')]
+    a(sec('we-lose',
+          S(('%d 個情境' % len(LOSSES), pl(len(LOSSES), 'situation', 'situations')), '·',
+            ('照原樣寫，不打折', 'written at full strength, not discounted')),
+          items('we-lose', [
+              (LOSS_KEYS[i][0] if i < len(LOSS_KEYS) else 'loss%d' % i,
+               LOSS_KEYS[i][1] if i < len(LOSS_KEYS) else x[:10],
+               LOSS_KEYS[i][2] if i < len(LOSS_KEYS) else y[:24],
+               x, y, '  <p>%s</p>' % ev(r), None, None)
+              for i, (x, y, r) in enumerate(LOSSES)])
+          + '\n  %s' % from_draft(D03), block='losses'))
 
     # --------------------------------- 7. their best argument, full strength -
     q = ['  <blockquote class="q">%s</blockquote>' % tt(esc(QUOTE_H), esc(QUOTE_E))]
@@ -2392,9 +3299,16 @@ def frag_compare():
                   'That is written the way they would say it, not the way we would like them to. '
                   'The version you hear on the floor will be smoother, not weaker.'))
     q.append('  %s' % from_draft(D03))
-    a(dr(tt('對方最強的說法', 'Their strongest argument'),
-         tt('照原樣寫出來，附一句反擊', 'quoted at full strength, with the one line that answers it'),
-         '\n'.join(q), block='counterparty'))
+    a(sec('their-case',
+          tt('照原樣寫出來，附一句反擊',
+             'quoted at full strength, with the one line that answers it'),
+          items('their-case', [
+              ('quote', '他們會說的那一句', 'The sentence they will say',
+               '寫成最強版本,不打折。打折過的對手說法在現場會原地失效',
+               'written at full strength, not softened — a discounted version of their argument '
+               'falls apart the moment it is said out loud on the floor',
+               '\n'.join(q), None, None),
+          ]), block='counterparty'))
 
     # -------------------------------------------------- 8. name collisions --
     traps = campaign.get('traps') or []
@@ -2412,10 +3326,16 @@ def frag_compare():
         tp.append('    <li class="trap">%s</li>'
                   % gap('這一場還沒登記任何同名陷阱', 'no name collision registered for this event yet'))
     tp.append('  </ul>')
-    a(dr(tt('同名陷阱', 'Names that collide'),
-         S(('%d 組' % len(traps), pl(len(traps), 'collision', 'collisions')), '·',
-           ('每一組都附反查字串', 'each with the query that separates them')),
-         '\n'.join(tp), block='traps'))
+    a(sec('collisions',
+          S(('%d 組' % len(traps), pl(len(traps), 'collision', 'collisions')), '·',
+            ('每一組都附反查字串', 'each with the query that separates them')),
+          items('collisions', [
+              ('pairs', '會查錯的名字', 'The names that send research astray',
+               '每一組都附一條反查字串,貼進搜尋列就能把錯的那一家排掉',
+               'each pair carries a negation query — paste it into a search box and the wrong '
+               'company drops out of the results',
+               '\n'.join(tp), None, None),
+          ]), block='traps'))
 
     # -------------------------------------------------------- 9. the gaps ---
     g = [
@@ -2447,10 +3367,38 @@ def frag_compare():
             'confirmed. CoreWeave\'s GB300 launch publicly named someone else. This is the single '
             'most worthwhile thing to settle on this trip.'),
     ]
-    a(dr(tt('這一頁還沒結案的', 'What this page has not closed'),
-         S(('%d 個缺口' % len(g), pl(len(g), 'open question', 'open questions')), '·',
-           ('每一個都寫了什麼證據能結案', 'each with what would close it')),
-         ul(g) + '\n  %s' % STAMP, cls='caveat', fresh=True))
+    CMP_GAP_KEYS = [
+        ('commit-price', '承諾價不公開', 'Committed prices are not published',
+         '只有「最高六折」一句話,沒有真實價格,所以每一個交叉點都是估算',
+         'there is only a "up to sixty per cent off" line and no real price, which makes every '
+         'crossover on this page an estimate'),
+        ('customer-inputs', '用的是市場均值不是客戶的數字', 'Built on market averages, not the '
+         'customer\'s own numbers',
+         '電價、PUE、攤提、人力都用產業均值。換成客戶自己的數字,交叉點會明顯移動',
+         'power price, PUE, amortisation and headcount are industry averages; swap in the '
+         'customer\'s own and the crossover moves noticeably'),
+        ('rack-scale', '機櫃級系統沒有價格', 'Rack-scale systems have no public price',
+         'GB300 NVL72 整櫃沒有可靠公開價,所以算式是按每顆 B200 推的,沒涵蓋整櫃',
+         'no reliable public price exists for a GB300 NVL72 rack, so the arithmetic is per-B200 and '
+         'does not cover rack-scale at all'),
+        ('live-vs-contracted', '簽約容量不等於在役容量', 'Contracted capacity is not live capacity',
+         '管線數字是第三方彙整,不是一手,兩者差距可能很大',
+         'the pipeline figures are third-party aggregation rather than first-party, and the gap '
+         'between signed and running can be large'),
+        ('are-we-in', '我方在不在他們的供應鏈', 'Whether we are in their supply chain at all',
+         '這一格是此行最值得查證的一件事 —— 只有 Lambda 已證實',
+         'this is the single most worthwhile thing to settle on the trip; only Lambda is '
+         'confirmed'),
+    ]
+    a(sec('compare-open',
+          S(('%d 個缺口' % len(g), pl(len(g), 'open question', 'open questions')), '·',
+            ('每一個都寫了什麼證據能結案', 'each with what would close it')),
+          items('compare-open', [
+              (CMP_GAP_KEYS[i][0], CMP_GAP_KEYS[i][1], CMP_GAP_KEYS[i][2],
+               CMP_GAP_KEYS[i][3], CMP_GAP_KEYS[i][4],
+               '  <p>%s</p>' % g[i], 'GAP', None)
+              for i in range(min(len(g), len(CMP_GAP_KEYS)))])
+          + '\n  %s' % STAMP, cls='caveat', fresh=True))
     return '\n'.join(h)
 
 
@@ -2476,17 +3424,34 @@ def main():
     manifest = {'event': EVENT, 'asOf': ASOF, 'srcLang': src_lang, 'source': SOURCE,
                 'langs': [str(x) for x in langs], 'pages': []}
     written, drawers = [], 0
+    # Two passes on purpose. Pass one renders and registers every anchor; the
+    # index cannot be built until the last page has registered its items, and
+    # the hub is the first page rendered. 〔the index was silently short by four
+    # pages when this was one pass〕
+    bodies = OrderedDict()
     for role, fname, title_h, title_e, nav_h, nav_e in PAGES:
         if allowed and role not in allowed:
             print('build_fragments: skip %s — not in STATE.campaign.pageBudget' % role)
             continue
-        body = BUILDERS[role]()
-        drawers += body.count('<details ')
-        io.open(os.path.join(FRAG, role + '.html'), 'w', encoding='utf-8').write(body + '\n')
+        bodies[role] = BUILDERS[role]()
         manifest['pages'].append({'role': role, 'file': fname, 'title': title_h,
                                   'title_e': title_e, 'nav': nav_h, 'nav_e': nav_e,
                                   'frag': 'build/frag/%s.html' % role})
         written.append(role)
+    idx_html = build_index()
+    n_idx = 0
+    for role, body in bodies.items():
+        # The spine goes on EVERY page, from one place, so no page can be built
+        # without its own map.
+        body = spine(role) + '\n' + body
+        if INDEX_SLOT in body:
+            body = body.replace(INDEX_SLOT, idx_html)
+            n_idx += 1
+        drawers += body.count('<details ')
+        io.open(os.path.join(FRAG, role + '.html'), 'w', encoding='utf-8').write(body + '\n')
+    if written and n_idx != 1:
+        sys.exit('build_fragments: FAIL the index slot resolved %d times, expected exactly 1. '
+                 'One index, on the hub.' % n_idx)
     for role in sorted(allowed - set(written)):
         sys.exit('build_fragments: FAIL pageBudget names role "%s" and this factory has no '
                  'fragment builder for it. Add one, or drop it from the budget (B12).' % role)

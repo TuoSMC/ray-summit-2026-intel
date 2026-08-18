@@ -71,7 +71,15 @@ for role, fn, anchor in ORDER:
     body = grab(r'<main[^>]*>(.*?)</main>', t, '<main>', fn)
     # the per-page nav is replaced by one document-level nav
     body = re.sub(r'<nav\b[^>]*class="nav"[^>]*>.*?</nav>', '', body, flags=re.S)
-    # cross-page links become in-page anchors
+    # Cross-page links become in-page anchors. The DEEP form must be rewritten
+    # FIRST: "accounts.html#acct-lambda" carries its own fragment and only needs
+    # the filename stripped, whereas "accounts.html" needs the section anchor
+    # appended. Doing the bare form first turns the deep form into
+    # "#accounts#acct-lambda", and doing only the bare form leaves the deep one
+    # pointing at a file that does not exist in a single-document edition.
+    # 〔Ray-Summit-2026: 323 dead cross-references shipped in the folded edition〕
+    for _r, f2, a2 in ORDER:
+        body = body.replace('href="%s#' % f2, 'href="#')
     for _r, f2, a2 in ORDER:
         body = body.replace('href="%s"' % f2, 'href="#%s"' % a2)
     sections.append((role, anchor, body))
@@ -139,6 +147,18 @@ if re.search(r'src="https?://|<link[^>]+href="https?://|@import\s+url\(\s*["\']?
 for _r, _f, a in ORDER:
     if 'id="%s"' % a not in out:
         problems.append('anchor #%s missing' % a)
+# Every href in a folded document is same-document. One that still names a file
+# is a link to nothing — and it LOOKS fine until someone clicks it.
+_dead = re.findall(r'href="([A-Za-z0-9_-]+\.html#[^"]*)"', out)
+if _dead:
+    problems.append('%d cross-page link(s) survived the fold, e.g. %s — these are dead in a '
+                    'single-document edition' % (len(_dead), ', '.join(sorted(set(_dead))[:3])))
+# Every in-page href must have a target in this document.
+_targets = set(re.findall(r'\sid="([^"]+)"', out))
+_miss = sorted({f for f in re.findall(r'href="#([^"]+)"', out) if f and f not in _targets})
+if _miss:
+    problems.append('%d in-page link(s) point at an id this document does not contain: %s'
+                    % (len(_miss), ', '.join(_miss[:5])))
 if out.count('data-t="e"') < 6:
     problems.append('EN strings missing — the toggle would have nothing to show')
 if problems:

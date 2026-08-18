@@ -23,19 +23,19 @@
     "layer": "tenant-selfuse",
     "buys_servers": "YES",
     "oem_lock": "GAP",
-    "mw_or_proxy": "GAP - Adyen publishes region count, redundancy design and its no-public-cloud policy, but no megawatts, rack counts or server counts for any of the six regions.",
-    "window": "GAP",
+    "mw_or_proxy": "CAPEX PROXY, no MW disclosed: H1 2026 capex 5% of net revenue EUR 1,302.9M = ~EUR 65M; FY2026 guided ~7%, so ~EUR 137M of datacenter capex compressed into H2 2026 alone. Adyen self-runs six regions and publishes no MW, rack or server count.",
+    "window": "2026-08-13 H1 shareholder letter: pulling 2027 datacenter investment forward into H2 2026 to secure compute and storage availability and lock in pricing against supply-chain constraints. The buying decision is live this half, not next year.",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Catch Adyen speaker Hanna van der Vlis and get the name of whoever owns hardware buying for the six self-run payment regions.",
+    "next_action": "Call Adyen data center engineering on the H2 2026 capex pull-forward and bid the compute they are locking in now.",
     "confidence": {
       "tenancy": "H",
       "oem": "L",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -62,8 +62,8 @@
         "date": "2026-08-17"
       },
       "mw_or_proxy": {
-        "source": "https://www.adyen.com/infrastructure",
-        "date": "2026-08-17"
+        "source": "https://www.adyen.com/press-and-media/adyen-publishes-h1-2026-financial-results-3wjne",
+        "date": "2026-08-18"
       },
       "priority": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -96,11 +96,19 @@
       "ticker_or_PRIVATE": {
         "source": "https://live.euronext.com/en/product/equities/NL0012969182-XAMS",
         "date": "2026-08-17"
+      },
+      "window": {
+        "source": "https://www.adyen.com/press-and-media/adyen-publishes-h1-2026-financial-results-3wjne",
+        "date": "2026-08-18"
+      },
+      "smci_relationship": {
+        "source": "https://careers.adyen.com/vacancies/7479316-data-center-engineer",
+        "date": "2026-08-18"
       }
     },
     "priority": "B",
     "motion": "direct",
-    "smci_relationship": "GAP",
+    "smci_relationship": "PROSPECT",
     "company_stage": "public",
     "vertical": "fintech",
     "hq": "Amsterdam, Netherlands",
@@ -853,20 +861,20 @@
       "speaker-employer"
     ],
     "layer": "tenant-selfuse",
-    "buys_servers": "GAP",
-    "oem_lock": "GAP",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
     "window": "EVENT-GATED{Bedrock Robotics stands up owned training compute for its stated first operator-less excavator deployments in 2026}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Catch Vincent Gonguet after his keynote and ask where the fleet-training loop runs; Bedrock has named no compute vendor since its Series B.",
+    "next_action": "Ask Vincent Gonguet at the keynote what the simulation bill looks like on spot and preemptible AWS capacity, and at what fleet size Bedrock would rather own the loop.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
+      "oem": "H",
       "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
@@ -889,8 +897,8 @@
         "date": "2026-02-04"
       },
       "oem_lock": {
-        "source": "https://www.prnewswire.com/news-releases/bedrock-robotics-raises-270-million-in-series-b-funding-to-accelerate-the-future-of-autonomous-construction-302679014.html",
-        "date": "2026-02-04"
+        "source": "https://jobs.ashbyhq.com/bedrock-robotics/b4fb93b3-2df3-4647-bfea-a402bc22a498",
+        "date": "2026-08-18"
       },
       "mw_or_proxy": {
         "source": "https://www.prnewswire.com/news-releases/bedrock-robotics-raises-270-million-in-series-b-funding-to-accelerate-the-future-of-autonomous-construction-302679014.html",
@@ -931,6 +939,14 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.prnewswire.com/news-releases/bedrock-robotics-raises-270-million-in-series-b-funding-to-accelerate-the-future-of-autonomous-construction-302679014.html",
         "date": "2026-02-04"
+      },
+      "buys_servers": {
+        "source": "https://jobs.ashbyhq.com/bedrock-robotics/b4fb93b3-2df3-4647-bfea-a402bc22a498",
+        "date": "2026-08-18"
+      },
+      "analyst_read": {
+        "source": "https://jobs.ashbyhq.com/bedrock-robotics/7b7a74a2-61d6-4528-8aa9-6aa147aaa497",
+        "date": "2026-08-18"
       }
     },
     "priority": "A",
@@ -942,7 +958,7 @@
     "territory": "United States. Offices in San Francisco, New York and a Texas proving ground; customer sites in Texas, Arizona, Arkansas and California.",
     "mw_or_proxy": "ESTIMATE{256-2,048 training accelerators inferred from the USD 350M+ raised, x ~1.4 kW all-in per accelerator covering 0.7-1.0 kW GPU TDP plus host, network and storage at PUE 1.2-1.3} = 0.35-2.9 MW, midpoint ~1.4 MW. No compute is disclosed by the company; this sizes a plausible fleet, not a known one.",
     "oem_detail": "No server, cloud or GPU vendor disclosed anywhere. NVIDIA's NVentures is an equity investor in both rounds but no technical partnership is announced.",
-    "analyst_read": "USD 350M raised, a keynote slot, NVIDIA on the cap table, and not one word about where the fleet-training loop runs. The silence is the opportunity - nobody has taken this account because nobody knows it exists yet.",
+    "analyst_read": "The silence the card read as opportunity is now filled in, and it says cloud. All 33 open Ashby postings scanned 2026-08-18: AWS in three, datacenter/colocation/rack/bare-metal/Slurm/InfiniBand in none. The Simulation Infrastructure Engineer must reason about AWS spot and preemptible cost trade-offs; the IT Systems Engineer job covers identity, endpoints, networking and SaaS - corporate IT, no datacenter. CONSEQUENCE: the earlier 0.35-2.9 MW estimate sizes a fleet Bedrock does not appear to own. Treat it as attached capacity on AWS, not an addressable rack count.",
     "ticker_or_PRIVATE": "PRIVATE"
   },
   {
@@ -1573,14 +1589,14 @@
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Meet co-founder Andrew Dai at his session and qualify whether the 20-person team is standing up a first on-prem GPU pod or renting cloud.",
+    "next_action": "Ask Andrew Dai at his Ray Summit session who supplies the GPU fleet his two open infra roles reference, and whether it is rented or bought.",
     "confidence": {
       "tenancy": "H",
       "oem": "L",
       "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -1685,7 +1701,7 @@
     ],
     "layer": "channel",
     "buys_servers": "NO",
-    "oem_lock": "GAP",
+    "oem_lock": "NONE",
     "window": "EVENT-GATED{Encord Gold booth at Ray Summit; the USD 60M Series C announced 2026-02-26 funds product development and new-market entry}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
@@ -1693,11 +1709,11 @@
     "next_action": "Work Encord's Gold booth and propose a joint physical-AI reference design pairing their 5PB data layer with SMCI Petascale storage.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
+      "oem": "H",
       "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -1716,8 +1732,8 @@
         "date": "2026-02-26"
       },
       "oem_lock": {
-        "source": "https://encord.com/encord-index/",
-        "date": "2026-08-17"
+        "source": "https://docs.encord.com/platform-documentation/General/annotate-data-integrations",
+        "date": "2026-08-18"
       },
       "classification": {
         "source": "https://thenextweb.com/news/encord-raises-e50m-to-build-the-data-layer-for-physical-ai",
@@ -1804,8 +1820,8 @@
     ],
     "layer": "channel",
     "buys_servers": "NO",
-    "oem_lock": "GAP",
-    "mw_or_proxy": "GAP on megawatts - owns no compute estate. Proxy is customer-side robot sensor-log ingest: the co-founder states the goal is to bring the in-house data infrastructure used by Waymo and Tesla to the broader robotics industry, which is storage-node pull-through.",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "No owned compute. Three sourced deployment footprints per Foxglove's own docs: Foxglove Cloud, where Foxglove manages all infrastructure as a turnkey solution; Bring Your Own Storage, where recordings stay in the customer's bucket and only indexing metadata is sent to Foxglove, with Foxglove running the processing, indexing, query and streaming tier; and on-premises, where the customer supplies AWS, GCP, Azure or S3-compatible storage and runs Foxglove's data-plane services in their own Kubernetes cluster. PROXY: attached capacity is customer-side robotics-log object storage plus the customer Kubernetes cluster hosting the Foxglove data plane. Foxglove discloses no PB, GPU or MW figure, so no capacity number is asserted.",
     "window": "EVENT-GATED{Foxglove Silver booth at Ray Summit; the USD 40M Series B announced 2025-11-12 funds platform expansion}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
@@ -1813,11 +1829,11 @@
     "next_action": "Visit Foxglove's Silver booth and scope an MCAP-on-SMCI storage reference design for the on-premises robotics log ingest their platform supports.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
-      "mw": "L"
+      "oem": "H",
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -1836,16 +1852,16 @@
         "date": "2025-11-11"
       },
       "oem_lock": {
-        "source": "https://foxglove.dev/pricing",
-        "date": "2026-08-17"
+        "source": "https://docs.foxglove.dev/docs/primary-sites",
+        "date": "2026-08-18"
       },
       "classification": {
         "source": "https://www.businesswire.com/news/home/20251112126106/en/Foxglove-Raises-$40-Million-Series-B-to-Power-the-Future-of-Physical-AI",
         "date": "2025-11-12"
       },
       "mw_or_proxy": {
-        "source": "https://www.therobotreport.com/foxglove-raises-40m-scale-data-platform-roboticists/",
-        "date": "2025-11-12"
+        "source": "https://docs.foxglove.dev/docs/primary-sites",
+        "date": "2026-08-18"
       },
       "window": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -1925,7 +1941,7 @@
     "layer": "landlord",
     "buys_servers": "NO",
     "oem_lock": "WHITEBOX",
-    "window": "GAP",
+    "window": "2026-07-23 Form 10-Q for the quarter ended 2026-06-30: purchases of property and equipment of USD 80,598M for the first half of 2026, up from USD 39,643M a year earlier; assets not yet in service rose to USD 122,814M from USD 78,592M at 2025-12-31; accrued purchases of property and equipment nearly doubled to USD 16,196M from USD 8,877M. Approximately 60% of technical infrastructure assets are servers and network equipment, the remainder datacenter land, buildings and related assets. Alphabet also raised USD 20.5B in a public offering and USD 10.0B in a private placement, with proceeds stated for general corporate purposes including capital expenditures to scale AI infrastructure and global compute. The buying is live and enormous - but it is whitebox and TPU, and Google now sells TPU systems as product revenue, so this window is a competitive alarm rather than a bid opportunity.",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "OEM-competitor",
@@ -1936,7 +1952,7 @@
       "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -1963,8 +1979,8 @@
         "date": "2026-07-23"
       },
       "window": {
-        "source": "https://www.cnbc.com/2026/07/22/google-earnings-q2-goog-live-updates.html",
-        "date": "2026-07-22"
+        "source": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm",
+        "date": "2026-07-23"
       },
       "mw_or_proxy": {
         "source": "https://sustainability.google/reports/google-2026-environmental-report/",
@@ -2046,18 +2062,18 @@
     "buys_servers": "PARTIAL",
     "oem_lock": "NONE",
     "mw_or_proxy": "ESTIMATE{250+ Mac minis in the Malaysian colo x ~150 W peak each} = ~37.5 kW, i.e. ~0.04 MW of owned IT load. The 150 W is an assumption; the 250+ machine count is Grab's own. No other owned load exists. Scale check: FY2025 purchases of PP&E plus intangibles were USD 123M group-wide, covering vehicles and all fixed assets, not servers alone.",
-    "window": "GAP",
+    "window": "2026-08-04 Q2 2026 results: revenue up 22% year-over-year to USD 997M, profit for the period USD 235M (up USD 215M year-over-year), adjusted EBITDA up 54% to USD 168M. Grab raised full-year guidance and announced a USD 750M share repurchase programme. Adjusted Free Cash Flow fell USD 39M year-over-year for the quarter, which Grab attributes partly to higher capital expenditures, and it describes the quarter as executing a product and AI-led strategy. This is a spending-capacity trigger only - it is NOT evidence of a production datacenter build, and Grab's regional cost of revenue still carries cloud computing costs.",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Work Grab's booth to replace the 250+ Mac minis in its Malaysia colo with rack-optimised servers, quoting its own November 2025 engineering post.",
+    "next_action": "Work Grab on the 250 Mac minis in its Malaysia CI colo, timed to the 2026-08-04 buyback, and never call it a production datacenter.",
     "confidence": {
       "tenancy": "H",
       "oem": "H",
       "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -2084,7 +2100,7 @@
         "date": "2026-03-06"
       },
       "window": {
-        "source": "https://www.sec.gov/Archives/edgar/data/1855612/000185561226000123/a2026q2-earningspressrelea.htm",
+        "source": "https://www.sec.gov/Archives/edgar/data/0001855612/000185561226000123/a2026q2-earningspressrelea.htm",
         "date": "2026-08-04"
       },
       "mw_or_proxy": {
@@ -2122,11 +2138,15 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.sec.gov/Archives/edgar/data/1855612/000185561226000020/ck0001855612-20251231.htm",
         "date": "2026-03-06"
+      },
+      "smci_relationship": {
+        "source": "https://engineering.grab.com/mac-cloud-exit",
+        "date": "2025-11-06"
       }
     },
     "priority": "C",
     "motion": "direct",
-    "smci_relationship": "GAP",
+    "smci_relationship": "NONE",
     "company_stage": "public",
     "vertical": "ecommerce-marketplace",
     "hq": "Singapore",
@@ -2168,14 +2188,14 @@
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Work Hyundai's booth to bid RTX PRO Server racks against the 50,000-GPU Blackwell AI factory and name the Saemangeum procurement owner.",
+    "next_action": "Go in cold and early: with no OEM named against 50,000 Blackwell GPUs, bid the RTX PRO 6000 Server Edition portion of the Saemangeum stack before an integrator is chosen.",
     "confidence": {
       "tenancy": "H",
       "oem": "M",
       "mw": "M"
     },
     "full": true,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -2240,17 +2260,25 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.hyundai.com/worldwide/en/company/ir/stock-information/stock-information",
         "date": "2026-08-17"
+      },
+      "smci_relationship": {
+        "source": "https://nvidianews.nvidia.com/news/hyundai-motor-group-ai-factory",
+        "date": "2025-10-30"
+      },
+      "analyst_read": {
+        "source": "https://www.ddn.com/blog/real-time-autonomy-needs-real-time-ai-storage-and-infrastructure/",
+        "date": "2026-08-17"
       }
     },
     "priority": "A",
     "motion": "direct",
-    "smci_relationship": "GAP",
+    "smci_relationship": "NONE",
     "company_stage": "public",
     "vertical": "automotive",
     "hq": "Seoul, South Korea",
     "territory": "South Korea is where the AI infrastructure lands: the NVIDIA AI factory and the Saemangeum AI Valley campus in North Jeolla, alongside Namyang R&D and Ulsan. Manufacturing also spans the USA (Georgia Metaplant), India, Czechia, Turkiye, Brazil and Indonesia, but the GPU buying is Korean.",
     "oem_detail": "The 2025-10-31 announcement names the NVIDIA DGX platform and NVIDIA RTX PRO Servers with RTX PRO 6000 Blackwell Server Edition, plus DRIVE AGX Thor in-vehicle. DGX is NVIDIA-built and closed, but RTX PRO Servers are an OEM-built category that Supermicro ships - so part of the stated stack is contestable. No server OEM or systems integrator is named in any Hyundai release.",
-    "analyst_read": "The largest greenfield in the pack with no OEM named anywhere. Part of the stack is closed to us because DGX is NVIDIA-built, but the RTX PRO Server portion is exactly the category we ship. Find the Saemangeum procurement owner and the deal is contestable.",
+    "analyst_read": "Zero relationship, which on this account is the finding rather than a disappointment. The NVIDIA and Hyundai Motor Group AI factory release of 2025-10-30 names 50,000 Blackwell GPUs, roughly USD 3 billion, and the products DGX, RTX PRO 6000 Blackwell Server Edition, Omniverse and Cosmos - and names NO server OEM or integrator of any kind, ours or a competitor's. The largest greenfield in this pack has an announced accelerator count, an announced budget and no announced box builder. The DGX portion is closed to us; the RTX PRO 6000 Server Edition portion is exactly the category we ship. KILLED LEAD, do not re-chase: a search summary suggested DDN storage powers automotive AI at Hyundai and that DDN's HyperPOD is built on Supermicro. The DDN page mentions neither Hyundai nor Supermicro. That chain does not exist.",
     "ticker_or_PRIVATE": "KRX:005380"
   },
   {
@@ -2276,8 +2304,8 @@
     ],
     "layer": "tenant-selfuse",
     "buys_servers": "NO",
-    "oem_lock": "GAP",
-    "mw_or_proxy": "GAP - no GPU count, cluster size, datacenter or cloud provider ever disclosed. USD 50M total across roughly 40 staff is an order of magnitude below what buying a training cluster requires, so owned load is near zero.",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "No owned compute - inference is served on hyperscaler-managed infrastructure. Inception's Azure launch post of 2026-08-13 states Mercury is available in the US and Canada regions through Azure AI Foundry and that the release combines Inception's diffusion architecture with Azure's enterprise-ready infrastructure, so the serving capacity is Microsoft's. Inception's own site additionally names AWS Bedrock and its own API endpoint. PROXY: attached capacity is hyperscaler inference endpoints across Azure AI Foundry US and Canada regions and AWS Bedrock. No token-volume, GPU-count or MW figure is disclosed, so no capacity number is asserted. The site does offer a conversation about fine-tuning and private deployments but gives no detail, and that is NOT evidence that Inception ships on-premises hardware.",
     "window": "EVENT-GATED{Volodymyr Kuleshov's Ray Summit session on diffusion LLMs}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
@@ -2285,11 +2313,11 @@
     "next_action": "Ask Kuleshov whether Mercury still ships on-premises, then propose a tokens-per-second benchmark of Mercury 2 on an SMCI Blackwell platform.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
-      "mw": "L"
+      "oem": "H",
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -2308,16 +2336,16 @@
         "date": "2026-08-17"
       },
       "oem_lock": {
-        "source": "https://www.baseten.co/blog/mercury-2-is-now-available-on-baseten/",
-        "date": "2026-06-11"
+        "source": "https://www.inceptionlabs.ai/",
+        "date": "2026-08-18"
       },
       "classification": {
         "source": "https://www.inceptionlabs.ai/blog/introducing-mercury-2",
         "date": "2026-02-24"
       },
       "mw_or_proxy": {
-        "source": "https://techcrunch.com/2025/11/06/inception-raises-50-million-to-build-diffusion-models-for-code-and-text/",
-        "date": "2025-11-06"
+        "source": "https://www.inceptionlabs.ai/blog/mercury-azure-foundry",
+        "date": "2026-08-13"
       },
       "window": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -2513,20 +2541,20 @@
       "sponsor"
     ],
     "layer": "channel",
-    "buys_servers": "GAP",
+    "buys_servers": "YES",
     "oem_lock": "NONE",
     "window": "EVENT-GATED{Intel Gold sponsorship of Ray Summit, where it is one of only four silicon vendors staffing the co-located vLLM Conference; commercially the next platform wave after the 2026-05-31 twelve-platform Xeon 6+ launch}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "ruled-out",
-    "next_action": "Staff Intel's Gold booth with an SMCI platform engineer and extend the March 2026 Xeon 6 plus Gaudi 3 white paper into a joint X14 reference design.",
+    "next_action": "Reframe Intel from supplier-only to two-way: bring the X14 reference-design conversation to the Gold booth alongside a bid for the internal 418,000-server EDA fleet refresh.",
     "confidence": {
       "tenancy": "H",
       "oem": "H",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -2549,16 +2577,16 @@
         "date": "2026-05-31"
       },
       "buys_servers": {
-        "source": "https://www.intc.com/news-events/press-releases/detail/1771/intel-announces-new-ai-innovations-at-computex-chip-to",
-        "date": "2026-06-02"
+        "source": "https://www.servethehome.com/breaking-intel-exiting-the-server-business-selling-to-mitac/",
+        "date": "2023-04-13"
       },
       "oem_lock": {
         "source": "https://www.supermicro.com/en/products/x14",
         "date": "2026-08-17"
       },
       "mw_or_proxy": {
-        "source": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/intc-20251227.htm",
-        "date": "2026-01-23"
+        "source": "https://www.intel.com/content/dam/www/central-libraries/us/en/documents/intel-it-increasing-eda-with-xeon-paper.pdf",
+        "date": "2024-08-23"
       },
       "priority": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -2595,6 +2623,14 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.intc.com/news-events/press-releases/detail/1776/intel-reports-second-quarter-2026-financial-results",
         "date": "2026-07-23"
+      },
+      "oem_detail": {
+        "source": "https://www.servethehome.com/breaking-intel-exiting-the-server-business-selling-to-mitac/",
+        "date": "2023-04-13"
+      },
+      "analyst_read": {
+        "source": "https://www.intel.com/content/www/us/en/it-management/intel-it-best-practices/increasing-eda-performance.html",
+        "date": "2024-08-23"
       }
     },
     "priority": "A",
@@ -2604,9 +2640,9 @@
     "vertical": "semiconductor",
     "hq": "Santa Clara, California, USA",
     "territory": "Global - fabs and design centres across the USA, Ireland, Israel and Malaysia. Its silicon ships into Supermicro X14 systems built in San Jose, Taiwan, Malaysia and the Netherlands.",
-    "mw_or_proxy": "GAP - Intel's FY2025 10-K contains zero occurrences of megawatt or gigawatt. Financial proxies: Data Center and AI segment revenue of USD 16.9B for FY2025 on USD 52.9B total, and DCAI of USD 6.3B on USD 16.1B total in Q2 2026.",
-    "oem_detail": "Both axes are true and do not conflict. supplier-to-us on motion: Supermicro's own FY2025 10-K names Intel as a key component vendor, and Xeon 6 and Gaudi 3 sit INSIDE our X14 systems, so Intel is upstream of the sale and never a target of it. PARTNER on relationship, with evidence stronger than boilerplate: the 2026-06-23 edge AI release quotes Intel's Dan Rodriguez by name, the 2026-05-31 Xeon 6+ release quotes Charles Liang on working closely with Intel to optimise DCBBS, and a joint white paper exists. COUNTER-SIGNAL: Intel's Computex 2026 rackscale AI announcement names FOXCONN as its system-integration partner, with Supermicro, Dell, HPE and Lenovo all absent.",
-    "analyst_read": "A supply-and-co-marketing relationship to deepen, not an account to sell to. Roadmap caution for any AI-accelerator pitch: Gaudi appears in Intel's FY2025 10-K only as an inventory write-down, Falcon Shores is not mentioned at all, and the forward plan is Crescent Island then Jaguar Shores with no ship date. Intel also has a strategic partnership with NVIDIA to co-develop x86 plus NVIDIA accelerated computing.",
+    "mw_or_proxy": "127 MW, disclosed by Intel IT, not estimated. The IT@Intel paper states Intel's 54 data center modules at 15 sites house over 418,000 servers with a total capacity of 127 megawatts, carrying more than 273 million compute-intensive batch jobs every week for silicon design. This is Intel's own consumption estate, separate from anything it sells. VINTAGE: the figure is as of the 2024-08-23 paper, and Intel's FY2025 10-K contains zero occurrences of megawatt or gigawatt.",
+    "oem_detail": "Intel exited the pre-built server business in April 2023, selling the Data Center Solutions Group to MiTAC, which took the right to manufacture and sell products based on Intel's designs. An operator running 418,000 servers that no longer builds its own boxes has to buy them.",
+    "analyst_read": "Intel is a buyer as well as a supplier, and this campaign was only pricing one direction. It runs 418,000 servers across 54 modules at 15 sites and deploys 4th and 5th Gen Xeon into them, but it no longer builds its own boxes. The Tiber AI Cloud is the second door, and Intel already names Supermicro among the Gaudi 3 OEMs. Classification stays ruled-out for the silicon relationship; the internal fleet is a live, unbid account.",
     "ticker_or_PRIVATE": "NASDAQ:INTC"
   },
   {
@@ -2636,20 +2672,20 @@
     ],
     "layer": "tenant-selfuse",
     "buys_servers": "YES",
-    "oem_lock": "GAP",
+    "oem_lock": "CIRCUMSTANTIAL",
     "mw_or_proxy": "Orangetown NY campus, 140 Old Orangeburg Road. EXISTING total load 31.74 MW per the 2025 NYISO Goldbook, describing Project Sycamore as a 25.24 MW uprate of an existing 6.5 MW facility. EXPANSION: an additional 22.3 MW applied for as JPMC Datacenter II, giving roughly 54 MW at the campus. The associated equipment purchase is USD 916,000,000 of computers and equipment under Rockland County IDA project 3901-24-07A, against which the IDA will abate up to USD 76,715,000 of sales tax.",
     "window": "EVENT-GATED{Rockland County IDA project 3901-24-07A, JPMC Datacenter II: USD 916M computer and equipment purchase approved with sales-tax abatement and PILOT extended to 2044-12-01; New York State's 2026-07-14 executive-order moratorium bites only at 50 MW and above, so the 22.3 MW expansion is not captured}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Work JPMorganChase's booth and make its infrastructure staff name who is quoting the USD 916M Orangeburg equipment package.",
+    "next_action": "Route the Orangeburg introduction through Supermicro's own JPMorgan coverage team rather than cold-calling the booth.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
+      "oem": "M",
       "mw": "M"
     },
     "full": true,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -2676,8 +2712,8 @@
         "date": "2026-07-14"
       },
       "oem_lock": {
-        "source": "https://reinventalbany.org/wp-content/uploads/2026/04/RA-Analysis_-77-million-Rockland-IDA-subsidy-for-One-Job-JP-Morgan-Data-Center-2.pdf",
-        "date": "2026-04-20"
+        "source": "https://builtin.com/job/technology-support-i-hp-dell-server-hardware-break-fix/6821869",
+        "date": "2026-08-18"
       },
       "mw_or_proxy": {
         "source": "https://reinventalbany.org/wp-content/uploads/2026/04/RA-Analysis_-77-million-Rockland-IDA-subsidy-for-One-Job-JP-Morgan-Data-Center-2.pdf",
@@ -2714,17 +2750,29 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
         "date": "2026-02-13"
+      },
+      "oem_detail": {
+        "source": "https://builtin.com/job/technology-support-i-hp-dell-server-hardware-break-fix/6821869",
+        "date": "2026-08-18"
+      },
+      "smci_relationship": {
+        "source": "https://ir.supermicro.com/news/news-details/2026/Super-Micro-Computer-Announces-Entry-Into-New-Revolving-Credit-Facility/default.aspx",
+        "date": "2026-01-06"
+      },
+      "analyst_read": {
+        "source": "https://reinventalbany.org/2026/04/ny-taxpayers-spend-77m-for-one-jp-morgan-data-center-job-by-far-largest-subsidy-per-job-in-history/",
+        "date": "2026-04-20"
       }
     },
     "priority": "A",
     "motion": "direct",
-    "smci_relationship": "GAP",
+    "smci_relationship": "PROSPECT",
     "company_stage": "public",
     "vertical": "fintech",
     "hq": "New York, New York, USA",
     "territory": "Global bank; the only self-operated datacenter verifiable in primary documents is the Orangetown/Orangeburg NY campus at 140 Old Orangeburg Road, Rockland County (Project Sycamore plus the JPMC Datacenter II expansion). Buying is done from the US.",
-    "oem_detail": "No server vendor is named in the Rockland IDA project documents or in the FY2025 Form 10-K, which discusses datacenters only as a lending exposure category. The seat is genuinely open.",
-    "analyst_read": "USD 916M of computers and equipment, approved, with no vendor named in any public document. That combination does not appear often. The IDA filing is public and dated, and the state moratorium deliberately does not reach this expansion.",
+    "oem_detail": "HP and Dell, dual-sourced, named by JPMorganChase itself: two production-support reqs carry the vendors in the job title - Technology Support I and II, HP & DELL Server Hardware Break-Fix, both inside Infrastructure Platforms, requiring root-cause skills for server hardware across VMware ESX, Red Hat Linux and Windows. SCOPE LIMIT: this evidences the INCUMBENT estate under production support and is NOT tied to the USD 916M Orangeburg equipment package, against which no vendor is named anywhere.",
+    "analyst_read": "The server vendor for the USD 916M package genuinely is not public - checked and empty: the Rockland County IDA filing abating up to USD 76,715,000 on USD 916,000,000 of equipment names none; the New York air permit for eight generators at 3,676 hp each, roughly 22 MW of standby, names only engine ratings; the subsidy coverage itemises jobs and dollars, no supplier. What the search DID turn up is better. JPMorgan Chase Bank N.A. is administrative agent on Supermicro's USD 2.0B revolving credit facility announced 2026-01-06 and maturing 2030-12-29, and JPMorgan is among the bookrunners on the proposed USD 7.0B raise announced June 2026. There is already a relationship at the top of that house - as our lender and underwriter, not as our customer. That asymmetry is the opening.",
     "ticker_or_PRIVATE": "NYSE:JPM"
   },
   {
@@ -2876,7 +2924,7 @@
     ],
     "layer": "channel",
     "buys_servers": "NO",
-    "oem_lock": "GAP",
+    "oem_lock": "NONE",
     "window": "EVENT-GATED{LanceDB Silver booth at Ray Summit; the USD 30M Series A closed 2025-06-24 funds the Multimodal Lakehouse build-out}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
@@ -2884,11 +2932,11 @@
     "next_action": "Approach LanceDB at their Silver booth and scope a LanceDB Enterprise validation on SMCI Petascale storage for on-premises multimodal lakehouse buyers.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
-      "mw": "L"
+      "oem": "H",
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -2908,15 +2956,15 @@
       },
       "oem_lock": {
         "source": "https://docs.lancedb.com/enterprise/deployment",
-        "date": "2026-08-17"
+        "date": "2026-08-18"
       },
       "classification": {
         "source": "https://www.lancedb.com/multimodal-lakehouse.html",
         "date": "2026-08-17"
       },
       "mw_or_proxy": {
-        "source": "https://www.lancedb.com/blog/series-a-funding",
-        "date": "2025-06-24"
+        "source": "https://docs.lancedb.com/enterprise/deployment",
+        "date": "2026-08-18"
       },
       "window": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -2966,7 +3014,7 @@
     "vertical": "enterprise-software",
     "hq": "San Francisco, California, USA",
     "territory": "United States; customers global, including Netflix Media Data Lake, ByteDance Volcano Engine, WeRide, CrewAI and CodeRabbit.",
-    "mw_or_proxy": "GAP - no owned compute estate and no megawatt basis. Proxy is customer-side storage: the Lance format underpins Netflix's Media Data Lake and ByteDance Volcano Engine, both multi-petabyte multimodal estates.",
+    "mw_or_proxy": "No owned compute. Per LanceDB's enterprise deployment docs the product runs either in LanceDB-operated cloud accounts under the Managed model - all applications run in cloud accounts managed by LanceDB in the same location as the client applications - or inside the customer's own cloud account under BYOC, across AWS, GCP and Azure. BYOC is positioned for data-residency requirements or direct object-storage access by other applications. PROXY: attached capacity is the customer's own cloud account and object-store-backed lakehouse footprint under BYOC. LanceDB publishes no GPU, node-count or MW figure, so no capacity number is asserted.",
     "oem_detail": "No infrastructure or hardware vendor disclosed. 54 staff as of 2026-06-30, USD 41M raised since 2022. LanceDB Enterprise is the secure deployment option for large organisations, which means the compute is the customer's. The product supports GPU-accelerated indexing on CUDA and Apple Silicon.",
     "analyst_read": "Buys no iron, but the Enterprise tier runs on the customer's infrastructure and the named customers - Netflix, ByteDance, WeRide - are exactly the media, cloud and autonomous-driving buyers who purchase dense storage.",
     "ticker_or_PRIVATE": "PRIVATE"
@@ -3113,20 +3161,20 @@
       "speaker-employer"
     ],
     "layer": "tenant-selfuse",
-    "buys_servers": "GAP",
-    "oem_lock": "GAP",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
     "window": "EVENT-GATED{Alewife Park fit-out following the Oct 2025 lease, plus a reported ~USD 2B Series B at USD 8.5B pre-money NOT confirmed closed as of 2026-08-17; nearest trigger is CTO Andrew Beam's keynote}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Meet CTO Andrew Beam after his keynote and qualify the local-plus-cloud hybrid GPU estate named in Lila's scientific-computing job spec.",
+    "next_action": "Do not pitch Lila iron; take CTO Andrew Beam the on-prem-versus-EC2 economics and ask what would have to be true for a first owned cluster.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
-      "mw": "L"
+      "oem": "H",
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -3149,16 +3197,16 @@
         "date": "2026-08-17"
       },
       "mw_or_proxy": {
-        "source": "https://www.bostonglobe.com/2025/10/23/business/lila-sciences-ai-robotics-cambridge/",
-        "date": "2025-10-23"
+        "source": "https://job-boards.greenhouse.io/lilasciences/jobs/4248032009",
+        "date": "2026-08-18"
       },
       "buys_servers": {
-        "source": "https://job-boards.greenhouse.io/lilasciences/jobs/4340149009",
-        "date": "2026-08-17"
+        "source": "https://job-boards.greenhouse.io/lilasciences/jobs/4248032009",
+        "date": "2026-08-18"
       },
       "oem_lock": {
-        "source": "https://www.lila.ai/news/series-a-235-million",
-        "date": "2025-10-15"
+        "source": "https://job-boards.greenhouse.io/lilasciences/jobs/4248032009",
+        "date": "2026-08-18"
       },
       "priority": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -3195,9 +3243,13 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.bloomberg.com/news/articles/2026-06-03/lila-sciences-said-in-talks-for-funds-at-8-5-billion-valuation",
         "date": "2026-06-03"
+      },
+      "analyst_read": {
+        "source": "https://job-boards.greenhouse.io/lilasciences/jobs/4359834009",
+        "date": "2026-08-18"
       }
     },
-    "mw_or_proxy": "GAP on megawatts - no GPU count, rack count, cluster size or utility filing published, so no defensible power estimate exists. Proxies only: a 244,000 sq ft Alewife Park lab lease signed Oct 2025 (wet-lab and robotics space, NOT datacenter white space, so not convertible to IT load); USD 550M raised; 132 open roles including Senior Manager, Capacity Planning.",
+    "mw_or_proxy": "OWNS ZERO IT MEGAWATTS - the GPU estate is AWS-resident, not racked. Lila's own Staff/Principal DevOps Engineer req specifies EKS with GPU node groups, EC2 accelerated instances (P4/P5, Inf2, Trn1), S3 model storage and EFA networking. FULL-BOARD SCAN of all 131 open postings 2026-08-18 via the Greenhouse API: AWS named in 26, GCP in 8, Azure in 3, and colocation, bare-metal, owned-datacenter or rack-elevation work in ZERO. CAVEAT: the 244,000 sq ft Alewife Park lease is wet-lab and robotics space, so its instrument racks are lab load, never convertible to IT white space.",
     "priority": "A",
     "motion": "direct",
     "smci_relationship": "NONE",
@@ -3206,7 +3258,7 @@
     "hq": "Cambridge, Massachusetts, USA",
     "territory": "USA (Cambridge MA HQ, Boston, San Francisco) and UK (London). Physical AI Science Factories in Cambridge; hybrid local plus cloud GPU estate.",
     "oem_detail": "No compute vendor ever named. NVIDIA is an investor via NVentures but no hardware or technology partnership has been announced. The wedge is their own job spec: environments across local, cloud, and GPU-based systems, plus hybrid compute environments and multi-cluster execution - local and hybrid indicate owned iron alongside cloud.",
-    "analyst_read": "Greenfield with money and a keynote. Nothing in the Supermicro newsroom mentions Lila or Flagship Pioneering, NVIDIA sits on the cap table so a warm intro exists, and a Senior Manager of Capacity Planning role is procurement-adjacent. Gold sponsor plus CTO keynote means booth staff and decision-maker are both in the room.",
+    "analyst_read": "This account has to be re-based. Every compute signal points at AWS, and the buying signal the card leaned on does not survive reading the actual job description: Senior Manager, Capacity Planning is scoped to commercial-scale LAB operations and demand forecasting, not datacenter capacity. What is real: USD 550M raised, NVIDIA on the cap table, a Gold sponsorship, a CTO keynote, and an inference platform already paying EC2 accelerated-instance rates. The play is a cloud-exit conversation with a named executive in the room this week, not a rack quote.",
     "ticker_or_PRIVATE": "PRIVATE"
   },
   {
@@ -3353,7 +3405,7 @@
     "layer": "tenant-selfuse",
     "buys_servers": "NO",
     "oem_lock": "WHITEBOX",
-    "mw_or_proxy": "GAP - the MAI-Thinking-1 release publishes model shape (35B-active, ~1T-total sparse MoE) and no GPU count, cluster name or megawatt figure. The megawatts sit on Microsoft's books: FY2026 PP&E purchases of USD 115.948B.",
+    "mw_or_proxy": "MAI trains on Microsoft-owned Azure capacity and never signs a hardware PO, so no megawatts are attributable to MAI itself. Microsoft AI's own model announcement of 2025-08-28 states MAI-1-preview was pre-trained and post-trained on approximately 15,000 NVIDIA H100 GPUs and that its next-generation GB200 cluster is now operational. FORMULA{15,000 H100 x ~700W} = ~10.5 MW IT for that single training run. That is an order-of-magnitude sizing of ONE MAI run - it is NOT MAI's standing allocation and NOT Azure's total, which sits on Microsoft's balance sheet and is procured by Microsoft CO+I. The later MAI-Thinking-1 release of 2026-08-12 publishes model shape but no GPU count, cluster name or megawatt figure.",
     "window": "EVENT-GATED{next MAI frontier training run after MAI-Thinking-1, published 2026-08-12; capacity approved and purchased by Microsoft CO+I}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
@@ -3362,10 +3414,10 @@
     "confidence": {
       "tenancy": "H",
       "oem": "M",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -3396,8 +3448,8 @@
         "date": "2026-08-12"
       },
       "mw_or_proxy": {
-        "source": "https://microsoft.ai/news/introducing-mai-thinking-1/",
-        "date": "2026-08-12"
+        "source": "https://microsoft.ai/news/two-new-in-house-models/",
+        "date": "2025-08-28"
       },
       "priority": {
         "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
@@ -3471,8 +3523,8 @@
     "layer": "tenant-selfuse",
     "buys_servers": "NO",
     "oem_lock": "NONE",
-    "mw_or_proxy": "GAP - no compute footprint of any kind.",
-    "window": "GAP",
+    "mw_or_proxy": "Owns zero compute, and this is a conclusion rather than a missing figure. Mercor's product is contracted human expertise - its own mission page describes a marketplace of tens of thousands of experts averaging more than USD 95/hr - and the frontier labs that buy that data own the compute. There is no datacenter, cloud provider, cluster or GPU footprint to size.",
+    "window": "2026-07-09: Forbes reported Mercor in talks to raise USD 500M at a USD 20B valuation, roughly double the USD 10B of its USD 350M round the previous September, with founder-CEO Brendan Foody stating annualised revenue run rate had crossed USD 2B. Reported as in talks and expected to close later that month, NOT confirmed closed. None of it buys compute - the money funds expert supply, not racks.",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "ruled-out",
@@ -3480,10 +3532,10 @@
     "confidence": {
       "tenancy": "H",
       "oem": "H",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -3546,6 +3598,10 @@
         "date": "2026-07-09"
       },
       "ticker_or_PRIVATE": {
+        "source": "https://www.forbes.com/sites/richardnieva/2026/07/09/mercor-fundraise/",
+        "date": "2026-07-09"
+      },
+      "window": {
         "source": "https://www.forbes.com/sites/richardnieva/2026/07/09/mercor-fundraise/",
         "date": "2026-07-09"
       }
@@ -3705,21 +3761,21 @@
       "speaker-employer"
     ],
     "layer": "tenant-selfuse",
-    "buys_servers": "GAP",
-    "oem_lock": "GAP",
-    "mw_or_proxy": "GAP - no compute disclosure of any kind. A 50-person seed-stage company at this funding level does not carry a megawatt figure; treat any number as invented until someone there states one.",
-    "window": "GAP",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "PROXY: edge inference, not datacenter. mimic's own launch post states FLUX-mimic runs locally on the robot in production, on a single NVIDIA RTX 5090 GPU, fully on the edge - one consumer-class GPU per deployed robot, no cluster. For training, the company self-reports via its seed announcement that it was selected for the AWS Generative AI Accelerator, which points to rented AWS capacity rather than owned iron. No owned compute site, cluster size or MW figure is disclosed anywhere and none should be assigned.",
+    "window": "2026-07-23: launched FLUX-mimic, a video-action model built on Black Forest Labs' FLUX, which mimic's own post states has been tested and deployed on Audi production use cases including car-door soft-body assembly. Vendor self-reported.",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
-    "classification": "GAP",
-    "next_action": "Ask Elvis Nava whether FLUX-mimic trains on owned GPUs or rented cloud, and log the answer against Mimic's 50-person Zurich budget.",
+    "classification": "ruled-out",
+    "next_action": "Ask Mimic where FLUX-mimic training runs now that inference moved on-robot, and reopen this card only if they name owned iron.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
-      "mw": "L"
+      "oem": "H",
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -3734,12 +3790,12 @@
         "date": "2026-08-17"
       },
       "buys_servers": {
-        "source": "https://www.mimicrobotics.com/about",
-        "date": "2026-08-17"
+        "source": "https://www.startupticker.ch/en/news/mimic-robotics-banks-16-million-seed-funding",
+        "date": "2025-11-03"
       },
       "mw_or_proxy": {
-        "source": "https://www.mimicrobotics.com/about",
-        "date": "2026-08-17"
+        "source": "https://www.mimicrobotics.com/blog/introducing-flux-mimic",
+        "date": "2026-07-23"
       },
       "priority": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -3772,10 +3828,26 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.mimicrobotics.com/about",
         "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://www.mimicrobotics.com/blog/introducing-flux-mimic",
+        "date": "2026-07-23"
+      },
+      "window": {
+        "source": "https://www.mimicrobotics.com/blog/introducing-flux-mimic",
+        "date": "2026-07-23"
+      },
+      "motion": {
+        "source": "https://www.startupticker.ch/en/news/mimic-robotics-banks-16-million-seed-funding",
+        "date": "2025-11-03"
+      },
+      "classification": {
+        "source": "https://www.mimicrobotics.com/blog/introducing-flux-mimic",
+        "date": "2026-07-23"
       }
     },
     "priority": "C",
-    "motion": "GAP",
+    "motion": "none",
     "smci_relationship": "NONE",
     "company_stage": "private-early",
     "vertical": "robotics-physical-ai",
@@ -3932,14 +4004,14 @@
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Take Nebius's Gold stand and pitch Supermicro as the build partner for their asset-light reference designs against the year-end connected target.",
+    "next_action": "Pitch Supermicro to Nebius as the NVL72 rack-scale supplier its in-house air-cooled server design does not cover.",
     "confidence": {
       "tenancy": "H",
       "oem": "M",
       "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -4004,12 +4076,16 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
         "date": "2026-04-30"
+      },
+      "smci_relationship": {
+        "source": "https://www.sec.gov/Archives/edgar/data/0001513845/000110465926052948/nbis-20251231x20f.htm",
+        "date": "2026-08-18"
       }
     },
     "mw_or_proxy": "ACTIVE ~170 MW at 2025-12-31. CONTRACTED more than 2 GW as at Feb 2026. GUIDANCE year-end-2026 contracted target raised to 5 GW on 2026-08-12 (ladder: >1 GW Aug'25, >2.5 Nov'25, 3 Feb'26, 4 May'26, 5 Aug'26); year-end-2026 CONNECTED guidance 800 MW to 1 GW; plans more than 1 GW of new capacity per year from 2027. FORMULA{connected midpoint 900 MW minus 170 MW active} = ~730 MW to connect during 2026. Q2 2026 capex ~USD 5.7B, primarily GPUs. No per-site MW is published anywhere.",
     "priority": "B",
     "motion": "co-sell",
-    "smci_relationship": "GAP",
+    "smci_relationship": "NONE",
     "company_stage": "public",
     "vertical": "gpu-cloud",
     "hq": "Amsterdam, Netherlands",
@@ -4161,7 +4237,7 @@
     "layer": "tenant-selfuse",
     "buys_servers": "NO",
     "oem_lock": "NONE",
-    "mw_or_proxy": "GAP - zero MW owned. Every megawatt behind Notion is bought by AWS.",
+    "mw_or_proxy": "Owns zero megawatts, and this is a conclusion rather than a missing figure. Notion's own security page states it leverages AWS to host its application and defers all datacenter physical security controls to AWS. Every megawatt behind Notion is bought by Amazon, and there is no owned or leased facility to size.",
     "window": "GAP",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
@@ -4170,10 +4246,10 @@
     "confidence": {
       "tenancy": "H",
       "oem": "H",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -4416,10 +4492,10 @@
     "confidence": {
       "tenancy": "H",
       "oem": "H",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -4450,8 +4526,8 @@
         "date": "2026-01-05"
       },
       "mw_or_proxy": {
-        "source": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
-        "date": "2026-02-25"
+        "source": "https://blogs.nvidia.com/blog/eos/",
+        "date": "2024-02-15"
       },
       "priority": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -4497,7 +4573,7 @@
     "vertical": "semiconductor",
     "hq": "Santa Clara, California, USA",
     "territory": "Global; sells silicon and reference systems through OEMs, ODMs, system integrators and distributors, supply chain concentrated in Asia.",
-    "mw_or_proxy": "GAP - the FY2026 10-K discloses no megawatt figure for NVIDIA-operated datacenters, and the Rubin release quotes rack-level performance (3.6 exaflops NVFP4, 1.4 PB/s HBM4, 75 TB fast memory per NVL72) rather than power.",
+    "mw_or_proxy": "DERIVED, not disclosed. The most recent publicly documented figure for an NVIDIA-operated cluster is Eos: 576 DGX H100 systems totalling 4,608 H100 GPUs, per NVIDIA's own post of 2024-02-15, ranked No. 9 on the TOP500 at that time. NVIDIA's DGX SuperPOD H100 datacenter design guide rates peak demand at 10.2 kW per DGX H100 system. FORMULA{576 x 10.2 kW} = ~5.9 MW IT for Eos. CAVEAT: this is one internal cluster and not NVIDIA's total internal estate, and the figure is dated 2024-02-15 - the FY2026 10-K still discloses no megawatt figure for NVIDIA-operated datacenters, and no newer cluster-level number has been published.",
     "oem_detail": "Two truths on two axes. PARTNER on relationship: NVIDIA's own Rubin release names Supermicro among the partners expected to deliver Rubin-based servers. supplier-to-us on motion: money flows from us to them for silicon, its 10-K counts OEMs among its direct customers, and DGX Vera Rubin NVL72 competes directly with our NVIDIA-based systems. NVIDIA specifies DGX SuperPOD, DGX Vera Rubin NVL72 and DGX Rubin NVL8 as its own reference systems, built by ODM partners.",
     "analyst_read": "Not a PO and never will be, but the allocation conversation decides which deals we can even bid. Treat the booth as supply and referral, and remember that the same company sells DGX against us in the accounts we are chasing.",
     "ticker_or_PRIVATE": "NASDAQ:NVDA"
@@ -4526,20 +4602,20 @@
     ],
     "layer": "operator",
     "buys_servers": "PARTIAL",
-    "oem_lock": "GAP",
+    "oem_lock": "NONE",
     "mw_or_proxy": "ESTIMATE{USD 42M total capital raised as of 2026-04-15; ASSUME half deployed into owned accelerators at ~USD 25k installed per GPU, both assumptions and not Parasail disclosures} = ~840 GPUs; x ~0.7 kW x ~1.3 facility overhead = ~0.76 MW owned. The rented 26-datacenter footprint is not disclosed in MW. Demand-side sanity check: 750B tokens served daily.",
     "window": "EVENT-GATED{Strategic Finance Associate req published 2026-08-03 to model GPU purchase decisions including lease-versus-buy scenarios, financing structures and utilization, and to track cost and profitability by GPU type and datacenter}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "MSP",
-    "next_action": "Bring a lease-versus-buy model to Parasail's booth this week and ask which of its 26 datacenters hold Parasail-owned Hopper and Blackwell.",
+    "next_action": "Walk the X14 SquadRack configuration to Parasail's booth and tie it to the lease-versus-buy model its Strategic Finance req of 2026-08-03 was opened to build.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
+      "oem": "H",
       "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -4570,7 +4646,7 @@
         "date": "2026-04-15"
       },
       "oem_lock": {
-        "source": "https://www.parasail.io/blog/parasail-d-matrix-accelerators",
+        "source": "https://www.parasail.io/blogs/parasail-d-matrix-accelerators",
         "date": "2026-07-08"
       },
       "priority": {
@@ -4608,6 +4684,10 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.prnewswire.com/news-releases/parasail-raises-32m-series-a-to-build-the-supercloud-that-puts-developers-in-control-of-their-ai-302742856.html",
         "date": "2026-04-15"
+      },
+      "oem_detail": {
+        "source": "https://www.parasail.io/blogs/parasail-d-matrix-accelerators",
+        "date": "2026-07-08"
       }
     },
     "priority": "A",
@@ -4617,7 +4697,7 @@
     "vertical": "gpu-cloud",
     "hq": "San Francisco / San Mateo, California, USA",
     "territory": "26 datacenters across 15 regions behind one endpoint per the company site; an earlier blog claims over 40 datacenters in 15 countries. Both are Parasail's own numbers and they disagree.",
-    "oem_detail": "No server OEM named in any release, blog or job posting. Runs an internal GPU fleet alongside partner capacity - deployed silicon spans NVIDIA Hopper, NVIDIA Blackwell and d-Matrix Corsair inference accelerators, in what it calls one of the first commercial-scale heterogeneous disaggregated inference deployments. Which racks are owned versus rented is not published.",
+    "oem_detail": "Parasail's own post of 2026-07-08 describes a programmable network aggregating GPU supply from over 40 data centers across 15 countries, and states it is deploying d-Matrix Corsair inference accelerators alongside NVIDIA Hopper and Blackwell. No server OEM is named in any Parasail document. THE ROUTE IN: per d-Matrix's own SquadRack announcement of 2025-10-14 at the OCP Global Summit, the rack-scale platform for Corsair is built with Arista, Broadcom and Supermicro, and the server node is the Supermicro X14 AI Server Platform integrated with Corsair accelerators and JetStream NICs. That is d-Matrix's architecture statement, not a Parasail purchase disclosure.",
     "analyst_read": "Small, but the only account in the pack advertising for someone to underwrite its own GPU purchases. That req is a buying signal you can walk up to and ask about this week, which is worth more than a larger account with no dated trigger.",
     "ticker_or_PRIVATE": "PRIVATE"
   },
@@ -4643,21 +4723,21 @@
       "sponsor"
     ],
     "layer": "tenant-selfuse",
-    "buys_servers": "GAP",
-    "oem_lock": "GAP",
-    "mw_or_proxy": "GAP for megawatts - no GPU count, cluster size or hosting vendor disclosed anywhere. Spend proxy: an HII award of up to USD 600M over 7 years, 2026-08-06, explicitly funds sustained investments in facilities, workforce and the underlying physical AI architecture. USD 271M venture raised to date. Obsidian trains in-house inside the proprietary Weld World Model, so training capacity exists but is unpriced.",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "OWNS NO DISCLOSED IT MEGAWATTS. FULL-BOARD SCAN of all 51 open postings 2026-08-18 via the Greenhouse API: AWS named in 4, and colocation, bare-metal, rack, server-room, Slurm, InfiniBand or GPU-cluster operations in ZERO. Software Engineer, Fleet Platform states the stack outright as Infrastructure: AWS, Docker, Kubernetes, Terraform. The IT Systems Engineer req is scoped to Google Workspace, JAMF, Intune/Azure AD, Okta and CrowdStrike - endpoint and SaaS administration with no datacenter duty. Owned compute at Path is embedded: NVIDIA Jetson on the machines.",
     "window": "EVENT-GATED{HII performance-based production agreement signed 2026-08-06, up to USD 600M over 7 years contingent on defined technology and manufacturing readiness milestones; facilities investment unlocks on milestone attainment}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Ask Path Robotics at the Silver booth where Obsidian and the Weld World Model train, and whether Navy CUI exposure from the HII award forces on-prem.",
+    "next_action": "Stop qualifying Path on where Obsidian trains; ask what the HII milestones do to it and whether Navy CUI forces a classified enclave off AWS.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
-      "mw": "L"
+      "oem": "H",
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -4680,12 +4760,12 @@
         "date": "2026-08-06"
       },
       "oem_lock": {
-        "source": "https://job-boards.greenhouse.io/pathrobotics/jobs/8501710002",
-        "date": "2026-08-17"
+        "source": "https://boards.greenhouse.io/pathrobotics/jobs/8631767002",
+        "date": "2026-08-18"
       },
       "mw_or_proxy": {
-        "source": "https://www.hii.com/news/hii-signs-performance-based-production-agreements-with-path-robotics-and-graymatter-robotics",
-        "date": "2026-08-06"
+        "source": "https://boards.greenhouse.io/pathrobotics/jobs/8631767002",
+        "date": "2026-08-18"
       },
       "priority": {
         "source": "https://www.hii.com/news/hii-signs-performance-based-production-agreements-with-path-robotics-and-graymatter-robotics",
@@ -4722,6 +4802,14 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.cbinsights.com/company/path-robotics",
         "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://boards.greenhouse.io/pathrobotics/jobs/8726278002",
+        "date": "2026-08-18"
+      },
+      "analyst_read": {
+        "source": "https://boards.greenhouse.io/pathrobotics/jobs/8635262002",
+        "date": "2026-08-18"
       }
     },
     "priority": "A",
@@ -4732,7 +4820,7 @@
     "hq": "Columbus, Ohio, USA",
     "territory": "US-Midwest / Ohio",
     "oem_detail": "No datacenter OEM named. NVIDIA-aligned toolchain confirmed in hiring specs: Isaac Sim, Isaac Lab, TensorRT, ONNX, FP16/INT8 quantisation for on-robot edge inference.",
-    "analyst_read": "Every confirmed infrastructure datapoint points at AWS, and yet the thesis for on-prem is real: a closed proprietary model, Navy CUI exposure, an owned 200,000 sq ft plant, and a dated award that explicitly funds facilities. The thesis is entirely unsourced today. Treat where Obsidian trains as the opening discovery question, never as an assumption.",
+    "analyst_read": "The on-prem thesis does not survive a full read of the job board: 51 postings, four AWS mentions, zero datacenter signals, and an IT function that is pure SaaS administration. That is a company that rents. The USD 600M HII award dated 2026-08-06 still explicitly funds facilities on milestone attainment, and Navy CUI exposure is the one mechanism that could force an enclave - so keep the account, but change the opening question from where it trains to what would move it off AWS.",
     "ticker_or_PRIVATE": "PRIVATE"
   },
   {
@@ -4757,21 +4845,21 @@
       "speaker-employer"
     ],
     "layer": "tenant-selfuse",
-    "buys_servers": "GAP",
-    "oem_lock": "GAP",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
     "mw_or_proxy": "ESTIMATE{Periodic Labs' own Midtraining job spec states engineers scale efficiently across thousands of GPUs; lower bound 2,000 H100/H200-class GPUs / 8 per node = 250 nodes; 250 x 10.2 kW per 8-GPU node = 2.55 MW IT; x 1.3 PUE} = ~3.3 MW facility. Ownership is undisclosed - this sizes the fleet, not who holds the title.",
     "window": "EVENT-GATED{close of the round reported in talks 2026-03-25 at about USD 7B valuation, up from USD 1.3B at the USD 300M seed}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Ask Periodic Labs' ML Systems team whether the thousands-of-GPUs fleet named in their Menlo Park job spec sits on owned racks or rented cloud capacity.",
+    "next_action": "Ask the ML Systems team whose asset tag is on the InfiniBand fabric; if the answer is Crusoe, sell to Crusoe and bring Periodic in as the reference workload.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
+      "oem": "H",
       "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -4794,8 +4882,8 @@
         "date": "2026-03-25"
       },
       "oem_lock": {
-        "source": "https://jobs.ashbyhq.com/periodic-labs/d3be5ecc-c4d3-4c9e-9a4d-519ab6147474",
-        "date": "2026-08-17"
+        "source": "https://jobs.ashbyhq.com/periodic-labs/d9180228-c113-4d5f-a4d6-793994e50b7c",
+        "date": "2026-08-18"
       },
       "mw_or_proxy": {
         "source": "https://jobs.ashbyhq.com/periodic-labs/d3be5ecc-c4d3-4c9e-9a4d-519ab6147474",
@@ -4836,6 +4924,18 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.bloomberg.com/news/articles/2026-03-25/ai-science-startup-periodic-labs-is-in-deal-talks-at-about-7-billion-valuation",
         "date": "2026-03-25"
+      },
+      "buys_servers": {
+        "source": "https://jobs.ashbyhq.com/periodic-labs/e58cc4ac-39a8-4f46-a660-4cab443922cc",
+        "date": "2026-08-18"
+      },
+      "oem_detail": {
+        "source": "https://jobs.ashbyhq.com/periodic-labs/d9180228-c113-4d5f-a4d6-793994e50b7c",
+        "date": "2026-08-18"
+      },
+      "analyst_read": {
+        "source": "https://jobs.ashbyhq.com/periodic-labs/a059aee9-881a-42f2-b9d6-6685b133545f",
+        "date": "2026-08-18"
       }
     },
     "priority": "A",
@@ -4845,8 +4945,8 @@
     "vertical": "ai-lab",
     "hq": "Menlo Park, California, USA",
     "territory": "US-West / Bay Area",
-    "oem_detail": "No compute vendor named in any company disclosure. NVIDIA-aligned: NVentures is an investor, and the ML Systems Engineer spec demands NCCL, NVLink, InfiniBand, RDMA and GPUDirect RDMA - bare-metal interconnect work, not generic cloud VM work.",
-    "analyst_read": "The job spec is the tell: NCCL, NVLink, InfiniBand and GPUDirect RDMA are what you hire for when you run your own fabric, not when you rent VMs. Thousands of GPUs at a lab this young, with NVIDIA's venture arm on the cap table, is a fleet worth sizing even though the title-holder is unknown.",
+    "oem_detail": "No server OEM appears in any Periodic Labs document, posting or funding release. The only hardware name attached is NVIDIA, via NVentures on the cap table in the USD 300M seed announced 2025-09-30. The 27-posting board names accelerator-level technology only - CUDA, Triton, CUTLASS, CuTe, NCCL, NVLink, InfiniBand, RDMA, GPUDirect RDMA. No chassis, no rack, no integrator.",
+    "analyst_read": "The fabric-level hiring is real and the title is not. Periodic hires for NCCL, NVLink, InfiniBand and GPUDirect RDMA, which is what you staff when you RUN your own fabric - but running a fabric and owning it are different facts, and every ownership signal is absent while the neocloud signals are present, including a GPU architect hired from Crusoe in January 2026. Do not read the earlier ~3.3 MW estimate as an addressable rack count; it sizes the workload, and on current evidence somebody else's balance sheet carries it. FALSIFIER: a colocation lease or a hardware purchase order flips this to YES; neither is public.",
     "ticker_or_PRIVATE": "PRIVATE"
   },
   {
@@ -4992,19 +5092,19 @@
     "layer": "channel",
     "buys_servers": "NO",
     "oem_lock": "NONE",
-    "mw_or_proxy": "GAP - owns no capacity; it is an inference-optimisation ISV. Attached-capacity proxy: its DOE Genesis Mission work runs on national-lab iron, and its commercial on-prem and sovereign SKUs land on customer racks.",
+    "mw_or_proxy": "Owns no compute; a software ISV. Its own site states the deployment model as serverless, dedicated, private cloud or fully on-prem, one stack rendered in four places. No datacenter and no MW figure. ATTACHED-CAPACITY PROXY: the dedicated-rack and on-prem SKUs land on customer iron, and NVIDIA and AMD are the only hardware names on the site.",
     "window": "EVENT-GATED{DOE Genesis Mission project awards - 278 projects selected from over 5,000 proposals; PrimaLabs is industry partner on two Savannah River National Laboratory-led projects as of 2026-07}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "ruled-out",
-    "next_action": "Certify PrimaLabs on Supermicro on-prem inference SKUs and ride its Genesis Mission work with SRNL, ORNL and PNNL into national-lab racks.",
+    "next_action": "Certify PrimaLabs on Supermicro inference SKUs so its dedicated-rack and on-prem deployments land on our hardware.",
     "confidence": {
       "tenancy": "H",
       "oem": "H",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -5031,8 +5131,8 @@
         "date": "2026-08-17"
       },
       "mw_or_proxy": {
-        "source": "https://www.primalabs.ai/blog/primalabs-joins-nvidia-genesis-mission",
-        "date": "2026-07-01"
+        "source": "https://www.primalabs.ai/",
+        "date": "2026-08-18"
       },
       "window": {
         "source": "https://www.primalabs.ai/blog/primalabs-joins-nvidia-genesis-mission",
@@ -5110,19 +5210,19 @@
     "layer": "operator",
     "buys_servers": "NO",
     "oem_lock": "NONE",
-    "mw_or_proxy": "GAP for owned megawatts. Brokered-capacity proxy from its own price list: ESTIMATE{one advertised reserved cluster of 512 B300 SXM6 / 8 per node = 64 nodes; 64 x ~14 kW per Blackwell-class 8-GPU node} = ~0.9 MW, quoted at USD 5.00/GPU/hr or USD 67.3M over a 3-year reservation. That megawatt is bought by the datacenter listing it, not by Prime Intellect.",
+    "mw_or_proxy": "Owns zero megawatts. Capacity is aggregated third-party GPUs: its own site offers clusters from 50+ providers, quotes from 50+ datacenters within 24 hours, and a sell-back loop for idle GPUs. Catalogue H200, B300, B200, H100, GH200, A100, A40 at USD 0.47-4.99/GPU/hr. Every megawatt behind that catalogue was bought by one of the listed datacenters, not by Prime Intellect.",
     "window": "EVENT-GATED{Prime Intellect announcing owned or colocated capacity, reversing the asset-light marketplace model; USD 130M Series A closed 2026-07-08 at a USD 1B valuation}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "ruled-out",
-    "next_action": "Sell Supermicro racks into the 50-plus datacenters listing capacity on Prime Intellect's marketplace rather than to Prime Intellect, which owns no iron.",
+    "next_action": "Harvest Prime Intellect 50-plus listed datacenter providers as the target list and sell racks to them, not to the marketplace.",
     "confidence": {
       "tenancy": "H",
       "oem": "H",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -5154,7 +5254,7 @@
       },
       "mw_or_proxy": {
         "source": "https://www.primeintellect.ai/",
-        "date": "2026-08-17"
+        "date": "2026-08-18"
       },
       "priority": {
         "source": "https://techcrunch.com/2026/07/08/prime-intellect-raises-130m-series-a-to-help-enterprises-build-their-own-ai-agents/",
@@ -5349,19 +5449,19 @@
     "layer": "channel",
     "buys_servers": "NO",
     "oem_lock": "NONE",
-    "mw_or_proxy": "GAP - a software subsidiary with no disclosed owned datacenter. It is a route to other people's racks, not a rack buyer.",
+    "mw_or_proxy": "RACK-COUNT PROXY, roughly 0.2 MW IT - a rounding error, and that is the point. Red Hat shut four North American data centers and consolidated into a single on-premises site in Raleigh, cutting from about 150 racks to between 30 and 35, while roughly 75 percent of internal applications moved to AWS. FORMULA{30-35 racks x 5-8 kW per rack general-purpose enterprise density} = 0.15-0.28 MW IT, x ~1.5 PUE = 0.23-0.42 MW facility. The kW-per-rack figure is OUR assumption; Red Hat publishes no density, no megawatts and no server count. STALENESS: figures as reported 2023-05-29 with no update since. Direction of travel is away from owned iron - IBM announced 2026-05-12 that Red Hat OpenShift Virtualization Service on IBM Cloud runs on IBM Cloud VPC Bare Metal.",
     "window": "EVENT-GATED{Supermicro's absence from the redhat.com/en/products/ai hardware partner list where Dell and Lenovo appear, despite the joint Kubernetes edge-AI appliance release of 2026-07-08}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "ruled-out",
-    "next_action": "Close the Red Hat AI page gap at their booth: Supermicro is missing from redhat.com/en/products/ai where Dell and Lenovo appear, despite active co-sell.",
+    "next_action": "Keep Red Hat on the co-sell track and use the 0.2 MW figure defensively against any infrastructure pitch; the value is the AI-page listing and the llm-d server-OEM slot.",
     "confidence": {
       "tenancy": "H",
       "oem": "H",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -5428,8 +5528,8 @@
         "date": "2026-08-17"
       },
       "mw_or_proxy": {
-        "source": "https://www.redhat.com/en/about/company",
-        "date": "2026-08-17"
+        "source": "https://www.cio.com/article/480785/red-hat-embraces-hybrid-cloud-for-internal-it.html",
+        "date": "2023-05-29"
       }
     },
     "priority": "A",
@@ -5471,19 +5571,19 @@
     ],
     "layer": "tenant-selfuse",
     "buys_servers": "PARTIAL",
-    "oem_lock": "GAP",
+    "oem_lock": "NONE",
     "window": "EVENT-GATED{stand-up of Rothera Exchange and Clearing LLC, formerly LedgerX doing business as MIAXdx, acquired 2025-11-30, as an independent CFTC-licensed exchange and clearinghouse; its hosting model is disclosed nowhere}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Ask Robinhood at the booth whether Rothera's CFTC-licensed matching engine runs in AWS or dedicated colocation, and who supplies that colo hardware.",
+    "next_action": "Skip Robinhood own estate at USD 36M of computer equipment and take the hardware question to its clearing and exchange hosting build.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
-      "mw": "L"
+      "oem": "H",
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
@@ -5503,7 +5603,7 @@
       },
       "mw_or_proxy": {
         "source": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000023/hood-20251231.htm",
-        "date": "2026-02-18"
+        "date": "2026-08-18"
       },
       "window": {
         "source": "https://www.businesswire.com/news/home/20260714583907/en/Rothera-selects-Adaptives-Aeron-Exchange-Accelerator-to-build-its-CFTC-regulated-event-contracts-exchange-and-clearing-platform",
@@ -5515,7 +5615,7 @@
       },
       "oem_lock": {
         "source": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000023/hood-20251231.htm",
-        "date": "2026-02-18"
+        "date": "2026-08-18"
       },
       "priority": {
         "source": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000023/hood-20251231.htm",
@@ -5554,7 +5654,7 @@
         "date": "2026-02-18"
       }
     },
-    "mw_or_proxy": "GAP for megawatts, and Item 2 Properties discloses zero datacenters - only leased offices running to 2036. Rent proxy: non-cancelable purchase commitments of USD 512M at 2025-12-31, USD 398M due 2026, primarily cloud infrastructure and data services. Owned kit is short-lived: computer equipment carries a 3-year useful life.",
+    "mw_or_proxy": "ESTIMATE: under ~0.7 MW IT, a ceiling not a footprint. FY2025 10-K Note 9: gross computer equipment USD 36M on a 3-year life. FORMULA{USD 36M / ~USD 25k per 2U = ~1,440 servers x ~500W = ~0.72 MW}, and employee laptops sit in the same line. Item 2 discloses leased offices and zero datacenters. Purchase commitments USD 512M total, USD 398M due 2026, primarily cloud infrastructure and data services.",
     "priority": "B",
     "motion": "direct",
     "smci_relationship": "NONE",
@@ -5590,8 +5690,8 @@
     "layer": "channel",
     "buys_servers": "NO",
     "oem_lock": "NONE",
-    "mw_or_proxy": "GAP - owns no hardware; sells inference optimisation into other people's capacity. Attached-capacity proxy, in their words: customers typically secure GPU capacity through long-term enterprise agreements or reserved commitments with cloud providers. The megawatts sit with Tata 1mg, Mindtickle, InVideo and Dashtoon and the Indian neoclouds behind them.",
-    "window": "GAP",
+    "mw_or_proxy": "No owned compute - the GPUs belong to the customer or the underlying cloud. Simplismart's own site states it deploys in any private VPC or on-prem setup, offers one control plane to manage deployments across clouds, and has native integration with 15+ clouds, and self-reports accelerator availability as B200s, H100s, A100s, L40S and A10G available across the globe. That is a vendor claim about capacity it can orchestrate, not capacity it owns. PROXY: attached capacity is the customer's own VPC or on-prem Kubernetes GPU nodes plus neocloud capacity reachable through the 15+ cloud integrations. Simplismart publishes no GPU count, token throughput total or MW figure, so no capacity number is asserted.",
+    "window": "2026-08-04: Entrackr reported, exclusively and as a secondary source, that Simplismart's board approved a resolution to issue 12,100 CCPS to raise roughly Rs 97 crore, about USD 9M, in a Series B led by Dallas Venture Capital. Reported as board-approved and set to raise, NOT confirmed closed, and not confirmed by the company.",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "ruled-out",
@@ -5599,10 +5699,10 @@
     "confidence": {
       "tenancy": "H",
       "oem": "H",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -5629,8 +5729,8 @@
         "date": "2026-08-17"
       },
       "mw_or_proxy": {
-        "source": "https://www.simplismart.ai/blog/byoc-ai-infrastructure",
-        "date": "2026-04-08"
+        "source": "https://www.simplismart.ai/",
+        "date": "2026-08-18"
       },
       "priority": {
         "source": "https://entrackr.com/exclusive/exclusive-gen-ai-startup-simplismart-set-to-raise-9-mn-in-series-b-led-by-dallas-venture-capital-12226753",
@@ -5665,6 +5765,10 @@
         "date": "2026-08-04"
       },
       "ticker_or_PRIVATE": {
+        "source": "https://entrackr.com/exclusive/exclusive-gen-ai-startup-simplismart-set-to-raise-9-mn-in-series-b-led-by-dallas-venture-capital-12226753",
+        "date": "2026-08-04"
+      },
+      "window": {
         "source": "https://entrackr.com/exclusive/exclusive-gen-ai-startup-simplismart-set-to-raise-9-mn-in-series-b-led-by-dallas-venture-capital-12226753",
         "date": "2026-08-04"
       }
@@ -5705,19 +5809,19 @@
     "layer": "channel",
     "buys_servers": "NO",
     "oem_lock": "NONE",
-    "mw_or_proxy": "GAP - asset-light orchestration with no owned or leased capacity. Attached-capacity proxy: named users Abridge, Applied Compute, H Company and Nubank run their own clusters, and the Kubernetes, Slurm and existing-machines backends exist precisely because those clusters are customer-owned.",
-    "window": "GAP",
+    "mw_or_proxy": "Sells software, owns no compute. 2026-07-21 launch release calls it a unified control plane over compute the customer already controls. ATTACHED-CAPACITY PROXY: private-preview customers manage over 10,000 GPUs. FORMULA{10,000 x ~700W = 7.0 MW IT x 1.35 PUE} = ~9.5 MW of third-party-owned capacity under SkyPilot orchestration. 14M downloads, 280 contributors.",
+    "window": "2026-07-21: launched from stealth with a USD 20M seed led by Lux Capital, angels including Ali Ghodsi and Jeff Dean. Founded 2024 by Zongheng Yang, Zhanghao Wu, Romil Bhardwaj with Ion Stoica and Scott Shenker. Seed money goes to product and GTM; the customer list is being built right now.",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "ruled-out",
-    "next_action": "Chase the racks SkyPilot orchestrates: pitch Nubank, Abridge, Applied Compute and H Company on owned Kubernetes clusters instead of selling to SkyPilot.",
+    "next_action": "Ask SkyPilot which of the 10,000 GPUs under management sit on customer-owned racks and get introductions to Nubank and Abridge.",
     "confidence": {
       "tenancy": "H",
       "oem": "H",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -5744,8 +5848,8 @@
         "date": "2026-07-21"
       },
       "mw_or_proxy": {
-        "source": "https://skypilot.ai/blog/skypilot-the-company",
-        "date": "2026-07-21"
+        "source": "https://www.prnewswire.com/news-releases/skypilot-launches-with-20m-to-accelerate-custom-intelligence-for-frontier-ai-teams-302830808.html",
+        "date": "2026-08-18"
       },
       "priority": {
         "source": "https://skypilot.ai/blog/skypilot-the-company",
@@ -5782,6 +5886,10 @@
       "ticker_or_PRIVATE": {
         "source": "https://skypilot.ai/blog/skypilot-the-company",
         "date": "2026-07-21"
+      },
+      "window": {
+        "source": "https://www.prnewswire.com/news-releases/skypilot-launches-with-20m-to-accelerate-custom-intelligence-for-frontier-ai-teams-302830808.html",
+        "date": "2026-08-18"
       }
     },
     "priority": "B",
@@ -5817,8 +5925,8 @@
     "layer": "tenant-selfuse",
     "buys_servers": "NO",
     "oem_lock": "NONE",
-    "mw_or_proxy": "GAP",
-    "window": "GAP",
+    "mw_or_proxy": "No owned compute footprint. SonderMind is a care-delivery organisation - a contracted therapist and psychiatrist network plus a consumer mobile app - and no datacenter, hardware or infrastructure vendor appears in any of its own announcements. NOT SOURCED: which public cloud it runs on. A targeted search returned no primary source naming AWS, GCP or Azure, so no cloud is asserted here and no MW figure is derivable from any cited number.",
+    "window": "2025-04-02: completed nationwide expansion to all 50 states and Washington DC, adding New York and Michigan last, and is expanding psychiatric care alongside therapy and app-based self-care tools. This is a clinical coverage milestone, not a compute trigger.",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "ruled-out",
@@ -5826,10 +5934,10 @@
     "confidence": {
       "tenancy": "H",
       "oem": "H",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -5856,12 +5964,12 @@
         "date": "2026-07-29"
       },
       "motion": {
-        "source": "https://jobs.ashbyhq.com/SonderMind/9daec347-41d2-43d2-88ce-8a808761f5f3",
-        "date": "2026-07-29"
+        "source": "https://www.sondermind.com/resources/announcement/leading-mental-health-provider-sonder-mind-expands-nationwide-delivering-high-quality-mental-health-care-in-all-50-states/",
+        "date": "2025-04-02"
       },
       "smci_relationship": {
-        "source": "https://jobs.ashbyhq.com/SonderMind/9daec347-41d2-43d2-88ce-8a808761f5f3",
-        "date": "2026-07-29"
+        "source": "https://www.sondermind.com/resources/announcement/leading-mental-health-provider-sonder-mind-expands-nationwide-delivering-high-quality-mental-health-care-in-all-50-states/",
+        "date": "2025-04-02"
       },
       "priority": {
         "source": "https://jobs.ashbyhq.com/SonderMind/9daec347-41d2-43d2-88ce-8a808761f5f3",
@@ -5872,15 +5980,43 @@
         "date": "2026-07-29"
       },
       "company_stage": {
-        "source": "https://jobs.ashbyhq.com/SonderMind/9daec347-41d2-43d2-88ce-8a808761f5f3",
-        "date": "2026-07-29"
+        "source": "https://www.sondermind.com/resources/announcement/technology-driven-behavioral-health-company-sondermind-raises-150-million-to-expand-mission-of-improving-clinical-outcomes/",
+        "date": "2021-07-28"
+      },
+      "hq": {
+        "source": "https://www.sondermind.com/resources/announcement/technology-driven-behavioral-health-company-sondermind-raises-150-million-to-expand-mission-of-improving-clinical-outcomes/",
+        "date": "2021-07-28"
+      },
+      "territory": {
+        "source": "https://www.sondermind.com/resources/announcement/leading-mental-health-provider-sonder-mind-expands-nationwide-delivering-high-quality-mental-health-care-in-all-50-states/",
+        "date": "2025-04-02"
+      },
+      "mw_or_proxy": {
+        "source": "https://www.sondermind.com/resources/announcement/leading-mental-health-provider-sonder-mind-expands-nationwide-delivering-high-quality-mental-health-care-in-all-50-states/",
+        "date": "2025-04-02"
+      },
+      "window": {
+        "source": "https://www.sondermind.com/resources/announcement/leading-mental-health-provider-sonder-mind-expands-nationwide-delivering-high-quality-mental-health-care-in-all-50-states/",
+        "date": "2025-04-02"
+      },
+      "oem_detail": {
+        "source": "https://www.sondermind.com/resources/announcement/technology-driven-behavioral-health-company-sondermind-raises-150-million-to-expand-mission-of-improving-clinical-outcomes/",
+        "date": "2021-07-28"
+      },
+      "analyst_read": {
+        "source": "https://www.sondermind.com/resources/announcement/leading-mental-health-provider-sonder-mind-expands-nationwide-delivering-high-quality-mental-health-care-in-all-50-states/",
+        "date": "2025-04-02"
       }
     },
-    "motion": "GAP",
-    "smci_relationship": "GAP",
+    "motion": "none",
+    "smci_relationship": "NONE",
     "priority": "C",
     "vertical": "GAP",
-    "company_stage": "GAP"
+    "company_stage": "private-late",
+    "hq": "Denver, Colorado, USA",
+    "territory": "Operates across all 50 US states and Washington DC, completed 2025-04, with New York and Michigan added last. Delivers in-person and video therapy plus psychiatry through a contracted provider network and a consumer app. No compute location disclosed in any primary source.",
+    "oem_detail": "Buys no iron. Every SonderMind primary announcement reviewed describes a care-delivery business and names investors, not hardware or infrastructure vendors. Funding: USD 150M Series C led by Drive Capital and Premji Invest, 2021-07-28, taking total capital raised to USD 183M at that date. Headcount not disclosed.",
+    "analyst_read": "Not worth a rep's time. A clinical services organisation with no compute ownership, no hardware buying authority and no infrastructure story in any of its own announcements. The only AI surface is app-based self-care tools riding on someone else's platform, so there is no path from a booth conversation to a server order."
   },
   {
     "ledger_id": "spotify",
@@ -5905,20 +6041,20 @@
       "speaker-employer"
     ],
     "layer": "tenant-selfuse",
-    "buys_servers": "GAP",
-    "oem_lock": "GAP",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
     "window": "EVENT-GATED{Ray Summit 2026 session by Aamir Anwar, AI/ML Platform Engineer}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
-    "classification": "GAP",
-    "next_action": "Intercept Aamir Anwar after his session and qualify whether Spotify's ML platform runs any owned GPU capacity or is entirely public cloud.",
+    "classification": "ruled-out",
+    "next_action": "Do not open Spotify as a server account; attend the Ray session for the platform pattern and route anything hardware-shaped to Google.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
-      "mw": "L"
+      "oem": "H",
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
@@ -5977,16 +6113,20 @@
         "date": "2026-08-17"
       },
       "territory": {
-        "source": "https://data.sec.gov/submissions/CIK0001639920.json",
-        "date": "2026-08-17"
+        "source": "https://www.sec.gov/Archives/edgar/data/1639920/000162828026006874/ck0001639920-20251231.htm",
+        "date": "2026-02-10"
       },
       "ticker_or_PRIVATE": {
         "source": "https://data.sec.gov/submissions/CIK0001639920.json",
         "date": "2026-08-17"
       },
       "mw_or_proxy": {
-        "source": "https://engineering.atspotify.com/",
-        "date": "2026-08-17"
+        "source": "https://www.sec.gov/Archives/edgar/data/1639920/000162828026006874/ck0001639920-20251231.htm",
+        "date": "2026-02-10"
+      },
+      "analyst_read": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1639920/000162828026006874/ck0001639920-20251231.htm",
+        "date": "2026-02-10"
       }
     },
     "priority": "C",
@@ -5995,10 +6135,10 @@
     "company_stage": "public",
     "vertical": "media-entertainment",
     "hq": "Luxembourg",
-    "territory": "GAP - no owned datacenter or colo published; engineering in Stockholm and New York",
-    "mw_or_proxy": "GAP - zero published owned facility, so no MW basis exists and no proxy is derivable without a cloud spend figure.",
+    "territory": "No owned or leased datacenter. Spotify's FY2025 Form 20-F, filed 2026-02-10, states it currently relies on Google Cloud Platform for the vast majority of its primary data storage - including user personal data and licensed audio - and computing, and that any transition of its GCP operations to another cloud provider would incur significant time and expense. Engineering in Stockholm and New York.",
+    "mw_or_proxy": "Zero owned megawatts, and the CURRENT position is confirmed, not inherited from the 2016 migration story: Spotify's FY2025 20-F, filed 2026-02-10, states it currently relies on GCP for the vast majority of its primary data storage and computing. SPEND PROXY, with a caveat: non-cancelable purchase obligations total EUR 1,575M - EUR 626M due within one year, EUR 668M in one to three years, EUR 228M in three to five years and EUR 53M beyond - and the one-year bucket has risen from EUR 453M for 2023 to EUR 598M for 2024 to EUR 626M for 2025. That line covers the Google service agreement for GCP TOGETHER WITH content and marketing commitments, so it is a ceiling on GCP spend, not a GCP figure. Every megawatt behind Spotify is bought by Google.",
     "oem_detail": "No server OEM and no cloud commitment amount or end date sourced. The engineering blog through 2026-08-13 carries no infrastructure post and the 2026 newsroom is entirely product and licensing news.",
-    "analyst_read": "A named engineer on stage and no evidence in either direction on owned hardware. Treat the talk as a discovery opening, not a pipeline entry.",
+    "analyst_read": "CLOSED, and against us. The earlier read of no evidence in either direction is superseded: the FY2025 20-F filed 2026-02-10 puts the vast majority of storage and computing on GCP and warns that moving off it would cost significant time and expense. There is no owned-hardware conversation here. Aamir Anwar's session is still worth attending as a Ray-on-GCP technical datapoint, not as a pipeline entry.",
     "ticker_or_PRIVATE": "NYSE:SPOT"
   },
   {
@@ -6025,7 +6165,7 @@
     "layer": "tenant-selfuse",
     "buys_servers": "NO",
     "oem_lock": "NONE",
-    "window": "GAP",
+    "window": "EVENT-GATED{driverless operation on public roads on the Laredo to Dallas-Fort Worth I-35 lane, ahead of the stated 2027 US commercial launch}. Anchor: Torc opened its Fort Worth hub on 2025-05-13 - 22,000 sq ft of office on an 18-acre site inside AllianceTexas - as the operational base for that lane, with a customer experience centre and control rooms for fleet management. No compute, datacenter or training-infrastructure commitment appears anywhere in the hub announcement, which is consistent with the 2021 AWS-only policy still holding.",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "ruled-out",
@@ -6036,7 +6176,7 @@
       "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
@@ -6101,6 +6241,10 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.daimlertruck.com/en/newsroom/pressrelease/torc-robotics-selects-aws-as-preferred-cloud-provider-for-self-driving-truck-fleet-48985646",
         "date": "2021-02-17"
+      },
+      "window": {
+        "source": "https://www.truckingdive.com/news/torc-robotics-opens-autonomous-hub-texas/749139/",
+        "date": "2025-05-29"
       }
     },
     "mw_or_proxy": "0 MW owned, on the record. CTO Ben Hastings, 2021-02-17: AWS gives Torc scale without having to acquire and maintain our own datacenters. Workload proxy instead: training pipelines grew 4 TB to 38 TB and average GPU utilisation went from 30-40% to about 90% after consolidating on Ray.",
@@ -6138,19 +6282,19 @@
     ],
     "layer": "tenant-selfuse",
     "buys_servers": "PARTIAL",
-    "oem_lock": "GAP",
+    "oem_lock": "WHITEBOX",
     "window": "EVENT-GATED{hyperscale cloud commitment runway to November 2029 per Form 10-K; the migration decision gate is laid out in Uber's 2026-05-04 engineering post}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Open Uber infrastructure with Kamran Zargahi on his 2026-05-04 migration math and bid the refresh of the on-prem estate his team still audits.",
+    "next_action": "Open Uber on the ODM procurement fact and bid against Quanta and Wiwynn for the colo-hosted fleet Uber leases rather than owns.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
+      "oem": "M",
       "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
@@ -6169,8 +6313,8 @@
         "date": "2026-05-04"
       },
       "oem_lock": {
-        "source": "https://convergedigest.com/ocp-launches-composable-memory-systems/",
-        "date": "2022-10-20"
+        "source": "https://newsletter.pragmaticengineer.com/p/uber-move-to-cloud",
+        "date": "2026-08-18"
       },
       "classification": {
         "source": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/uber-20251231.htm",
@@ -6215,11 +6359,15 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/uber-20251231.htm",
         "date": "2026-02-13"
+      },
+      "smci_relationship": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/uber-20251231.htm",
+        "date": "2026-08-18"
       }
     },
     "priority": "B",
     "motion": "direct",
-    "smci_relationship": "GAP",
+    "smci_relationship": "NONE",
     "company_stage": "public",
     "vertical": "ecommerce-marketplace",
     "hq": "San Francisco, California, USA",
@@ -6251,19 +6399,19 @@
     "layer": "channel",
     "buys_servers": "NO",
     "oem_lock": "NONE",
-    "mw_or_proxy": "GAP",
-    "window": "GAP",
+    "mw_or_proxy": "No owned compute. Union sells a control plane; the actual GPU and CPU capacity is customer-owned and runs in the customer's AWS, GCP or Azure account under BYOC, or on self-managed Kubernetes including OCI. Attached capacity therefore sits on Union's customers' balance sheets, not Union's, and no per-customer capacity figure is published, so no MW number is derivable from any cited figure.",
+    "window": "2026-02-25: completed a USD 38.1M Series A led by existing investor NEA, with Nava Ventures and new investor Mozilla Ventures, to scale production AI infrastructure spanning orchestration, model training, inference and observability.",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "ruled-out",
-    "next_action": "Meet Union.ai at the Startups tier to map self-managed bare-metal Flyte accounts into Supermicro co-sell, and skip any direct hardware quote.",
+    "next_action": "Ask Union.ai which customers run the self-managed bare-metal Kubernetes data plane, and log those names as referral targets rather than opening Union itself.",
     "confidence": {
       "tenancy": "H",
       "oem": "H",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -6290,31 +6438,59 @@
         "date": "2025-12-01"
       },
       "motion": {
-        "source": "https://www.union.ai/blog-post/union-ai-on-nebius-orchestrating-the-future-of-ai-workloads-in-the-cloud",
-        "date": "2025-12-01"
+        "source": "https://www.union.ai/docs/byoc/deployment/",
+        "date": "2026-08-18"
       },
       "smci_relationship": {
-        "source": "https://www.union.ai/blog-post/union-ai-on-nebius-orchestrating-the-future-of-ai-workloads-in-the-cloud",
-        "date": "2025-12-01"
+        "source": "https://www.union.ai/blog-post/union-ai-completes-38-1-million-series-a-to-power-a-new-era-of-ai-development-infrastructure",
+        "date": "2026-02-25"
       },
       "priority": {
         "source": "https://www.union.ai/blog-post/union-ai-on-nebius-orchestrating-the-future-of-ai-workloads-in-the-cloud",
         "date": "2025-12-01"
       },
       "vertical": {
-        "source": "https://www.union.ai/blog-post/union-ai-on-nebius-orchestrating-the-future-of-ai-workloads-in-the-cloud",
-        "date": "2025-12-01"
+        "source": "https://www.union.ai/blog-post/union-ai-completes-38-1-million-series-a-to-power-a-new-era-of-ai-development-infrastructure",
+        "date": "2026-02-25"
       },
       "company_stage": {
-        "source": "https://www.union.ai/blog-post/union-ai-on-nebius-orchestrating-the-future-of-ai-workloads-in-the-cloud",
-        "date": "2025-12-01"
+        "source": "https://www.union.ai/blog-post/union-ai-completes-38-1-million-series-a-to-power-a-new-era-of-ai-development-infrastructure",
+        "date": "2026-02-25"
+      },
+      "hq": {
+        "source": "https://www.union.ai/blog-post/union-ai-completes-38-1-million-series-a-to-power-a-new-era-of-ai-development-infrastructure",
+        "date": "2026-02-25"
+      },
+      "territory": {
+        "source": "https://www.union.ai/docs/byoc/deployment/",
+        "date": "2026-08-18"
+      },
+      "mw_or_proxy": {
+        "source": "https://www.union.ai/docs/byoc/deployment/",
+        "date": "2026-08-18"
+      },
+      "window": {
+        "source": "https://www.union.ai/blog-post/union-ai-completes-38-1-million-series-a-to-power-a-new-era-of-ai-development-infrastructure",
+        "date": "2026-02-25"
+      },
+      "oem_detail": {
+        "source": "https://www.union.ai/blog-post/union-ai-completes-38-1-million-series-a-to-power-a-new-era-of-ai-development-infrastructure",
+        "date": "2026-02-25"
+      },
+      "analyst_read": {
+        "source": "https://www.union.ai/docs/byoc/deployment/",
+        "date": "2026-08-18"
       }
     },
-    "motion": "GAP",
-    "smci_relationship": "GAP",
+    "motion": "referral-only",
+    "smci_relationship": "NONE",
     "priority": "C",
-    "vertical": "GAP",
-    "company_stage": "GAP"
+    "vertical": "enterprise-software",
+    "company_stage": "private-early",
+    "hq": "Bellevue, Washington, USA",
+    "territory": "Headquartered in Bellevue, Washington. Union owns no production fleet: its documented deployment models put the data plane inside the customer's own cloud account - AWS, GCP or Azure - with a self-managed option covering generic Kubernetes, AWS, GCP, Azure and OCI.",
+    "oem_detail": "Buys no iron itself. The product is a control plane whose data plane is documented as running in the customer's own AWS, GCP or Azure account or on self-managed Kubernetes including OCI, so hardware selection sits with the customer. No hardware vendor or infrastructure partner is named in the Series A announcement. Funding: USD 38.1M Series A total, inclusive of the previously announced USD 19.1M. Founded 2020 as the commercial entity behind Flyte. Company-stated traction, self-reported and unverified: more than 3,500 companies use AI development infrastructure powered by Union.ai, Flyte over 80M downloads, Pandera over 100M downloads, with Woven by Toyota cited as a case study. Headcount not disclosed.",
+    "analyst_read": "Not a hardware buyer and never will be - Union's own docs put every byte of compute in the customer's account. The single non-zero angle is indirect: the self-managed Kubernetes path covers generic K8s and OCI, not just the big three clouds, so a customer running Union on bare metal could be running it on SMCI iron. That makes Union a referral surface, not an account."
   },
   {
     "ledger_id": "vast",
@@ -6586,19 +6762,19 @@
     "layer": "tenant-selfuse",
     "buys_servers": "NO",
     "oem_lock": "NONE",
-    "mw_or_proxy": "GAP",
+    "mw_or_proxy": "No owned ground-segment or data-processing site found. The company site, accessed 2026-08-18, describes the business as four functions - collect, refine, distribute, deliver - and names Esri, Microsoft and EY as strategic partners, with no ground station, datacenter or cloud region disclosed anywhere on it. Space hardware is outsourced, with L3Harris building the optical sensors. No MW figure is derivable from any cited number and none should be assigned.",
     "window": "EVENT-GATED{L3Harris-built Xoople constellation reaching operational service}",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "ruled-out",
-    "next_action": "Ask Xoople engineering lead Marcell Ferencz whether the L3Harris constellation adds an owned ground-segment processing site, and requalify only on a yes.",
+    "next_action": "Spend no booth time on Xoople; if one surfaces, ask only who hosts the EarthAI processing pipeline and where.",
     "confidence": {
       "tenancy": "H",
       "oem": "H",
-      "mw": "L"
+      "mw": "M"
     },
     "full": false,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -6629,31 +6805,55 @@
         "date": "2026-04-14"
       },
       "motion": {
-        "source": "https://www.anyscale.com/blog/ray-day-london-recap",
-        "date": "2026-06-11"
+        "source": "https://techcrunch.com/2026/04/06/spains-xoople-raises-130-million-series-b-to-map-the-earth-for-ai/",
+        "date": "2026-04-06"
       },
       "smci_relationship": {
-        "source": "https://www.anyscale.com/blog/ray-day-london-recap",
-        "date": "2026-06-11"
+        "source": "https://techcrunch.com/2026/04/06/spains-xoople-raises-130-million-series-b-to-map-the-earth-for-ai/",
+        "date": "2026-04-06"
       },
       "priority": {
         "source": "https://www.anyscale.com/blog/ray-day-london-recap",
         "date": "2026-06-11"
       },
       "vertical": {
-        "source": "https://www.anyscale.com/blog/ray-day-london-recap",
-        "date": "2026-06-11"
+        "source": "https://www.xoople.com/",
+        "date": "2026-08-18"
       },
       "company_stage": {
-        "source": "https://www.anyscale.com/blog/ray-day-london-recap",
-        "date": "2026-06-11"
+        "source": "https://techcrunch.com/2026/04/06/spains-xoople-raises-130-million-series-b-to-map-the-earth-for-ai/",
+        "date": "2026-04-06"
+      },
+      "hq": {
+        "source": "https://www.vestbee.com/insights/articles/xoople-secures-115-m",
+        "date": "2025-05-14"
+      },
+      "territory": {
+        "source": "https://techcrunch.com/2026/04/06/spains-xoople-raises-130-million-series-b-to-map-the-earth-for-ai/",
+        "date": "2026-04-06"
+      },
+      "mw_or_proxy": {
+        "source": "https://www.xoople.com/",
+        "date": "2026-08-18"
+      },
+      "oem_detail": {
+        "source": "https://techcrunch.com/2026/04/06/spains-xoople-raises-130-million-series-b-to-map-the-earth-for-ai/",
+        "date": "2026-04-06"
+      },
+      "analyst_read": {
+        "source": "https://www.xoople.com/",
+        "date": "2026-08-18"
       }
     },
-    "motion": "GAP",
-    "smci_relationship": "GAP",
+    "motion": "none",
+    "smci_relationship": "NONE",
     "priority": "C",
-    "vertical": "GAP",
-    "company_stage": "GAP"
+    "vertical": "enterprise-software",
+    "company_stage": "private-growth",
+    "hq": "Madrid, Comunidad de Madrid, Spain",
+    "territory": "Madrid HQ, founded 2019, Spain-funded via CDTI, AXIS/ICO and the Spanish Space Agency. Go-to-market runs through other people's platforms rather than owned regions: TechCrunch reports Xoople is embedding into Microsoft and Esri, the two platforms where enterprise, government and most GIS buyers already sit. No owned compute region, datacenter or ground-processing site is named in company materials or Series B coverage.",
+    "oem_detail": "Buys no server iron on any evidence found. Spacecraft sensors are built by L3Harris under a partnership announced with the Series B. Funding: USD 130M Series B led by Nazca Capital announced 2026-04-06, with MCH Private Equity, CDTI, Buenavista Equity Partners and Endeavor Catalyst participating, taking total raised to USD 225M; an earlier EUR 115M round on 2025-05-14 came from CDTI, AXIS/ICO and the Spanish Space Agency. Headcount not disclosed. No compute vendor, cloud provider or datacenter is named in any fetched source.",
+    "analyst_read": "Not worth seeking out. The satellites are L3Harris's problem, the distribution is Microsoft's and Esri's, and Xoople has disclosed no ground-processing or training footprint of its own, so there is no rack in this story. Well-funded and visible enough to be worth 60 seconds if a badge falls in a rep's lap."
   },
   {
     "ledger_id": "zoox",
@@ -6678,20 +6878,20 @@
     ],
     "layer": "tenant-selfuse",
     "buys_servers": "YES",
-    "oem_lock": "GAP",
+    "oem_lock": "NONE",
     "mw_or_proxy": "ESTIMATE{a Zoox staff data systems engineer describes high-density clusters of thousands of GPUs; take 2,000-6,000 GPUs x 0.7 kW/GPU x 1.3 host overhead x 1.3 PUE = 1.18 kW facility per GPU} = 2.4 MW at the low end, 7.1 MW at the high end. Zoox publishes no MW figure; this is derived, not disclosed.",
     "window": "2026-08-10",
     "crm": "GAP-not-checked",
     "ledger_status": "new",
     "classification": "end-user",
-    "next_action": "Qualify at Ray Summit whether Zoox raises its own hardware POs or routes through Amazon central procurement, then bid the GPU refresh behind the 2,500-vehicle ramp.",
+    "next_action": "Ask Platform Operations who they raise RMAs against today and what the Sunnyvale refresh cycle is; the specification fight is winnable inside Zoox.",
     "confidence": {
       "tenancy": "H",
-      "oem": "L",
+      "oem": "H",
       "mw": "M"
     },
     "full": true,
-    "asOf": "2026-08-17",
+    "asOf": "2026-08-18",
     "sources": {
       "legal_name": {
         "source": "https://www.anyscale.com/ray-summit/2026",
@@ -6756,6 +6956,18 @@
       "ticker_or_PRIVATE": {
         "source": "https://www.cnbc.com/2020/06/26/amazon-buys-self-driving-technology-company-zoox.html",
         "date": "2020-06-26"
+      },
+      "oem_lock": {
+        "source": "https://startup.jobs/data-center-engineer-zoox-4754377",
+        "date": "2026-08-18"
+      },
+      "oem_detail": {
+        "source": "https://startup.jobs/data-center-engineer-zoox-4754377",
+        "date": "2026-08-18"
+      },
+      "analyst_read": {
+        "source": "https://aws.amazon.com/solutions/case-studies/zoox/",
+        "date": "2026-08-18"
       }
     },
     "priority": "A",
@@ -6765,8 +6977,8 @@
     "vertical": "robotics-physical-ai",
     "hq": "Foster City, California, USA",
     "territory": "Owned on-premises datacenter, location unpublished, running high-density NVIDIA GPU clusters and 30-70 PB of Quobyte storage, supplemented by AWS",
-    "oem_detail": "No server vendor has ever been named publicly, so the incumbent is unknown and displaceable. Confirmed adjacent locks: NVIDIA GPUs on-prem, Quobyte parallel file system (migrated off Ceph in 2020), AWS structurally as an Amazon subsidiary.",
-    "analyst_read": "Genuinely owns and operates an on-prem GPU estate, and the stated reason is keeping storage local to avoid cloud transfer latency - a deliberate architecture, not legacy. The unresolved risk is whether hardware moves on a Zoox PO or through Amazon central procurement, which is not publicly determinable. What IS determinable: technical selection authority sits inside Zoox, whose own engineers publicly owned the Ceph-to-Quobyte migration.",
+    "oem_detail": "No incumbent named, and the vendor relationship sits inside Zoox rather than inside Amazon. Zoox's own Data Center Engineer req, primary site the Sunnyvale data center, has the team deploy, integrate and rack new equipment including rack elevations, run cabling and fiber, maintain CPU and GPU compute clusters and storage, track deployments in DCIM tooling, and - decisively - Handle Vendor RMAs. Required skills name Intel-based server hardware. NO server OEM is named: not Dell, HPE, Supermicro, Lenovo or Cisco.",
+    "analyst_read": "Zoox runs its own training hardware AND rides AWS, and the split is documented on both sides. Owned: an on-premises Sunnyvale data center with high-density clusters of thousands of NVIDIA GPUs and three Quobyte clusters at 30 PB, staffed by Zoox's own engineers doing rack elevations, fiber and vendor RMAs. Rented: AWS for burst and for nearly an exabyte of cold data, where Zoox can spin up 1,000 nodes in a Region in hours. Amazon ownership constrains this account LESS than assumed - the open question about Amazon central procurement is answered against it by a req that puts vendor RMA handling on the Zoox payroll. The fleet is Intel-based enterprise compute, not the Graviton-and-whitebox pattern of AWS's own estate, so it is separately specified.",
     "ticker_or_PRIVATE": "PRIVATE"
   }
 ]

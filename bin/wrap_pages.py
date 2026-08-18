@@ -502,6 +502,104 @@ details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
     cubic-bezier(.2,.7,.2,1),border-color 140ms cubic-bezier(.2,.7,.2,1),
     color 140ms cubic-bezier(.2,.7,.2,1)}
 }
+/* ------------------------------------------------------------------ spine --
+   The map, printed at the top of every page. A reader who reads only this
+   knows what the page holds and can jump at the one section they need. It is
+   a list of QUESTIONS, not a list of nouns: "what changed since last year"
+   tells you whether to open it; "Changes" does not. */
+.spine{margin:0 0 var(--s7);border-top:2px solid var(--rule-hard);
+  border-bottom:1px solid var(--rule);padding:var(--s4) 0 var(--s2)}
+.spine-h{font-size:var(--t-cap);color:var(--ink-3);margin:0 0 var(--s3);
+  max-width:var(--measure)}
+.spine-l{list-style:none;margin:0;padding:0;display:grid;gap:1px;
+  background:var(--rule)}
+@media (min-width:760px){.spine-l{grid-template-columns:1fr 1fr}}
+.spine-l > li{background:var(--paper);margin:0}
+.spine-l a{display:grid;grid-template-columns:2.4em 1fr;align-items:baseline;
+  gap:0 var(--s2);min-height:44px;padding:var(--s3) var(--s2);
+  text-decoration:none;color:var(--ink)}
+.spine-l a:hover{background:var(--accent-bg)}
+.spine-l a:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+.spine-n{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--ink-3);
+  font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.spine-t{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;
+  line-height:1.3}
+.spine-l a:hover .spine-t{color:var(--accent)}
+.spine-q{grid-column:2;font-size:var(--t-cap);color:var(--ink-2);
+  line-height:1.45;margin-top:2px;max-width:var(--measure)}
+
+/* Section head: the number is a handle, the question line is what the summary
+   is FOR. A closed section still tells you whether to open it. */
+.sec-n{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--ink-3);
+  font-variant-numeric:tabular-nums;letter-spacing:.06em;margin-right:var(--s2)}
+.sec-w{display:block;font-size:var(--t-body);color:var(--ink-2);line-height:1.5;
+  margin-top:var(--s2);max-width:var(--measure)}
+main > details.dr.caveat .sec-w{color:var(--gap-fg)}
+
+/* ------------------------------------------------------------------ items --
+   A bullet hands the reader a sentence. An item hands them a heading to aim
+   at, a line saying what the heading IS before they read the body, and a URL
+   they can send to someone else. The heading is the scanning surface: on a
+   show floor a reader reads headings and stops at one. */
+.itms{margin:var(--s4) 0 0}
+.itm{margin:0 0 var(--s6);padding-left:var(--s4);
+  border-left:2px solid var(--rule)}
+.itm:target{border-left-color:var(--accent);background:var(--accent-bg)}
+.itm-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 var(--s2);
+  margin:0 0 var(--s1);font-size:var(--t-h3);line-height:1.36}
+.itm-n{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--ink-3);
+  font-variant-numeric:tabular-nums}
+.itm-l{font-family:var(--f-display);font-weight:700;font-size:var(--t-h3);
+  color:var(--ink);letter-spacing:-.005em;
+  box-shadow:inset 0 -.42em 0 var(--accent-bg)}
+.itm-l .lk,.itm-l a{font-family:var(--f-display);font-size:inherit;
+  letter-spacing:inherit}
+.itm-tag{font-size:var(--t-micro);text-transform:uppercase;letter-spacing:.09em;
+  color:var(--ink-2);border:1px solid var(--rule);border-radius:2px;
+  padding:1px 6px;white-space:normal}
+.itm-a{margin-left:auto;font-size:var(--t-cap);color:var(--ink-3);
+  text-decoration:none;min-width:44px;min-height:44px;
+  display:inline-flex;align-items:center;justify-content:flex-end;opacity:0}
+.itm-h:hover .itm-a,.itm-a:focus-visible{opacity:1;color:var(--accent)}
+.itm-a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.itm-w{font-size:var(--t-cap);color:var(--ink-2);line-height:1.5;
+  margin:0 0 var(--s3);max-width:var(--measure)}
+.itm-b > :first-child{margin-top:0}
+.itm-b details.dr{margin-bottom:var(--s2)}
+
+/* --------------------------------------------------------- cross-references */
+/* A cross-reference is a different animal from a source link: it goes sideways
+   inside the pack, not outward to the web. Dotted underline says "same pack". */
+.xr{color:var(--accent);text-decoration:none;
+  border-bottom:1px dotted var(--accent)}
+.xr:hover{background:var(--accent-bg)}
+.xr:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.xr-org{font-weight:700}
+
+/* ------------------------------------------------------------------ index --
+   Built from the anchor table, so it cannot drift from the pages. */
+.idx{margin:var(--s4) 0 0}
+.idx-g{margin:0 0 var(--s6)}
+.idx-h{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;
+  margin:0 0 var(--s1)}
+.idx-c{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--ink-3);
+  font-variant-numeric:tabular-nums;margin-left:var(--s2)}
+.idx-w{font-size:var(--t-cap);color:var(--ink-2);margin:0 0 var(--s3);
+  max-width:var(--measure)}
+.idx-l{list-style:none;margin:0;padding:0;display:grid;gap:1px;
+  background:var(--rule)}
+@media (min-width:640px){.idx-l{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:980px){.idx-l{grid-template-columns:repeat(3,1fr)}}
+.idx-l > li{background:var(--paper);display:flex;align-items:baseline;
+  justify-content:space-between;gap:var(--s2);min-height:44px;
+  padding:var(--s2) var(--s3)}
+.idx-l a{color:var(--ink);text-decoration:none;font-size:var(--t-cap);
+  line-height:1.4}
+.idx-l a:hover{color:var(--accent)}
+.idx-l a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.idx-p{font-size:var(--t-micro);text-transform:uppercase;letter-spacing:.09em;
+  color:var(--ink-3);white-space:normal;flex:none}
+
 /* Paper has no disclosure control: on print every drawer is open, because a
    printout of collapsed summaries is a table of contents with no book. */
 @media print{
@@ -514,7 +612,12 @@ details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
     break-inside:avoid;page-break-inside:avoid}
   main>details.dr{border-top:1px solid #14161A}
   .dr-b{border-top:0;padding-left:0;padding-right:0}
-  .langsw,.nav,.xlink{display:none}
+  .langsw,.nav,.xlink,.itm-a{display:none}
+  .spine{border-bottom:1px solid #14161A}
+  .spine-l{background:none;gap:0}
+  .itm{break-inside:avoid;page-break-inside:avoid}
+  .itm-l{box-shadow:none;text-decoration:underline}
+  .idx-l{background:none;gap:0}
   body{background:#FFFFFF}
   [data-t="e"]{display:none}
 }
