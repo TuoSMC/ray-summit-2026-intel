@@ -2832,8 +2832,7 @@ def card_drawer(c):
         val, rank, src, g = card_cell(c, key, name)
         if g:
             open_cells += 1
-        body.append('      <dt>%s<span class="cap">%s</span></dt>'
-                    % (tt(esc(lh), esc(le)), tt(esc(ch), esc(ce))))
+        body.append('      <dt>%s</dt>' % tt(esc(lh), esc(le)))
         body.append('      <dd>%s%s%s</dd>'
                     % (val, (' ' + ev(rank)) if rank else '', src))
     body.append('    </dl>')
@@ -2967,6 +2966,14 @@ def frag_accounts():
                'how many cells are filled, how many carry a source, how many are still open — the '
                'sourced ones click through to the original',
                '\n'.join(cov[:1] + cov[3:]) if len(cov) > 3 else '\n'.join(cov[:1])),
+              ('fields', '每一格在問什麼', 'What each cell is asking',
+               '這張對照表整塊板子只印一次。卡片上只留那一家自己的答案,不重複解釋欄位',
+               'this legend prints once for the whole board, so a card carries only that '
+               'company\'s own answers and never re-explains the columns',
+               '  <dl class="legend">\n%s\n  </dl>'
+               % '\n'.join('    <dt>%s</dt><dd>%s</dd>'
+                           % (tt(esc(lh), esc(le)), tt(esc(ch), esc(ce)))
+                           for _k, lh, le, ch, ce, _wh, _we in FIELD_SPEC)),
               ('actionable', '拿得動的名單', 'The list you can act on',
                '自己買機器的、部分自購的、查完判定不是買方的,三堆分開 —— '
                '「查過沒有」和「還沒查」不是同一件事',
@@ -2988,7 +2995,11 @@ def frag_accounts():
         yes = [c for c in mem if str(c.get('buys_servers')) == 'YES']
         full = [c for c in mem if c.get('full') is True]
         out = [c for c in mem if str(c.get('classification')) == 'ruled-out']
-        body = ['  <p class="banddesc">%s</p>' % tt(esc(dh), esc(de))]
+        body = ['  <p class="bandtally">%s</p>'
+                % S(('%d 家' % len(mem), pl(len(mem), 'company', 'companies')), '·',
+                    ('%d 家自己買機器' % len(yes), '%d buy their own machines' % len(yes)), '·',
+                    ('%d 份完整檔' % len(full), '%d full dossiers' % len(full)), '·',
+                    ('%d 家這輪判定不是買方' % len(out), '%d called out this lap' % len(out)))]
         body.append('  <div class="accts" data-block="card-grid">')
         if not mem:
             body.append('    <p>%s</p>'
@@ -3000,12 +3011,9 @@ def frag_accounts():
                                               str(c.get('legal_name') or ''))):
             body.append(card_drawer(c))
         body.append('  </div>')
-        return dr('%s %s' % (lk(key), tt(esc(nh), esc(ne))),
-                  S(('%d 家' % len(mem), pl(len(mem), 'company', 'companies')), '·',
-                    ('%d 家自己買機器' % len(yes), '%d buy their own machines' % len(yes)), '·',
-                    ('%d 份完整檔' % len(full), '%d full dossiers' % len(full)), '·',
-                    ('%d 家這輪判定不是買方' % len(out), '%d called out this lap' % len(out))),
-                  '\n'.join(body), cls='band', block='layer-band')
+        # No drawer and no repeated title: the item above IS this band's header.
+        # What belongs here is the thing the reader clicked for — the companies.
+        return '\n'.join(body)
 
     # One section, one item per layer. The layer name is the heading and the
     # line beneath says what that layer MEANS for a rep standing in front of one

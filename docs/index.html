@@ -324,6 +324,18 @@ main > details.dr.method .dr-b ul{padding-left:var(--s5)}
   color:var(--ink-2);font-variant-numeric:tabular-nums}
 .band .banddesc{margin:var(--s2) 0 0;font-size:var(--t-cap);color:var(--ink-2);
   max-width:var(--measure)}
+.bandtally{margin:0 0 var(--s3);font-size:var(--t-cap);color:var(--ink-3);
+  font-family:var(--f-mono)}
+/* The legend that used to be reprinted on all 58 cards, now shown once. */
+.legend{margin:var(--s3) 0 0;display:grid;gap:0;grid-template-columns:1fr}
+@media (min-width:640px){.legend{grid-template-columns:minmax(0,13em) minmax(0,1fr);
+  column-gap:var(--s5)}}
+.legend dt{font-size:var(--t-cap);font-weight:700;padding-top:var(--s3);
+  border-top:1px solid var(--rule)}
+.legend dd{margin:0;font-size:var(--t-cap);color:var(--ink-2);padding-top:var(--s3);
+  border-top:1px solid var(--rule);max-width:var(--measure)}
+@media (max-width:639px){.legend dd{border-top:0;padding-top:var(--s1);
+  padding-bottom:var(--s3)}}
 /* An account is a DRAWER, so the band is a stack, not a grid: opening one card
    must not reflow its neighbours out from under a thumb. */
 .accts{margin:var(--s5) 0 0;padding:0}
@@ -2111,7 +2123,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
       </ul>
     </section>
     <section class="idx-g">
-      <h3 class="idx-h"><span data-t="h">子項</span><span data-t="e">Items</span> <span class="idx-c"><span class="lk">108</span></span></h3>
+      <h3 class="idx-h"><span data-t="h">子項</span><span data-t="e">Items</span> <span class="idx-c"><span class="lk">109</span></span></h3>
       <p class="idx-w"><span data-t="h">每一節底下的每一項,可以單獨連結</span><span data-t="e">every item inside every section, each with its own link</span></p>
       <ul class="idx-l">
         <li><a href="index.html#i-room-audience"><span data-t="h">來的是誰</span><span data-t="e">Who is in the room</span></a><span class="idx-p"><span data-t="h">作戰台</span><span data-t="e">War Room</span></span></li>
@@ -2183,6 +2195,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
         <li><a href="gtm.html#i-gtm-open-one-sided"><span data-t="h">兩家只有單邊公告</span><span data-t="e">Two rest on one-sided announcements</span></a><span class="idx-p"><span data-t="h">打法</span><span data-t="e">Plays</span></span></li>
         <li><a href="gtm.html#i-gtm-open-fleet-size"><span data-t="h">平台團隊的機隊規模全部未證</span><span data-t="e">Every platform team fleet size is unverified</span></a><span class="idx-p"><span data-t="h">打法</span><span data-t="e">Plays</span></span></li>
         <li><a href="accounts.html#i-board-fill"><span data-t="h">填到什麼程度</span><span data-t="e">How far this board is filled</span></a><span class="idx-p"><span data-t="h">帳戶板</span><span data-t="e">Accounts</span></span></li>
+        <li><a href="accounts.html#i-board-fields"><span data-t="h">每一格在問什麼</span><span data-t="e">What each cell is asking</span></a><span class="idx-p"><span data-t="h">帳戶板</span><span data-t="e">Accounts</span></span></li>
         <li><a href="accounts.html#i-board-actionable"><span data-t="h">拿得動的名單</span><span data-t="e">The list you can act on</span></a><span class="idx-p"><span data-t="h">帳戶板</span><span data-t="e">Accounts</span></span></li>
         <li><a href="accounts.html#i-bands-operator"><span data-t="h">&lt;span class="lk"&gt;operator&lt;/span&gt; &lt;span data-t="h"&gt;營運商&lt;/span&gt;&lt;span data-t="e"&gt;Operator&lt;/span&gt;</span><span data-t="e">&lt;span class="lk"&gt;operator&lt;/span&gt; &lt;span data-t="h"&gt;營運商&lt;/span&gt;&lt;span data-t="e"&gt;Operator&lt;/span&gt;</span></a><span class="idx-p"><span data-t="h">帳戶板</span><span data-t="e">Accounts</span></span></li>
         <li><a href="accounts.html#i-bands-tenant"><span data-t="h">&lt;span class="lk"&gt;tenant&lt;/span&gt; &lt;span data-t="h"&gt;租戶&lt;/span&gt;&lt;span data-t="e"&gt;Tenant&lt;/span&gt;</span><span data-t="e">&lt;span class="lk"&gt;tenant&lt;/span&gt; &lt;span data-t="h"&gt;租戶&lt;/span&gt;&lt;span data-t="e"&gt;Tenant&lt;/span&gt;</span></a><span class="idx-p"><span data-t="h">帳戶板</span><span data-t="e">Accounts</span></span></li>

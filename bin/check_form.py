@@ -222,6 +222,40 @@ for f in html_files:
 
 for n in NOTES:
     print(n)
+# --------------------------------- FM8 an item must not echo its own heading ---
+# When an item repeats its own title and explainer inside a nested drawer, the
+# reader clicks it, meets the same words behind another collapsed control, and
+# concludes the page is pretending to have content. That is worse than an empty
+# section, because an empty section at least admits it.
+# 〔Ray-Summit-2026: the four layer bands each made the reader click twice to
+#  reach the same sentence〕
+def _vis(x):
+    return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', x)).strip()
+
+
+for _name in sorted(by_file):
+    _path = os.path.join(DOCS, _name)
+    if not os.path.exists(_path):
+        continue
+    _doc = io.open(_path, encoding='utf-8').read()
+    for _m in re.finditer(r'<section class="itm" id="([^"]+)">(.*?)</section>', _doc, re.S):
+        _aid, _body = _m.group(1), _m.group(2)
+        _h = re.search(r'<span class="itm-l">(.*?)</span>', _body, re.S)
+        _w = re.search(r'<p class="itm-w">(.*?)</p>', _body, re.S)
+        _in = re.search(r'<div class="itm-b">\s*(?:<[^>]+>\s*)*?<details[^>]*>\s*'
+                        r'<summary>(.*?)</summary>', _body, re.S)
+        if not (_h and _in):
+            continue
+        _label, _what = _vis(_h.group(1)), _vis(_w.group(1)) if _w else ''
+        _summ = _vis(_in.group(1))
+        if (_label and _label[:14] in _summ) or (_what and _what[:16] in _summ):
+            fail('FM8 echo-layer',
+                 '%s item "%s" repeats its own heading inside a nested drawer, so opening it '
+                 'shows the reader nothing new' % (_name, _aid),
+                 'the item IS the header. Put the thing the reader clicked for in its body, '
+                 'not a second copy of the label')
+
+
 if FAILS:
     print('\n'.join(FAILS))
     print('check_form: %d FAIL — HARD STOP 4. Return to the last factory step.' % len(FAILS))

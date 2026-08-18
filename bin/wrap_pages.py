@@ -377,6 +377,18 @@ main > details.dr.method .dr-b ul{padding-left:var(--s5)}
   color:var(--ink-2);font-variant-numeric:tabular-nums}
 .band .banddesc{margin:var(--s2) 0 0;font-size:var(--t-cap);color:var(--ink-2);
   max-width:var(--measure)}
+.bandtally{margin:0 0 var(--s3);font-size:var(--t-cap);color:var(--ink-3);
+  font-family:var(--f-mono)}
+/* The legend that used to be reprinted on all 58 cards, now shown once. */
+.legend{margin:var(--s3) 0 0;display:grid;gap:0;grid-template-columns:1fr}
+@media (min-width:640px){.legend{grid-template-columns:minmax(0,13em) minmax(0,1fr);
+  column-gap:var(--s5)}}
+.legend dt{font-size:var(--t-cap);font-weight:700;padding-top:var(--s3);
+  border-top:1px solid var(--rule)}
+.legend dd{margin:0;font-size:var(--t-cap);color:var(--ink-2);padding-top:var(--s3);
+  border-top:1px solid var(--rule);max-width:var(--measure)}
+@media (max-width:639px){.legend dd{border-top:0;padding-top:var(--s1);
+  padding-bottom:var(--s3)}}
 /* An account is a DRAWER, so the band is a stack, not a grid: opening one card
    must not reflow its neighbours out from under a thumb. */
 .accts{margin:var(--s5) 0 0;padding:0}
