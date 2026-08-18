@@ -1,0 +1,232 @@
+[
+  {
+    "org_id": "ORG_INFERACT",
+    "legal_name": "Inferact / vLLM",
+    "tier": "presenting",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_AWS",
+    "legal_name": "Amazon Web Services",
+    "tier": "platinum",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_COREWEAVE",
+    "legal_name": "CoreWeave",
+    "tier": "platinum",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_GOOGLE",
+    "legal_name": "Google",
+    "tier": "platinum",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_NSCALE",
+    "legal_name": "Nscale",
+    "tier": "platinum",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_NVIDIA",
+    "legal_name": "NVIDIA",
+    "tier": "gold",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_NEBIUS",
+    "legal_name": "Nebius",
+    "tier": "gold",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_DATADOG",
+    "legal_name": "Datadog",
+    "tier": "gold",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_SIMPLISMART",
+    "legal_name": "Simplismart",
+    "tier": "gold",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_INTEL",
+    "legal_name": "Intel",
+    "tier": "gold",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_ENCORD",
+    "legal_name": "Encord",
+    "tier": "gold",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_LAMBDA",
+    "legal_name": "Lambda (Lambda Labs)",
+    "tier": "gold",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_VAST",
+    "legal_name": "VAST Data",
+    "tier": "gold",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_VERDA",
+    "legal_name": "Verda (formerly DataCrunch)",
+    "tier": "gold",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_AZURE",
+    "legal_name": "Microsoft Azure",
+    "tier": "gold",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_FOXGLOVE",
+    "legal_name": "Foxglove",
+    "tier": "silver",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_NETFLIX",
+    "legal_name": "Netflix",
+    "tier": "silver",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_PATHROBOTICS",
+    "legal_name": "Path Robotics",
+    "tier": "silver",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_LANCEDB",
+    "legal_name": "LanceDB",
+    "tier": "silver",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_PARASAIL",
+    "legal_name": "Parasail",
+    "tier": "silver",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_UNIONAI",
+    "legal_name": "Union.ai",
+    "tier": "startups",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_PRIMALABS",
+    "legal_name": "Prima Labs",
+    "tier": "startups",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_SKYPILOT",
+    "legal_name": "SkyPilot",
+    "tier": "startups",
+    "booth": null,
+    "booth_note": "GAP — floor plan not published",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "capture": "official sponsor logo wall, tier sections read from the DOM 2026-08-17",
+    "asOf": "2026-08-17"
+  }
+]

@@ -1,0 +1,783 @@
+[
+  {
+    "id": "ORG_ADYEN",
+    "legal_name": "Adyen",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "ledger_id": "adyen",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_ALIBABA",
+    "legal_name": "Alibaba",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "ledger_id": "alibaba",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_ANYSCALE",
+    "legal_name": "Anyscale",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "ledger_id": "anyscale",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_APPLE",
+    "legal_name": "Apple",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "ledger_id": "apple",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_AUTODESK",
+    "legal_name": "Autodesk",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "ledger_id": "autodesk",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_AWS",
+    "legal_name": "Amazon Web Services",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "ledger_id": "aws",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_AZURE",
+    "legal_name": "Microsoft Azure",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "ledger_id": "azure",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_BEDROCK",
+    "legal_name": "Bedrock",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "ledger_id": "bedrock",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_BMW",
+    "legal_name": "BMW Group",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "ledger_id": "bmw",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_COREWEAVE",
+    "legal_name": "CoreWeave",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "ledger_id": "coreweave",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_DATADOG",
+    "legal_name": "Datadog",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "datadog",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_DEEPMIND",
+    "legal_name": "DeepMind",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "deepmind",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_DISCORD",
+    "legal_name": "Discord",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "PARTIAL",
+    "ledger_id": "discord",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_ELORIAN",
+    "legal_name": "Elorian AI",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor",
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "ledger_id": "elorian",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_ENCORD",
+    "legal_name": "Encord",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "encord",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_FOXGLOVE",
+    "legal_name": "Foxglove",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "foxglove",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_GOOGLE",
+    "legal_name": "Google",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "landlord",
+    "buys_servers": "YES",
+    "ledger_id": "google",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_GRAB",
+    "legal_name": "Grab",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "grab",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_HYUNDAI",
+    "legal_name": "Hyundai Motor Company",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "ledger_id": "hyundai",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_INCEPTION",
+    "legal_name": "Inception Labs",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "inception",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_INFERACT",
+    "legal_name": "Inferact (vLLM)",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer",
+      "sponsor"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "ledger_id": "inferact",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_INTEL",
+    "legal_name": "Intel",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "channel",
+    "buys_servers": "GAP",
+    "ledger_id": "intel",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_JPMC",
+    "legal_name": "JPMorgan Chase",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "ledger_id": "jpmc",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_LAMBDA",
+    "legal_name": "Lambda (Lambda Labs)",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "ledger_id": "lambda",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_LANCEDB",
+    "legal_name": "LanceDB",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "lancedb",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_LATITUDE",
+    "legal_name": "Latitude",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "GAP",
+    "buys_servers": "GAP",
+    "ledger_id": "latitude",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_LILA",
+    "legal_name": "Lila Sciences",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "ledger_id": "lila",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_LUMA",
+    "legal_name": "Luma AI",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "luma",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_MAI",
+    "legal_name": "Microsoft AI (MAI)",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "mai",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_MERCOR",
+    "legal_name": "Mercor",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "mercor",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_MICROSOFT",
+    "legal_name": "Microsoft",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "ledger_id": "microsoft",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_MIMIC",
+    "legal_name": "Mimic",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "ledger_id": "mimic",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_MOTIVE",
+    "legal_name": "Motive",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "ledger_id": "motive",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_NEBIUS",
+    "legal_name": "Nebius",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "ledger_id": "nebius",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_NETFLIX",
+    "legal_name": "Netflix",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "PARTIAL",
+    "ledger_id": "netflix",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_NOTION",
+    "legal_name": "Notion",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "notion",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_NSCALE",
+    "legal_name": "Nscale",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer",
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "ledger_id": "nscale",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_NVIDIA",
+    "legal_name": "NVIDIA",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer",
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "ledger_id": "nvidia",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_PARASAIL",
+    "legal_name": "Parasail",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "PARTIAL",
+    "ledger_id": "parasail",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_PATHROBOTICS",
+    "legal_name": "Path Robotics",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "ledger_id": "pathrobotics",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_PERIODIC",
+    "legal_name": "Periodic Labs",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "ledger_id": "periodic",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_PINTEREST",
+    "legal_name": "Pinterest",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "pinterest",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_PRIMALABS",
+    "legal_name": "Prima Labs",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "ledger_id": "primalabs",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_PRIMEINTELLECT",
+    "legal_name": "Prime Intellect",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "operator",
+    "buys_servers": "NO",
+    "ledger_id": "primeintellect",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_RECURSION",
+    "legal_name": "Recursion",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "ledger_id": "recursion",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_REDHAT",
+    "legal_name": "Red Hat",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "ledger_id": "redhat",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_ROBINHOOD",
+    "legal_name": "Robinhood",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "PARTIAL",
+    "ledger_id": "robinhood",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_SIMPLISMART",
+    "legal_name": "Simplismart",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "GAP",
+    "buys_servers": "GAP",
+    "ledger_id": "simplismart",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_SKYPILOT",
+    "legal_name": "SkyPilot",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "GAP",
+    "buys_servers": "GAP",
+    "ledger_id": "skypilot",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_SONDERMIND",
+    "legal_name": "SonderMind",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "sondermind",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_SPOTIFY",
+    "legal_name": "Spotify",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "spotify",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_TORC",
+    "legal_name": "Torc Robotics",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "torc",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_UBER",
+    "legal_name": "Uber",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "PARTIAL",
+    "ledger_id": "uber",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_UNIONAI",
+    "legal_name": "Union.ai",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "ledger_id": "unionai",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_VAST",
+    "legal_name": "VAST Data",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "ledger_id": "vast",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_VERDA",
+    "legal_name": "Verda (formerly DataCrunch)",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "ledger_id": "verda",
+    "ledger_status": "new"
+  },
+  {
+    "id": "ORG_XOOPLE",
+    "legal_name": "Xoople",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "ledger_id": "xoople",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  },
+  {
+    "id": "ORG_ZOOX",
+    "legal_name": "Zoox",
+    "aka": [],
+    "ticker": null,
+    "roles_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "PARTIAL",
+    "ledger_id": "zoox",
+    "ledger_status": "new",
+    "exhibitor_capture": true
+  }
+]

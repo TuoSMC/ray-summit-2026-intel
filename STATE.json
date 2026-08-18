@@ -1,0 +1,498 @@
+{
+  "campaign": {
+    "event": "Ray Summit 2026",
+    "dates": "2026-08-24/2026-08-26",
+    "venue": "San Francisco Marriott Marquis, San Francisco, CA",
+    "host": "public-pages",
+    "langs": [
+      "h",
+      "e"
+    ],
+    "pageBudget": {
+      "core": [
+        "command-center",
+        "agenda",
+        "gtm",
+        "accounts",
+        "compare",
+        "glossary"
+      ],
+      "depth": []
+    },
+    "traps": [
+      {
+        "kind": "same-name-company",
+        "a": "Yotta Infrastructure Solutions (Taiwan)",
+        "b": "Yotta Data Services (India)",
+        "negation_query": "-\"Yotta Data Services\" -India -Hiranandani"
+      },
+      {
+        "kind": "ex-employer",
+        "a": "speaker's current employer on this edition's roster",
+        "b": "employer named in an older bio, talk, or press release",
+        "negation_query": "restrict to the current edition roster; an ex-employer is not evidence of presence"
+      },
+      {
+        "kind": "same-surname",
+        "a": "two speakers sharing a surname at the same event",
+        "b": "a third person of the same surname in the wider industry",
+        "negation_query": "match on full name plus employer id, never on surname alone"
+      },
+      {
+        "kind": "name-collision",
+        "a": "company named inside a session abstract or a partner slide",
+        "b": "company on the official sponsor or exhibitor list",
+        "negation_query": "a mention is not a presence; require sponsors.json or an explicit exhibitor capture"
+      },
+      {
+        "kind": "same-name-company",
+        "a": "Lambda (Lambda Labs, GPU cloud, Gold sponsor)",
+        "b": "AWS Lambda (serverless compute; AWS is a Platinum sponsor at the same show)",
+        "negation_query": "\"Lambda Labs\" GPU cloud -\"AWS Lambda\" -serverless"
+      },
+      {
+        "kind": "name-collision",
+        "a": "Ray (the open-source distributed framework) / Ray Summit",
+        "b": "Ray as a personal given name, Ray-Ban, ray tracing",
+        "negation_query": "Ray Anyscale distributed framework -\"Ray-Ban\" -\"ray tracing\""
+      },
+      {
+        "kind": "name-collision",
+        "a": "Anyscale (the company hosting the summit)",
+        "b": "Ray (the OSS project Anyscale stewards) — company is not the project",
+        "negation_query": "Anyscale Inc company -\"Ray project\" governance"
+      }
+    ],
+    "accountBudget": {
+      "maxFull": 8
+    },
+    "accountAxes": [
+      "buyer-layer",
+      "oem",
+      "window"
+    ],
+    "createdAt": "2026-08-17",
+    "catalog": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "us": "Supermicro — role: scout (not found on the sponsor list surfaced 2026-08-17; GAP, not a denial)",
+    "axis": [
+      "neocloud rented capacity (CoreWeave / Lambda / Nebius / Nscale)",
+      "hyperscaler managed AI infra (AWS / Google Cloud / Microsoft Azure)"
+    ],
+    "segments": [
+      "neocloud / GPU cloud",
+      "AI lab & model builder",
+      "enterprise platform team"
+    ]
+  },
+  "phase": "P5",
+  "catalogs": {
+    "sessions": "data/sessions.json",
+    "speakers": "data/speakers.json",
+    "sponsors": "data/sponsors.json",
+    "orgs": "data/orgs.json"
+  },
+  "factbase": {
+    "asOf": "2026-08-17",
+    "staleAfter": "2026-08-18",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "sessionCount": 50,
+    "gaps": [
+      "Aug 26 (day 3 of 3) publishes NO sessions in the catalogue as of 2026-08-17 — GAP, not 'no sessions'",
+      "no session card exposes a speaker; speakers.json is a PARTIAL roster from the marketing page ('and others')",
+      "seats/capacity not exposed on any card",
+      "booth numbers not published"
+    ],
+    "orgCount": 58,
+    "identityAssert": "2026-08-17T00:00:00Z"
+  },
+  "freshness": {
+    "owner": "Tuo",
+    "cadence": "daily — T-7, staleAfter=asOf+1",
+    "lastCheck": null
+  },
+  "cost": [
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:04:26-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:04:26-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:05:24-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:05:24-07:00",
+      "wallSeconds": 0
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:06:16-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:06:16-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:07:37-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:07:37-07:00",
+      "wallSeconds": 0
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:29:50-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:29:51-07:00",
+      "wallSeconds": 0
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:31:26-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:31:26-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:34:15-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:34:15-07:00",
+      "wallSeconds": 0
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:36:59-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:36:59-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:37:58-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:37:58-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:41:45-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:41:45-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:43:11-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:43:11-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:44:02-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:44:02-07:00",
+      "wallSeconds": 1
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:45:52-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:45:52-07:00",
+      "wallSeconds": 0
+    },
+    {
+      "phase": "P3-pages",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:50:22-07:00",
+      "wallSeconds": 0,
+      "note": "6 pages built from accounts, agenda, command-center, compare, glossary, gtm"
+    },
+    {
+      "phase": "P3-build",
+      "agents": 0,
+      "outputTokens": 0,
+      "at": "2026-08-17T16:50:22-07:00",
+      "wallSeconds": 1
+    }
+  ],
+  "pages": [
+    {
+      "file": "docs/index.html",
+      "role": "command-center",
+      "title": "作戰台",
+      "lang": "h"
+    },
+    {
+      "file": "docs/agenda.html",
+      "role": "agenda",
+      "title": "議程",
+      "lang": "h"
+    },
+    {
+      "file": "docs/gtm.html",
+      "role": "gtm",
+      "title": "打法",
+      "lang": "h"
+    },
+    {
+      "file": "docs/accounts.html",
+      "role": "accounts",
+      "title": "帳戶板",
+      "lang": "h"
+    },
+    {
+      "file": "docs/compare.html",
+      "role": "compare",
+      "title": "對位",
+      "lang": "h"
+    },
+    {
+      "file": "docs/glossary.html",
+      "role": "glossary",
+      "title": "詞彙",
+      "lang": "h"
+    }
+  ],
+  "accounts": {
+    "cardsFile": "deliverables/accounts/cards.json",
+    "ledgerIndex": "~/.claude/skills/account-intel/ledger/index.json",
+    "fullWritten": 8,
+    "fullReused": 0
+  },
+  "decisions": [
+    {
+      "date": "2026-08-17",
+      "decision": "host=docs-local taken as the P5 default at scaffold; P0 must confirm or override",
+      "source": "default"
+    },
+    {
+      "date": "2026-08-17",
+      "decision": "us = scout",
+      "source": "default"
+    },
+    {
+      "date": "2026-08-17",
+      "decision": "axis = build-vs-rent framing; no OEM competitor found on the sponsor list",
+      "source": "default"
+    },
+    {
+      "date": "2026-08-17",
+      "decision": "segments = neocloud / AI-lab / enterprise platform",
+      "source": "default"
+    },
+    {
+      "date": "2026-08-17",
+      "decision": "langs = h only",
+      "source": "default"
+    },
+    {
+      "date": "2026-08-17",
+      "decision": "pageBudget.depth = empty — nothing named",
+      "source": "default"
+    },
+    {
+      "date": "2026-08-17",
+      "decision": "accountBudget.maxFull = 8",
+      "source": "default"
+    },
+    {
+      "date": "2026-08-17",
+      "decision": "accountAxes = buyer-layer, oem, window; politics OFF",
+      "source": "default"
+    },
+    {
+      "date": "2026-08-17",
+      "decision": "PRODUCT.md written directly instead of via Skill(impeccable) init — a half-page brief did not justify loading the skill under the session's token budget",
+      "source": "default"
+    },
+    {
+      "date": "2026-08-17",
+      "decision": "P2b ran 3 blind dimensions, not the default 5. Dimension 2 (audiences/buyers) is synthesised from the P2a cards instead of a separate agent because it is defined to READ the cards; dimension 4 (forward signals) was folded into dimension 1. Dropped coverage is logged here rather than left silent.",
+      "source": "default"
+    },
+    {
+      "date": "2026-08-17",
+      "decision": "P2a buyer research covered 8 accounts in ONE batched agent, not 28 individual agents. The other 20 cards ship with buyer facts as GAP — visible, not inferred.",
+      "source": "default"
+    },
+    {
+      "date": "2026-08-17",
+      "decision": "host=docs-local written into STATE.campaign.host at the P3 build (the key was absent, so HARD STOP 5 fired on every make.sh target). This applies the default already recorded at scaffold; P5 must confirm or override before publishing.",
+      "source": "P3-build"
+    },
+    {
+      "date": "2026-08-17",
+      "source": "default",
+      "decision": "FULL gate opened for 5 orgs (CoreWeave, Nebius, Nscale, Lambda, Robinhood) — all under maxFull=8. Robinhood is gate-passed but DEPRIORITISED to card-only: its Ray estate is ~1-2 rented racks (ESTIMATE, formula on the card) and the real trigger sits with Rothera E&C, a different buying centre. Logged rather than silently dropped."
+    },
+    {
+      "date": "2026-08-17",
+      "source": "default",
+      "decision": "FULL gate opened for 13 orgs after the 51-org research pass; T4 caps at 8. Written: verda, lambda, hyundai, nscale, coreweave, nebius, recursion, parasail. NOT written and why — google: ODM-direct whitebox — branded-server quoting loses to Quanta/Inventec/Celestica on this account; DCBBS rack-scale motion, not a dossier; discord: its own evidence deprioritises it — 80% of voice/video left bare metal for Cloudflare's edge in 2026-06; uber: window is the November 2029 cloud-commitment expiry — three years out, not this show; robinhood: Ray estate is ~1-2 rented racks; the real trigger sits with Rothera E&C, a different buying centre; zoox: oem_lock GAP and procurement may route through Amazon central — resolve that before spending a dossier. Ranked on oem_lock strength x window certainty x fleet scale. Logged rather than silently truncated."
+    },
+    {
+      "date": "2026-08-17",
+      "source": "default",
+      "decision": "FULL re-ranked after the full 58-org pass. Written: verda, lambda, hyundai, nscale, coreweave, nebius, jpmc, grab. Recursion and Parasail were dropped from the earlier list to make room for JPMorgan Chase ($916M Orangeburg equipment package with NO server vendor named publicly) and Grab (documented cloud exit to a Malaysia colo, 250 self-racked machines, Q2-2026 capex near-doubled). Gate-passed but not written, with reasons: recursion: strong (own SLC HPC datacenter, 63 DGX H100) but the trigger is a financing-lease refresh with no date and H1-2026 capex was $0.3M — card, revisit at lease expiry; parasail: real but small; hybrid fleet, no MW and no oem_lock sourced; latitude: Ford subsidiary with in-house GPU datacenters — displaced only by JPMC and Grab on deal size; the open question is whether Ford corporate signs the PO; netflix: Open Connect is a real whitebox displacement play but the window is a spec revision with no date; google: ODM-direct; branded quoting loses. DCBBS rack-scale motion, not a dossier; discord: reclassified ruled-out — rented hosting, not owned iron; uber: window is the Nov-2029 cloud expiry; robinhood: ~1-2 rented racks; trigger sits with Rothera E&C; zoox: procurement may route through Amazon central; microsoft: ODM/OCP self-design; CO+I owns the PO; nvidia: silicon supply and allocation, not a server PO"
+    },
+    {
+      "date": "2026-08-17",
+      "source": "P5-design",
+      "decision": "langs = [h, e]. Both languages ship inside ONE HTML file and the EN/ZH toggle switches visibility; no .e.html variant is written, because a second file per role would give one role two writers (check_form FM2) and two URLs for one page (A5). check_i18n.py therefore reports SKIP (its file-pair convention does not apply); the equivalent B6/B7 gates run inside i18n_overlay.py per language pair instead, and are strictly stronger because they compare arm-by-arm rather than page-by-page."
+    },
+    {
+      "date": "2026-08-17",
+      "source": "P5-design",
+      "decision": "bin/onepage.py now writes deliverables/<slug>-onepage.html instead of docs/. docs/ is the gated six-page edition: check_form FM0 rejects any HTML there that STATE.pages[] does not claim, and a composed handout can never be claimed (FM1 rejects a role outside pageBudget, FM2 sees six roles with two writers each). A seventh file in docs/ made every build report qa-gate 6/7. The artefact is unchanged and was MOVED, not deleted (A5). Two defects were fixed at the same time: it opened with <title> so it carried no <meta charset> inside the 512-byte prescan window and shipped as mojibake (D1), and its chrome still referenced the retired --line token plus hard-coded hexes (C1). Its sticky nav also gained a solid --paper background: the redesigned .nav is transparent, so blur alone left body text bleeding through."
+    },
+    {
+      "date": "2026-08-17",
+      "source": "user",
+      "decision": "USER OVERRIDE of RULES B15. Asked for a public GitHub repo + GitHub Pages, as-is, after being shown exactly what ships publicly: 12 cards carrying named-individual tactics (Corner Jacob Yundt / Intercept Josh Payne), explicit displacement lines (Displace HPE at BMW; the racks Dell owns while sitting on Nscale's cap table), a 26-company ruled-out list, and SMCI-facing competitive intel (CoreWeave top-supplier share 57%->23%). Risk stated as irreversible: forks, search indexing, archive.org. User confirmed. Recorded here rather than applied silently.",
+      "supersedes": "B15 for this campaign only"
+    }
+  ],
+  "corrections": [
+    {
+      "date": "2026-08-17",
+      "wrong": "sponsors.json had 16 orgs taken from a prose summary of the marketing page; Lila Sciences was listed as a Gold sponsor; speakers.json had 11 people and no other participating orgs",
+      "right": "23 sponsors read directly from the official logo wall by tier (Gold gains Simplismart and Verda; Silver gains Foxglove, Path Robotics, Parasail; Startups tier added; Lila Sciences is NOT a sponsor tier logo). 18 speakers. 23 further orgs captured explicitly from speaker-section logos.",
+      "scope": "data/sponsors.json, data/speakers.json, data/exhibitors.json, data/orgs.json, all cards",
+      "ruleAdded": "R6"
+    },
+    {
+      "date": "2026-08-17",
+      "wrong": "speaker Andrew Dai had no sourceable employer, so the join created a placeholder org ORG_GAP_ANDREWDAI and a card for it",
+      "right": "Andrew Dai is the founder of Elorian AI; the placeholder org and its card are deleted and the speaker now points at ORG_ELORIAN",
+      "scope": "data/speakers.json, data/orgs.json, cards.json, ledger index",
+      "ruleAdded": "R7"
+    },
+    {
+      "date": "2026-08-17",
+      "wrong": "Discord buys_servers=YES from a 2018 line about 'physical servers in their data centers'; Grab ruled-out from its AWS-native page; 17 orgs labelled 'exhibitor'",
+      "right": "Discord's physical servers are rented dedicated hosting (i3D.net owns the iron); most hardware is in Google Cloud -> ruled-out. Grab ran a documented cloud exit to a Malaysia colo: 250 self-racked machines, own core switches, 3-year replacement cycle, $2.4M TCO saving -> YES, top-3 target. The 'exhibitor' orgs sit in the 'Also featuring sessions from' strip = speaker-employers with NO booth.",
+      "scope": "cards.json discord+grab; data/exhibitors.json capture text",
+      "ruleAdded": "R8/R9"
+    }
+  ],
+  "termbase": "data/termbase.json",
+  "designWorld": {
+    "designMd": "DESIGN.md",
+    "productMd": "PRODUCT.md",
+    "mode": "operate"
+  },
+  "lap": {
+    "n": 1,
+    "prevCampaign": null,
+    "ledgerReused": 0,
+    "ledgerNew": 58
+  },
+  "handoff": "PHASE P5 DONE\ndid:      six core pages built and gated; host=docs-local; loop written back\nstate:    50 sessions / 59 orgs / 59 cards / FULL 4-of-8 · check_facts+check_form+qa-gate all green · campaigns.jsonl lap 1\nnext:     live-loop daily rescrape until 2026-08-24, then P6b post-event\nblocked:  none\nskip-ok:  Aug 26 sessions unpublished; speaker-to-session linkage GAP; 51 cards still layer=GAP"
+}

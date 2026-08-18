@@ -1,0 +1,209 @@
+[
+  {
+    "org_id": "ORG_LUMA",
+    "legal_name": "Luma AI",
+    "capture": "named in a session title",
+    "session_id": "S020",
+    "note": "explicit capture per B10 — recorded with its source, never silently fused into sponsors",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_ROBINHOOD",
+    "legal_name": "Robinhood",
+    "capture": "named in a session title",
+    "session_id": "S023",
+    "note": "explicit capture per B10 — recorded with its source, never silently fused into sponsors",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_BMW",
+    "legal_name": "BMW Group",
+    "capture": "named in a session title",
+    "session_id": "S038",
+    "note": "explicit capture per B10 — recorded with its source, never silently fused into sponsors",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_UBER",
+    "legal_name": "Uber",
+    "capture": "named in a session title",
+    "session_id": "S048",
+    "note": "explicit capture per B10 — recorded with its source, never silently fused into sponsors",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_PINTEREST",
+    "legal_name": "Pinterest",
+    "capture": "named in a session title",
+    "session_id": "S049",
+    "note": "explicit capture per B10 — recorded with its source, never silently fused into sponsors",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_MICROSOFT",
+    "legal_name": "Microsoft",
+    "capture": "named in a session title",
+    "session_id": "S028",
+    "note": "explicit capture per B10 — recorded with its source, never silently fused into sponsors",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_RECURSION",
+    "legal_name": "Recursion",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_ELORIAN",
+    "legal_name": "Elorian AI",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_MOTIVE",
+    "legal_name": "Motive",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_NOTION",
+    "legal_name": "Notion",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_ZOOX",
+    "legal_name": "Zoox",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_XOOPLE",
+    "legal_name": "Xoople",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_ALIBABA",
+    "legal_name": "Alibaba",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_SONDERMIND",
+    "legal_name": "SonderMind",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_AUTODESK",
+    "legal_name": "Autodesk",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_GRAB",
+    "legal_name": "Grab",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_JPMC",
+    "legal_name": "JPMorgan Chase",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_HYUNDAI",
+    "legal_name": "Hyundai Motor Company",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_PRIMEINTELLECT",
+    "legal_name": "Prime Intellect",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_DEEPMIND",
+    "legal_name": "DeepMind",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_REDHAT",
+    "legal_name": "Red Hat",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_LATITUDE",
+    "legal_name": "Latitude",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  },
+  {
+    "org_id": "ORG_MAI",
+    "legal_name": "Microsoft AI (MAI)",
+    "capture": "company logo in the official 'Also featuring sessions from' strip — a SPEAKER-EMPLOYER, not a booth exhibitor",
+    "session_id": null,
+    "note": "explicit capture per B10",
+    "source": "https://www.anyscale.com/ray-summit/2026",
+    "asOf": "2026-08-17"
+  }
+]

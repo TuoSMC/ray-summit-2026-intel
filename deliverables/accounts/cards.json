@@ -1,0 +1,3662 @@
+[
+  {
+    "ledger_id": "adyen",
+    "org_id": "ORG_ADYEN",
+    "legal_name": "Adyen",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "oem_lock": "GAP",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Identify Adyen's incumbent server vendor for its six owned data centre regions, then price a refresh against its no-public-cloud payment platform.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "L",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.adyen.com/infrastructure",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://www.adyen.com/infrastructure",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://www.adyen.com/infrastructure",
+        "date": "2026-08-17"
+      }
+    }
+  },
+  {
+    "ledger_id": "alibaba",
+    "org_id": "ORG_ALIBABA",
+    "legal_name": "Alibaba",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "oem_lock": "WHITEBOX",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Treat Alibaba as whitebox self-design: it builds its own Panjiu racks on T-Head silicon, so lead with components rather than complete systems.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.alibabacloud.com/blog/in-depth-analysis-of-alibaba-cloud-panjiu-al128-supernode-ai-servers-and-their-interconnect-architecture_602665",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://www.alibabacloud.com/blog/in-depth-analysis-of-alibaba-cloud-panjiu-al128-supernode-ai-servers-and-their-interconnect-architecture_602665",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://www.alibabacloud.com/blog/in-depth-analysis-of-alibaba-cloud-panjiu-al128-supernode-ai-servers-and-their-interconnect-architecture_602665",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://www.alibabacloud.com/blog/in-depth-analysis-of-alibaba-cloud-panjiu-al128-supernode-ai-servers-and-their-interconnect-architecture_602665",
+        "date": "2026-08-17"
+      }
+    }
+  },
+  {
+    "ledger_id": "anyscale",
+    "org_id": "ORG_ANYSCALE",
+    "legal_name": "Anyscale",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "window": "EVENT-GATED{Anyscale announces owned GPU capacity instead of customer-tenancy BYOC}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Work Anyscale as the Ray validation partner for reference systems, not as a PO target; it owns zero compute and runs inside customer tenancies.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.anyscale.com/press/anyscale-on-azure-cost-efficient-and-sovereign-ai-microsoft-build",
+        "date": "2026-06-02"
+      },
+      "buys_servers": {
+        "source": "https://www.anyscale.com/press/anyscale-on-azure-cost-efficient-and-sovereign-ai-microsoft-build",
+        "date": "2026-06-02"
+      },
+      "oem_lock": {
+        "source": "https://www.anyscale.com/press/anyscale-on-azure-cost-efficient-and-sovereign-ai-microsoft-build",
+        "date": "2026-06-02"
+      },
+      "classification": {
+        "source": "https://www.anyscale.com/press/anyscale-on-azure-cost-efficient-and-sovereign-ai-microsoft-build",
+        "date": "2026-06-02"
+      },
+      "window": {
+        "source": "https://www.anyscale.com/press/anyscale-on-azure-cost-efficient-and-sovereign-ai-microsoft-build",
+        "date": "2026-06-02"
+      }
+    }
+  },
+  {
+    "ledger_id": "apple",
+    "org_id": "ORG_APPLE",
+    "legal_name": "Apple",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "oem_lock": "WHITEBOX",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Aim Apple at its non-PCC estate: Private Cloud Compute runs on Apple's own custom Apple-silicon servers, so pitch build farms and storage racks.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://security.apple.com/blog/private-cloud-compute/",
+        "date": "2024-06-10"
+      },
+      "buys_servers": {
+        "source": "https://security.apple.com/blog/private-cloud-compute/",
+        "date": "2024-06-10"
+      },
+      "oem_lock": {
+        "source": "https://security.apple.com/blog/private-cloud-compute/",
+        "date": "2024-06-10"
+      },
+      "classification": {
+        "source": "https://security.apple.com/blog/private-cloud-compute/",
+        "date": "2024-06-10"
+      }
+    }
+  },
+  {
+    "ledger_id": "autodesk",
+    "org_id": "ORG_AUTODESK",
+    "legal_name": "Autodesk",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "oem_lock": "GAP",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "GAP",
+    "next_action": "Confirm whether Autodesk retains any owned racks after its 2018 divest-from-data-centres goal; that answer decides end-user versus ruled-out.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "L",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://aws.amazon.com/blogs/storage/autodesk-adopts-amazon-s3-to-save-75-on-storage-and-modernize-backup-and-recovery/",
+        "date": "2020-09-29"
+      }
+    }
+  },
+  {
+    "ledger_id": "aws",
+    "org_id": "ORG_AWS",
+    "legal_name": "Amazon Web Services",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "oem_lock": "WHITEBOX",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Route AWS through component and ODM motions: it designs Nitro servers in-house and manufactures via QCT, Inventec and Foxconn rather than OEMs.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://docs.aws.amazon.com/whitepapers/latest/security-design-of-aws-nitro-system/the-components-of-the-nitro-system.html",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://docs.aws.amazon.com/whitepapers/latest/security-design-of-aws-nitro-system/the-components-of-the-nitro-system.html",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://techblog.comsoc.org/2025/09/01/hyperscaler-compute-server-in-house-designs-with-odm-partners/",
+        "date": "2025-09-01"
+      },
+      "classification": {
+        "source": "https://docs.aws.amazon.com/whitepapers/latest/security-design-of-aws-nitro-system/the-components-of-the-nitro-system.html",
+        "date": "2026-08-17"
+      }
+    }
+  },
+  {
+    "ledger_id": "azure",
+    "org_id": "ORG_AZURE",
+    "legal_name": "Microsoft Azure",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "oem_lock": "WHITEBOX",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Route Microsoft Azure through OCP and ODM motions: it self-designs Azure racks and builds via WiWynn, QCT and Celestica rather than OEM SKUs.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://techblog.comsoc.org/2025/09/01/hyperscaler-compute-server-in-house-designs-with-odm-partners/",
+        "date": "2025-09-01"
+      },
+      "buys_servers": {
+        "source": "https://techblog.comsoc.org/2025/09/01/hyperscaler-compute-server-in-house-designs-with-odm-partners/",
+        "date": "2025-09-01"
+      },
+      "oem_lock": {
+        "source": "https://techblog.comsoc.org/2025/09/01/hyperscaler-compute-server-in-house-designs-with-odm-partners/",
+        "date": "2025-09-01"
+      },
+      "classification": {
+        "source": "https://techblog.comsoc.org/2025/09/01/hyperscaler-compute-server-in-house-designs-with-odm-partners/",
+        "date": "2025-09-01"
+      }
+    }
+  },
+  {
+    "ledger_id": "bedrock",
+    "org_id": "ORG_BEDROCK",
+    "legal_name": "Bedrock",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "oem_lock": "GAP",
+    "window": "EVENT-GATED{Bedrock Robotics converts its 2026-02-04 $270M Series B into owned training compute}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Log Bedrock as Bedrock Robotics, the ex-Waymo autonomous-construction firm, not AWS Bedrock, then test whether its $270M Series B buys owned compute.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "L",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.prnewswire.com/news-releases/bedrock-robotics-raises-270-million-in-series-b-funding-to-accelerate-the-future-of-autonomous-construction-302679014.html",
+        "date": "2026-02-04"
+      },
+      "classification": {
+        "source": "https://www.prnewswire.com/news-releases/bedrock-robotics-raises-270-million-in-series-b-funding-to-accelerate-the-future-of-autonomous-construction-302679014.html",
+        "date": "2026-02-04"
+      },
+      "window": {
+        "source": "https://www.prnewswire.com/news-releases/bedrock-robotics-raises-270-million-in-series-b-funding-to-accelerate-the-future-of-autonomous-construction-302679014.html",
+        "date": "2026-02-04"
+      }
+    }
+  },
+  {
+    "ledger_id": "bmw",
+    "org_id": "ORG_BMW",
+    "legal_name": "BMW",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "oem_lock": "CONFIRMED",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Displace HPE at BMW: the 2022 GreenLake deal put Apollo and ProLiant into BMW micro datacentres, so re-verify the incumbent before the 2026-08-24 show.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.hpe.com/us/en/newsroom/press-release/2022/03/hpe-greenlake-selected-by-bmw-group-to-unify-data-management-across-global-locations-and-the-cloud.html",
+        "date": "2022-03-22"
+      },
+      "buys_servers": {
+        "source": "https://www.hpe.com/us/en/newsroom/press-release/2022/03/hpe-greenlake-selected-by-bmw-group-to-unify-data-management-across-global-locations-and-the-cloud.html",
+        "date": "2022-03-22"
+      },
+      "oem_lock": {
+        "source": "https://www.hpe.com/us/en/newsroom/press-release/2022/03/hpe-greenlake-selected-by-bmw-group-to-unify-data-management-across-global-locations-and-the-cloud.html",
+        "date": "2022-03-22"
+      },
+      "classification": {
+        "source": "https://www.hpe.com/us/en/newsroom/press-release/2022/03/hpe-greenlake-selected-by-bmw-group-to-unify-data-management-across-global-locations-and-the-cloud.html",
+        "date": "2022-03-22"
+      }
+    }
+  },
+  {
+    "ledger_id": "coreweave",
+    "org_id": "ORG_COREWEAVE",
+    "legal_name": "CoreWeave",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "oem_lock": "LEAKING",
+    "window": "2026-07..2026-12",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Corner Jacob Yundt at the Platinum booth and make him name the Vera Rubin NVL72 vendor split.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "M"
+    },
+    "full": true,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000362/coreweave2q26earningspress.htm",
+        "date": "2026-08-11"
+      },
+      "buys_servers": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+        "date": "2026-08-12"
+      },
+      "oem_lock": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1769628/000114036125036349/ny20053122x7_424b3.htm",
+        "date": "2025-09-26"
+      },
+      "mw_or_proxy": {
+        "source": "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CRWV-US-CORRECTED-TRANSCRIPT-CoreWeave-Q2-2026-Earnings-Call-11August2026.pdf",
+        "date": "2026-08-11"
+      },
+      "window": {
+        "source": "https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+        "date": "2026-01-05"
+      },
+      "classification": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+        "date": "2026-08-12"
+      }
+    },
+    "mw_or_proxy": "1.5 GW active 2026-06-30 (+~500MW in Q2); 4.2 GW contracted 2026-08-11; YE2026 active target >1.85 GW〔廠商自報〕"
+  },
+  {
+    "ledger_id": "datadog",
+    "org_id": "ORG_DATADOG",
+    "legal_name": "Datadog",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "window": "EVENT-GATED{Datadog announces an owned or colocated data centre buildout}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Rule Datadog out as a server PO: it runs self-managed infrastructure across multiple public clouds, so sell to its cloud hosts instead.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.datadoghq.com/blog/cloud-security-playbook/",
+        "date": "2025-03-03"
+      },
+      "buys_servers": {
+        "source": "https://www.datadoghq.com/blog/cloud-security-playbook/",
+        "date": "2025-03-03"
+      },
+      "oem_lock": {
+        "source": "https://www.datadoghq.com/blog/cloud-security-playbook/",
+        "date": "2025-03-03"
+      },
+      "classification": {
+        "source": "https://www.datadoghq.com/blog/cloud-security-playbook/",
+        "date": "2025-03-03"
+      },
+      "window": {
+        "source": "https://www.datadoghq.com/blog/cloud-security-playbook/",
+        "date": "2025-03-03"
+      }
+    }
+  },
+  {
+    "ledger_id": "deepmind",
+    "org_id": "ORG_DEEPMIND",
+    "legal_name": "DeepMind",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "WHITEBOX",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{Alphabet gives Google DeepMind an independent hardware procurement budget}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Rule Google DeepMind out as a buying account: its compute comes from Alphabet's own TPU fleet, so route the demand signal to Google Cloud procurement.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://deepmind.google/about/",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://deepmind.google/about/",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://www.thestack.technology/google-deepminds-alphachip-ai-creates-three-generations-of-tpus/",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://deepmind.google/about/",
+        "date": "2026-08-17"
+      },
+      "window": {
+        "source": "https://deepmind.google/about/",
+        "date": "2026-08-17"
+      }
+    }
+  },
+  {
+    "ledger_id": "discord",
+    "org_id": "ORG_DISCORD",
+    "legal_name": "Discord",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Drop Discord from the hardware list; it states it runs most hardware in Google Cloud and moved 80% of voice and video onto Cloudflare's edge by June 2026.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://discord.com/blog/how-discord-supercharges-network-disks-for-extreme-low-latency",
+        "date": "2022-08-15"
+      },
+      "buys_servers": {
+        "source": "https://discord.com/blog/how-discord-supercharges-network-disks-for-extreme-low-latency",
+        "date": "2022-08-15"
+      },
+      "oem_lock": {
+        "source": "https://discord.com/blog/how-we-moved-discord-voice-to-the-edge",
+        "date": "2026-06-09"
+      },
+      "classification": {
+        "source": "https://discord.com/blog/how-we-moved-discord-voice-to-the-edge",
+        "date": "2026-06-09"
+      },
+      "window": {
+        "source": "https://discord.com/blog/how-we-moved-discord-voice-to-the-edge",
+        "date": "2026-06-09"
+      }
+    }
+  },
+  {
+    "ledger_id": "elorian",
+    "org_id": "ORG_ELORIAN",
+    "legal_name": "Elorian AI",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "oem_lock": "GAP",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{first training-cluster procurement after the 2026-04 seed round}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Catch founder Andrew Dai at his Ray Summit talk and ask whether Elorian's visual-reasoning training runs on owned GPUs or rented cloud after its April 2026 seed.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "L",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://elorian.ai",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://pulse2.com/elorian-ai-55-million-raised-for-multimodal-reasoning-research-lab-founded-by-former-deepmind-leaders/",
+        "date": "2026-04-12"
+      },
+      "window": {
+        "source": "https://pulse2.com/elorian-ai-55-million-raised-for-multimodal-reasoning-research-lab-founded-by-former-deepmind-leaders/",
+        "date": "2026-04-12"
+      }
+    }
+  },
+  {
+    "ledger_id": "encord",
+    "org_id": "ORG_ENCORD",
+    "legal_name": "Encord",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Work the Encord gold booth to reach their physical-AI customers Woven by Toyota, Skydio, Zipline and Vantor; do not quote Encord itself for server hardware.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.prnewswire.com/news-releases/encord-secures-60m-series-c-to-scale-ai-native-data-infrastructure-as-physical-ai-hits-inflection-point-302698629.html",
+        "date": "2026-02-26"
+      },
+      "buys_servers": {
+        "source": "https://encord.com/encord-index/",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://encord.com/encord-index/",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://www.prnewswire.com/news-releases/encord-secures-60m-series-c-to-scale-ai-native-data-infrastructure-as-physical-ai-hits-inflection-point-302698629.html",
+        "date": "2026-02-26"
+      }
+    }
+  },
+  {
+    "ledger_id": "foxglove",
+    "org_id": "ORG_FOXGLOVE",
+    "legal_name": "Foxglove",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Use the Foxglove silver booth to reach its robotics customers NVIDIA, Anduril, Wayve and Dexterity; do not open a hardware quote with Foxglove.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.businesswire.com/news/home/20251112126106/en/Foxglove-Raises-$40-Million-Series-B-to-Power-the-Future-of-Physical-AI",
+        "date": "2025-11-12"
+      },
+      "buys_servers": {
+        "source": "https://foxglove.dev/pricing",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://foxglove.dev/pricing",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://www.businesswire.com/news/home/20251112126106/en/Foxglove-Raises-$40-Million-Series-B-to-Power-the-Future-of-Physical-AI",
+        "date": "2025-11-12"
+      }
+    }
+  },
+  {
+    "ledger_id": "google",
+    "org_id": "ORG_GOOGLE",
+    "legal_name": "Google",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "landlord",
+    "buys_servers": "YES",
+    "oem_lock": "WHITEBOX",
+    "window": "EVENT-GATED{Alphabet FY2027 capex guidance at Q4 2026 earnings}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Route Google to Supermicro's rack-scale DCBBS team as an ODM-direct whitebox bid; branded-server quoting loses to Quanta, Inventec and Celestica on this account.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.cnbc.com/2026/07/22/google-earnings-q2-goog-live-updates.html",
+        "date": "2026-07-22"
+      },
+      "buys_servers": {
+        "source": "https://www.cnbc.com/2026/07/22/google-earnings-q2-goog-live-updates.html",
+        "date": "2026-07-22"
+      },
+      "oem_lock": {
+        "source": "https://techblog.comsoc.org/2025/09/01/hyperscaler-compute-server-in-house-designs-with-odm-partners/",
+        "date": "2025-09-01"
+      },
+      "classification": {
+        "source": "https://techblog.comsoc.org/2025/09/01/hyperscaler-compute-server-in-house-designs-with-odm-partners/",
+        "date": "2025-09-01"
+      },
+      "window": {
+        "source": "https://www.cnbc.com/2026/07/22/google-earnings-q2-goog-live-updates.html",
+        "date": "2026-07-22"
+      }
+    }
+  },
+  {
+    "ledger_id": "grab",
+    "org_id": "ORG_GRAB",
+    "legal_name": "Grab",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{Grab Q2 2026 capex step-up to $49M and Malaysia colo expansion}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Pitch Grab rack-optimized GPU servers for its Malaysia colo and foundation-model training; their own blog says optimized server hardware beats the Mac minis they racked.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": true,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://engineering.grab.com/mac-cloud-exit",
+        "date": "2025-11-06"
+      },
+      "buys_servers": {
+        "source": "https://engineering.grab.com/mac-cloud-exit",
+        "date": "2025-11-06"
+      },
+      "oem_lock": {
+        "source": "https://engineering.grab.com/mac-cloud-exit",
+        "date": "2025-11-06"
+      },
+      "classification": {
+        "source": "https://engineering.grab.com/mac-cloud-exit",
+        "date": "2025-11-06"
+      },
+      "window": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1855612/000185561226000123/a2026q2-earningspressrelea.htm",
+        "date": "2026-08-04"
+      }
+    }
+  },
+  {
+    "ledger_id": "hyundai",
+    "org_id": "ORG_HYUNDAI",
+    "legal_name": "Hyundai Motor Company",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{Saemangeum AI data center groundbreaking scheduled for 2027}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Book Hyundai's exhibitor staff at Ray Summit to bid rack integration for the 50,000-GPU Blackwell AI factory ahead of the 2027 Saemangeum groundbreaking.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": true,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://nvidianews.nvidia.com/news/hyundai-motor-group-ai-factory",
+        "date": "2025-10-31"
+      },
+      "buys_servers": {
+        "source": "https://nvidianews.nvidia.com/news/hyundai-motor-group-ai-factory",
+        "date": "2025-10-31"
+      },
+      "oem_lock": {
+        "source": "https://nvidianews.nvidia.com/news/hyundai-motor-group-ai-factory",
+        "date": "2025-10-31"
+      },
+      "classification": {
+        "source": "https://en.sedaily.com/finance/2026/02/27/hyundai-to-build-50000-gpu-data-center-robot-factory-in-63b",
+        "date": "2026-02-27"
+      },
+      "window": {
+        "source": "https://en.sedaily.com/finance/2026/02/27/hyundai-to-build-50000-gpu-data-center-robot-factory-in-63b",
+        "date": "2026-02-27"
+      }
+    }
+  },
+  {
+    "ledger_id": "inception",
+    "org_id": "ORG_INCEPTION",
+    "legal_name": "Inception Labs",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Treat Inception as an ecosystem contact at the show; their serving runs on Baseten's GPUs and NVIDIA NVentures already owns the investor relationship.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.baseten.co/blog/mercury-2-is-now-available-on-baseten/",
+        "date": "2026-06-11"
+      },
+      "buys_servers": {
+        "source": "https://www.baseten.co/blog/mercury-2-is-now-available-on-baseten/",
+        "date": "2026-06-11"
+      },
+      "oem_lock": {
+        "source": "https://www.baseten.co/blog/mercury-2-is-now-available-on-baseten/",
+        "date": "2026-06-11"
+      },
+      "classification": {
+        "source": "https://techcrunch.com/2025/11/06/inception-raises-50-million-to-build-diffusion-models-for-code-and-text/",
+        "date": "2025-11-06"
+      }
+    }
+  },
+  {
+    "ledger_id": "inferact",
+    "org_id": "ORG_INFERACT",
+    "legal_name": "Inferact (vLLM)",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer",
+      "sponsor"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "window": "EVENT-GATED{co-located vLLM Conference at Ray Summit 2026}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Pitch Inferact a validated Supermicro GB300 NVL72 vLLM reference platform at the co-located vLLM Conference; they are a partner target, never a PO target.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://a16z.com/announcement/investing-in-inferact/",
+        "date": "2026-01-22"
+      },
+      "buys_servers": {
+        "source": "https://a16z.com/announcement/investing-in-inferact/",
+        "date": "2026-01-22"
+      },
+      "oem_lock": {
+        "source": "https://vllm.ai/",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://siliconangle.com/2026/01/22/inferact-launches-150m-funding-commercialize-vllm/",
+        "date": "2026-01-22"
+      },
+      "window": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      }
+    }
+  },
+  {
+    "ledger_id": "intel",
+    "org_id": "ORG_INTEL",
+    "legal_name": "Intel",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "channel",
+    "buys_servers": "GAP",
+    "oem_lock": "GAP",
+    "window": "EVENT-GATED{Intel Xeon 6+ ramp on Supermicro X14 platforms}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Treat Intel as a silicon supplier and co-engineering partner, not an OEM-competitor; it sold its server systems business to MiTAC in April 2023.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "L",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.supermicro.com/en/pressreleases/supermicro-launches-new-server-solutions-intel-xeon-6-processors",
+        "date": "2026-05-31"
+      },
+      "classification": {
+        "source": "https://www.servethehome.com/breaking-intel-exiting-the-server-business-selling-to-mitac/",
+        "date": "2023-04-12"
+      },
+      "window": {
+        "source": "https://www.supermicro.com/en/pressreleases/supermicro-launches-new-server-solutions-intel-xeon-6-processors",
+        "date": "2026-05-31"
+      }
+    }
+  },
+  {
+    "ledger_id": "jpmc",
+    "org_id": "ORG_JPMC",
+    "legal_name": "JPMorgan Chase",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "oem_lock": "GAP",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{Orangeburg NY JPMC Datacenter II: construction underway 2026-04, stated completion 2028, $916M equipment package approved by the Rockland IDA}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Get the Infrastructure Platforms team to name the server vendor for the $916M Orangeburg equipment package while their speaker is on the floor.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "L",
+      "mw": "L"
+    },
+    "full": true,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.ciodive.com/news/jpmorgan-chase-infrastructure-cio-ai-compute-strategy/738662/",
+        "date": "2025-01-30"
+      },
+      "buys_servers": {
+        "source": "https://reinventalbany.org/2026/04/ny-taxpayers-spend-77m-for-one-jp-morgan-data-center-job-by-far-largest-subsidy-per-job-in-history/",
+        "date": "2026-04-20"
+      },
+      "classification": {
+        "source": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+        "date": "2026-02-13"
+      },
+      "window": {
+        "source": "https://truthout.org/articles/a-data-center-is-getting-a-77-million-tax-break-it-promises-to-create-1-job/",
+        "date": "2026-04-20"
+      }
+    }
+  },
+  {
+    "ledger_id": "lambda",
+    "org_id": "ORG_LAMBDA",
+    "legal_name": "Lambda (Lambda Labs)",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "oem_lock": "CONFIRMED",
+    "window": "EVENT-GATED{$1B syndicated senior secured facility closed 2026-05 earmarked for next-gen NVIDIA accelerator servers and DC capacity; IPO targeted H2 2026; Kansas City early-2026 launch with stated GPU doubling; named NVIDIA launch Rubin partner, VR NVL72 partner availability H2 2026}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Work the Gold booth with a Vera Rubin NVL72 quote and get Ken Patchett's team to name the Kansas City Phase-2 SKUs.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "M"
+    },
+    "full": true,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://lambda.ai/legacy-hardware",
+        "date": "2025-08-29"
+      },
+      "buys_servers": {
+        "source": "https://ir.supermicro.com/news/news-details/2025/Lambda-Builds-AI-Factories-with-Supermicro-NVIDIA-Blackwell-GPU-Server-Clusters-to-Deliver-Production-ready-Next-Gen-AI-Infrastructure-at-Scale/default.aspx",
+        "date": "2025-08-25"
+      },
+      "oem_lock": {
+        "source": "https://ir.supermicro.com/news/news-details/2025/Lambda-Builds-AI-Factories-with-Supermicro-NVIDIA-Blackwell-GPU-Server-Clusters-to-Deliver-Production-ready-Next-Gen-AI-Infrastructure-at-Scale/default.aspx",
+        "date": "2025-08-25"
+      },
+      "mw_or_proxy": {
+        "source": "https://lambda.ai/blog/lambda-to-build-a-100mw-ai-factory-in-kansas-city-mo",
+        "date": "2025-10-28"
+      },
+      "window": {
+        "source": "https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+        "date": "2026-01-05"
+      },
+      "classification": {
+        "source": "https://ir.supermicro.com/news/news-details/2025/Lambda-Builds-AI-Factories-with-Supermicro-NVIDIA-Blackwell-GPU-Server-Clusters-to-Deliver-Production-ready-Next-Gen-AI-Infrastructure-at-Scale/default.aspx",
+        "date": "2025-08-25"
+      }
+    },
+    "mw_or_proxy": "320+ MW leased/signed/committed〔廠商自報 Ken Patchett〕; target 3 GW and 1M+ NVIDIA GPUs by 2030. Kansas City MO 24MW→100MW+; Columbus OH 25MW+95MW planned; ECL Mountain View at 142kW per GB300 NVL72, Lambda at 100% of facility. Leases colocation; not a landlord."
+  },
+  {
+    "ledger_id": "lancedb",
+    "org_id": "ORG_LANCEDB",
+    "legal_name": "LanceDB",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Certify LanceDB on storage-dense and GPU SKUs at the Silver booth, then co-sell into the BYOC end customers who pay for that infrastructure.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://docs.lancedb.com/enterprise/deployment",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://docs.lancedb.com/enterprise/deployment",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://docs.lancedb.com/enterprise/deployment",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://aws.amazon.com/marketplace/pp/prodview-7iy473li6ul34",
+        "date": "2026-08-17"
+      }
+    }
+  },
+  {
+    "ledger_id": "latitude",
+    "org_id": "ORG_LATITUDE",
+    "legal_name": "Latitude",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "oem_lock": "CIRCUMSTANTIAL",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{Ford Fathom hands-free ADAS start-of-production 2027, pre-orders early 2027; training capacity ramps ahead of SOP}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Open Latitude AI on the Cisco UCS and VAST Data stack its own job ads name, and establish whether Ford corporate purchasing signs the server PO.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://lat.ai/",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://job-boards.greenhouse.io/latitude/jobs/8119676",
+        "date": "2026-08-10"
+      },
+      "oem_lock": {
+        "source": "https://job-boards.greenhouse.io/latitude/jobs/8119676",
+        "date": "2026-08-10"
+      },
+      "classification": {
+        "source": "https://lat.ai/",
+        "date": "2026-08-17"
+      },
+      "window": {
+        "source": "https://lat.ai/newsroom",
+        "date": "2026-08-17"
+      }
+    }
+  },
+  {
+    "ledger_id": "lila",
+    "org_id": "ORG_LILA",
+    "legal_name": "Lila Sciences",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "oem_lock": "GAP",
+    "window": "EVENT-GATED{Alewife Park 235,500 sq ft fit-out, no completion date published; the Strategic Sourcing Manager Cloud Infrastructure & Compute requisition posted 2026-03-27 being filled; announced SF and London Science Factory launches}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Ask keynote speaker Andrew Beam whether the Alewife Park buildout includes an on-prem GPU room.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "M"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.latent.space/p/the-lab-of-the-future-should-feel",
+        "date": "2026-07-16"
+      },
+      "window": {
+        "source": "https://www.businesswire.com/news/home/20251016965836/en/IQHQ-Partners-with-Lila-Sciences-for-244000-SF-Lease-at-Alewife-Park",
+        "date": "2025-10-16"
+      },
+      "classification": {
+        "source": "https://jobs.generalcatalyst.com/companies/lila-sciences-2/jobs/72368370-strategic-sourcing-manager-cloud-infrastructure-compute",
+        "date": "2026-03-27"
+      },
+      "mw_or_proxy": {
+        "source": "https://www.latent.space/p/the-lab-of-the-future-should-feel",
+        "date": "2026-07-16"
+      }
+    },
+    "mw_or_proxy": "GAP — no GPU count, cluster size or power figure has ever been published. The AI Science Factories are robotic wet labs, not server halls; the CTO's datacenter vocabulary is an explicit metaphor for lab automation and must not be read as a compute buildout."
+  },
+  {
+    "ledger_id": "luma",
+    "org_id": "ORG_LUMA",
+    "legal_name": "Luma AI",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Attend the Koba session and extract the training-cluster provider's name in Q&A, then hand it to the neocloud team.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "M"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://lumalabs.ai/blog/engineering",
+        "date": "2026-07-22"
+      },
+      "buys_servers": {
+        "source": "https://www.prnewswire.com/news-releases/luma-ai-raises-900-million-series-c-led-by-humain-and-partners-on-2-gigawatt-ai-supercluster-in-saudi-arabia-302620697.html",
+        "date": "2025-11-19"
+      },
+      "oem_lock": {
+        "source": "https://lumalabs.ai/blog/engineering",
+        "date": "2026-07-22"
+      },
+      "mw_or_proxy": {
+        "source": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2025/m11/amd-cisco-and-humain-to-form-joint-venture-to-deliver-world-leading-ai-infrastructure.html",
+        "date": "2025-11-19"
+      },
+      "classification": {
+        "source": "https://www.prnewswire.com/news-releases/luma-ai-raises-900-million-series-c-led-by-humain-and-partners-on-2-gigawatt-ai-supercluster-in-saudi-arabia-302620697.html",
+        "date": "2025-11-19"
+      }
+    },
+    "mw_or_proxy": "100 MW contracted — Luma contracted the entire 100MW phase-1 of the AMD/Cisco/HUMAIN JV〔廠商自報〕. The 2 GW Project Halo supercluster is HUMAIN's build and HUMAIN's procurement, NOT Luma's. Luma-owned MW is GAP."
+  },
+  {
+    "ledger_id": "mai",
+    "org_id": "ORG_MAI",
+    "legal_name": "Microsoft AI (MAI)",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "WHITEBOX",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{Microsoft deployment of NVIDIA Rubin-based instances from H2 2026 — capacity purchased by Microsoft CO+I, not by MAI}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Use the Ray and MAI-Thinking-1 session to learn which Maia and GB200 cluster generation MAI specifies next, then take that spec to CO+I.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://microsoft.ai/news/introducing-mai-thinking-1/",
+        "date": "2026-08-12"
+      },
+      "buys_servers": {
+        "source": "https://careers.microsoft.com/v2/global/en/datacenters.html",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://microsoft.ai/news/introducing-mai-thinking-1/",
+        "date": "2026-08-12"
+      },
+      "classification": {
+        "source": "https://careers.microsoft.com/v2/global/en/datacenters.html",
+        "date": "2026-08-17"
+      },
+      "window": {
+        "source": "https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+        "date": "2026-01-05"
+      }
+    }
+  },
+  {
+    "ledger_id": "mercor",
+    "org_id": "ORG_MERCOR",
+    "legal_name": "Mercor",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Drop Mercor from the hardware list; it is a human-expert data marketplace with no compute footprint, and route its AI-lab customers to the account team.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://mercor.com/",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://mercor.com/",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://mercor.com/",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://www.forbes.com/sites/richardnieva/2026/07/09/mercor-fundraise/",
+        "date": "2026-07-09"
+      }
+    }
+  },
+  {
+    "ledger_id": "microsoft",
+    "org_id": "ORG_MICROSOFT",
+    "legal_name": "Microsoft",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "oem_lock": "WHITEBOX",
+    "window": "2026-07..2026-12",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Pitch Azure Hardware Systems as an OCP-spec build slot at the Gold booth and name the FY27 capacity ramp CO+I Global Supply Chain owns.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://careers.microsoft.com/v2/global/en/datacenters.html",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4",
+        "date": "2026-07-29"
+      },
+      "oem_lock": {
+        "source": "https://azure.microsoft.com/en-us/blog/microsoft-reimagines-open-source-cloud-hardware/",
+        "date": "2016-10-31"
+      },
+      "classification": {
+        "source": "https://careers.microsoft.com/v2/global/en/datacenters.html",
+        "date": "2026-08-17"
+      },
+      "window": {
+        "source": "https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+        "date": "2026-01-05"
+      }
+    }
+  },
+  {
+    "ledger_id": "mimic",
+    "org_id": "ORG_MIMIC",
+    "legal_name": "Mimic",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "oem_lock": "GAP",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "GAP",
+    "next_action": "Find Elvis Nava at the show and establish whether Mimic trains its video-action models on owned GPU boxes or rented cloud capacity.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "L",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.mimicrobotics.com/",
+        "date": "2026-08-17"
+      }
+    }
+  },
+  {
+    "ledger_id": "motive",
+    "org_id": "ORG_MOTIVE",
+    "legal_name": "Motive",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "oem_lock": "GAP",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Ask Motive's speaker where its proprietary vision models train, since 114 open roles name AWS only and zero name GPU, datacenter or any server OEM.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "L",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://trust.gomotive.com",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://job-boards.greenhouse.io/gomotive/jobs/8638784002",
+        "date": "2026-07-24"
+      }
+    }
+  },
+  {
+    "ledger_id": "nebius",
+    "org_id": "ORG_NEBIUS",
+    "legal_name": "Nebius",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "oem_lock": "WHITEBOX",
+    "window": "2026-08..2026-12",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Get Ryan Wang to name who builds Nebius's liquid-cooled GB300 and Vera Rubin NVL72 racks.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "M"
+    },
+    "full": true,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+        "date": "2026-04-30"
+      },
+      "buys_servers": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+        "date": "2026-04-30"
+      },
+      "oem_lock": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+        "date": "2026-04-30"
+      },
+      "mw_or_proxy": {
+        "source": "https://assets.nebius.com/assets/a6ecfd85-a6cb-4967-8ef7-9a25bd261f9c/SHLQ226.pdf",
+        "date": "2026-08-12"
+      },
+      "window": {
+        "source": "https://www.businesswire.com/news/home/20260106124850/en/Nebius-to-Offer-NVIDIA-Vera-Rubin-NVL72-in-US-and-Europe-From-H2-2026",
+        "date": "2026-01-06"
+      },
+      "classification": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+        "date": "2026-04-30"
+      }
+    },
+    "mw_or_proxy": "~170 MW active 2025-12-31; >2 GW contracted Feb 2026; YE2026 contracted target 5 GW (2026-08-12); YE2026 connected 800MW-1GW〔廠商自報〕"
+  },
+  {
+    "ledger_id": "netflix",
+    "org_id": "ORG_NETFLIX",
+    "legal_name": "Netflix",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "PARTIAL",
+    "oem_lock": "WHITEBOX",
+    "window": "EVENT-GATED{next Open Connect Appliance hardware generation spec revision; deployed appliances carry a stated 4-6 year field life}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Bid to displace Sanmina, MBX and Intequus on the next Open Connect Appliance generation; open with Tyan-class board and 120TB chassis economics.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/nflx-20251231.htm",
+        "date": "2026-01-23"
+      },
+      "buys_servers": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/nflx-20251231.htm",
+        "date": "2026-01-23"
+      },
+      "oem_lock": {
+        "source": "https://openconnect.netflix.com/en/appliances/",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://openconnect.netflix.com/en/appliances/",
+        "date": "2026-08-17"
+      },
+      "window": {
+        "source": "https://openconnect.netflix.com/en/appliances/",
+        "date": "2026-08-17"
+      }
+    }
+  },
+  {
+    "ledger_id": "notion",
+    "org_id": "ORG_NOTION",
+    "legal_name": "Notion",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Drop Notion as a server account and work its inference operators Baseten and Cerebras, who buy the iron Notion rents.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.notion.com/help/security-and-privacy",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://www.notion.com/help/security-and-privacy",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://trust.notion.com/",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://www.notion.com/help/security-and-privacy",
+        "date": "2026-08-17"
+      }
+    }
+  },
+  {
+    "ledger_id": "nscale",
+    "org_id": "ORG_NSCALE",
+    "legal_name": "Nscale",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      },
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer",
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "oem_lock": "LEAKING",
+    "window": "EVENT-GATED{US IPO as early as 2026-09; Loughton go-live Q4 2026 with ~23,000 GB300 from Q1 2027; Ward County ~104,000 GB300 over 12-18 months from 2025-10; Anyscale acquisition $1.65B closing 2H 2026}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Intercept Josh Payne after his keynote; open on the Supermicro-built Svartisen cluster and demand a bid slot on Loughton Q1-2027.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "M"
+    },
+    "full": true,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.dell.com/en-us/blog/powering-ai-infrastructure-dell-and-nscale-s-shared-vision/",
+        "date": "2025-11-25"
+      },
+      "buys_servers": {
+        "source": "https://www.dell.com/en-us/blog/powering-ai-infrastructure-dell-and-nscale-s-shared-vision/",
+        "date": "2025-11-25"
+      },
+      "oem_lock": {
+        "source": "https://www.top500.org/system/180343/",
+        "date": "2026-06-30"
+      },
+      "mw_or_proxy": {
+        "source": "https://www.nscale.com/ai-infrastructure",
+        "date": "2026-08-17"
+      },
+      "window": {
+        "source": "https://techcrunch.com/2026/07/30/nscale-buys-anyscale-as-it-seeks-to-own-more-of-the-ai-compute-stack/",
+        "date": "2026-07-30"
+      },
+      "classification": {
+        "source": "https://www.dell.com/en-us/blog/powering-ai-infrastructure-dell-and-nscale-s-shared-vision/",
+        "date": "2025-11-25"
+      }
+    },
+    "mw_or_proxy": "831 MW active+contracted〔廠商自報〕against a stated >10 GW pipeline. Narvik 230MW+290MW; Ward County TX ~240MW→1.2GW by 2027; Monarch WV 1.35GW P1; Loughton UK 50→90MW; Glomfjord 30→60MW"
+  },
+  {
+    "ledger_id": "nvidia",
+    "org_id": "ORG_NVIDIA",
+    "legal_name": "NVIDIA",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer",
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "oem_lock": "WHITEBOX",
+    "window": "EVENT-GATED{NVIDIA Vera Rubin NVL72 / HGX Rubin NVL8 partner availability from H2 2026, with Supermicro named a Rubin server partner}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "OEM-competitor",
+    "next_action": "Treat NVIDIA as silicon supply and allocation gate, not a PO target: at the Gold booth press for Vera Rubin NVL72 allocation and design-win referrals.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.nvidia.com/en-us/data-center/dgx-superpod/",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://www.nvidia.com/en-us/data-center/dgx-superpod/",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://www.nvidia.com/en-us/data-center/dgx-superpod/",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+        "date": "2026-01-05"
+      },
+      "window": {
+        "source": "https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+        "date": "2026-01-05"
+      }
+    }
+  },
+  {
+    "ledger_id": "parasail",
+    "org_id": "ORG_PARASAIL",
+    "legal_name": "Parasail",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "PARTIAL",
+    "oem_lock": "GAP",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{Strategic Finance req published 2026-08-03 underwriting GPU lease-versus-buy, financing structures, useful life and residual value}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "MSP",
+    "next_action": "Ask Parasail at the Silver booth who racks the owned Hopper and Blackwell fleet in Philadelphia and where the lease-versus-buy analysis is trending.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "L",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://siliconangle.com/2026/04/15/parasail-raises-32m-pay-per-token-inference-cloud/",
+        "date": "2026-04-15"
+      },
+      "buys_servers": {
+        "source": "https://api.ashbyhq.com/posting-api/job-board/parasail",
+        "date": "2026-08-03"
+      },
+      "classification": {
+        "source": "https://siliconangle.com/2026/04/15/parasail-raises-32m-pay-per-token-inference-cloud/",
+        "date": "2026-04-15"
+      },
+      "window": {
+        "source": "https://api.ashbyhq.com/posting-api/job-board/parasail",
+        "date": "2026-08-03"
+      },
+      "mw_or_proxy": {
+        "source": "https://www.parasail.io/blog/parasail-d-matrix-accelerators",
+        "date": "2026-07-08"
+      }
+    }
+  },
+  {
+    "ledger_id": "pathrobotics",
+    "org_id": "ORG_PATHROBOTICS",
+    "legal_name": "Path Robotics",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "oem_lock": "GAP",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{HII agreement up to $900M over 7 years announced 2026-08-06, explicitly funding long-term investments in facilities}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Ask Path Robotics at the Silver booth where Obsidian is trained and whether ITAR or CUI exposure from the HII and Navy work forces that on-prem.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "L",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://job-boards.greenhouse.io/pathrobotics/jobs/8631767002",
+        "date": "2026-08-05"
+      },
+      "classification": {
+        "source": "https://path-robotics.com/",
+        "date": "2026-08-17"
+      },
+      "window": {
+        "source": "https://www.hii.com/news/hii-signs-performance-based-production-agreements-with-path-robotics-and-graymatter-robotics",
+        "date": "2026-08-06"
+      }
+    }
+  },
+  {
+    "ledger_id": "periodic",
+    "org_id": "ORG_PERIODIC",
+    "legal_name": "Periodic Labs",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "GAP",
+    "oem_lock": "GAP",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{close of the ~$7B round reported in talks 2026-03}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Ask Periodic Labs' ML Systems team at the booth whether their InfiniBand and NCCL training stack runs on owned racks or rented cloud capacity.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "L",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://jobs.ashbyhq.com/periodic-labs",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://techcrunch.com/2025/10/20/top-openai-google-brain-researchers-set-off-a-300m-vc-frenzy-for-their-startup-periodic-labs/",
+        "date": "2025-10-20"
+      },
+      "window": {
+        "source": "https://www.bloomberg.com/news/articles/2026-03-25/ai-science-startup-periodic-labs-is-in-deal-talks-at-about-7-billion-valuation",
+        "date": "2026-03-25"
+      }
+    }
+  },
+  {
+    "ledger_id": "pinterest",
+    "org_id": "ORG_PINTEREST",
+    "legal_name": "Pinterest",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "window": "EVENT-GATED{expiry of the $4B AWS commitment running to 2031}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Rule Pinterest out as a server PO: its 10-K binds a substantial majority of usage to AWS and it is migrating onto Trainium and Graviton silicon.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1506293/000150629326000021/pins-20251231.htm",
+        "date": "2026-02-12"
+      },
+      "buys_servers": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1506293/000150629326000021/pins-20251231.htm",
+        "date": "2026-02-12"
+      },
+      "oem_lock": {
+        "source": "https://newsroom.pinterest.com/news/pinterest-aws-power-ai-visual-search-discovery/",
+        "date": "2026-06-04"
+      },
+      "classification": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1506293/000150629326000021/pins-20251231.htm",
+        "date": "2026-02-12"
+      },
+      "window": {
+        "source": "https://newsroom.pinterest.com/news/pinterest-aws-power-ai-visual-search-discovery/",
+        "date": "2026-06-04"
+      }
+    }
+  },
+  {
+    "ledger_id": "primalabs",
+    "org_id": "ORG_PRIMALABS",
+    "legal_name": "Prima Labs",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Certify PrimaLabs on Supermicro on-prem inference SKUs and use its ex-ORNL founders as the warm path into DOE and national-lab accounts.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://github.com/Primalabs-AI",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://github.com/Primalabs-AI",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://www.primalabs.ai/blog/primalabs-joins-nvidia-genesis-mission",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://www.primalabs.ai/",
+        "date": "2026-08-17"
+      }
+    }
+  },
+  {
+    "ledger_id": "primeintellect",
+    "org_id": "ORG_PRIMEINTELLECT",
+    "legal_name": "Prime Intellect",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "operator",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{Prime Intellect announcing owned or colocated capacity, reversing its asset-light model}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Deprioritize Prime Intellect for hardware and instead route Supermicro capacity to them as a supply-side seller on their compute marketplace.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.primeintellect.ai/blog/compute",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://sacra.com/c/prime-intellect/",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://nebius.com/customer-stories/prime-intellect",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://sacra.com/c/prime-intellect/",
+        "date": "2026-08-17"
+      },
+      "window": {
+        "source": "https://techcrunch.com/2026/07/08/prime-intellect-raises-130m-series-a-to-help-enterprises-build-their-own-ai-agents/",
+        "date": "2026-07-08"
+      }
+    }
+  },
+  {
+    "ledger_id": "recursion",
+    "org_id": "ORG_RECURSION",
+    "legal_name": "Recursion",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "YES",
+    "oem_lock": "CONFIRMED",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{BioHive-2 equipment financing-lease refresh decision}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Track Recursion's BioHive-2 financing-lease expiry and pitch a Supermicro refresh against NVIDIA DGX SuperPOD; H1-2026 capex was only $0.3M.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1601830/000160183026000039/rxrx-20251231.htm",
+        "date": "2026-02-25"
+      },
+      "buys_servers": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1601830/000160183026000039/rxrx-20251231.htm",
+        "date": "2026-02-25"
+      },
+      "oem_lock": {
+        "source": "https://blogs.nvidia.com/blog/drug-discovery-recursion-supercomputer",
+        "date": "2024-05-13"
+      },
+      "classification": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1601830/000160183026000039/rxrx-20251231.htm",
+        "date": "2026-02-25"
+      },
+      "window": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1601830/000160183026000098/rxrx-20260630.htm",
+        "date": "2026-08-05"
+      }
+    }
+  },
+  {
+    "ledger_id": "redhat",
+    "org_id": "ORG_REDHAT",
+    "legal_name": "Red Hat",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{llm-d naming its first server-OEM partner}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Raise two gaps at Red Hat's llm-d session: Supermicro is absent from redhat.com/products/ai where Dell and Lenovo appear, and llm-d has no server-OEM partner.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.redhat.com/en/about/company",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://www.redhat.com/en/about/company",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://www.supermicro.com/en/solutions/red-hat-openshift",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://www.supermicro.com/en/pressreleases/supermicro-simplifies-edge-ai-deployments-validated-kubernetes-appliances-red-hat",
+        "date": "2026-07-08"
+      },
+      "window": {
+        "source": "https://research.ibm.com/blog/donating-llm-d-to-the-cloud-native-computing-foundation",
+        "date": "2026-03-24"
+      }
+    }
+  },
+  {
+    "ledger_id": "robinhood",
+    "org_id": "ORG_ROBINHOOD",
+    "legal_name": "Robinhood",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "PARTIAL",
+    "oem_lock": "GAP",
+    "window": "EVENT-GATED{Rothera Exchange & Clearing build-out — the Robinhood/Susquehanna JV acquired 90% of MIAXdx Jan 2026, must separate from MIAX's stack at Equinix NY4; Rothera selected Adaptive's Aeron Exchange Accelerator 2026-07-14; Aeron deploys on-prem, colo or cloud and Rothera's hosting choice is disclosed nowhere}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Ask in the Robinhood Q&A whether Rothera's Aeron engine runs on EKS or dedicated colocation hardware.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "M"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000023/hood-20251231.htm",
+        "date": "2026-02-18"
+      },
+      "buys_servers": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000023/hood-20251231.htm",
+        "date": "2026-02-18"
+      },
+      "mw_or_proxy": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000023/hood-20251231.htm",
+        "date": "2026-02-18"
+      },
+      "window": {
+        "source": "https://www.businesswire.com/news/home/20260714583907/en/Rothera-selects-Adaptives-Aeron-Exchange-Accelerator-to-build-its-CFTC-regulated-event-contracts-exchange-and-clearing-platform",
+        "date": "2026-07-14"
+      },
+      "classification": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000023/hood-20251231.htm",
+        "date": "2026-02-18"
+      }
+    },
+    "mw_or_proxy": "GAP for megawatts. Proxies: cloud infrastructure opex $189M (FY2024) → $211M (FY2025), +12% — rent paid to AWS, not owned capacity. ML footprint ESTIMATE{~100 GPUs at peak (company self-report) ÷ 8 GPUs/node = 12.5 nodes × ~10 kW = ~0.125 MW} = one to two racks, rented not owned."
+  },
+  {
+    "ledger_id": "simplismart",
+    "org_id": "ORG_SIMPLISMART",
+    "legal_name": "Simplismart",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Use the Simplismart Gold booth to map which NVIDIA Cloud Partners and Indian GPU clouds it white-labels into; those operators buy the racks, Simplismart does not.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://aws.amazon.com/solutions/case-studies/simplismart-ai-case-study/",
+        "date": "2026-08-17"
+      },
+      "buys_servers": {
+        "source": "https://www.simplismart.ai/blog/byoc-ai-infrastructure",
+        "date": "2026-04-07"
+      },
+      "oem_lock": {
+        "source": "https://www.simplismart.ai/blog/byoc-ai-infrastructure",
+        "date": "2026-04-07"
+      },
+      "classification": {
+        "source": "https://entrackr.com/exclusive/exclusive-gen-ai-startup-simplismart-set-to-raise-9-mn-in-series-b-led-by-dallas-venture-capital-12226753",
+        "date": "2026-08-04"
+      }
+    }
+  },
+  {
+    "ledger_id": "skypilot",
+    "org_id": "ORG_SKYPILOT",
+    "legal_name": "SkyPilot",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Mine SkyPilot's customer and partner lists at the Startups booth: it orchestrates other people's Slurm, vSphere and on-prem nodes, so its users are the rack buyers.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://skypilot.ai/blog/skypilot-the-company",
+        "date": "2026-07-21"
+      },
+      "buys_servers": {
+        "source": "https://docs.skypilot.ai/en/latest/overview.html",
+        "date": "2026-08-17"
+      },
+      "oem_lock": {
+        "source": "https://jobs.gem.com/skypilot",
+        "date": "2026-08-17"
+      },
+      "classification": {
+        "source": "https://skypilot.ai/blog/skypilot-the-company",
+        "date": "2026-07-21"
+      }
+    }
+  },
+  {
+    "ledger_id": "sondermind",
+    "org_id": "ORG_SONDERMIND",
+    "legal_name": "SonderMind",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Drop SonderMind from the hardware list: 134 of its 137 open roles are clinical, it runs behind Cloudflare with no owned netblock, and consumes model APIs.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://jobs.ashbyhq.com/SonderMind/9daec347-41d2-43d2-88ce-8a808761f5f3",
+        "date": "2026-07-29"
+      },
+      "buys_servers": {
+        "source": "https://jobs.ashbyhq.com/SonderMind/9daec347-41d2-43d2-88ce-8a808761f5f3",
+        "date": "2026-07-29"
+      },
+      "oem_lock": {
+        "source": "https://jobs.ashbyhq.com/SonderMind/9daec347-41d2-43d2-88ce-8a808761f5f3",
+        "date": "2026-07-29"
+      },
+      "classification": {
+        "source": "https://jobs.ashbyhq.com/SonderMind/9daec347-41d2-43d2-88ce-8a808761f5f3",
+        "date": "2026-07-29"
+      }
+    }
+  },
+  {
+    "ledger_id": "spotify",
+    "org_id": "ORG_SPOTIFY",
+    "legal_name": "Spotify",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Meet Spotify speaker Aamir Anwar for ecosystem contact only, and ask what the EUR 47M 2025 property and equipment addition covers before any server pitch.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1639920/000162828026006874/ck0001639920-20251231.htm",
+        "date": "2026-02-10"
+      },
+      "buys_servers": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1639920/000162828026006874/ck0001639920-20251231.htm",
+        "date": "2026-02-10"
+      },
+      "oem_lock": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1639920/000162828026006874/ck0001639920-20251231.htm",
+        "date": "2026-02-10"
+      },
+      "classification": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1639920/000162828026006874/ck0001639920-20251231.htm",
+        "date": "2026-02-10"
+      }
+    }
+  },
+  {
+    "ledger_id": "torc",
+    "org_id": "ORG_TORC",
+    "legal_name": "Torc Robotics",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "speaker-employer",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "speaker-employer"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Ask keynote speaker Felix Heide whether the 2027 driverless launch adds owned training capacity outside AWS.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "M"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://torc.ai/torc-amazon-dcv-vdi-ranch/",
+        "date": "2025-11-05"
+      },
+      "buys_servers": {
+        "source": "https://www.daimlertruck.com/en/newsroom/pressrelease/torc-robotics-selects-aws-as-preferred-cloud-provider-for-self-driving-truck-fleet-48985646",
+        "date": "2021-02-17"
+      },
+      "oem_lock": {
+        "source": "https://techcrunch.com/2025/03/19/gm-gatik-torc-team-up-with-nvidia-to-accelerate-self-driving/",
+        "date": "2025-03-19"
+      },
+      "classification": {
+        "source": "https://www.daimlertruck.com/en/newsroom/pressrelease/torc-robotics-selects-aws-as-preferred-cloud-provider-for-self-driving-truck-fleet-48985646",
+        "date": "2021-02-17"
+      },
+      "mw_or_proxy": {
+        "source": "https://torc.ai/torc-amazon-dcv-vdi-ranch/",
+        "date": "2025-11-05"
+      }
+    },
+    "mw_or_proxy": "GAP — no GPU/node/MW figure published; a single 32-GPU workload is not a basis for extrapolation. Non-MW proxy, explicitly not a power figure: ~EUR 600M annual expenditure is the whole division's opex, not compute spend."
+  },
+  {
+    "ledger_id": "uber",
+    "org_id": "ORG_UBER",
+    "legal_name": "Uber",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "PARTIAL",
+    "oem_lock": "WHITEBOX",
+    "window": "EVENT-GATED{2022 cloud computing service agreements expiring November 2029}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Re-engage Uber against the November 2029 cloud commitment expiry, and confirm on the floor which Michelangelo workloads still run on owned hardware.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "M",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/uber-20251231.htm",
+        "date": "2026-02-13"
+      },
+      "buys_servers": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/uber-20251231.htm",
+        "date": "2026-02-13"
+      },
+      "oem_lock": {
+        "source": "https://convergedigest.com/ocp-launches-composable-memory-systems/",
+        "date": "2022-10-20"
+      },
+      "classification": {
+        "source": "https://www.uber.com/us/en/blog/from-predictive-to-generative-ai/",
+        "date": "2024-05-02"
+      },
+      "window": {
+        "source": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/uber-20251231.htm",
+        "date": "2026-02-13"
+      }
+    }
+  },
+  {
+    "ledger_id": "unionai",
+    "org_id": "ORG_UNIONAI",
+    "legal_name": "Union.ai",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "GAP",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Meet Union.ai at the Startups tier to map self-managed bare-metal Flyte accounts into Supermicro co-sell, and skip any direct hardware quote.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.union.ai/blog-post/union-ai-on-nebius-orchestrating-the-future-of-ai-workloads-in-the-cloud",
+        "date": "2025-12-01"
+      },
+      "buys_servers": {
+        "source": "https://developer.nvidia.com/blog/democratizing-ai-workflows-with-union-ai-and-nvidia-dgx-cloud/",
+        "date": "2024-04-23"
+      },
+      "oem_lock": {
+        "source": "https://developer.nvidia.com/blog/democratizing-ai-workflows-with-union-ai-and-nvidia-dgx-cloud/",
+        "date": "2024-04-23"
+      },
+      "classification": {
+        "source": "https://www.union.ai/blog-post/union-ai-on-nebius-orchestrating-the-future-of-ai-workloads-in-the-cloud",
+        "date": "2025-12-01"
+      }
+    }
+  },
+  {
+    "ledger_id": "vast",
+    "org_id": "ORG_VAST",
+    "legal_name": "VAST Data",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "channel",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "window": "EVENT-GATED{CNode-X certified-configuration end-customer deal registration}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Work VAST Data's Gold booth as co-sell, not a PO target, and set CNode-X attach targets on AS-1116CS-TN and SYS-212GB-FNR against Cisco-certified configs.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.supermicro.com/en/pressreleases/supermicro-and-vast-data-launch-new-enterprise-ai-data-platform-solution-nvidia",
+        "date": "2026-02-25"
+      },
+      "buys_servers": {
+        "source": "https://www.blocksandfiles.com/2021/04/06/vast-data-software-subscriptions-pivot/",
+        "date": "2021-04-06"
+      },
+      "oem_lock": {
+        "source": "https://www.blocksandfiles.com/ai-ml/2026/02/26/vast-broadens-ai-platform-push-with-nvidia-tie-up-and-control-plane/4092639",
+        "date": "2026-02-26"
+      },
+      "classification": {
+        "source": "https://www.blocksandfiles.com/2021/04/06/vast-data-software-subscriptions-pivot/",
+        "date": "2021-04-06"
+      },
+      "window": {
+        "source": "https://www.supermicro.com/en/pressreleases/supermicro-and-vast-data-launch-new-enterprise-ai-data-platform-solution-nvidia",
+        "date": "2026-02-25"
+      }
+    }
+  },
+  {
+    "ledger_id": "verda",
+    "org_id": "ORG_VERDA",
+    "legal_name": "Verda (formerly DataCrunch)",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "sponsor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "sponsor"
+    ],
+    "layer": "operator",
+    "buys_servers": "YES",
+    "oem_lock": "CONFIRMED",
+    "mw_or_proxy": "GAP",
+    "window": "2026-08..2026-12",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Meet Verda CEO Ruben Bryon at the Gold booth to size follow-on GB300 NVL72 and HGX B300 racks for the funded US, Asia and Akaa Finland expansion.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": true,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.supermicro.com/en/pressreleases/supermicro-and-verda-deliver-sustainable-full-stack-ai-cloud-infrastructure-next",
+        "date": "2026-05-27"
+      },
+      "buys_servers": {
+        "source": "https://www.supermicro.com/en/pressreleases/supermicro-and-verda-deliver-sustainable-full-stack-ai-cloud-infrastructure-next",
+        "date": "2026-05-27"
+      },
+      "oem_lock": {
+        "source": "https://www.supermicro.com/en/pressreleases/supermicro-and-verda-deliver-sustainable-full-stack-ai-cloud-infrastructure-next",
+        "date": "2026-05-27"
+      },
+      "classification": {
+        "source": "https://verda.com/company",
+        "date": "2026-08-17"
+      },
+      "window": {
+        "source": "https://bebeez.eu/2026/07/23/finlands-verda-doubles-down-on-global-expansion-after-reaching-100m-revenue-run-rate/",
+        "date": "2026-07-23"
+      }
+    }
+  },
+  {
+    "ledger_id": "xoople",
+    "org_id": "ORG_XOOPLE",
+    "legal_name": "Xoople",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "NO",
+    "oem_lock": "NONE",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{L3Harris-built Xoople constellation reaching operational service}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "ruled-out",
+    "next_action": "Ask Xoople engineering lead Marcell Ferencz whether the L3Harris constellation adds an owned ground-segment processing site, and requalify only on a yes.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "H",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.anyscale.com/blog/ray-day-london-recap",
+        "date": "2026-06-11"
+      },
+      "buys_servers": {
+        "source": "https://www.anyscale.com/blog/ray-day-london-recap",
+        "date": "2026-06-11"
+      },
+      "oem_lock": {
+        "source": "https://www.anyscale.com/blog/ray-day-london-recap",
+        "date": "2026-06-11"
+      },
+      "classification": {
+        "source": "https://www.anyscale.com/blog/ray-day-london-recap",
+        "date": "2026-06-11"
+      },
+      "window": {
+        "source": "https://www.l3harris.com/newsroom/editorial/2026/04/reimagining-earth-measurement-ai-era-l3harris-and-xoople-develop-new",
+        "date": "2026-04-14"
+      }
+    }
+  },
+  {
+    "ledger_id": "zoox",
+    "org_id": "ORG_ZOOX",
+    "legal_name": "Zoox",
+    "aka": [],
+    "first_seen": {
+      "event": "Ray Summit 2026",
+      "date": "2026-08-17"
+    },
+    "seen_at": [
+      {
+        "event": "Ray Summit 2026",
+        "role_at_event": "exhibitor",
+        "date": "2026-08-17"
+      }
+    ],
+    "role_at_event": [
+      "exhibitor"
+    ],
+    "layer": "tenant-selfuse",
+    "buys_servers": "PARTIAL",
+    "oem_lock": "GAP",
+    "mw_or_proxy": "GAP",
+    "window": "EVENT-GATED{Las Vegas paid robotaxi launch and 2,500-vehicle NHTSA authorization}",
+    "crm": "GAP-not-checked",
+    "ledger_status": "new",
+    "classification": "end-user",
+    "next_action": "Ask Zoox platform operations whether Sunnyvale datacenter hardware is bought on a Zoox purchase order or through Amazon central procurement before quoting.",
+    "confidence": {
+      "tenancy": "H",
+      "oem": "L",
+      "mw": "L"
+    },
+    "full": false,
+    "asOf": "2026-08-17",
+    "sources": {
+      "legal_name": {
+        "source": "https://www.anyscale.com/ray-summit/2026",
+        "date": "2026-08-17"
+      },
+      "role_at_event": {
+        "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+        "date": "2026-08-17"
+      },
+      "layer": {
+        "source": "https://www.blocksandfiles.com/file/2026/01/20/quobytes-quiet-performance-and-scale-superiority/4090345",
+        "date": "2026-01-20"
+      },
+      "buys_servers": {
+        "source": "https://www.blocksandfiles.com/file/2026/01/20/quobytes-quiet-performance-and-scale-superiority/4090345",
+        "date": "2026-01-20"
+      },
+      "classification": {
+        "source": "https://techcrunch.com/2026/08/05/zoox-to-start-charging-for-robotaxi-rides-in-las-vegas/",
+        "date": "2026-08-05"
+      },
+      "window": {
+        "source": "https://techcrunch.com/2026/08/05/zoox-to-start-charging-for-robotaxi-rides-in-las-vegas/",
+        "date": "2026-08-05"
+      }
+    }
+  }
+]

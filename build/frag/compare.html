@@ -1,0 +1,74 @@
+<section data-block="axis-from-STATE" data-fresh="1">
+  <h2><span data-t="h">對位 —— 2 條軸線</span><span data-t="e">Matchup — 2 axes</span></h2>
+  <p class="lede"><span data-t="h">軸線逐字取自 STATE.campaign.axis。我方只跟這一場真的到場的人比，不比去年的名單。</span><span data-t="e">The axes are taken verbatim from STATE.campaign.axis. We only compare against who is actually in this room — never last year's list.</span></p>
+  <div class="axes">
+    <article class="axis" data-axis="neocloud rented capacity (CoreWeave / Lambda / Nebius / Nscale)">
+      <h3><span data-t="h">軸線 1 · 現場 4 家</span><span data-t="e">Axis 1 · 4 present</span></h3>
+      <p class="axisfull">neocloud rented capacity (CoreWeave / Lambda / Nebius / Nscale)</p>
+      <ul class="axislist">
+        <li><b>CoreWeave</b> <span class="chip">platinum</span><span class="chip">sponsor</span><span class="src">data/orgs.json ORG_COREWEAVE</span></li>
+        <li><b>Lambda (Lambda Labs)</b> <span class="chip">gold</span><span class="chip">sponsor</span><span class="src">data/orgs.json ORG_LAMBDA</span></li>
+        <li><b>Nebius</b> <span class="chip">gold</span><span class="chip">sponsor</span><span class="src">data/orgs.json ORG_NEBIUS</span></li>
+        <li><b>Nscale</b> <span class="chip">platinum</span><span class="chip">speaker-employer</span><span class="chip">sponsor</span><span class="src">data/orgs.json ORG_NSCALE</span></li>
+      </ul>
+    </article>
+    <article class="axis" data-axis="hyperscaler managed AI infra (AWS / Google Cloud / Microsoft Azure)">
+      <h3><span data-t="h">軸線 2 · 現場 3 家</span><span data-t="e">Axis 2 · 3 present</span></h3>
+      <p class="axisfull">hyperscaler managed AI infra (AWS / Google Cloud / Microsoft Azure)</p>
+      <ul class="axislist">
+        <li><b>Amazon Web Services</b> <span class="chip">platinum</span><span class="chip">sponsor</span><span class="src">data/orgs.json ORG_AWS</span></li>
+        <li><b>Google</b> <span class="chip">platinum</span><span class="chip">sponsor</span><span class="src">data/orgs.json ORG_GOOGLE</span></li>
+        <li><b>Microsoft Azure</b> <span class="chip">gold</span><span class="chip">sponsor</span><span class="src">data/orgs.json ORG_AZURE</span></li>
+      </ul>
+    </article>
+  </div>
+  <p class="stamp" data-fresh="1"><span data-t="h">狀態截至 2026-08-17</span><span data-t="e">Status as of 2026-08-17</span></p>
+</section>
+<section>
+  <h2><span data-t="h">同名陷阱 —— 7 組</span><span data-t="e">Name collisions — 7 of them</span></h2>
+  <p class="note"><span data-t="h">認錯公司比認不出公司貴。以下取自 STATE.campaign.traps。</span><span data-t="e">Naming the wrong company costs more than naming none. Taken from STATE.campaign.traps.</span></p>
+  <ul class="traps">
+    <li class="trap">
+      <p><span class="chip">same-name-company</span></p>
+      <p class="ab"><b>A</b> Yotta Infrastructure Solutions (Taiwan)</p>
+      <p class="ab"><b>B</b> Yotta Data Services (India)</p>
+      <p class="neg">-"Yotta Data Services" -India -Hiranandani</p>
+    </li>
+    <li class="trap">
+      <p><span class="chip">ex-employer</span></p>
+      <p class="ab"><b>A</b> speaker's current employer on this edition's roster</p>
+      <p class="ab"><b>B</b> employer named in an older bio, talk, or press release</p>
+      <p class="neg">restrict to the current edition roster; an ex-employer is not evidence of presence</p>
+    </li>
+    <li class="trap">
+      <p><span class="chip">same-surname</span></p>
+      <p class="ab"><b>A</b> two speakers sharing a surname at the same event</p>
+      <p class="ab"><b>B</b> a third person of the same surname in the wider industry</p>
+      <p class="neg">match on full name plus employer id, never on surname alone</p>
+    </li>
+    <li class="trap">
+      <p><span class="chip">name-collision</span></p>
+      <p class="ab"><b>A</b> company named inside a session abstract or a partner slide</p>
+      <p class="ab"><b>B</b> company on the official sponsor or exhibitor list</p>
+      <p class="neg">a mention is not a presence; require sponsors.json or an explicit exhibitor capture</p>
+    </li>
+    <li class="trap">
+      <p><span class="chip">same-name-company</span></p>
+      <p class="ab"><b>A</b> Lambda (Lambda Labs, GPU cloud, Gold sponsor)</p>
+      <p class="ab"><b>B</b> AWS Lambda (serverless compute; AWS is a Platinum sponsor at the same show)</p>
+      <p class="neg">"Lambda Labs" GPU cloud -"AWS Lambda" -serverless</p>
+    </li>
+    <li class="trap">
+      <p><span class="chip">name-collision</span></p>
+      <p class="ab"><b>A</b> Ray (the open-source distributed framework) / Ray Summit</p>
+      <p class="ab"><b>B</b> Ray as a personal given name, Ray-Ban, ray tracing</p>
+      <p class="neg">Ray Anyscale distributed framework -"Ray-Ban" -"ray tracing"</p>
+    </li>
+    <li class="trap">
+      <p><span class="chip">name-collision</span></p>
+      <p class="ab"><b>A</b> Anyscale (the company hosting the summit)</p>
+      <p class="ab"><b>B</b> Ray (the OSS project Anyscale stewards) — company is not the project</p>
+      <p class="neg">Anyscale Inc company -"Ray project" governance</p>
+    </li>
+  </ul>
+</section>

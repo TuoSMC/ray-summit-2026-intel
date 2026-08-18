@@ -1,0 +1,66 @@
+{
+  "event": "Ray Summit 2026",
+  "asOf": "2026-08-17",
+  "srcLang": "h",
+  "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+  "langs": [
+    "h",
+    "e"
+  ],
+  "pages": [
+    {
+      "role": "command-center",
+      "file": "index.html",
+      "title": "作戰台",
+      "title_e": "War Room",
+      "nav": "作戰台",
+      "nav_e": "War Room",
+      "frag": "build/frag/command-center.html"
+    },
+    {
+      "role": "agenda",
+      "file": "agenda.html",
+      "title": "議程",
+      "title_e": "Agenda",
+      "nav": "議程",
+      "nav_e": "Agenda",
+      "frag": "build/frag/agenda.html"
+    },
+    {
+      "role": "gtm",
+      "file": "gtm.html",
+      "title": "打法",
+      "title_e": "Plays",
+      "nav": "打法",
+      "nav_e": "Plays",
+      "frag": "build/frag/gtm.html"
+    },
+    {
+      "role": "accounts",
+      "file": "accounts.html",
+      "title": "帳戶板",
+      "title_e": "Account Board",
+      "nav": "帳戶板",
+      "nav_e": "Accounts",
+      "frag": "build/frag/accounts.html"
+    },
+    {
+      "role": "compare",
+      "file": "compare.html",
+      "title": "對位",
+      "title_e": "Matchup",
+      "nav": "對位",
+      "nav_e": "Matchup",
+      "frag": "build/frag/compare.html"
+    },
+    {
+      "role": "glossary",
+      "file": "glossary.html",
+      "title": "詞彙",
+      "title_e": "Glossary",
+      "nav": "詞彙",
+      "nav_e": "Glossary",
+      "frag": "build/frag/glossary.html"
+    }
+  ]
+}

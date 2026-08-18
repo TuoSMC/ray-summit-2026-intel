@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "note": "Cross-event i18n termbase. RULES B7: Simplified Chinese is vocabulary work, not transcoding - a character-conversion tool's output is an error. scaffold.sh copies this into the campaign; P6 merges new triples back. Seeded content is filled by Task 5 Step 7 from the triples already proven in the AMD and Yotta packs (data only, never page copy - B17).",
+  "locked": {
+    "note": "terms that must NOT be translated or reworded in any language: product names, room numbers, person names, URLs, dates, figures (RULES B6)",
+    "patterns": [
+      "MI[0-9]{3}[A-Z]?",
+      "GB[0-9]{3}",
+      "[0-9]{1,2}:[0-9]{2} (AM|PM)",
+      "Hall [A-Z0-9]+"
+    ]
+  },
+  "terms": [
+    {
+      "h": "頻寬",
+      "s": "带宽",
+      "e": "bandwidth"
+    },
+    {
+      "h": "效能",
+      "s": "性能",
+      "e": "performance"
+    },
+    {
+      "h": "記憶體",
+      "s": "内存",
+      "e": "memory"
+    },
+    {
+      "h": "伺服器",
+      "s": "服务器",
+      "e": "server"
+    },
+    {
+      "h": "軟體",
+      "s": "软件",
+      "e": "software"
+    },
+    {
+      "h": "硬體",
+      "s": "硬件",
+      "e": "hardware"
+    },
+    {
+      "h": "網路",
+      "s": "网络",
+      "e": "network"
+    },
+    {
+      "h": "資料",
+      "s": "数据",
+      "e": "data"
+    },
+    {
+      "h": "整合",
+      "s": "集成",
+      "e": "integration"
+    },
+    {
+      "h": "預設",
+      "s": "默认",
+      "e": "default"
+    },
+    {
+      "h": "登入",
+      "s": "登录",
+      "e": "log in"
+    },
+    {
+      "h": "選單",
+      "s": "菜单",
+      "e": "menu"
+    }
+  ],
+  "evidence": {
+    "_note": "Evidence ranks are VOCABULARY in every language, never transcoding (B7). GAP is untranslated: it is a status token, not a word. build_fragments.py and i18n_overlay.py both read this table; P6 merges it upward.",
+    "official": {
+      "h": "官方一手",
+      "s": "官方一手",
+      "e": "Official first-party"
+    },
+    "vendor": {
+      "h": "廠商自報",
+      "s": "厂商自报",
+      "e": "Vendor-reported"
+    },
+    "third": {
+      "h": "第三方",
+      "s": "第三方",
+      "e": "Third-party"
+    },
+    "unverified": {
+      "h": "未證",
+      "s": "未证",
+      "e": "Unverified"
+    },
+    "gap": {
+      "h": "GAP",
+      "s": "GAP",
+      "e": "GAP"
+    }
+  }
+}

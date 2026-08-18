@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="zh-Hant" data-lang="h">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>議程 · Ray Summit 2026</title>
+<style>
+:root{
+  --paper:#FAF8F3; --card:#FFFFFF; --sunk:#F2EEE4;
+  --ink:#14161A; --ink-2:#3D434E; --ink-3:#5E6675;
+  --rule:#E5E0D5; --rule-hard:#14161A;
+  --accent:#123A8C; --accent-bg:#E9EEFB;
+  --gap-fg:#7A4400; --gap-bg:#FBEEDA;
+  --stop:#8C1D18; --focus:#123A8C;
+
+  --f-display:ui-serif,"New York","Iowan Old Style",Charter,Constantia,Georgia,
+    "Songti TC","Songti SC",STSong,"Noto Serif CJK TC",MingLiU,serif;
+  --f-text:-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI","PingFang TC",
+    "Noto Sans CJK TC","Microsoft JhengHei","Helvetica Neue",Arial,sans-serif;
+  --f-mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Roboto Mono",
+    "Courier New",monospace;
+
+  --t-display:clamp(30px,6.2vw,46px);
+  --t-figure:clamp(34px,8.8vw,44px);
+  --t-h2:clamp(21px,3.2vw,25px);
+  --t-h3:18px; --t-lede:19px; --t-body:17px;
+  --t-mono:15px; --t-cap:14px; --t-micro:12.5px;
+
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+  --gut:16px; --measure:66ch;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f-text);font-size:var(--t-body);line-height:1.62;
+  font-weight:400;overflow-wrap:break-word}
+img{max-width:100%;height:auto}
+
+/* --- language layers (DESIGN.md 7) ---------------------------------------- */
+[data-t="e"]{display:none}
+:root[data-lang="e"] [data-t="h"]{display:none}
+:root[data-lang="e"] [data-t="e"]{display:inline}
+:root[data-lang="e"] p[data-t="e"],
+:root[data-lang="e"] li[data-t="e"],
+:root[data-lang="e"] dd[data-t="e"],
+:root[data-lang="e"] div[data-t="e"]{display:block}
+/* Per-language metrics. Both arms are in the DOM at once, so the switch lives
+   on the root: CJK wants more leading and a hair of tracking, Latin does not.
+   Headings keep their own line-height because it is set on the heading. */
+:root[data-lang="h"] body{line-height:1.72;letter-spacing:.01em}
+:root[data-lang="e"] body{line-height:1.58;letter-spacing:0}
+
+/* --- layout --------------------------------------------------------------- */
+.wrap{width:100%;max-width:1040px;margin-left:auto;margin-right:auto;
+  padding-left:var(--gut);padding-right:var(--gut)}
+main{padding-top:var(--s5);padding-bottom:var(--s8)}
+main > section,main > details,main > nav{margin:0 0 var(--s7)}
+.hold{max-width:var(--measure)}
+
+/* --- masthead + toggle ---------------------------------------------------- */
+.mast{padding-top:var(--s5);padding-bottom:var(--s4);display:flex;
+  flex-wrap:wrap;align-items:flex-start;gap:var(--s3) var(--s4)}
+.mast .id{flex:1 1 220px;min-width:0}
+.mast .evt{margin:0;font-family:var(--f-display);font-size:var(--t-h2);
+  font-weight:700;letter-spacing:-.012em;line-height:1.2}
+.mast .meta{margin:var(--s2) 0 0;font-size:var(--t-cap);color:var(--ink-2);
+  line-height:1.5}
+.mast .meta .lk{font-size:var(--t-cap)}
+.langsw{display:flex;gap:0;flex:0 0 auto;border:1px solid var(--ink);
+  border-radius:6px;overflow:hidden;background:var(--card)}
+.langbtn{-webkit-appearance:none;appearance:none;background:var(--card);
+  border:0;color:var(--ink-2);font-family:var(--f-mono);
+  font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;
+  min-width:52px;min-height:44px;padding:0 var(--s3);cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center}
+.langbtn + .langbtn{border-left:1px solid var(--rule)}
+.langbtn[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.langbtn:focus{outline:2px solid var(--focus);outline-offset:-4px}
+
+/* --- nav ------------------------------------------------------------------ */
+.nav{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:0 var(--s5);
+  width:100%;max-width:1040px;margin-left:auto;margin-right:auto;
+  margin-top:0;margin-bottom:0;
+  padding-left:var(--gut);padding-right:var(--gut)}
+.nav li{min-width:0}
+.nav a{display:flex;align-items:center;min-height:44px;padding:var(--s1) 0;
+  font-size:var(--t-cap);font-weight:700;letter-spacing:.02em;
+  color:var(--ink-2);text-decoration:none;
+  border-bottom:2px solid transparent;margin-bottom:-1px}
+.nav a:hover{color:var(--accent)}
+.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+
+/* --- headings ------------------------------------------------------------- */
+h1,h2,h3{font-family:var(--f-display);font-weight:700;text-wrap:balance}
+h1{font-size:var(--t-display);line-height:1.16;letter-spacing:-.021em;
+  margin:0 0 var(--s4);max-width:15em}
+h2{font-size:var(--t-h2);line-height:1.28;letter-spacing:-.012em;
+  margin:var(--s7) 0 var(--s3)}
+main > section > h2:first-child{margin-top:0}
+h3{font-size:var(--t-h3);line-height:1.42;letter-spacing:-.005em;
+  margin:var(--s5) 0 var(--s1)}
+p{margin:0 0 var(--s3);max-width:var(--measure)}
+a{color:var(--accent)}
+a:hover{color:var(--ink)}
+
+/* --- shared atoms --------------------------------------------------------- */
+.lk{font-family:var(--f-mono);font-size:var(--t-mono);color:var(--ink);
+  font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+/* A locked run stays locked when it IS the headline; locking is about the
+   content being identical in every language, not about wearing mono. */
+.acct h3 .lk,.play h2 .lk{font-family:var(--f-display);font-size:inherit;
+  letter-spacing:inherit}
+.gap{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
+  font-weight:700;letter-spacing:.1em;color:var(--gap-fg);
+  background:var(--gap-bg);border:1px dashed var(--gap-fg);border-radius:3px;
+  padding:2px 7px;vertical-align:baseline}
+.why{font-size:var(--t-cap);color:var(--ink-2);line-height:1.5}
+.src{display:block;font-family:var(--f-mono);font-size:var(--t-micro);
+  color:var(--ink-3);line-height:1.5;margin-top:var(--s1);
+  overflow-wrap:anywhere}
+.note{font-size:var(--t-cap);color:var(--ink-2);max-width:var(--measure)}
+.lede{font-size:var(--t-lede);line-height:1.58;color:var(--ink-2);
+  max-width:var(--measure)}
+.stamp{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--ink-3);
+  letter-spacing:.05em;margin:var(--s4) 0 0}
+code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
+  padding:1px 5px;border-radius:3px;overflow-wrap:anywhere}
+
+/* --- evidence chips (DESIGN.md 4) ----------------------------------------- */
+.ev{display:inline-flex;align-items:center;gap:6px;font-size:var(--t-micro);
+  letter-spacing:.07em;line-height:1.3;border:1px solid var(--rule);
+  border-radius:3px;padding:3px 8px;margin:2px 6px 2px 0;color:var(--ink-2);
+  background:var(--card)}
+.ev-mark{flex:0 0 auto;width:9px;height:9px;border:1.5px solid currentColor;
+  border-radius:1px}
+.ev-official{color:var(--ink);border-color:var(--ink-3)}
+.ev-official .ev-mark{background:currentColor}
+.ev-vendor .ev-mark{background:linear-gradient(90deg,currentColor 50%,
+  transparent 50%)}
+.ev-third .ev-mark{background:transparent}
+.ev-unverified{color:var(--ink-3)}
+.ev-unverified .ev-mark{border-style:dotted;background:transparent}
+.chip{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
+  letter-spacing:.06em;color:var(--ink-2);background:var(--sunk);
+  border-radius:3px;padding:3px 8px;margin:2px 6px 2px 0}
+
+/* --- verdict -------------------------------------------------------------- */
+.verdict{border-top:3px solid var(--accent);padding-top:var(--s5)}
+.verdict h1 em{font-style:normal;
+  box-shadow:inset 0 -.15em 0 var(--accent-bg)}
+.grounds{list-style:none;margin:var(--s5) 0 0;padding:0;
+  max-width:var(--measure)}
+.grounds li{padding:var(--s3) 0;border-top:1px solid var(--rule)}
+.grounds li:first-child{border-top:0;padding-top:0}
+
+/* --- the four numbers ----------------------------------------------------- */
+.figs{list-style:none;margin:var(--s5) 0 0;padding:0;display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  border-top:2px solid var(--rule-hard)}
+.fig{min-width:0;padding:var(--s4) var(--s3) var(--s5) 0;
+  border-bottom:1px solid var(--rule)}
+.fig .n{display:block;font-family:var(--f-display);font-size:var(--t-figure);
+  font-weight:700;line-height:1.05;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums}
+.fig.is-gap .n{font-family:var(--f-mono);font-size:var(--t-h3);line-height:1.4}
+.fig .k{display:block;font-size:var(--t-cap);font-weight:700;
+  margin-top:var(--s2)}
+
+/* --- actions -------------------------------------------------------------- */
+.acts{margin:var(--s4) 0 0;padding:0;list-style:none;counter-reset:act;
+  max-width:var(--measure)}
+.acts > li{counter-increment:act;position:relative;padding:var(--s4) 0 var(--s4)
+  var(--s6);border-top:1px solid var(--rule)}
+.acts > li::before{content:counter(act);position:absolute;left:0;top:var(--s4);
+  font-family:var(--f-mono);font-size:var(--t-cap);font-weight:700;
+  color:var(--accent);letter-spacing:.05em}
+.acts b{display:block;font-size:var(--t-h3);font-family:var(--f-display);
+  line-height:1.4;margin-bottom:var(--s1)}
+
+/* --- day filter (pure CSS, no JS) ----------------------------------------- */
+.dayin{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.dayset{margin:var(--s4) 0 0;display:flex;flex-wrap:wrap;gap:var(--s2)}
+.daylab{display:inline-flex;align-items:center;gap:var(--s2);min-height:44px;
+  padding:0 var(--s4);background:var(--card);border:1px solid var(--rule);
+  border-radius:4px;font-size:var(--t-cap);font-weight:700;color:var(--ink-2);
+  cursor:pointer}
+.daylab .lk{font-size:var(--t-cap);color:inherit}
+.dayin:focus + .daylab{outline:2px solid var(--focus);outline-offset:2px}
+.dayin:checked + .daylab{background:var(--ink);border-color:var(--ink);
+  color:var(--paper)}
+
+/* --- sessions ------------------------------------------------------------- */
+.ses{list-style:none;margin:var(--s5) 0 0;padding:0;display:grid;
+  gap:var(--s3);grid-template-columns:repeat(auto-fill,minmax(min(100%,264px),1fr))}
+.ses > li{min-width:0;background:var(--card);border:1px solid var(--rule);
+  border-radius:4px;padding:var(--s4)}
+.ses .when{margin:0;display:flex;flex-wrap:wrap;gap:var(--s2);
+  padding-bottom:var(--s2);border-bottom:1px solid var(--rule)}
+.ses h3{margin:var(--s3) 0 var(--s2);font-size:var(--t-h3)}
+.ses .where{margin:0 0 var(--s2);font-size:var(--t-cap);color:var(--ink-2)}
+.ses .tags{margin:var(--s2) 0 0}
+#day-d1:checked ~ .ses > li:not([data-daykey="d1"]),
+#day-d2:checked ~ .ses > li:not([data-daykey="d2"]),
+#day-d3:checked ~ .ses > li:not([data-daykey="d3"]),
+#day-d4:checked ~ .ses > li:not([data-daykey="d4"]),
+#day-d5:checked ~ .ses > li:not([data-daykey="d5"]),
+#day-d6:checked ~ .ses > li:not([data-daykey="d6"]),
+#day-d7:checked ~ .ses > li:not([data-daykey="d7"]),
+#day-d8:checked ~ .ses > li:not([data-daykey="d8"]){display:none}
+
+/* --- room ledger ---------------------------------------------------------- */
+.rooms{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;
+  gap:0;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr))}
+.rooms li{min-width:0;display:flex;align-items:baseline;gap:var(--s3);
+  padding:var(--s3) 0;border-bottom:1px solid var(--rule)}
+.rooms .rn{min-width:0;flex:1 1 auto}
+.rooms .rc{flex:0 0 auto;font-family:var(--f-mono);font-size:var(--t-cap);
+  color:var(--ink-2);font-variant-numeric:tabular-nums}
+
+/* --- caveat / gap panel --------------------------------------------------- */
+.caveat{background:var(--gap-bg);border:1px dashed var(--gap-fg);
+  border-radius:4px;padding:var(--s5)}
+.caveat.is-clear{background:var(--card);border-style:solid;border-color:var(--rule)}
+.caveat.is-clear li{border-top-color:var(--rule)}
+.caveat h2{margin-top:0}
+.caveat ul{margin:var(--s4) 0 0;padding:0;list-style:none;
+  max-width:var(--measure)}
+.caveat li{padding:var(--s3) 0;border-top:1px solid rgba(122,68,0,.22)}
+.caveat li:first-child{border-top:0;padding-top:0}
+.caveat .why{color:var(--gap-fg)}
+
+/* --- plays ---------------------------------------------------------------- */
+.play{border-top:2px solid var(--rule-hard);padding-top:var(--s4)}
+.play dl{margin:var(--s4) 0 0;display:grid;gap:0;
+  grid-template-columns:1fr}
+.play dt{font-size:var(--t-micro);letter-spacing:.09em;font-weight:700;
+  color:var(--ink-3);padding-top:var(--s4);border-top:1px solid var(--rule)}
+.play dt:first-of-type{border-top:0;padding-top:0}
+.play dd{margin:var(--s2) 0 var(--s4);max-width:var(--measure)}
+
+/* --- register table (C3: stacks below 720px) ------------------------------ */
+.regwrap{margin:var(--s4) 0 0}
+.reg{width:100%;border-collapse:collapse}
+.reg th,.reg td{text-align:left;vertical-align:top;font-size:var(--t-cap);
+  padding:var(--s3);border-bottom:1px solid var(--rule)}
+.reg thead th{font-size:var(--t-micro);letter-spacing:.09em;
+  border-bottom:2px solid var(--rule-hard);color:var(--ink-2)}
+.reg .lbl{display:block;font-size:var(--t-micro);letter-spacing:.09em;
+  color:var(--ink-3);margin-bottom:var(--s1)}
+.reg thead{display:none}
+.reg,.reg tbody,.reg tr,.reg td{display:block;width:100%}
+.reg tr{border:1px solid var(--rule);border-radius:4px;background:var(--card);
+  padding:var(--s3);margin-bottom:var(--s3)}
+.reg td{border-bottom:1px solid var(--rule);padding:var(--s2) 0}
+.reg td:last-child{border-bottom:0}
+
+/* --- account bands + cards ------------------------------------------------ */
+.band{border-top:2px solid var(--rule-hard);padding-top:var(--s4)}
+.band .bandhead{display:flex;flex-wrap:wrap;align-items:baseline;
+  gap:var(--s2) var(--s4)}
+.band h2{margin:0;flex:1 1 auto;min-width:0}
+.band .bandn{flex:0 0 auto;font-family:var(--f-mono);font-size:var(--t-cap);
+  color:var(--ink-2);font-variant-numeric:tabular-nums}
+.band .banddesc{margin:var(--s2) 0 0;font-size:var(--t-cap);color:var(--ink-2);
+  max-width:var(--measure)}
+.accts{list-style:none;margin:var(--s5) 0 0;padding:0;display:grid;
+  gap:var(--s3);grid-template-columns:repeat(auto-fill,minmax(min(100%,272px),1fr))}
+.acct{min-width:0;background:var(--card);border:1px solid var(--rule);
+  border-radius:4px;padding:var(--s4)}
+.acct.is-gap{border-style:dashed}
+.acct h3{margin:0 0 var(--s2);font-size:var(--t-h3)}
+.acct dl{margin:var(--s3) 0 0}
+.acct dt{font-size:var(--t-micro);letter-spacing:.09em;color:var(--ink-3);
+  margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--rule)}
+.acct dt:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.acct dd{margin:var(--s1) 0 0;font-size:var(--t-cap)}
+
+/* --- compare -------------------------------------------------------------- */
+.axes{display:grid;gap:var(--s5);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.axis{min-width:0;border-top:2px solid var(--rule-hard);padding-top:var(--s4)}
+.axis h3{margin:0}
+.axisfull{margin:var(--s2) 0 var(--s3);font-family:var(--f-mono);
+  font-size:var(--t-cap);color:var(--ink-2);overflow-wrap:anywhere}
+.axislist{list-style:none;margin:var(--s4) 0 0;padding:0}
+.axislist li{padding:var(--s3) 0;border-top:1px solid var(--rule);min-width:0}
+.axislist b{font-size:var(--t-body)}
+.traps{list-style:none;margin:var(--s5) 0 0;padding:0;display:grid;
+  gap:var(--s3);grid-template-columns:repeat(auto-fill,minmax(min(100%,288px),1fr))}
+.trap{min-width:0;background:var(--card);border:1px solid var(--rule);
+  border-radius:4px;padding:var(--s4)}
+.trap .ab{margin:var(--s2) 0 0;font-size:var(--t-cap)}
+.trap .neg{margin:var(--s3) 0 0;background:var(--sunk);border-radius:3px;
+  padding:var(--s2) var(--s3);font-family:var(--f-mono);
+  font-size:var(--t-micro);color:var(--ink-2);overflow-wrap:anywhere}
+
+/* --- glossary ------------------------------------------------------------- */
+.terms{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;
+  gap:0;grid-template-columns:repeat(auto-fill,minmax(min(100%,232px),1fr))}
+.term{min-width:0;padding:var(--s3) var(--s4) var(--s3) 0;
+  border-top:1px solid var(--rule)}
+.term b{display:block;font-family:var(--f-mono);font-size:var(--t-mono);
+  color:var(--ink)}
+.term .cn{display:block;font-size:var(--t-cap);margin-top:2px}
+.term .tail{display:block;font-size:var(--t-micro);color:var(--ink-3);
+  margin-top:var(--s1)}
+
+/* --- method + footer ------------------------------------------------------ */
+.method{border-top:1px solid var(--rule);padding-top:var(--s4)}
+.method summary{cursor:pointer;font-size:var(--t-cap);font-weight:700;
+  min-height:44px;display:flex;align-items:center}
+.method .body{font-size:var(--t-cap);color:var(--ink-2);
+  max-width:var(--measure)}
+.method .body ul{padding-left:var(--s5)}
+.method .body li{margin-bottom:var(--s2)}
+.xlink{display:flex;flex-wrap:wrap;gap:var(--s4);justify-content:space-between;
+  border-top:1px solid var(--rule);padding-top:var(--s4)}
+.xlink a{min-width:0;font-size:var(--t-cap);font-weight:700;
+  text-decoration:none;min-height:44px;display:flex;align-items:center}
+.foot{border-top:1px solid var(--rule);padding-top:var(--s5);
+  padding-bottom:var(--s8);font-size:var(--t-cap);color:var(--ink-2)}
+.foot a{overflow-wrap:anywhere}
+
+/* --- responsive (DESIGN.md 9) --------------------------------------------- */
+@media (min-width:520px){
+  .figs{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .fig + .fig{border-left:1px solid var(--rule);padding-left:var(--s4)}
+}
+@media (min-width:720px){
+  .reg thead{display:table-header-group}
+  .reg,.reg tbody{display:table}
+  .reg tbody{width:100%}
+  .reg tr{display:table-row;border:0;border-radius:0;background:none;
+    padding:0;margin:0}
+  .reg td{display:table-cell;border-bottom:1px solid var(--rule);
+    padding:var(--s3)}
+  .reg .lbl{display:none}
+  .play dl{grid-template-columns:minmax(0,10em) minmax(0,1fr);
+    column-gap:var(--s5)}
+  .play dt{padding-top:var(--s4);border-top:1px solid var(--rule)}
+  .play dd{margin:0;padding-top:var(--s4);border-top:1px solid var(--rule)}
+  .play dt:first-of-type,.play dd:first-of-type{border-top:0;padding-top:0}
+}
+@media (min-width:760px){
+  :root{--gut:24px}
+  .mast{padding-top:var(--s6)}
+  main{padding-top:var(--s6)}
+}
+@media (prefers-reduced-motion:no-preference){
+  .langbtn,.nav a,.daylab,a{transition:background-color 140ms
+    cubic-bezier(.2,.7,.2,1),border-color 140ms cubic-bezier(.2,.7,.2,1),
+    color 140ms cubic-bezier(.2,.7,.2,1)}
+}
+@media print{
+  .langsw,.nav,.xlink{display:none}
+  body{background:#FFFFFF}
+  [data-t="e"]{display:none}
+}
+</style>
+<script>
+(function(){
+  var KEY = 'evt.ray-summit-2026.lang', ROOTEL = document.documentElement, DEF = 'h';
+  var TAG = {h: 'zh-Hant', s: 'zh-Hans', e: 'en'};
+  var cur = DEF;
+  function paint(l){
+    ROOTEL.setAttribute('data-lang', l);
+    ROOTEL.setAttribute('lang', TAG[l] || TAG[DEF]);
+    var body = document.body;
+    if (body) {
+      var t = body.getAttribute(l === 'e' ? 'data-title-e' : 'data-title-h');
+      if (t) { document.title = t; }
+    }
+    var btns = document.querySelectorAll('[data-lang-btn]');
+    for (var i = 0; i < btns.length; i++) {
+      var on = btns[i].getAttribute('data-lang-btn') === l;
+      btns[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+  }
+  function stored(){
+    try {
+      var v = window.localStorage.getItem(KEY);
+      return (v === 'e' || v === 'h' || v === 's') ? v : DEF;
+    } catch (err) { return DEF; }
+  }
+  cur = stored();
+  paint(cur);
+  document.addEventListener('DOMContentLoaded', function(){ paint(cur); });
+  document.addEventListener('click', function(ev){
+    var n = ev.target;
+    while (n && n !== document) {
+      if (n.getAttribute && n.getAttribute('data-lang-btn')) { break; }
+      n = n.parentNode;
+    }
+    if (!n || n === document) { return; }
+    cur = n.getAttribute('data-lang-btn');
+    paint(cur);
+    try { window.localStorage.setItem(KEY, cur); } catch (err) {}
+  });
+})();
+</script>
+</head>
+<body data-role="agenda" data-title-h="議程 · Ray Summit 2026" data-title-e="Agenda · Ray Summit 2026">
+<header class="mast wrap">
+  <div class="id">
+    <p class="evt">Ray Summit 2026</p>
+    <p class="meta"><span class="lk">2026-08-24/2026-08-26</span> · San Francisco Marriott Marquis, San Francisco, CA</p>
+  </div>
+  <div class="langsw" role="group" aria-label="Language / 語言">
+    <button class="langbtn" type="button" data-lang-btn="e" aria-pressed="false">EN</button>
+    <button class="langbtn" type="button" data-lang-btn="h" aria-pressed="true">ZH</button>
+  </div>
+</header>
+<nav class="nav" data-block="nav" aria-label="Pages / 頁面">
+  <ul>
+    <li><a href="index.html"><span data-t="h">作戰台</span><span data-t="e">War Room</span></a></li>
+    <li><a href="agenda.html" aria-current="page"><span data-t="h">議程</span><span data-t="e">Agenda</span></a></li>
+    <li><a href="gtm.html"><span data-t="h">打法</span><span data-t="e">Plays</span></a></li>
+    <li><a href="accounts.html"><span data-t="h">帳戶板</span><span data-t="e">Accounts</span></a></li>
+    <li><a href="compare.html"><span data-t="h">對位</span><span data-t="e">Matchup</span></a></li>
+    <li><a href="glossary.html"><span data-t="h">詞彙</span><span data-t="e">Glossary</span></a></li>
+  </ul>
+</nav>
+<main class="wrap">
+<section data-block="day-filter" data-fresh="1">
+  <h2><span data-t="h">議程 —— 50 場</span><span data-t="e">Agenda — 50 sessions</span></h2>
+  <p class="note"><span data-t="h">按日期切換。日期切換是純 CSS，不靠指令碼，離線也能用。</span><span data-t="e">Filter by day. The day filter is pure CSS, depends on no script, and works offline.</span></p>
+  <div class="dayset">
+    <input class="dayin" type="radio" name="day" id="day-all" checked>
+    <label class="daylab" for="day-all"><span data-t="h">全部 50</span><span data-t="e">All 50</span></label>
+    <input class="dayin" type="radio" name="day" id="day-d1">
+    <label class="daylab" for="day-d1"><span class="lk">2026-08-24</span> <span data-t="h">8 場</span><span data-t="e">8 sessions</span></label>
+    <input class="dayin" type="radio" name="day" id="day-d2">
+    <label class="daylab" for="day-d2"><span class="lk">2026-08-25</span> <span data-t="h">42 場</span><span data-t="e">42 sessions</span></label>
+  </div>
+  <p><span class="gap">GAP</span> <span class="why"><span data-t="h">會期內的 2026-08-26 在目錄上一場都沒有 —— 是未公布，不是沒有場次</span><span data-t="e">the catalogue publishes no session at all on 2026-08-26 inside the event window — unpublished, not absent</span></span></p>
+  <ol class="ses">
+    <li data-daykey="d1" data-day="2026-08-24">
+      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">8:00 AM-9:00 AM</span></p>
+      <h3>Registration</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Golden Gate</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S001</span></p>
+      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
+    </li>
+    <li data-daykey="d1" data-day="2026-08-24">
+      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">9:00 AM-12:00 PM</span></p>
+      <h3>Foundation Model Distributed Training with Ray</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S002</span></p>
+      <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d1" data-day="2026-08-24">
+      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">9:00 AM-12:00 PM</span></p>
+      <h3>Multi-modal Data Processing Pipelines for AI Systems</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S003</span></p>
+      <p class="tags"><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d1" data-day="2026-08-24">
+      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">9:00 AM-12:00 PM</span></p>
+      <h3>Production-ready Distributed Inference with Ray Serve</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 3</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S004</span></p>
+      <p class="tags"><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d1" data-day="2026-08-24">
+      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">12:00 PM-1:00 PM</span></p>
+      <h3>Networking Lunch</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Atrium</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S005</span></p>
+      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
+    </li>
+    <li data-daykey="d1" data-day="2026-08-24">
+      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">1:00 PM-4:00 PM</span></p>
+      <h3>At Full Capacity: LLM Post-Training and High-Performance Serving</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 3</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S006</span></p>
+      <p class="tags"><span class="chip">Post Train/RL</span><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d1" data-day="2026-08-24">
+      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">1:00 PM-4:00 PM</span></p>
+      <h3>Real-Time Search &amp; Recommendation Systems for AI Commerce</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S007</span></p>
+      <p class="tags"><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d1" data-day="2026-08-24">
+      <p class="when"><span class="lk">2026-08-24</span> <span class="lk">1:00 PM-4:00 PM</span></p>
+      <h3>Scaling Physical AI &amp; Robotics Systems with Ray</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Training Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S008</span></p>
+      <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">8:00 AM-9:30 AM</span></p>
+      <h3>Registration</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Yerba Buena Foyer</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S009</span></p>
+      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">9:30 AM-11:30 AM</span></p>
+      <h3>Day 1 Keynote</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Keynote</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S010</span></p>
+      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">11:30 AM-1:00 PM</span></p>
+      <h3>Industry Leaders Roundtable - Physical AI</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Soma</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S011</span></p>
+      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">11:30 AM-1:00 PM</span></p>
+      <h3>Networking Lunch</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Expo Hall</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S012</span></p>
+      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">12:30 PM-12:45 PM</span></p>
+      <h3>From Benchmark #1 to Production: Inference Optimization for Frontier Open Models</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S013</span></p>
+      <p class="tags"><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">12:30 PM-1:00 PM</span></p>
+      <h3>Platform Orchestration: Anyscale + Ray on Kubernetes</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S014</span></p>
+      <p class="tags"><span class="chip">Train</span><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">12:30 PM-1:00 PM</span></p>
+      <h3>Ray Data: What's New — GPU Shuffle, Unity Catalog, DataSourceV2</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S015</span></p>
+      <p class="tags"><span class="chip">Train</span><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">12:30 PM-1:00 PM</span></p>
+      <h3>Ray Train on Anyscale: Observability and Reliability at Scale</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S016</span></p>
+      <p class="tags"><span class="chip">Train</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">12:30 PM-1:00 PM</span></p>
+      <h3>State of vLLM 2026</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S017</span></p>
+      <p class="tags"><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">12:30 PM-1:00 PM</span></p>
+      <h3>Trillion-Token Pretraining: Building a Tabular Foundation Model for Payments</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S018</span></p>
+      <p class="tags"><span class="chip">Train</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:30 PM</span></p>
+      <h3>From Self-Managed Ray to Anyscale Services: Migrating Production ML Serving at Scale</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S019</span></p>
+      <p class="tags"><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span></p>
+      <h3>Koba: Disaggregated Data Loading for Multimodal Training at Luma AI</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S020</span></p>
+      <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span></p>
+      <h3>Maximizing GB200 and GB300 Performance with Domain-Aware Scheduling in Ray</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S021</span></p>
+      <p class="tags"><span class="chip">Post Train/RL</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span></p>
+      <h3>NVIDIA and vLLM Full-Stack Collaboration for DeepSeek and MiniMax Performance</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S022</span></p>
+      <p class="tags"><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span></p>
+      <h3>Right Resource, Right Job: Robinhood's Journey to Heterogeneous Ray Clusters on Amazon EKS</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S023</span></p>
+      <p class="tags"><span class="chip">Train</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">1:30 PM-1:45 PM</span></p>
+      <h3>Vertical Mobility: Building an AI Inference Platform That Scales from MVP to Trillion-Parameter Workloads</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S024</span></p>
+      <p class="tags"><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span></p>
+      <h3>Evolving and Scaling Ray for the Next Generation of AI Workloads</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S025</span></p>
+      <p class="tags"><span class="chip">Train</span><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:15 PM</span></p>
+      <h3>Full-stack Observability in Ray: Bringing Infrastructure Signals into Ray Dashboard</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S026</span></p>
+      <p class="tags"><span class="chip">Train</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span></p>
+      <h3>PyTorch &lt;3 vLLM</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S027</span></p>
+      <p class="tags"><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span></p>
+      <h3>Ray and MAI-Thinking-1</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S028</span></p>
+      <p class="tags"><span class="chip">Post Train/RL</span><span class="chip">Train</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span></p>
+      <h3>Scaling LLM Workloads on TPUs with Ray: From Pre-Training to Inference</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S029</span></p>
+      <p class="tags"><span class="chip">Train</span><span class="chip">Post Train/RL</span><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span></p>
+      <h3>SkyRL: Democratizing RL Training for Researchers</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S030</span></p>
+      <p class="tags"><span class="chip">Post Train/RL</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:15 PM</span></p>
+      <h3>Accelerating Large Language Models: vLLM on Google TPUs</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S031</span></p>
+      <p class="tags"><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:00 PM</span></p>
+      <h3>Closing the Train-Inference Divide for Asynchronous RL at Scale</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S032</span></p>
+      <p class="tags"><span class="chip">Post Train/RL</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:15 PM</span></p>
+      <h3>Performant Training for All Workstreams</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S033</span></p>
+      <p class="tags"><span class="chip">Train</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:15 PM</span></p>
+      <h3>Petabyte-Scale Video Curation on CoreWeave: Production AI Pipelines with Ray Data</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S034</span></p>
+      <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:45 PM</span></p>
+      <h3>Physical AI at Aerospace Scale: Building Distributed Simulation-to-Autonomy Pipelines</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S035</span></p>
+      <p class="tags"><span class="chip">Train</span><span class="chip">Post Train/RL</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:15 PM</span></p>
+      <h3>Ray History Server: Observability for Ephemeral K8s Clusters</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S036</span></p>
+      <p class="tags"><span class="chip">Train</span><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:15 PM-3:30 PM</span></p>
+      <h3>How the Data Center Shapes the workload</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S037</span></p>
+      <p class="tags"><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤</span><span data-t="e">the catalogue gives this session no tag</span></span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-4:00 PM</span></p>
+      <h3>Beyond LLMs: Scaling BMW's AI Gateway from Chat to Video with Ray and vLLM</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S038</span></p>
+      <p class="tags"><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-4:00 PM</span></p>
+      <h3>From OOMs to 2x Throughput: Production Lessons Scaling Multimodal Data Curation on Ray</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S039</span></p>
+      <p class="tags"><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-4:00 PM</span></p>
+      <h3>How a Transformers Model Loads in vLLM</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S040</span></p>
+      <p class="tags"><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-4:00 PM</span></p>
+      <h3>Inside Lila's AI Research Platform</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S041</span></p>
+      <p class="tags"><span class="chip">Post Train/RL</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-3:45 PM</span></p>
+      <h3>Serving Frontier MoE Models at the Lowest Token Cost</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S042</span></p>
+      <p class="tags"><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-4:00 PM</span></p>
+      <h3>Towards Clinically Grounded LLMs: Fine-Tuning on Real Therapy Dynamics</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S043</span></p>
+      <p class="tags"><span class="chip">Post Train/RL</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">4:15 PM-4:30 PM</span></p>
+      <h3>Anyscale on Azure: Build, Train, and Serve AI in Your Own Tenant</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Lightning Theater</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S044</span></p>
+      <p class="tags"><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">4:15 PM-4:45 PM</span></p>
+      <h3>Diffusion Large Language Models: Redefining the Token Efficiency Frontier</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 4</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S045</span></p>
+      <p class="tags"><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">4:15 PM-5:15 PM</span></p>
+      <h3>Lessons from Unifying Simulation and RL Training for Autonomous Trucking</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S046</span></p>
+      <p class="tags"><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">4:15 PM-4:45 PM</span></p>
+      <h3>Production-Grade Distributed Inference with llm-d</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 3 (vLLM)</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S047</span></p>
+      <p class="tags"><span class="chip">Inference</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">4:15 PM-4:45 PM</span></p>
+      <h3>Scaling PyTorch Training with Ray Data on Uber's Michelangelo AI Platform</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 5</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S048</span></p>
+      <p class="tags"><span class="chip">Train</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">4:15 PM-4:45 PM</span></p>
+      <h3>The Synthetic Data Flywheel: Ray Data, vLLM, and Iterative DPO at Pinterest</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 2</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S049</span></p>
+      <p class="tags"><span class="chip">Post Train/RL</span><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+    </li>
+    <li data-daykey="d2" data-day="2026-08-25">
+      <p class="when"><span class="lk">2026-08-25</span> <span class="lk">5:00 PM-5:30 PM</span></p>
+      <h3>Batch Inference and LLM Evaluation at Scale</h3>
+      <p class="where"><span data-t="h">會議室</span><span data-t="e">Room</span> <span class="lk">Breakout 1</span> · <span data-t="h">場次</span><span data-t="e">Session</span> <span class="lk">S050</span></p>
+      <p class="tags"><span class="chip">Inference</span><span class="chip">Multimodal Data</span></p>
+    </li>
+  </ol>
+  <p class="stamp" data-fresh="1"><span data-t="h">狀態截至 2026-08-17</span><span data-t="e">Status as of 2026-08-17</span></p>
+</section>
+<section data-block="room">
+  <h2><span data-t="h">會議室 —— 15 間</span><span data-t="e">Rooms — 15 of them</span></h2>
+  <ul class="rooms">
+    <li><span class="rn"><span class="lk">Lightning Theater</span></span><span class="rc"><span data-t="h">8 場</span><span data-t="e">8 sessions</span></span></li>
+    <li><span class="rn"><span class="lk">Breakout 1</span></span><span class="rc"><span data-t="h">6 場</span><span data-t="e">6 sessions</span></span></li>
+    <li><span class="rn"><span class="lk">Breakout 2</span></span><span class="rc"><span data-t="h">6 場</span><span data-t="e">6 sessions</span></span></li>
+    <li><span class="rn"><span class="lk">Breakout 3 (vLLM)</span></span><span class="rc"><span data-t="h">6 場</span><span data-t="e">6 sessions</span></span></li>
+    <li><span class="rn"><span class="lk">Breakout 4</span></span><span class="rc"><span data-t="h">6 場</span><span data-t="e">6 sessions</span></span></li>
+    <li><span class="rn"><span class="lk">Breakout 5</span></span><span class="rc"><span data-t="h">6 場</span><span data-t="e">6 sessions</span></span></li>
+    <li><span class="rn"><span class="lk">Training Breakout 1</span></span><span class="rc"><span data-t="h">2 場</span><span data-t="e">2 sessions</span></span></li>
+    <li><span class="rn"><span class="lk">Training Breakout 2</span></span><span class="rc"><span data-t="h">2 場</span><span data-t="e">2 sessions</span></span></li>
+    <li><span class="rn"><span class="lk">Training Breakout 3</span></span><span class="rc"><span data-t="h">2 場</span><span data-t="e">2 sessions</span></span></li>
+    <li><span class="rn"><span class="lk">Atrium</span></span><span class="rc"><span data-t="h">1 場</span><span data-t="e">1 session</span></span></li>
+    <li><span class="rn"><span class="lk">Expo Hall</span></span><span class="rc"><span data-t="h">1 場</span><span data-t="e">1 session</span></span></li>
+    <li><span class="rn"><span class="lk">Golden Gate</span></span><span class="rc"><span data-t="h">1 場</span><span data-t="e">1 session</span></span></li>
+    <li><span class="rn"><span class="lk">Keynote</span></span><span class="rc"><span data-t="h">1 場</span><span data-t="e">1 session</span></span></li>
+    <li><span class="rn"><span class="lk">Soma</span></span><span class="rc"><span data-t="h">1 場</span><span data-t="e">1 session</span></span></li>
+    <li><span class="rn"><span class="lk">Yerba Buena Foyer</span></span><span class="rc"><span data-t="h">1 場</span><span data-t="e">1 session</span></span></li>
+  </ul>
+  <p class="note"><span data-t="h">會議室名稱、時間、日期一律維持目錄原文，兩個語言版本逐字元相同。</span><span data-t="e">Room names, times and dates stay exactly as the catalogue prints them, byte-identical in both languages.</span></p>
+</section>
+<section class="caveat" data-block="seats-caveat" data-fresh="1">
+  <h2><span data-t="h">兩件事目錄沒有給</span><span data-t="e">Two things the catalogue does not give</span></h2>
+  <ul>
+    <li><span data-t="h">座位數：</span><span data-t="e">Seat counts: </span> <span class="gap">GAP</span> <span class="why"><span data-t="h">官方目錄沒有揭露場次容量</span><span data-t="e">catalogue does not expose capacity</span></span></li>
+    <li><span data-t="h">所以「會不會滿」這件事現在無法回答。現場以活動 App 為準，別在客戶面前用猜的。</span><span data-t="e">So "will it fill up" cannot be answered today. Defer to the event app on site; do not guess in front of a customer.</span></li>
+    <li><span data-t="h">講者對應：</span><span data-t="e">Speaker linkage: </span> <span class="gap">GAP</span> <span class="why"><span data-t="h">目錄的場次卡片沒有掛任何講者</span><span data-t="e">the session catalogue exposes no speaker on any card</span></span></li>
+    <li><span data-t="h">名單上的 18 位講者來自官方活動頁，不是場次卡片 —— 誰講哪一場尚未證實。</span><span data-t="e">The 18 speakers we hold come from the official event page, not from the session cards, so who speaks where is still unverified.</span></li>
+  </ul>
+  <p class="stamp" data-fresh="1"><span data-t="h">狀態截至 2026-08-17</span><span data-t="e">Status as of 2026-08-17</span></p>
+</section>
+<nav class="xlink" aria-label="Previous and next / 前後頁">
+  <a class="prev" href="index.html"><span data-t="h">上一頁</span><span data-t="e">Previous</span> <span data-t="h">作戰台</span><span data-t="e">War Room</span></a>
+  <a class="next" href="gtm.html"><span data-t="h">下一頁</span><span data-t="e">Next</span> <span data-t="h">打法</span><span data-t="e">Plays</span></a>
+</nav>
+</main>
+<footer class="foot wrap">
+  <p><span data-t="h">官方目錄</span><span data-t="e">Official catalogue</span>： <a href="https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue">https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue</a></p>
+  <p><span data-t="h">這一頁的每個數字都是建置時從 JSON 算出來的。算不出來的欄位印 GAP 和原因，不印零。</span><span data-t="e">Every number on this page is computed from JSON at build time. A field that cannot be computed prints GAP and the reason, never a zero.</span></p>
+  <p class="stamp" data-fresh="1"><span data-t="h">狀態截至 2026-08-17</span><span data-t="e">Status as of 2026-08-17</span></p>
+</footer>
+</body>
+</html>

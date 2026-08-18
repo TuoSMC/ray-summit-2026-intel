@@ -1,0 +1,812 @@
+[
+  {
+    "id": "S001",
+    "day": "2026-08-24",
+    "start_end": "8:00 AM-9:00 AM",
+    "title": "Registration",
+    "room": "Golden Gate",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S002",
+    "day": "2026-08-24",
+    "start_end": "9:00 AM-12:00 PM",
+    "title": "Foundation Model Distributed Training with Ray",
+    "room": "Training Breakout 2",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S003",
+    "day": "2026-08-24",
+    "start_end": "9:00 AM-12:00 PM",
+    "title": "Multi-modal Data Processing Pipelines for AI Systems",
+    "room": "Training Breakout 1",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S004",
+    "day": "2026-08-24",
+    "start_end": "9:00 AM-12:00 PM",
+    "title": "Production-ready Distributed Inference with Ray Serve",
+    "room": "Training Breakout 3",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S005",
+    "day": "2026-08-24",
+    "start_end": "12:00 PM-1:00 PM",
+    "title": "Networking Lunch",
+    "room": "Atrium",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S006",
+    "day": "2026-08-24",
+    "start_end": "1:00 PM-4:00 PM",
+    "title": "At Full Capacity: LLM Post-Training and High-Performance Serving",
+    "room": "Training Breakout 3",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Post Train/RL",
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S007",
+    "day": "2026-08-24",
+    "start_end": "1:00 PM-4:00 PM",
+    "title": "Real-Time Search & Recommendation Systems for AI Commerce",
+    "room": "Training Breakout 2",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S008",
+    "day": "2026-08-24",
+    "start_end": "1:00 PM-4:00 PM",
+    "title": "Scaling Physical AI & Robotics Systems with Ray",
+    "room": "Training Breakout 1",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S009",
+    "day": "2026-08-25",
+    "start_end": "8:00 AM-9:30 AM",
+    "title": "Registration",
+    "room": "Yerba Buena Foyer",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S010",
+    "day": "2026-08-25",
+    "start_end": "9:30 AM-11:30 AM",
+    "title": "Day 1 Keynote",
+    "room": "Keynote",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S011",
+    "day": "2026-08-25",
+    "start_end": "11:30 AM-1:00 PM",
+    "title": "Industry Leaders Roundtable - Physical AI",
+    "room": "Soma",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S012",
+    "day": "2026-08-25",
+    "start_end": "11:30 AM-1:00 PM",
+    "title": "Networking Lunch",
+    "room": "Expo Hall",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S013",
+    "day": "2026-08-25",
+    "start_end": "12:30 PM-12:45 PM",
+    "title": "From Benchmark #1 to Production: Inference Optimization for Frontier Open Models",
+    "room": "Lightning Theater",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S014",
+    "day": "2026-08-25",
+    "start_end": "12:30 PM-1:00 PM",
+    "title": "Platform Orchestration: Anyscale + Ray on Kubernetes",
+    "room": "Breakout 2",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train",
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S015",
+    "day": "2026-08-25",
+    "start_end": "12:30 PM-1:00 PM",
+    "title": "Ray Data: What's New — GPU Shuffle, Unity Catalog, DataSourceV2",
+    "room": "Breakout 4",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train",
+      "Inference",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S016",
+    "day": "2026-08-25",
+    "start_end": "12:30 PM-1:00 PM",
+    "title": "Ray Train on Anyscale: Observability and Reliability at Scale",
+    "room": "Breakout 1",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S017",
+    "day": "2026-08-25",
+    "start_end": "12:30 PM-1:00 PM",
+    "title": "State of vLLM 2026",
+    "room": "Breakout 3 (vLLM)",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S018",
+    "day": "2026-08-25",
+    "start_end": "12:30 PM-1:00 PM",
+    "title": "Trillion-Token Pretraining: Building a Tabular Foundation Model for Payments",
+    "room": "Breakout 5",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S019",
+    "day": "2026-08-25",
+    "start_end": "1:15 PM-1:30 PM",
+    "title": "From Self-Managed Ray to Anyscale Services: Migrating Production ML Serving at Scale",
+    "room": "Lightning Theater",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S020",
+    "day": "2026-08-25",
+    "start_end": "1:15 PM-1:45 PM",
+    "title": "Koba: Disaggregated Data Loading for Multimodal Training at Luma AI",
+    "room": "Breakout 4",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S021",
+    "day": "2026-08-25",
+    "start_end": "1:15 PM-1:45 PM",
+    "title": "Maximizing GB200 and GB300 Performance with Domain-Aware Scheduling in Ray",
+    "room": "Breakout 2",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Post Train/RL"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S022",
+    "day": "2026-08-25",
+    "start_end": "1:15 PM-1:45 PM",
+    "title": "NVIDIA and vLLM Full-Stack Collaboration for DeepSeek and MiniMax Performance",
+    "room": "Breakout 3 (vLLM)",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S023",
+    "day": "2026-08-25",
+    "start_end": "1:15 PM-1:45 PM",
+    "title": "Right Resource, Right Job: Robinhood's Journey to Heterogeneous Ray Clusters on Amazon EKS",
+    "room": "Breakout 5",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S024",
+    "day": "2026-08-25",
+    "start_end": "1:30 PM-1:45 PM",
+    "title": "Vertical Mobility: Building an AI Inference Platform That Scales from MVP to Trillion-Parameter Workloads",
+    "room": "Lightning Theater",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S025",
+    "day": "2026-08-25",
+    "start_end": "2:00 PM-2:30 PM",
+    "title": "Evolving and Scaling Ray for the Next Generation of AI Workloads",
+    "room": "Breakout 2",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train",
+      "Inference",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S026",
+    "day": "2026-08-25",
+    "start_end": "2:00 PM-2:15 PM",
+    "title": "Full-stack Observability in Ray: Bringing Infrastructure Signals into Ray Dashboard",
+    "room": "Lightning Theater",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S027",
+    "day": "2026-08-25",
+    "start_end": "2:00 PM-2:30 PM",
+    "title": "PyTorch <3 vLLM",
+    "room": "Breakout 3 (vLLM)",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S028",
+    "day": "2026-08-25",
+    "start_end": "2:00 PM-2:30 PM",
+    "title": "Ray and MAI-Thinking-1",
+    "room": "Breakout 1",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Post Train/RL",
+      "Train"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S029",
+    "day": "2026-08-25",
+    "start_end": "2:00 PM-2:30 PM",
+    "title": "Scaling LLM Workloads on TPUs with Ray: From Pre-Training to Inference",
+    "room": "Breakout 5",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train",
+      "Post Train/RL",
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S030",
+    "day": "2026-08-25",
+    "start_end": "2:00 PM-2:30 PM",
+    "title": "SkyRL: Democratizing RL Training for Researchers",
+    "room": "Breakout 4",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Post Train/RL"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S031",
+    "day": "2026-08-25",
+    "start_end": "2:45 PM-3:15 PM",
+    "title": "Accelerating Large Language Models: vLLM on Google TPUs",
+    "room": "Breakout 3 (vLLM)",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S032",
+    "day": "2026-08-25",
+    "start_end": "2:45 PM-3:00 PM",
+    "title": "Closing the Train-Inference Divide for Asynchronous RL at Scale",
+    "room": "Lightning Theater",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Post Train/RL"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S033",
+    "day": "2026-08-25",
+    "start_end": "2:45 PM-3:15 PM",
+    "title": "Performant Training for All Workstreams",
+    "room": "Breakout 5",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S034",
+    "day": "2026-08-25",
+    "start_end": "2:45 PM-3:15 PM",
+    "title": "Petabyte-Scale Video Curation on CoreWeave: Production AI Pipelines with Ray Data",
+    "room": "Breakout 4",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S035",
+    "day": "2026-08-25",
+    "start_end": "2:45 PM-3:45 PM",
+    "title": "Physical AI at Aerospace Scale: Building Distributed Simulation-to-Autonomy Pipelines",
+    "room": "Breakout 1",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train",
+      "Post Train/RL",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S036",
+    "day": "2026-08-25",
+    "start_end": "2:45 PM-3:15 PM",
+    "title": "Ray History Server: Observability for Ephemeral K8s Clusters",
+    "room": "Breakout 2",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train",
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S037",
+    "day": "2026-08-25",
+    "start_end": "3:15 PM-3:30 PM",
+    "title": "How the Data Center Shapes the workload",
+    "room": "Lightning Theater",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S038",
+    "day": "2026-08-25",
+    "start_end": "3:30 PM-4:00 PM",
+    "title": "Beyond LLMs: Scaling BMW's AI Gateway from Chat to Video with Ray and vLLM",
+    "room": "Breakout 1",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S039",
+    "day": "2026-08-25",
+    "start_end": "3:30 PM-4:00 PM",
+    "title": "From OOMs to 2x Throughput: Production Lessons Scaling Multimodal Data Curation on Ray",
+    "room": "Breakout 2",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S040",
+    "day": "2026-08-25",
+    "start_end": "3:30 PM-4:00 PM",
+    "title": "How a Transformers Model Loads in vLLM",
+    "room": "Breakout 3 (vLLM)",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S041",
+    "day": "2026-08-25",
+    "start_end": "3:30 PM-4:00 PM",
+    "title": "Inside Lila's AI Research Platform",
+    "room": "Breakout 4",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Post Train/RL",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S042",
+    "day": "2026-08-25",
+    "start_end": "3:30 PM-3:45 PM",
+    "title": "Serving Frontier MoE Models at the Lowest Token Cost",
+    "room": "Lightning Theater",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S043",
+    "day": "2026-08-25",
+    "start_end": "3:30 PM-4:00 PM",
+    "title": "Towards Clinically Grounded LLMs: Fine-Tuning on Real Therapy Dynamics",
+    "room": "Breakout 5",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Post Train/RL"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S044",
+    "day": "2026-08-25",
+    "start_end": "4:15 PM-4:30 PM",
+    "title": "Anyscale on Azure: Build, Train, and Serve AI in Your Own Tenant",
+    "room": "Lightning Theater",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S045",
+    "day": "2026-08-25",
+    "start_end": "4:15 PM-4:45 PM",
+    "title": "Diffusion Large Language Models: Redefining the Token Efficiency Frontier",
+    "room": "Breakout 4",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S046",
+    "day": "2026-08-25",
+    "start_end": "4:15 PM-5:15 PM",
+    "title": "Lessons from Unifying Simulation and RL Training for Autonomous Trucking",
+    "room": "Breakout 1",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S047",
+    "day": "2026-08-25",
+    "start_end": "4:15 PM-4:45 PM",
+    "title": "Production-Grade Distributed Inference with llm-d",
+    "room": "Breakout 3 (vLLM)",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S048",
+    "day": "2026-08-25",
+    "start_end": "4:15 PM-4:45 PM",
+    "title": "Scaling PyTorch Training with Ray Data on Uber's Michelangelo AI Platform",
+    "room": "Breakout 5",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Train"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S049",
+    "day": "2026-08-25",
+    "start_end": "4:15 PM-4:45 PM",
+    "title": "The Synthetic Data Flywheel: Ray Data, vLLM, and Iterative DPO at Pinterest",
+    "room": "Breakout 2",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Post Train/RL",
+      "Inference",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  },
+  {
+    "id": "S050",
+    "day": "2026-08-25",
+    "start_end": "5:00 PM-5:30 PM",
+    "title": "Batch Inference and LLM Evaluation at Scale",
+    "room": "Breakout 1",
+    "seats": null,
+    "seats_note": "GAP — catalogue does not expose capacity",
+    "tags": [
+      "Inference",
+      "Multimodal Data"
+    ],
+    "speaker_ids": [],
+    "speakers_note": "GAP — the session catalogue exposes no speaker on any card",
+    "source": "https://register.linuxfoundation.org/event/ray-summit-2026/session-catalogue",
+    "asOf": "2026-08-17"
+  }
+]
