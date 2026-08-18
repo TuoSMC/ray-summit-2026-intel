@@ -813,6 +813,16 @@
       "at": "2026-08-18",
       "what": "The Nscale/Anyscale acquisition was published as unconfirmed by both parties. Both have published it: a definitive agreement announced 2026-07-30, signed and not yet closed, expected to close H2 2026 subject to conditions and regulatory approval. The page states the correction rather than swapping the claim silently.",
       "source": "https://www.nscale.com/press-releases/nscale-acquires-anyscale"
+    },
+    {
+      "at": "2026-08-18",
+      "what": "The refresh-clock thesis said an A100 or H100 still in service meant a replacement conversation inside 12-24 months. NVIDIA CFO Kress (2026-05-20) reports H100 rental +20% YTD and A100 +15%; Huang puts A100 economic life toward a decade; CoreWeave has signed an A100 contract into 2029. The old batch still earns, so the qualifying question changed from \"when do they replace\" to \"does the old batch still earn\" — and a yes means their next expansion adds machines rather than swapping them.",
+      "source": "https://s201.q4cdn.com/141608511/files/doc_financials/2027/q1/NVDA-Q1-2027-Earnings-Call-20-May-2026-5_00-PM-ET.pdf"
+    },
+    {
+      "at": "2026-08-18",
+      "what": "The rate card said price movement was unprovable because no vendor pricing page carries an effective date. That was true of the vendor pages but missed NVIDIA's earnings calls, which put rental movement on the record: H100 +20% YTD, A100 +15%. Rental is rising, not falling. The per-vendor cut question remains GAP.",
+      "source": "https://s201.q4cdn.com/141608511/files/doc_financials/2027/q1/NVDA-Q1-2027-Earnings-Call-20-May-2026-5_00-PM-ET.pdf"
     }
   ],
   "termbase": "data/termbase.json",
