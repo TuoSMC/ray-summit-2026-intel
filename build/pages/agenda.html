@@ -15,10 +15,10 @@
 .reg.ratecard td,.reg.crossover td{vertical-align:top}
 
 :root{
-  --paper:#FAF8F3; --card:#FFFFFF; --sunk:#F2EEE4;
-  --ink:#14161A; --ink-2:#3D434E; --ink-3:#5E6675;
-  --rule:#E5E0D5; --rule-hard:#14161A;
-  --accent:#123A8C; --accent-bg:#E9EEFB;
+  --paper:#FCFBF8; --card:#FFFFFF; --sunk:#F4F2EC;
+  --ink:#12141A; --ink-2:#414855; --ink-3:#6B7280;
+  --rule:#E4E1D9; --rule-hard:#12141A;
+  --accent:#0F3573; --accent-bg:#EBF0FA;
   --gap-fg:#7A4400; --gap-bg:#FBEEDA;
   --stop:#8C1D18; --focus:#123A8C;
 
@@ -139,13 +139,13 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
   padding:1px 5px;border-radius:3px;overflow-wrap:anywhere}
 
 /* --- evidence chips (DESIGN.md 4) ----------------------------------------- */
-.ev{display:inline-flex;align-items:center;gap:6px;font-size:var(--t-micro);
-  letter-spacing:.07em;line-height:1.3;border:1px solid var(--rule);
-  border-radius:3px;padding:3px 8px;margin:2px 6px 2px 0;color:var(--ink-2);
-  background:var(--card)}
+.ev{display:inline-flex;align-items:center;gap:5px;font-size:var(--t-micro);
+  letter-spacing:.06em;line-height:1.3;border:0;
+  padding:0;margin:0 var(--s3) 0 var(--s1);color:var(--ink-3);
+  background:none;white-space:nowrap;vertical-align:baseline}
 .ev-mark{flex:0 0 auto;width:9px;height:9px;border:1.5px solid currentColor;
   border-radius:1px}
-.ev-official{color:var(--ink);border-color:var(--ink-3)}
+.ev-official{color:var(--ink-2)}
 .ev-official .ev-mark{background:currentColor}
 .ev-vendor .ev-mark{background:linear-gradient(90deg,currentColor 50%,
   transparent 50%)}
@@ -157,8 +157,8 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
    ground, the status wears sunk ground and no mark. */
 :root[data-lang="e"] .ev{text-transform:uppercase}
 .chip{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
-  letter-spacing:.06em;color:var(--ink-2);background:var(--sunk);
-  border-radius:3px;padding:3px 8px;margin:2px 6px 2px 0}
+  letter-spacing:.05em;color:var(--ink-2);background:var(--sunk);
+  border-radius:2px;padding:2px 7px;margin:2px 5px 2px 0}
 
 /* --- verdict -------------------------------------------------------------- */
 .verdict{border-top:3px solid var(--accent);padding-top:var(--s5)}
@@ -454,8 +454,8 @@ details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
    knows what the page holds and can jump at the one section they need. It is
    a list of QUESTIONS, not a list of nouns: "what changed since last year"
    tells you whether to open it; "Changes" does not. */
-.spine{margin:0 0 var(--s7);border-top:2px solid var(--rule-hard);
-  border-bottom:1px solid var(--rule);padding:var(--s4) 0 var(--s2)}
+.spine{margin:0 0 var(--s8);border-top:2px solid var(--rule-hard);
+  border-bottom:1px solid var(--rule);padding:var(--s4) 0 0}
 .spine-h{font-size:var(--t-cap);color:var(--ink-3);margin:0 0 var(--s3);
   max-width:var(--measure)}
 .spine-l{list-style:none;margin:0;padding:0;display:grid;gap:1px;
@@ -467,8 +467,8 @@ details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
   text-decoration:none;color:var(--ink)}
 .spine-l a:hover{background:var(--accent-bg)}
 .spine-l a:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
-.spine-n{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--ink-3);
-  font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.spine-n{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--accent);
+  font-variant-numeric:tabular-nums;letter-spacing:.06em;font-weight:700}
 .spine-t{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;
   line-height:1.3}
 .spine-l a:hover .spine-t{color:var(--accent)}
@@ -489,28 +489,31 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
    they can send to someone else. The heading is the scanning surface: on a
    show floor a reader reads headings and stops at one. */
 .itms{margin:var(--s4) 0 0}
-.itm{margin:0 0 var(--s6);padding-left:var(--s4);
-  border-left:2px solid var(--rule)}
-.itm:target{border-left-color:var(--accent);background:var(--accent-bg)}
-.itm-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 var(--s2);
-  margin:0 0 var(--s1);font-size:var(--t-h3);line-height:1.36}
+.itm{margin:0 0 var(--s7);padding-left:var(--s5);position:relative}
+.itm::before{content:"";position:absolute;left:0;top:.42em;bottom:.2em;
+  width:2px;background:var(--rule)}
+.itm:target::before{background:var(--accent);width:3px}
+.itm-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s1) var(--s3);
+  margin:0 0 var(--s2);font-size:var(--t-h3);line-height:1.34}
 .itm-n{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--ink-3);
-  font-variant-numeric:tabular-nums}
+  font-variant-numeric:tabular-nums;align-self:baseline}
 .itm-l{font-family:var(--f-display);font-weight:700;font-size:var(--t-h3);
-  color:var(--ink);letter-spacing:-.005em;
-  box-shadow:inset 0 -.42em 0 var(--accent-bg)}
+  color:var(--ink);letter-spacing:-.008em}
 .itm-l .lk,.itm-l a{font-family:var(--f-display);font-size:inherit;
   letter-spacing:inherit}
-.itm-tag{font-size:var(--t-micro);text-transform:uppercase;letter-spacing:.09em;
-  color:var(--ink-2);border:1px solid var(--rule);border-radius:2px;
-  padding:1px 6px;white-space:normal}
+.itm-tag{font-size:var(--t-micro);letter-spacing:.06em;color:var(--ink-3);
+  white-space:normal;font-family:var(--f-mono)}
+.itm-tag::before{content:"— ";color:var(--rule)}
+:root[data-lang="e"] .itm-tag{text-transform:uppercase}
 .itm-a{margin-left:auto;font-size:var(--t-cap);color:var(--ink-3);
   text-decoration:none;min-width:44px;min-height:44px;
   display:inline-flex;align-items:center;justify-content:flex-end;opacity:0}
 .itm-h:hover .itm-a,.itm-a:focus-visible{opacity:1;color:var(--accent)}
 .itm-a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.itm-w{font-size:var(--t-cap);color:var(--ink-2);line-height:1.5;
-  margin:0 0 var(--s3);max-width:var(--measure)}
+.itm-w{font-size:var(--t-cap);color:var(--ink-2);line-height:1.55;
+  margin:0 0 var(--s4);max-width:var(--measure)}
+.itm-b{color:var(--ink)}
+.itm-b p{margin-bottom:var(--s3)}
 .itm-b > :first-child{margin-top:0}
 .itm-b details.dr{margin-bottom:var(--s2)}
 
@@ -684,7 +687,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">15</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤，主題只能從標題判斷</span><span data-t="e">the catalogue gives this session no track tag, so the subject has to be read off the title</span></span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s011">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span class="lk">#2</span><a class="xr xr-ses" href="agenda.html#ses-s011"><span class="lk">Industry Leaders Roundtable - Physical AI</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">11:30 AM-1:00 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Soma</span></span><a class="itm-a" href="#i-queue-s011" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -694,7 +697,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">90</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">目錄沒有給這一場標籤，主題只能從標題判斷</span><span data-t="e">the catalogue gives this session no track tag, so the subject has to be read off the title</span></span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s021">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">3</span><span class="itm-l"><span class="lk">#3</span><a class="xr xr-ses" href="agenda.html#ses-s021"><span class="lk">Maximizing GB200 and GB300 Performance with Domain-Aware Scheduling in Ray</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 2</span></span><a class="itm-a" href="#i-queue-s021" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -704,7 +707,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">30</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="chip">Post Train/RL</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s023">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">4</span><span class="itm-l"><span class="lk">#4</span><a class="xr xr-ses" href="agenda.html#ses-s023"><span class="lk">Right Resource, Right Job: Robinhood's Journey to Heterogeneous Ray Clusters on Amazon EKS</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">1:15 PM-1:45 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 5</span></span><a class="itm-a" href="#i-queue-s023" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -714,7 +717,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">30</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="chip">Train</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s034">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">5</span><span class="itm-l"><span class="lk">#5</span><a class="xr xr-ses" href="agenda.html#ses-s034"><span class="lk">Petabyte-Scale Video Curation on CoreWeave: Production AI Pipelines with Ray Data</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:15 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 4</span></span><a class="itm-a" href="#i-queue-s034" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -724,7 +727,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">30</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="chip">Train</span><span class="chip">Multimodal Data</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s042">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">6</span><span class="itm-l"><span class="lk">#6</span><a class="xr xr-ses" href="agenda.html#ses-s042"><span class="lk">Serving Frontier MoE Models at the Lowest Token Cost</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">3:30 PM-3:45 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Lightning Theater</span></span><a class="itm-a" href="#i-queue-s042" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -734,7 +737,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">15</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="chip">Inference</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s029">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">7</span><span class="itm-l"><span class="lk">#7</span><a class="xr xr-ses" href="agenda.html#ses-s029"><span class="lk">Scaling LLM Workloads on TPUs with Ray: From Pre-Training to Inference</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">2:00 PM-2:30 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 5</span></span><a class="itm-a" href="#i-queue-s029" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -744,7 +747,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">30</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="chip">Train</span><span class="chip">Post Train/RL</span><span class="chip">Inference</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
 <section class="itm" id="i-queue-s035">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">8</span><span class="itm-l"><span class="lk">#8</span><a class="xr xr-ses" href="agenda.html#ses-s035"><span class="lk">Physical AI at Aerospace Scale: Building Distributed Simulation-to-Autonomy Pipelines</span></a></span><span class="itm-tag"><span class="lk">2026-08-25</span> <span class="lk">2:45 PM-3:45 PM</span> <span class="sep" aria-hidden="true">·</span> <span class="lk">Breakout 1</span></span><a class="itm-a" href="#i-queue-s035" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -754,7 +757,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <p class="meta-row"><span data-t="h">時長</span><span data-t="e">Runs</span> <span class="lk">60</span> <span data-t="h">分鐘</span><span data-t="e">minutes</span></p>
     <p><span class="chip">Train</span><span class="chip">Post Train/RL</span><span class="chip">Multimodal Data</span></p>
     <p><span class="gap">GAP</span> <span class="why"><span data-t="h">講者姓名與所屬公司未證實。到場用活動 App 於第一天補齊再排時程</span><span data-t="e">the speaker name and employer are unverified. Fill them in from the event app on day one and re-plan</span></span></p>
-    <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/05-theses-and-actions.md</span></span></div>
+    </div>
 </section>
   </div>
   </div>

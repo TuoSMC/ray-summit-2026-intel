@@ -545,10 +545,16 @@ D01, D03, D05 = draft('01-'), draft('03-'), draft('05-')
 
 
 def from_draft(fname, note_h='底稿', note_e='research draft'):
-    if not fname:
-        return ''
-    return ('<span class="src">%s %s</span>'
-            % (tt(esc(note_h), esc(note_e)), lk('deliverables/research/%s' % fname)))
+    """Provenance for an internally-authored claim.
+
+    Renders NOTHING. It used to print the repo path of the research draft, which
+    put 54 internal filenames in front of whoever the reader forwards this to.
+    The path is build infrastructure (R12) and the evidence chip beside the claim
+    already carries its rank, so the reader loses no information they can act on.
+    The argument is kept in the signature so every call site still declares where
+    its claim came from, and a future writer can route it to a footnote.
+    """
+    return ''
 
 
 def day_counts_h():
@@ -1670,15 +1676,16 @@ def frag_command_center():
                   'Every number on this page is computed from JSON at build time; none of them is '
                   'typed. A field that cannot be computed prints GAP and its reason, never a zero.'))
     m.append('    <ul>')
-    for name, n in (('data/sessions.json', N_SESS), ('data/speakers.json', N_SPK),
-                    ('data/sponsors.json', N_SPO), ('data/orgs.json', N_ORG)):
-        m.append('      <li><code>%s</code> %s</li>'
-                 % (esc(name), tt('%d 筆' % n, pl(n, 'record', 'records'))))
-    m.append('      <li><code>deliverables/accounts/cards.json</code> %s</li>'
-             % (tt('%d 筆' % N_CARDS, pl(N_CARDS, 'record', 'records')) if cards is not None
+    for nh, ne, n in (('議程場次', 'Catalogued sessions', N_SESS),
+                      ('講者名單', 'Speaker roster', N_SPK),
+                      ('贊助商名單', 'Sponsor list', N_SPO),
+                      ('到場組織', 'Organisations on site', N_ORG)):
+        m.append('      <li>%s %s</li>'
+                 % (tt(esc(nh), esc(ne)), lk('%d' % n)))
+    m.append('      <li>%s %s</li>'
+             % (tt('帳戶卡', 'Account cards'),
+                lk('%d' % N_CARDS) if cards is not None
                 else gap('尚未產生', 'not built yet')))
-    for f in RESEARCH_TEXT:
-        m.append('      <li><code>deliverables/research/%s</code></li>' % esc(f))
     m.append('    </ul>')
     if cards is not None:
         m.append('    <p>%s</p>'
@@ -2298,8 +2305,8 @@ def frag_gtm():
             open_e = ('Open by asking who integrates the rack. These companies are server demand, '
                       'not a substitute for it.')
         elif 'lab' in low or 'model' in low:
-            rule_h = '在 orgs.json 裡有講者席次的公司'
-            rule_e = 'companies with a speaker slot in orgs.json'
+            rule_h = '在名單上有講者席次的公司'
+            rule_e = 'companies holding a speaker slot on the roster'
             oids = speaker_orgs
             open_h = ('先問資料能不能出場域。不能出＝租賃不是選項，是不合規。')
             open_e = ('Open by asking whether the data may leave the premises. If it may not, '
@@ -2363,8 +2370,8 @@ def frag_gtm():
              'one opening line and one shortlist per segment')),
           items_wrap(seg_items) or
           ('  <p>%s</p>'
-           % gap('STATE.campaign.segments 是空的,所以沒有客群可以分',
-                 'STATE.campaign.segments is empty, so there is no segmentation to print')),
+           % gap('這一場還沒有定義客群,所以沒有東西可以分',
+                 'no segments have been defined for this event, so there is nothing to divide')),
           cls='play', block='segment-play'))
 
     # ------------------------------------------- 5. the five questions ------

@@ -15,10 +15,10 @@
 .reg.ratecard td,.reg.crossover td{vertical-align:top}
 
 :root{
-  --paper:#FAF8F3; --card:#FFFFFF; --sunk:#F2EEE4;
-  --ink:#14161A; --ink-2:#3D434E; --ink-3:#5E6675;
-  --rule:#E5E0D5; --rule-hard:#14161A;
-  --accent:#123A8C; --accent-bg:#E9EEFB;
+  --paper:#FCFBF8; --card:#FFFFFF; --sunk:#F4F2EC;
+  --ink:#12141A; --ink-2:#414855; --ink-3:#6B7280;
+  --rule:#E4E1D9; --rule-hard:#12141A;
+  --accent:#0F3573; --accent-bg:#EBF0FA;
   --gap-fg:#7A4400; --gap-bg:#FBEEDA;
   --stop:#8C1D18; --focus:#123A8C;
 
@@ -139,13 +139,13 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
   padding:1px 5px;border-radius:3px;overflow-wrap:anywhere}
 
 /* --- evidence chips (DESIGN.md 4) ----------------------------------------- */
-.ev{display:inline-flex;align-items:center;gap:6px;font-size:var(--t-micro);
-  letter-spacing:.07em;line-height:1.3;border:1px solid var(--rule);
-  border-radius:3px;padding:3px 8px;margin:2px 6px 2px 0;color:var(--ink-2);
-  background:var(--card)}
+.ev{display:inline-flex;align-items:center;gap:5px;font-size:var(--t-micro);
+  letter-spacing:.06em;line-height:1.3;border:0;
+  padding:0;margin:0 var(--s3) 0 var(--s1);color:var(--ink-3);
+  background:none;white-space:nowrap;vertical-align:baseline}
 .ev-mark{flex:0 0 auto;width:9px;height:9px;border:1.5px solid currentColor;
   border-radius:1px}
-.ev-official{color:var(--ink);border-color:var(--ink-3)}
+.ev-official{color:var(--ink-2)}
 .ev-official .ev-mark{background:currentColor}
 .ev-vendor .ev-mark{background:linear-gradient(90deg,currentColor 50%,
   transparent 50%)}
@@ -157,8 +157,8 @@ code{font-family:var(--f-mono);font-size:var(--t-mono);background:var(--sunk);
    ground, the status wears sunk ground and no mark. */
 :root[data-lang="e"] .ev{text-transform:uppercase}
 .chip{display:inline-block;font-family:var(--f-mono);font-size:var(--t-micro);
-  letter-spacing:.06em;color:var(--ink-2);background:var(--sunk);
-  border-radius:3px;padding:3px 8px;margin:2px 6px 2px 0}
+  letter-spacing:.05em;color:var(--ink-2);background:var(--sunk);
+  border-radius:2px;padding:2px 7px;margin:2px 5px 2px 0}
 
 /* --- verdict -------------------------------------------------------------- */
 .verdict{border-top:3px solid var(--accent);padding-top:var(--s5)}
@@ -454,8 +454,8 @@ details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
    knows what the page holds and can jump at the one section they need. It is
    a list of QUESTIONS, not a list of nouns: "what changed since last year"
    tells you whether to open it; "Changes" does not. */
-.spine{margin:0 0 var(--s7);border-top:2px solid var(--rule-hard);
-  border-bottom:1px solid var(--rule);padding:var(--s4) 0 var(--s2)}
+.spine{margin:0 0 var(--s8);border-top:2px solid var(--rule-hard);
+  border-bottom:1px solid var(--rule);padding:var(--s4) 0 0}
 .spine-h{font-size:var(--t-cap);color:var(--ink-3);margin:0 0 var(--s3);
   max-width:var(--measure)}
 .spine-l{list-style:none;margin:0;padding:0;display:grid;gap:1px;
@@ -467,8 +467,8 @@ details.deep{margin-top:var(--s4);border-color:var(--ink-3)}
   text-decoration:none;color:var(--ink)}
 .spine-l a:hover{background:var(--accent-bg)}
 .spine-l a:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
-.spine-n{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--ink-3);
-  font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.spine-n{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--accent);
+  font-variant-numeric:tabular-nums;letter-spacing:.06em;font-weight:700}
 .spine-t{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;
   line-height:1.3}
 .spine-l a:hover .spine-t{color:var(--accent)}
@@ -489,28 +489,31 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
    they can send to someone else. The heading is the scanning surface: on a
    show floor a reader reads headings and stops at one. */
 .itms{margin:var(--s4) 0 0}
-.itm{margin:0 0 var(--s6);padding-left:var(--s4);
-  border-left:2px solid var(--rule)}
-.itm:target{border-left-color:var(--accent);background:var(--accent-bg)}
-.itm-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 var(--s2);
-  margin:0 0 var(--s1);font-size:var(--t-h3);line-height:1.36}
+.itm{margin:0 0 var(--s7);padding-left:var(--s5);position:relative}
+.itm::before{content:"";position:absolute;left:0;top:.42em;bottom:.2em;
+  width:2px;background:var(--rule)}
+.itm:target::before{background:var(--accent);width:3px}
+.itm-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s1) var(--s3);
+  margin:0 0 var(--s2);font-size:var(--t-h3);line-height:1.34}
 .itm-n{font-family:var(--f-mono);font-size:var(--t-micro);color:var(--ink-3);
-  font-variant-numeric:tabular-nums}
+  font-variant-numeric:tabular-nums;align-self:baseline}
 .itm-l{font-family:var(--f-display);font-weight:700;font-size:var(--t-h3);
-  color:var(--ink);letter-spacing:-.005em;
-  box-shadow:inset 0 -.42em 0 var(--accent-bg)}
+  color:var(--ink);letter-spacing:-.008em}
 .itm-l .lk,.itm-l a{font-family:var(--f-display);font-size:inherit;
   letter-spacing:inherit}
-.itm-tag{font-size:var(--t-micro);text-transform:uppercase;letter-spacing:.09em;
-  color:var(--ink-2);border:1px solid var(--rule);border-radius:2px;
-  padding:1px 6px;white-space:normal}
+.itm-tag{font-size:var(--t-micro);letter-spacing:.06em;color:var(--ink-3);
+  white-space:normal;font-family:var(--f-mono)}
+.itm-tag::before{content:"— ";color:var(--rule)}
+:root[data-lang="e"] .itm-tag{text-transform:uppercase}
 .itm-a{margin-left:auto;font-size:var(--t-cap);color:var(--ink-3);
   text-decoration:none;min-width:44px;min-height:44px;
   display:inline-flex;align-items:center;justify-content:flex-end;opacity:0}
 .itm-h:hover .itm-a,.itm-a:focus-visible{opacity:1;color:var(--accent)}
 .itm-a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.itm-w{font-size:var(--t-cap);color:var(--ink-2);line-height:1.5;
-  margin:0 0 var(--s3);max-width:var(--measure)}
+.itm-w{font-size:var(--t-cap);color:var(--ink-2);line-height:1.55;
+  margin:0 0 var(--s4);max-width:var(--measure)}
+.itm-b{color:var(--ink)}
+.itm-b p{margin-bottom:var(--s3)}
 .itm-b > :first-child{margin-top:0}
 .itm-b details.dr{margin-bottom:var(--s2)}
 
@@ -922,7 +925,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
 </details>
   <p class="punch"><span data-t="h">常被略過的一點：一年期預留合約的稼動率風險與自建完全相同 —— 用不用都要付。唯一沒有稼動率風險的是隨需，而隨需最貴。所以在高承諾情境下兩邊幾乎是同一題，租賃贏的是速度與選擇權，不是單位成本。</span><span data-t="e">The point everyone skips: a one-year reserved contract carries exactly the same utilisation risk as building — you pay whether you use it or not. The only thing with no utilisation risk is on-demand, and on-demand is the most expensive. So at high commitment the two sides are nearly the same question, and what renting wins is speed and optionality, not unit cost.</span></p>
   <p><span data-t="h">真正不確定的是租金方向。<a class="xr xr-chip" href="compare.html#chip-h100-sxm">H100</a> 的每小時租金在</span><span data-t="e">What is genuinely uncertain is which way rent moves. <a class="xr xr-chip" href="compare.html#chip-h100-sxm">H100</a> rent per hour was</span> <span class="lk">USD 7-10</span> <span data-t="h">，是</span><span data-t="e"> in</span> <span class="lk">2023</span> <span data-t="h">年的水準；到</span><span data-t="e">; by</span> <span class="lk">2024-2025</span> <span data-t="h">一度跌破</span><span data-t="e">it had briefly dropped under</span> <span class="lk">USD 2</span> <span data-t="h">，跌幅約七成。但一年期合約價從</span><span data-t="e">, about seventy per cent down. Then the one-year contract price went from</span> <span class="lk">USD 1.70</span> <span data-t="h">（</span><span data-t="e">(</span> <span class="lk">2025-10</span> <span data-t="h">）反彈約四成，到</span><span data-t="e">) back up about forty per cent to</span> <span class="lk">USD 2.35</span> <span data-t="h">（</span><span data-t="e">(</span> <span class="lk">2026-03</span> <span data-t="h">）。任何以「租金會一直跌」或「一直漲」為前提的模型都不可信，包括對方拿給客戶看的那一份。</span><span data-t="e">). Any model that assumes rent only falls, or only rises, is not worth showing anyone, including the one the other side shows your customer.</span></p>
-  <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span> <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/03-compare-build-vs-rent.md</span></span></div>
+  <span class="ev ev-third"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">第三方</span><span data-t="e">Third-party</span></span> </div>
 </section>
 <section class="itm" id="i-crossover-colo-tier">
   <h3 class="itm-h"><span class="itm-n" aria-hidden="true">2</span><span class="itm-l"><span data-t="h">機櫃租金的級距陷阱</span><span data-t="e">The colocation tier trap</span></span><span class="itm-tag"><span data-t="h">租金差 2 倍</span><span data-t="e">the rent differs by 2 times</span></span><a class="itm-a" href="#i-crossover-colo-tier" aria-label="Link to this item / 連到這一項">&#167;</a></h3>
@@ -975,7 +978,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
     <li><span data-t="h">Google（白金）走開源路線，GKE 團隊與主辦方共同 upstream。</span><span data-t="e">Google (Platinum) plays the open-source card, with the GKE team upstreaming alongside the host.</span> <span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></li>
   </ul>
   <p class="punch"><span data-t="h">三家的共同賣點不是價格，是「韌性與維運外包」。他們不比每小時單價，比的是你不用養 SRE、不用處理壞卡。這是自建方最難反駁的一段 ——不要試著用規格反駁它，要問對方有沒有那個團隊。</span><span data-t="e">What all three sell is not price, it is outsourced resilience and operations. They do not compete on the hourly rate; they compete on you not having to keep an SRE team or deal with dead accelerators. This is the hardest passage to answer from the build side — do not try to answer it with specs, ask whether the customer has that team.</span></p>
-  <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/03-compare-build-vs-rent.md</span></span></div>
+  </div>
 </section>
   </div>
   </div>
@@ -1005,7 +1008,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
   <div class="itm-b">  <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></p></div>
 </section>
   </div>
-  <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/03-compare-build-vs-rent.md</span></span>
+  
   </div>
 </details>
 <details class="dr sec" id="s-we-lose" data-block="losses">
@@ -1033,7 +1036,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
   <div class="itm-b">  <p><span class="ev ev-official"><span class="ev-mark" aria-hidden="true"></span><span data-t="h">官方一手</span><span data-t="e">Official first-party</span></span></p></div>
 </section>
   </div>
-  <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/03-compare-build-vs-rent.md</span></span>
+  
   </div>
 </details>
 <details class="dr sec" id="s-their-case" data-block="counterparty">
@@ -1047,7 +1050,7 @@ main > details.dr.caveat .sec-w{color:var(--gap-fg)}
   <p class="dt2"><span data-t="h">可用的反擊，只有一句</span><span data-t="e">The counter, and it is one line</span></p>
   <p class="punch"><span data-t="h">這段話在稼動率穩定超過七成、電力已經到位、資料受監管的客戶身上全部失效；而且對方的六折承諾價，其稼動率風險與自建完全相同。</span><span data-t="e">Every word of that fails on a customer with steady utilisation above about seventy per cent, power already in place, and regulated data — and their own committed price carries exactly the same utilisation risk that building does.</span></p>
   <p class="note"><span data-t="h">這段是照他們最強的樣子寫的，不是照我們好打的樣子寫的。你在現場會聽到的版本只會比這更順。</span><span data-t="e">That is written the way they would say it, not the way we would like them to. The version you hear on the floor will be smoother, not weaker.</span></p>
-  <span class="src"><span data-t="h">底稿</span><span data-t="e">research draft</span> <span class="lk">deliverables/research/03-compare-build-vs-rent.md</span></span></div>
+  </div>
 </section>
   </div>
   </div>
