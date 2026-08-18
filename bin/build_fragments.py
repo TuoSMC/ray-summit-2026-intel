@@ -52,6 +52,7 @@ language only; make.sh refuses any other value before this script is called.
 ROOT = '/Volumes/ClaudeNVME/26082426-RAY-SUMMIT'
 
 import html
+import html as html_mod
 import io
 import json
 import os
@@ -933,8 +934,15 @@ def item(sid, key, label_h, label_e, what_h, what_e, body, tag_h=None, tag_e=Non
     # session title or a company name is.
     lab = label_h if label_e is None else tt(esc(label_h), esc(label_e))
     wht = what_h if what_e is None else tt(esc(what_h), esc(what_e))
-    aid = reg('i-%s-%s' % (sid, slug(key)), 'item', SEC_BY_ID[sid][0],
-              label_h if label_e is None else label_h, label_e or label_h)
+    # The registry feeds the index, which escapes what it prints. A prebuilt
+    # HTML label must therefore be registered as its TEXT, or the index shows
+    # the reader raw markup. 〔the segments item printed <span class="lk">…〕
+    if label_e is None:
+        _plain = html_mod.unescape(re.sub(r'<[^>]+>', '', label_h))
+        _reg_h = _reg_e = _plain
+    else:
+        _reg_h, _reg_e = label_h, label_e
+    aid = reg('i-%s-%s' % (sid, slug(key)), 'item', SEC_BY_ID[sid][0], _reg_h, _reg_e)
     _ITEM_N[sid] = _ITEM_N.get(sid, 0) + 1
     n = _ITEM_N[sid]
     tag = ('<span class="itm-tag">%s</span>'
@@ -2825,6 +2833,63 @@ def card_drawer(c):
     if badges:
         body.append('    <p class="badges">%s</p>'
                     % ''.join('<span class="chip">%s</span>' % esc(b) for b in badges))
+
+    # ---- 1. THE MOTION: their flagship project — realm, scale, GPU, end user.
+    # This leads the card because it is what reveals the buying habit; a rep
+    # reads this block and knows what kind of buyer is standing in front of them.
+    pj = c.get('project_2026') or {}
+    if pj.get('name'):
+        src = pj.get('source') or {}
+        rows = []
+        for kh, ke, v in (('領域', 'Realm', pj.get('realm')),
+                          ('規模', 'Scale', pj.get('scale')),
+                          ('核心 GPU', 'Core GPU', pj.get('gpu')),
+                          ('末端用戶', 'End user', pj.get('end_user'))):
+            rows.append('        <div class="mo-c"><span class="k">%s</span>'
+                        '<span class="v">%s</span></div>'
+                        % (tt(esc(kh), esc(ke)),
+                           lk(v) if v and str(v) != 'GAP'
+                           else gap('未公開', 'not public')))
+        body.append('    <div class="motion">')
+        body.append('      <p class="mo-t">%s <span class="mo-n">%s</span></p>'
+                    % (tt('2026 動能', '2026 motion'), lk(str(pj['name']))))
+        body.append('      <div class="mo-g">\n%s\n      </div>' % '\n'.join(rows))
+        if src.get('url'):
+            body.append('      <p class="src">%s</p>'
+                        % src_a(src['url'], src.get('date', '2026-08-18')))
+        body.append('    </div>')
+
+    # ---- 2. THE PEOPLE: who owns the compute decision, who is in the building.
+    ex = [e for e in (c.get('execs') or []) if e.get('name')]
+    at = list(c.get('attendees') or [])
+    if ex or at:
+        body.append('    <div class="people">')
+        if ex:
+            body.append('      <p class="pp-h">%s</p>' % tt('高管', 'Executives'))
+            body.append('      <ul class="pp-l">')
+            for e in ex:
+                body.append('        <li><b>%s</b> <span class="pp-r">%s</span>%s</li>'
+                            % (esc(e['name']), lk(str(e.get('role') or '')),
+                               src_a(e.get('url')) if e.get('url') else ''))
+            body.append('      </ul>')
+        if at:
+            body.append('      <p class="pp-h">%s</p>' % tt('預期出席', 'Expected on site'))
+            body.append('      <ul class="pp-l">')
+            for a2 in at:
+                conf = str(a2.get('status')) == 'confirmed'
+                who = a2.get('name') or ''
+                ttl = a2.get('title') or a2.get('role_guess') or ''
+                mark = (tt('已列講者', 'confirmed speaker') if conf
+                        else tt('推測 — 依職位反查,未證實出席', 'inferred from the role; '
+                                'attendance unconfirmed'))
+                nm = ('<b>%s</b>' % esc(who)) if who and who != 'GAP' \
+                    else gap('職位已鎖定,人名未查到', 'role identified, name not yet found')
+                body.append('        <li class="%s">%s <span class="pp-r">%s</span>'
+                            '<span class="pp-m">%s</span>%s</li>'
+                            % ('is-conf' if conf else 'is-inf', nm, lk(str(ttl)),
+                               mark, src_a(a2.get('url')) if a2.get('url') else ''))
+            body.append('      </ul>')
+        body.append('    </div>')
 
     open_cells = 0
     body.append('    <dl class="cells">')

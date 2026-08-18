@@ -379,6 +379,33 @@ main > details.dr.method .dr-b ul{padding-left:var(--s5)}
   max-width:var(--measure)}
 .bandtally{margin:0 0 var(--s3);font-size:var(--t-cap);color:var(--ink-3);
   font-family:var(--f-mono)}
+/* The motion block: the company's flagship project, leading the card. */
+.motion{margin:var(--s3) 0 0;padding:var(--s3) var(--s4);background:var(--sunk);
+  border-radius:4px}
+.mo-t{margin:0;font-size:var(--t-micro);letter-spacing:.08em;color:var(--ink-3)}
+.mo-n{display:block;margin-top:2px;font-family:var(--f-display);
+  font-size:var(--t-h3);font-weight:700;color:var(--ink);letter-spacing:0}
+.mo-g{display:grid;gap:var(--s1) var(--s4);margin:var(--s3) 0 0;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))}
+.mo-c{min-width:0}
+.mo-c .k{display:block;font-size:var(--t-micro);letter-spacing:.08em;
+  color:var(--ink-3)}
+.mo-c .v{font-family:var(--f-mono);font-size:var(--t-cap);
+  overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+/* People: executives and expected attendance, with inference labelled. */
+.people{margin:var(--s3) 0 0}
+.pp-h{margin:var(--s3) 0 var(--s1);font-size:var(--t-micro);letter-spacing:.08em;
+  color:var(--ink-3)}
+.pp-l{list-style:none;margin:0;padding:0}
+.pp-l li{padding:var(--s1) 0;border-top:1px solid var(--rule);
+  font-size:var(--t-cap)}
+.pp-l li:first-child{border-top:0}
+.pp-r{color:var(--ink-2);margin-left:var(--s2)}
+.pp-m{display:inline-block;margin-left:var(--s2);font-size:var(--t-micro);
+  letter-spacing:.05em;color:var(--ink-3);font-family:var(--f-mono)}
+.pp-l li.is-conf .pp-m{color:var(--accent);font-weight:700}
+.pp-l li.is-inf .pp-m{color:var(--gap-fg)}
+
 /* The legend that used to be reprinted on all 58 cards, now shown once. */
 .legend{margin:var(--s3) 0 0;display:grid;gap:0;grid-template-columns:1fr}
 @media (min-width:640px){.legend{grid-template-columns:minmax(0,13em) minmax(0,1fr);
